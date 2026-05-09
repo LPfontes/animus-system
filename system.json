@@ -1,0 +1,42 @@
+{
+  "title": "Animus RPG",
+  "description": "Sistema não oficial para Animus RPG. Desenvolvido para Foundry VTT.",
+  "version": "0.1.0",
+  "authors": [
+    {
+      "name": "Lpfontes",
+      "url": "https://github.com/Lpfontes",
+      "flags": {}
+    }
+  ],
+  "scripts": [],
+  "esmodules": [
+    "module/animus.mjs"
+  ],
+  "styles": [
+    "css/parts/base.css",
+    "css/parts/layout.css",
+    "css/parts/components.css",
+    "css/parts/actor.css",
+    "css/parts/abilities.css",
+    "css/parts/items.css",
+    "css/parts/chat.css",
+    "css/animus.css"
+  ],
+  "packs": [],
+  "languages": [
+    {
+      "lang": "pt-BR",
+      "name": "Português (Brasil)",
+      "path": "lang/pt-BR.json",
+      "flags": {}
+    }
+  ],
+  "primaryTokenAttribute": "attributes.hp",
+  "secondaryTokenAttribute": "attributes.pe",
+  "id": "animus",
+  "compatibility": {
+    "minimum": "12",
+    "verified": "13"
+  }
+}

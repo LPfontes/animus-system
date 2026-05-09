@@ -1,0 +1,64 @@
+<div class="tab combat {{tabs.combat.cssClass}}" data-group="primary" data-tab="combat">
+  <div class="section-header">
+    <h3>{{localize "ANIMUS.Weapons"}}</h3>
+  </div>
+  <table class="damage-table">
+    <thead>
+      <tr>
+        <th>{{localize "ANIMUS.Weapon"}}</th>
+        <th>AC1</th>
+        <th>AC2</th>
+        <th>AC3</th>
+        <th>AC4</th>
+      </tr>
+    </thead>
+    <tbody>
+      {{#each weapons as |weapon|}}
+      <tr class="item-row" data-item-id="{{weapon.id}}">
+        <td class="item-name">
+          <img src="{{weapon.img}}" width="24" height="24" class="item-img" />
+          <a class="item-edit" data-action="editItem">{{weapon.name}}</a>
+        </td>
+        <td>{{weapon.calculatedDamage.ac1}}</td>
+        <td>{{weapon.calculatedDamage.ac2}}</td>
+        <td>{{weapon.calculatedDamage.ac3}}</td>
+        <td>{{weapon.calculatedDamage.ac4}}</td>
+      </tr>
+      {{/each}}
+    </tbody>
+  </table>
+
+  {{!-- Talentos e Ações --}}
+  <div class="grid grid-2col">
+    <div>
+      <div class="section-header">
+        <h3>{{localize "ANIMUS.Talents"}}</h3>
+      </div>
+      <ul class="item-list">
+        {{#each talents as |talent|}}
+        <li class="item-row" data-item-id="{{talent.id}}">
+          <div class="item-name">
+            <img src="{{talent.img}}" width="24" height="24" class="item-img" />
+            <a class="item-edit" data-action="editItem">{{talent.name}}</a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+    <div>
+      <div class="section-header">
+        <h3>{{localize "ANIMUS.Actions"}}</h3>
+      </div>
+      <ul class="item-list">
+        {{#each actions as |action|}}
+        <li class="item-row" data-item-id="{{action.id}}">
+          <div class="item-name">
+            <img src="{{action.img}}" width="24" height="24" class="item-img" />
+            <a class="item-edit" data-action="editItem">{{action.name}}</a>
+          </div>
+        </li>
+        {{/each}}
+      </ul>
+    </div>
+  </div>
+</div>

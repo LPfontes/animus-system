@@ -1,0 +1,111 @@
+/* ========================================= */
+/*              COMBAT & ITEMS               */
+/* ========================================= */
+
+.animus .section-header {
+  margin: 1.5rem 0 1rem 0;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 5px;
+}
+
+.animus .section-header h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin: 0;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .item-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.animus .item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  transition: all 0.2s;
+}
+
+.animus .item-row:hover {
+  background: rgba(157, 78, 221, 0.08);
+  border-color: rgba(157, 78, 221, 0.3);
+  transform: translateX(5px);
+}
+
+.animus .item-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+.animus .item-name a {
+  color: var(--text-main);
+  cursor: pointer;
+}
+
+.animus .item-name a:hover {
+  color: var(--accent);
+}
+
+.animus .item-img {
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  background: #000;
+}
+
+.animus .item-controls {
+  display: flex;
+  gap: 10px;
+}
+
+.animus .item-control {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  transition: color 0.2s;
+  cursor: pointer;
+}
+
+.animus .item-control:hover {
+  color: #ff4d4d; /* Cor de exclusão */
+}
+
+.animus .damage-table {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 1rem 0;
+  border: 1px solid var(--border);
+}
+
+.animus .damage-table th {
+  background: rgba(157, 78, 221, 0.1);
+  color: var(--accent);
+  padding: 12px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 900;
+  border-bottom: 1px solid var(--border);
+}
+
+.animus .damage-table td {
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border);
+  text-align: center;
+}

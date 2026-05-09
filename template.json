@@ -1,0 +1,17 @@
+{
+  "Actor": {
+    "types": ["character", "npc"],
+    "character": {},
+    "npc": {}
+  },
+  "Item": {
+    "types": ["talent", "weapon", "armor", "item", "property", "action", "check"],
+    "talent": {},
+    "weapon": {},
+    "armor": {},
+    "item": {},
+    "property": {},
+    "action": {},
+    "check": {}
+  }
+}

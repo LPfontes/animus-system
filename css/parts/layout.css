@@ -1,0 +1,108 @@
+/* ========================================= */
+/*             SIDEBAR & LAYOUT              */
+/* ========================================= */
+
+.animus .window-content > form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.animus .app-layout {
+  display: flex;
+  height: 100%;
+  overflow: hidden;
+}
+
+.animus .side-tabs {
+  position: absolute;
+  top: 30px;
+  left: 20px;
+  width: 70px;
+  height: auto;
+  max-height: calc(100% - 60px);
+  background: rgba(15, 15, 25, 0.85);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  padding: 20px 0;
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  border-radius: 20px;
+  backdrop-filter: blur(15px);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  z-index: 1000;
+}
+
+.animus .side-tabs .item {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 8px 0;
+  color: var(--text-muted);
+  transition: all 0.3s ease;
+  border: none;
+  background: transparent;
+  font-size: 0.55rem;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.05em;
+  gap: 4px;
+  cursor: pointer;
+}
+
+.animus .side-tabs .item i {
+  font-size: 1.2rem;
+}
+
+.animus .side-tabs .item:hover {
+  color: #fff;
+}
+
+.animus .side-tabs .item.active {
+  color: var(--accent);
+}
+
+.animus .side-tabs .item.active i {
+  filter: drop-shadow(0 0 8px var(--accent-glow));
+}
+
+.animus .side-tabs .item.active::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  height: 20px;
+  width: 3px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+  border-radius: 0 4px 4px 0;
+}
+
+.animus .app-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 30px 40px 30px 110px; /* Recuo para acomodar a sidebar flutuante */
+  height: 100%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.animus .app-header {
+  margin-bottom: 30px;
+  text-align: left;
+}
+
+.animus .app-title {
+  font-size: 3rem;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.4rem;
+  margin: 0;
+  background: linear-gradient(to right, #fff, var(--accent));
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  font-weight: 900;
+  text-shadow: 0 0 30px var(--accent-glow);
+}

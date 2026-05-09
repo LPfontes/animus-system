@@ -1,0 +1,18 @@
+<div class="tab inventory {{tabs.inventory.cssClass}}" data-group="primary" data-tab="inventory">
+  <div class="section-header">
+    <h3>{{localize "ANIMUS.Inventory"}}</h3>
+  </div>
+  <ul class="item-list">
+    {{#each items as |item|}}
+    <li class="item-row" data-item-id="{{item.id}}">
+      <div class="item-name">
+        <img src="{{item.img}}" width="24" height="24" class="item-img" />
+        <a class="item-edit" data-action="editItem">{{item.name}}</a>
+      </div>
+      <div class="item-controls">
+        <a class="item-control" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
+      </div>
+    </li>
+    {{/each}}
+  </ul>
+</div>

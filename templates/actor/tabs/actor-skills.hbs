@@ -1,0 +1,47 @@
+<div class="tab skills {{tabs.skills.cssClass}}" data-group="primary" data-tab="skills">
+  <div class="unified-abilities-container">
+    <div class="abilities-columns">
+      {{#each unifiedAbilities as |category|}}
+      <div class="ability-column">
+        <h3 class="column-title">{{category.title}}</h3>
+        
+        {{#each category.attributes as |attr|}}
+        <div class="attr-skill-box">
+          {{!-- Cabeçalho do Atributo --}}
+          <div class="attr-header-row">
+            <div class="attr-info">
+              <span class="attr-label">{{localize attr.label}}</span>
+              <div class="attr-dots">
+                <div class="attr-dot {{#if (gt attr.value 0)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="1"></div>
+                <div class="attr-dot {{#if (gt attr.value 1)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="2"></div>
+                <div class="attr-dot {{#if (gt attr.value 2)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="3"></div>
+                <span class="attr-number">+{{attr.value}}</span>
+              </div>
+            </div>
+            {{!-- Inputs ocultos para edição se necessário no futuro --}}
+            <input type="hidden" name="system.attributes.{{attr.key}}.value" value="{{attr.value}}" data-dtype="Number" />
+          </div>
+
+          {{!-- Lista de Perícias --}}
+          <div class="skill-rows-list">
+            {{#each attr.skills as |skill|}}
+            <div class="skill-unified-row {{#if skill.active}}active{{/if}}" data-action="rollSkill" data-skill="{{skill.key}}">
+              <span class="skill-unified-name">{{localize skill.label}}</span>
+              <div class="skill-boxes">
+                <div class="skill-box {{#if (gt skill.value 0)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="1"></div>
+                <div class="skill-box {{#if (gt skill.value 1)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="2"></div>
+                <div class="skill-box {{#if (gt skill.value 2)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="3"></div>
+                <span class="skill-number">{{#if skill.active}}+{{skill.value}}{{else}}—{{/if}}</span>
+              </div>
+              {{!-- Input para salvar o valor da perícia --}}
+              <input type="hidden" name="system.skills.{{skill.key}}.value" value="{{skill.value}}" data-dtype="Number" />
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>

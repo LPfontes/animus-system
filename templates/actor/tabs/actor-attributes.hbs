@@ -1,0 +1,124 @@
+<div class="tab attributes {{tabs.attributes.cssClass}}" data-group="primary" data-tab="attributes">
+  <div class="glass-panel info-panel-flex">
+    <div class="portrait-container">
+      <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+    </div>
+
+    <div class="char-info-grid">
+      <div class="input-group">
+        <label class="input-label">NOME DO PERSONAGEM</label>
+        <input name="name" type="text" value="{{actor.name}}" class="input-field" placeholder="Nome" />
+      </div>
+      <div class="input-group">
+        <label class="input-label">NÍVEL</label>
+        <input name="system.details.level" type="number" value="{{system.details.level}}" class="input-field" />
+      </div>
+      <div class="input-group">
+        <label class="input-label">ASCENDÊNCIA</label>
+        <input name="system.details.ascendancy" type="text" value="{{system.details.ascendancy}}" class="input-field" />
+      </div>
+      <div class="input-group">
+        <label class="input-label">AFINIDADE ELEMENTAL</label>
+        <input name="system.details.element" type="text" value="{{system.details.element}}" class="input-field" />
+      </div>
+    </div>
+  </div>
+
+  {{!-- Cartões de Status --}}
+  <div class="stats-bar">
+    {{!-- PV Card --}}
+    <div class="glass-panel stat-card" style="border-bottom: 4px solid var(--fire)">
+      <div class="stat-header">
+        <div class="stat-icon" style="color: var(--fire)"><i class="fas fa-heart"></i></div>
+        <div class="stat-label">VIDA (PV)</div>
+      </div>
+      <div class="stat-value-container">
+        <input type="number" name="system.status.hp.value" value="{{system.status.hp.value}}" class="stat-input" />
+        <span class="stat-max">/ {{system.status.hp.max}}</span>
+      </div>
+    </div>
+
+    {{!-- Defesa Card --}}
+    <div class="glass-panel stat-card" style="border-bottom: 4px solid var(--water)">
+      <div class="stat-header">
+        <div class="stat-icon" style="color: var(--water)"><i class="fas fa-shield-alt"></i></div>
+        <div class="stat-label">DEFESA</div>
+      </div>
+      <div class="stat-value-container">
+        <span class="stat-input" style="text-align: center; width: 100%">{{system.status.prot.value}}</span>
+      </div>
+    </div>
+
+    {{!-- PE Card --}}
+    <div class="glass-panel stat-card" style="border-bottom: 4px solid var(--air)">
+      <div class="stat-header">
+        <div class="stat-icon" style="color: var(--air)"><i class="fas fa-bolt"></i></div>
+        <div class="stat-label">ENERGIA (PE)</div>
+      </div>
+      <div class="stat-value-container">
+        <input type="number" name="system.status.pe.value" value="{{system.status.pe.value}}" class="stat-input" />
+        <span class="stat-max">/ {{system.status.pe.max}}</span>
+      </div>
+    </div>
+
+    {{!-- PA Card --}}
+    <div class="glass-panel stat-card" style="border-bottom: 4px solid var(--accent)">
+      <div class="stat-header">
+        <div class="stat-icon" style="color: var(--accent)"><i class="fas fa-zap"></i></div>
+        <div class="stat-label">AÇÕES (PA)</div>
+      </div>
+      <div class="stat-value-container">
+        <input type="number" name="system.status.pa.value" value="{{system.status.pa.value}}" class="stat-input" />
+        <span class="stat-max">/ {{system.status.pa.max}}</span>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Unified Abilities (Atributos e Perícias) --}}
+  <div class="unified-abilities-container">
+    <div class="abilities-columns">
+      {{#each unifiedAbilities as |category|}}
+      <div class="ability-column">
+        <h3 class="column-title">{{category.title}}</h3>
+        
+        {{#each category.attributes as |attr|}}
+        <div class="attr-skill-box">
+          {{!-- Cabeçalho do Atributo --}}
+          <div class="attr-header-row">
+            <div class="attr-info">
+              <span class="attr-label">{{localize attr.label}}</span>
+              <div class="attr-dots">
+                <a class="attr-dot {{#if (gt attr.value 0)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="1"></a>
+                <a class="attr-dot {{#if (gt attr.value 1)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="2"></a>
+                <a class="attr-dot {{#if (gt attr.value 2)}}filled{{/if}}" data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="3"></a>
+                <span class="attr-number">+{{attr.value}}</span>
+              </div>
+            </div>
+            <input type="hidden" name="system.attributes.{{attr.key}}.value" value="{{attr.value}}" data-dtype="Number" />
+          </div>
+
+          {{!-- Lista de Perícias --}}
+          <div class="skill-rows-list">
+            {{#each attr.skills as |skill|}}
+            <div class="skill-unified-row {{#if skill.active}}active{{/if}}">
+              <span class="skill-unified-name">{{localize skill.label}}</span>
+              <div class="skill-boxes">
+                <a class="skill-box {{#if (gt skill.value 0)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="1"></a>
+                <a class="skill-box {{#if (gt skill.value 1)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="2"></a>
+                <a class="skill-box {{#if (gt skill.value 2)}}filled{{/if}}" data-action="updateAbility" data-ability="skills.{{skill.key}}" data-value="3"></a>
+                <span class="skill-number">{{#if skill.active}}+{{skill.value}}{{else}}—{{/if}}</span>
+                <a class="skill-roll" data-action="rollSkill" data-skill="{{skill.key}}" title="Rolar {{localize skill.label}}">
+                  <i class="fas fa-dice-d20"></i>
+                </a>
+              </div>
+              <input type="hidden" name="system.skills.{{skill.key}}.value" value="{{skill.value}}" data-dtype="Number" />
+            </div>
+            {{/each}}
+          </div>
+        </div>
+        {{/each}}
+      </div>
+      {{/each}}
+    </div>
+  </div>
+</div>
