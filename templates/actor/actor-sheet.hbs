@@ -1,34 +1,11 @@
 <form class="{{cssClass}}" autocomplete="off">
-  <div class="app-layout">
-    {{!-- Sidebar Tabs --}}
-    <nav class="side-tabs tabs" data-group="primary">
-      <a class="item {{tabs.attributes.cssClass}}" data-tab="attributes" title="Perfil e Status">
-        <i class="fas fa-user"></i>
-        <span>Perfil</span>
-      </a>
-      <a class="item {{tabs.combat.cssClass}}" data-tab="combat" title="Combate e Equipamento">
-        <i class="fas fa-sword"></i>
-        <span>Combate</span>
-      </a>
-      <a class="item {{tabs.inventory.cssClass}}" data-tab="inventory" title="Inventário">
-        <i class="fas fa-backpack"></i>
-        <span>Itens</span>
-      </a>
-      <a class="item {{tabs.description.cssClass}}" data-tab="description" title="Biografia">
-        <i class="fas fa-feather-alt"></i>
-        <span>Bio</span>
-      </a>
-    </nav>
-
-    {{!-- Main Content --}}
-    <div class="app-container">
-      <section class="sheet-body">
-        {{!-- Tabs Partials --}}
-        {{> "systems/animus/templates/actor/tabs/actor-attributes.hbs" }}
-        {{> "systems/animus/templates/actor/tabs/actor-combat.hbs" }}
-        {{> "systems/animus/templates/actor/tabs/actor-inventory.hbs" }}
-        {{> "systems/animus/templates/actor/tabs/actor-biography.hbs" }}
-      </section>
-    </div>
+  <div class="app-container">
+    <section class="sheet-body">
+      {{!-- Tabs Partials --}}
+      {{> "systems/animus/templates/actor/tabs/actor-attributes.hbs" }}
+      {{> "systems/animus/templates/actor/tabs/actor-combat.hbs" }}
+      {{> "systems/animus/templates/actor/tabs/actor-inventory.hbs" }}
+      {{> "systems/animus/templates/actor/tabs/actor-biography.hbs" }}
+    </section>
   </div>
 </form>

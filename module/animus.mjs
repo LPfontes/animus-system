@@ -46,6 +46,14 @@ Hooks.once("init", function() {
   Handlebars.registerHelper('eq', function(a, b) {
     return a === b;
   });
+
+  Handlebars.registerHelper('add', function(a, b) {
+    return a + b;
+  });
+
+  Handlebars.registerHelper('sub', function(a, b) {
+    return a - b;
+  });
 });
 
 async function preloadHandlebarsTemplates() {

@@ -120,4 +120,12 @@ ANIMUS.skills = {
   controle: { label: "ANIMUS.SkillControle", attr: "ani" }
 };
 
+ANIMUS.ascendancies = [
+  "Felino", "Lupino", "Falko", "Reptilia", "Roedor", "Primata", "Mestiço"
+];
+
+ANIMUS.elements = [
+  "Trovão", "Fogo", "Vento", "Água", "Madeira", "Terra", "Metal", "Gelo", "Luz", "Trevas"
+];
+
 export default ANIMUS;

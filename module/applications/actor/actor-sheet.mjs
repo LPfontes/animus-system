@@ -7,14 +7,16 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["animus", "sheet", "actor"],
     position: {
-      width: 900,
-      height: 800
+      width: 1000,
+      height: 950
     },
     actions: {
       editItem: AnimusActorSheet.#onEditItem,
       deleteItem: AnimusActorSheet.#onDeleteItem,
       updateAbility: this.prototype._onUpdateAbility,
-      rollSkill: this.prototype._onRollSkill
+      rollSkill: this.prototype._onRollSkill,
+      updatePA: this.prototype._onUpdatePA,
+      editImage: this.prototype._onEditImage
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -33,6 +35,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /** @override */
   static PARTS = {
+    navigation: { template: "systems/animus/templates/actor/actor-navigation.hbs" },
     body: { template: "systems/animus/templates/actor/actor-sheet.hbs" }
   };
 
@@ -44,7 +47,12 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       config: CONFIG.ANIMUS,
       owner: this.document.isOwner,
       editable: this.isEditable,
-      tabs: this._getTabs(options)
+      tabs: this._getTabs(options),
+      hpPercent: Math.min(100, Math.max(0, (this.actor.system.status.hp.value / (this.actor.system.status.hp.max || 1)) * 100)),
+      pePercent: Math.min(100, Math.max(0, (this.actor.system.status.pe.value / (this.actor.system.status.pe.max || 1)) * 100)),
+      paPips: Array.from({length: this.actor.system.status.pa.max || 0}, (_, i) => ({
+        filled: i < this.actor.system.status.pa.value
+      }))
     };
 
     // Categorizar itens
@@ -111,8 +119,35 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _onRender(context, options) {
     super._onRender(context, options);
 
-    // Adiciona listener para troca de abas
-    const nav = this.element.querySelector(".side-tabs");
+    const html = this.element;
+
+    // Garantir que as barras estejam corretas após cada renderização
+    this._updateBars();
+
+    // Listeners para atualização em tempo real das barras ao digitar
+    let saveTimeout;
+    html.querySelectorAll('.stat-input-overlay').forEach(input => {
+      input.addEventListener('input', (ev) => {
+        const val = parseInt(ev.target.value) || 0;
+        const name = ev.target.name;
+        const maxPath = name.replace('.value', '.max');
+        const max = foundry.utils.getProperty(this.actor, maxPath) || 1;
+        const percent = Math.min(100, Math.max(0, (val / max) * 100));
+
+        const type = name.includes('.hp.') ? 'hp' : 'pe';
+        const bar = html.querySelector(`.bar-fill.${type}`);
+        if (bar) bar.style.width = `${percent}%`;
+
+        // Forçar salvamento automático após 1s de inatividade
+        clearTimeout(saveTimeout);
+        saveTimeout = setTimeout(async () => {
+          await this.actor.update({ [name]: val });
+        }, 1000);
+      });
+    });
+
+    // Adiciona listener para troca de abas (suporte manual adicional)
+    const nav = html.querySelector(".side-tabs");
     if (nav) {
       nav.querySelectorAll(".item").forEach(item => {
         item.addEventListener("click", event => {
@@ -145,6 +180,18 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /**
+   * Handle updating PA value via pips
+   * @param {PointerEvent} event
+   * @param {HTMLElement} target
+   */
+  async _onUpdatePA(event, target) {
+    const newValue = parseInt(target.dataset.value);
+    const currentValue = this.actor.system.status.pa.value;
+    const finalValue = currentValue === newValue ? newValue - 1 : newValue;
+    await this.actor.update({ "system.status.pa.value": Math.max(0, finalValue) });
+  }
+
+  /**
    * Handle rolling a skill
    * @param {PointerEvent} event
    * @param {HTMLElement} target
@@ -153,13 +200,13 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const skillKey = target.dataset.skill;
     const skillData = CONFIG.ANIMUS.skills[skillKey];
     const skill = this.actor.system.skills[skillKey];
-    
+
     // Puxar o atributo pai diretamente da config
     const attrKey = skillData.attr;
     const attr = this.actor.system.attributes[attrKey];
 
     const label = game.i18n.localize(skillData.label);
-    
+
     // Lógica Animus: Pool = 2 + nível de perícia
     const poolSize = 2 + (skill.value || 0);
 
@@ -175,6 +222,51 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       advantage: advantage,
       speaker: this.actor
     });
+  }
+
+  /**
+   * Handle editing the actor's image
+   * @param {PointerEvent} event
+   * @param {HTMLElement} target
+   */
+  async _onEditImage(event, target) {
+    const attr = target.dataset.edit || "img";
+    const current = foundry.utils.getProperty(this.document, attr);
+    const fp = new FilePicker({
+      type: "image",
+      current: current,
+      callback: path => {
+        this.document.update({ [attr]: path });
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
+  /**
+   * Update the status bars visually
+   */
+  _updateBars() {
+    if (!this.element) return;
+    const html = this.element;
+    const hp = this.actor.system.status.hp;
+    const pe = this.actor.system.status.pe;
+
+    const hpPercent = Math.min(100, Math.max(0, (hp.value / (hp.max || 1)) * 100));
+    const pePercent = Math.min(100, Math.max(0, (pe.value / (pe.max || 1)) * 100));
+
+    // Update HP
+    const hpBar = html.querySelector('.bar-fill.hp');
+    const hpGhost = html.querySelector('.bar-ghost.hp');
+    if (hpBar) hpBar.style.width = `${hpPercent}%`;
+    if (hpGhost) hpGhost.style.width = `${hpPercent}%`;
+
+    // Update PE
+    const peBar = html.querySelector('.bar-fill.pe');
+    const peGhost = html.querySelector('.bar-ghost.pe');
+    if (peBar) peBar.style.width = `${pePercent}%`;
+    if (peGhost) peGhost.style.width = `${pePercent}%`;
   }
 
   /**

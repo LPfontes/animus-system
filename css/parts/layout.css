@@ -2,35 +2,35 @@
 /*             SIDEBAR & LAYOUT              */
 /* ========================================= */
 
-.animus .window-content > form {
+.animus.application .window-content,
+.animus.sheet.actor,
+.animus.sheet.actor form {
+  overflow: visible !important;
+}
+
+.animus .window-content>form {
   height: 100%;
   display: flex;
   flex-direction: column;
-}
-
-.animus .app-layout {
-  display: flex;
-  height: 100%;
-  overflow: hidden;
+  overflow: visible !important;
 }
 
 .animus .side-tabs {
   position: absolute;
-  top: 30px;
-  left: 20px;
-  width: 70px;
+  top: 150px;
+  right: 101%;
+  width: 60px;
   height: auto;
   max-height: calc(100% - 60px);
   background: rgba(15, 15, 25, 0.85);
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
   padding: 20px 0;
   border: 1px solid rgba(157, 78, 221, 0.3);
-  border-radius: 20px;
-  backdrop-filter: blur(15px);
+  border-radius: 12px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
   z-index: 1000;
+  backdrop-filter: blur(10px);
 }
 
 .animus .side-tabs .item {
@@ -83,10 +83,14 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 30px 40px 30px 110px; /* Recuo para acomodar a sidebar flutuante */
+  padding: 20px;
   height: 100%;
   overflow-y: auto;
   overflow-x: hidden;
+  background: rgba(15, 15, 25, 0.4);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .animus .app-header {

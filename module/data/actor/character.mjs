@@ -55,8 +55,8 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
     // Cálculo de PE Máximo: Base 10 + (ANI * 5)
     status.pe.max = 10 + (attributes.ani.value * 5);
 
-    // Defesa: 10 + HAB
-    status.prot.value = 10 + attributes.hab.value;
+    // Defesa: Manual via input (valor base 0)
+    // status.prot.value = 10 + attributes.hab.value;
 
     // Iniciativa (adicionando como campo temporário para uso em rolagens)
     this.iniciativa = attributes.per.value;

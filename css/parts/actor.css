@@ -1,103 +1,524 @@
 /* ========================================= */
-/*              ACTOR PROFILE                */
+/*              NEW GRID LAYOUT              */
 /* ========================================= */
 
 .animus .tab.attributes.active {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 15px;
+  height: 100%;
 }
 
-.animus .info-panel-flex {
+/* Header Row */
+.animus .header-info-row {
   display: grid;
-  grid-template-columns: auto 1fr;
+  grid-template-columns: 2fr 0.8fr 1.5fr 1.5fr;
+  gap: 15px;
+  padding: 15px !important;
+  align-items: end;
+}
+
+/* Main Content Area */
+.animus .main-profile-layout {
+  display: grid;
+  grid-template-columns: 350px 1fr;
   gap: 30px;
+  padding: 10px 0;
+}
+
+/* Portrait & Overlays */
+.animus .portrait-stats-column {
+  display: flex;
+  flex-direction: column;
   align-items: center;
 }
 
-.animus .portrait-container {
-  width: 180px;
-  height: 180px;
-  border-radius: 16px;
-  overflow: hidden;
+.animus .portrait-frame {
+  width: 350px;
+  height: 350px;
+  position: relative;
+  background: #111;
+  border-radius: 24px;
   border: 1px solid var(--border);
-  background: rgba(0, 0, 0, 0.4);
-  transition: transform 0.3s ease;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-.animus .portrait-container:hover {
-  transform: scale(1.02);
-  border-color: var(--accent);
+/* Talent Column Styling */
+.animus .talents-grid-column {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  max-height: 400px;
 }
 
-.animus .portrait-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.animus .talents-scroll-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 8px;
+}
+
+.animus .talent-card {
+  padding: 12px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-left: 3px solid var(--accent);
+}
+
+.animus .talent-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.animus .talent-name {
+  font-weight: 900;
+  font-size: 0.95rem;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.animus .talent-controls {
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s ease;
+}
+
+.animus .talent-card:hover .talent-controls {
+  opacity: 1;
+}
+
+.animus .talent-control {
+  color: var(--text-muted);
+  font-size: 0.8rem;
   cursor: pointer;
 }
 
-.animus .char-info-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
+.animus .talent-control:hover {
+  color: #fff;
 }
 
-/* Status Cards */
-.animus .stats-bar {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 1.5rem;
-  margin: 0.5rem 0;
+.animus .talent-body {
+  font-size: 0.85rem;
+  line-height: 1.3;
+  color: var(--text-muted);
 }
 
-.animus .stat-card {
-  min-height: 120px;
+.animus .empty-state {
+  text-align: center;
+  padding: 40px;
+  color: var(--text-muted);
+  font-style: italic;
+  font-size: 0.9rem;
+  border: 1px dashed rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+}
+
+.animus .portrait-frame img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: filter 0.2s ease;
+}
+
+.animus .portrait-frame img:hover {
+  filter: brightness(1.2);
+}
+
+.animus .floating-stats-overlay {
+  position: absolute;
+  bottom: 0px;
+  left: 0;
+  width: 100%;
+  padding: 20px;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0.95) 10%, rgba(0, 0, 0, 0.3) 100%);
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  z-index: 10;
+  border-bottom-left-radius: 24px;
+  border-bottom-right-radius: 24px;
 }
 
-.animus .stat-header {
+.animus .overlay-secondary-row-v4 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  align-items: end;
+}
+
+.animus .relative-container {
+  position: relative;
+}
+
+.animus .defense-floating-on-hp {
+  position: absolute;
+  right: -15px;
+  bottom: -5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 5;
+}
+
+.animus .defense-label {
+  font-size: 0.8rem;
+  color: white;
+  font-weight: 800;
+  margin-bottom: 10px;
+  z-index: 6;
+  color: var(--text-main);
+  letter-spacing: 0.05rem;
+}
+
+.animus .stat-label-mini {
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--text-main);
+  z-index: 6;
+}
+
+.animus .defense-mini-box {
+  position: relative;
+  height: 42px;
+  width: 42px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  margin-bottom: 12px;
 }
 
-.animus .stat-icon {
-  font-size: 1.3rem;
-  text-shadow: 0 0 10px currentColor;
+.animus .shield-icon-mini {
+  font-size: 4rem;
+  color: #7b7b7bde;
+  position: absolute;
 }
 
-.animus .stat-label {
+.animus .defense-value-mini {
+  background: transparent;
+  border: none;
+  width: 50px;
+  text-align: center;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: var(--text-main);
+  z-index: 1;
+  outline: none;
+}
+
+.animus .defense-value-mini::-webkit-inner-spin-button,
+.animus .defense-value-mini::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Stat Groups */
+.animus .stat-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.animus .stat-group .stat-label {
   font-size: 0.8rem;
   font-weight: 800;
-  letter-spacing: 0.05em;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  margin-bottom: 5px;
 }
 
-.animus .stat-value-container {
-  display: grid;
-  grid-auto-flow: column;
-  grid-auto-columns: 1fr;
+/* Bars with Icons */
+.animus .bar-with-icon {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 36px;
+}
+
+.animus .icon-circle {
+  position: absolute;
+  left: 0;
+  width: 42px;
+  height: 42px;
+  background: var(--panel-bg);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  z-index: 2;
+
+
+}
+
+.animus .bar-track {
+  flex: 1;
+  height: 26px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  border-radius: 11px;
+  overflow: hidden;
+  position: relative;
+}
+
+.animus .bar-ghost {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transition: width 1.2s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 1;
+}
+
+.animus .bar-fill {
+  position: relative;
+  height: 100%;
+  transition: width 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  z-index: 2;
+}
+
+.animus .bar-fill.hp {
+  background: linear-gradient(90deg, 
+    var(--fire) 0%, 
+    rgba(255, 159, 67, 0.8) 50%, 
+    var(--fire) 100%
+  );
+  box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
+}
+
+.animus .bar-fill.pe {
+  background: linear-gradient(90deg, 
+    var(--air) 0%, 
+    rgba(0, 210, 255, 0.8) 50%, 
+    var(--air) 100%
+  );
+  box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
+}
+
+.animus .bar-values-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
   align-items: center;
   justify-content: center;
   gap: 4px;
+  pointer-events: none;
+  z-index: 10;
 }
 
-.animus .stat-input {
-  font-size: 1rem;
-  font-weight: 600;
+.animus .stat-input-overlay {
   background: transparent;
   border: none;
-  text-align: right;
   color: #fff;
-  font-family: 'Outfit', sans-serif;
+  width: 40px;
+  text-align: right;
+  font-weight: 800;
+  font-size: 1rem;
+  pointer-events: auto;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  padding: 0;
+  ;
+
 }
 
-.animus .stat-max {
-  font-size: 0.9rem;
+.animus .stat-values {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.animus .stat-max-overlay {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+  font-weight: 800;
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  width: 40px;
+  padding: 0;
+}
+
+/* PA Pips V3 Modern */
+.animus .pa-pips-v3 {
+  display: flex;
+  gap: 5px;
+  height: 32px;
+  align-items: center;
+}
+
+.animus .pa-pip {
+  flex: 1;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.animus .pa-pip.filled {
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  border-color: var(--accent);
+}
+
+.animus .pa-pip:hover {
+  background: rgba(157, 78, 221, 0.3);
+}
+
+.animus .pa-values-simple {
+  font-size: 0.8rem;
+  font-weight: 800;
   color: var(--text-muted);
-  font-weight: 500;
+  text-align: center;
+  margin-top: 4px;
+}
+
+/* ABILITIES GRID SIDE */
+.animus .abilities-grid-column {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.animus .abilities-categories-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.animus .ability-category {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus .category-title {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.3rem;
+  color: var(--text-muted);
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+/* Attribute Card */
+.animus .attribute-card {
+  padding: 15px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.animus .attr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.animus .attr-name {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.animus .attr-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.animus .attr-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.animus .attr-dots .dot.filled {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.animus .attr-bonus {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+/* Skills List inside Card */
+.animus .skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.animus .skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.animus .skill-row.active {
+  opacity: 1;
+}
+
+.animus .skill-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.animus .skill-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.animus .skill-boxes {
+  display: flex;
+  gap: 4px;
+}
+
+.animus .skill-boxes .box {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.animus .skill-boxes .box.filled {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.animus .skill-mod {
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.animus .skill-roll-btn {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.animus .skill-roll-btn:hover {
+  color: #fff;
+  transform: scale(1.1);
 }
