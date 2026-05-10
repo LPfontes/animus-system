@@ -1,0 +1,10 @@
+_id: f3e653c0e2fd2d6b
+name: Refresco Vigorizante
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: Recupera 1d6+3 <span class="text-resource">Proteção</span> imediatos
+  weight: 0
+  price: 14 Đ
+folder: af1210fca9de3586
+_key: '!items!f3e653c0e2fd2d6b'

@@ -9,6 +9,15 @@ ANIMUS.attributes = {
   ani: "ANIMUS.ANI"
 };
 
+ANIMUS.attributesSimple = {
+  pot: "POT",
+  hab: "HAB",
+  cog: "COG",
+  per: "PER",
+  pre: "PRE",
+  ani: "ANI"
+};
+
 ANIMUS.talentTypes = {
   0: "ANIMUS.TalentPassiva",
   1: "ANIMUS.TalentAtiva",
@@ -30,11 +39,14 @@ ANIMUS.actionTypes = {
 };
 
 ANIMUS.weaponTypes = {
-  0: "ANIMUS.WeaponCortante",
-  1: "ANIMUS.WeaponPerfurante",
-  2: "ANIMUS.WeaponImpacto",
-  3: "ANIMUS.WeaponFogo",
-  4: "ANIMUS.WeaponEnergia"
+  0: "ANIMUS.WeaponCortanteLeve",
+  1: "ANIMUS.WeaponCortanteMedio",
+  2: "ANIMUS.WeaponContusaLeve",
+  3: "ANIMUS.WeaponContusaMedio",
+  4: "ANIMUS.WeaponPerfuranteLeve",
+  5: "ANIMUS.WeaponPerfuranteMedio",
+  6: "ANIMUS.WeaponDistanciaLeve",
+  7: "ANIMUS.WeaponDistanciaMedia"
 };
 
 ANIMUS.weaponRanges = {
@@ -51,6 +63,19 @@ ANIMUS.attributesEnum = {
   3: "PER",
   4: "PRE",
   5: "ANI"
+};
+
+ANIMUS.damageTypes = {
+  0: "ANIMUS.DamageCortante",
+  1: "ANIMUS.DamagePerfurante",
+  2: "ANIMUS.DamageContuso",
+  3: "ANIMUS.DamageFogo",
+  4: "ANIMUS.DamageEnergia",
+  5: "ANIMUS.DamageVenenoso",
+  6: "ANIMUS.DamageEletrico",
+  7: "ANIMUS.DamageGelo",
+  8: "ANIMUS.DamageLuz",
+  9: "ANIMUS.DamageTrevas"
 };
 
 ANIMUS.applicationTypes = {
@@ -120,12 +145,72 @@ ANIMUS.skills = {
   controle: { label: "ANIMUS.SkillControle", attr: "ani" }
 };
 
-ANIMUS.ascendancies = [
-  "Felino", "Lupino", "Falko", "Reptilia", "Roedor", "Primata", "Mestiço"
+ANIMUS.ascendancies = {
+  felino: "Felino",
+  lupino: "Lupino",
+  falko: "Falko",
+  reptilia: "Reptilia",
+  roedor: "Roedor",
+  primata: "Primata",
+  mestico: "Mestiço"
+};
+
+ANIMUS.elements = {
+  trovao: "Trovão",
+  fogo: "Fogo",
+  vento: "Vento",
+  agua: "Água",
+  madeira: "Madeira",
+  terra: "Terra",
+  metal: "Metal",
+  gelo: "Gelo",
+  luz: "Luz",
+  trevas: "Trevas"
+};
+
+ANIMUS.talentCategories = {
+  "Geral": { label: "Geral", icon: "fas fa-tag" },
+  "Combate": { label: "Combate", icon: "fas fa-swords" },
+  "Elemento": { label: "Elemento", icon: "fas fa-fire-alt" },
+  "Pericia": { label: "Perícia", icon: "fas fa-scroll" },
+  "Utilidade": { label: "Utilidade", icon: "fas fa-tools" },
+  "Modulares": { label: "Modulares", icon: "fas fa-puzzle-piece" }
+};
+
+ANIMUS.itemTypes = {
+  talent: "ANIMUS.ItemTalent",
+  element: "ANIMUS.ItemElement",
+  ascendancy: "ANIMUS.ItemAscendancy",
+  property: "ANIMUS.ItemProperty",
+  action: "ANIMUS.ItemAction",
+  condition: "ANIMUS.ItemCondition",
+  rune: "ANIMUS.ItemRune"
+};
+
+ANIMUS.weaponProperties = [
+  "Arremessável",
+  "Ocultável",
+  "Defensiva",
+  "Encurvada",
+  "Longo Alcance",
+  "Pesada",
+  "Leve",
+  "Versátil",
+  "Brutal",
+  "Ágil"
 ];
 
-ANIMUS.elements = [
-  "Trovão", "Fogo", "Vento", "Água", "Madeira", "Terra", "Metal", "Gelo", "Luz", "Trevas"
-];
+ANIMUS.LEVEL_CAPS = {
+  1: { pa: 4, attrCap: 2, attrPoints: 1 },
+  2: { pa: 4, attrCap: 2, attrPoints: 1 },
+  3: { pa: 4, attrCap: 2, attrPoints: 2 },
+  4: { pa: 5, attrCap: 2, attrPoints: 2 },
+  5: { pa: 5, attrCap: 3, attrPoints: 3 },
+  6: { pa: 5, attrCap: 3, attrPoints: 3 },
+  7: { pa: 5, attrCap: 3, attrPoints: 4 },
+  8: { pa: 6, attrCap: 3, attrPoints: 4 },
+  9: { pa: 6, attrCap: 3, attrPoints: 5 },
+  10: { pa: 6, attrCap: 3, attrPoints: 5 },
+};
 
 export default ANIMUS;

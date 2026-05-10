@@ -1,0 +1,12 @@
+_id: 87f80344f5b05420
+name: Óleo Inflamável
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    Cria área ardente por 3 <span class="text-mechanic">rodadas</span>; 1d6 de
+    <span class="text-mechanic">dano</span> de fogo
+  weight: 0
+  price: 10 Đ
+folder: 5cd7dc6a15f7f111
+_key: '!items!87f80344f5b05420'

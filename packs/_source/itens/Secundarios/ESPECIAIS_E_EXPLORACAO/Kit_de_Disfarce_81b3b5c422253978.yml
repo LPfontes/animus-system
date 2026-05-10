@@ -1,0 +1,10 @@
+_id: 81b3b5c422253978
+name: Kit de Disfarce
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: Bônus de +2 em Enganação para disfarces físicos
+  weight: 0
+  price: 40 Đ
+folder: f67425a08c83ef01
+_key: '!items!81b3b5c422253978'

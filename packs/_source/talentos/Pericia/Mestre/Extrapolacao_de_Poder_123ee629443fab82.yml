@@ -1,0 +1,20 @@
+_id: 123ee629443fab82
+name: Extrapolação de Poder
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: Aumenta um atributo de 3 para 4. <br>(Só pode ser comprada uma vez. )
+  trigger: ''
+  requirements:
+    description: 3 pontos em atributo.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!123ee629443fab82'

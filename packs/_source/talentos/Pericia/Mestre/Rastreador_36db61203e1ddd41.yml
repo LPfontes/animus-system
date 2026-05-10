@@ -1,0 +1,25 @@
+_id: 36db61203e1ddd41
+name: Rastreador
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    +1d em testes para rastrear criaturas. <br>Com 10 minutos de Análise, pode
+    estimar tamanho, número, espécie e direção de criaturas pelos rastros
+    deixados.
+  trigger: ''
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!36db61203e1ddd41'

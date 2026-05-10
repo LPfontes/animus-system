@@ -1,0 +1,19 @@
+_id: ae27f5ff73ad204f
+name: Rapieira
+type: weapon
+img: systems/animus/assets/system-icons/weapon/rapieira.svg
+system:
+  description: 'Tipo: Perfurante Média<br>'
+  damage:
+    ac1: 2 + 1xPOT
+    ac2: 3 + 1xPOT
+    ac3: 4 + 3xPOT
+    ac4: 7 + 6xPOT
+  weight: 0
+  price: 10 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: bd51c3d03d930431
+_key: '!items!ae27f5ff73ad204f'

@@ -1,0 +1,23 @@
+_id: 63c997f4c19fd4a5
+name: Executar
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando um oponente está abaixo de 25% do seu <span
+    class="text-resource">PV</span> máximo, você causa +2 de <span
+    class="text-mechanic">dano</span> em todos os acertos contra ele.
+  trigger: Quando o alvo estiver abaixo de 25% do PV
+  requirements:
+    description: Nível 4+.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!63c997f4c19fd4a5'

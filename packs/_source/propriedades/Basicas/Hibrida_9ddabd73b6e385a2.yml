@@ -1,0 +1,8 @@
+_id: 9ddabd73b6e385a2
+name: Híbrida
+type: item
+img: icons/svg/gear.svg
+system:
+  description: 'A arma possui mais de um tipo de uso (ex: corte e perfuração).'
+folder: 6c0069107d7e49ee
+_key: '!items!9ddabd73b6e385a2'

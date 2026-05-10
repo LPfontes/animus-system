@@ -7,15 +7,135 @@
   flex-direction: column;
   gap: 15px;
   height: 100%;
+  padding: 20px;
 }
 
 /* Header Row */
 .animus .header-info-row {
   display: grid;
-  grid-template-columns: 2fr 0.8fr 1.5fr 1.5fr;
-  gap: 15px;
+  grid-template-columns: 2fr 0.6fr 1.2fr 1.5fr 1.5fr 40px;
+  gap: 12px;
   padding: 15px !important;
   align-items: end;
+}
+
+.animus .item-slot {
+  height: 40px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 12px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  position: relative;
+}
+
+.animus .item-slot:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(157, 78, 221, 0.5);
+}
+
+.animus .item-slot.active {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: var(--accent);
+}
+
+.animus .item-slot .slot-text {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.animus .item-slot.active .slot-text {
+  color: #fff;
+}
+
+.animus .slot-control.delete {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+.animus .slot-control.delete:hover {
+  color: var(--fire);
+  opacity: 1;
+}
+
+.animus .slot-control.bonus-edit {
+  color: var(--accent);
+  font-size: 0.9rem;
+  margin-left: 8px;
+  transition: all 0.2s;
+}
+
+.animus .slot-control.bonus-edit:hover {
+  transform: scale(1.2);
+  color: #fff;
+}
+
+.animus .slot-control.bonus-edit.pending {
+  color: var(--fire);
+  animation: bonus-pulse 2s infinite;
+}
+
+@keyframes bonus-pulse {
+  0% {
+    opacity: 1;
+    transform: scale(1);
+  }
+
+  50% {
+    opacity: 0.4;
+    transform: scale(1.2);
+  }
+
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animus .drop-zone.dragover .item-slot {
+  background: rgba(157, 78, 221, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .gear-group {
+  width: 40px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.animus .edit-mode-toggle {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animus .edit-mode-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.animus .edit-mode-toggle.active {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: white;
+  box-shadow: 0 0 10px var(--accent-glow);
 }
 
 /* Main Content Area */
@@ -51,6 +171,67 @@
   max-height: 400px;
 }
 
+.animus .category-filters {
+  display: flex;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
+}
+
+.animus .category-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.animus .category-btn:hover,
+.animus .category-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .header-with-action {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.animus .header-with-action .category-title {
+  margin-bottom: 0;
+}
+
+.animus .action-btn {
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  border-radius: 6px;
+  padding: 4px 10px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+  font-family: 'Outfit', sans-serif;
+}
+
+.animus .action-btn:hover {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
 .animus .talents-scroll-list {
   display: flex;
   flex-direction: column;
@@ -67,10 +248,27 @@
   border-left: 3px solid var(--accent);
 }
 
+.animus .talent-card.innate {
+  border-left-color: #00d2ff;
+  background: rgba(0, 210, 255, 0.05);
+}
+
+.animus .mini-icon {
+  font-size: 0.8em;
+  margin-right: 4px;
+  opacity: 0.8;
+}
+
 .animus .talent-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+}
+
+.animus .talent-name-wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
 }
 
 .animus .talent-name {
@@ -78,6 +276,14 @@
   font-size: 0.95rem;
   color: var(--accent);
   text-transform: uppercase;
+}
+
+.animus .talent-category-tag {
+  font-size: 0.6rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-weight: 700;
+  letter-spacing: 0.05em;
 }
 
 .animus .talent-controls {
@@ -103,8 +309,30 @@
 
 .animus .talent-body {
   font-size: 0.85rem;
-  line-height: 1.3;
+  line-height: 1.4;
   color: var(--text-muted);
+}
+
+.animus .talent-body ul {
+  margin: 5px 0;
+  padding-left: 18px;
+  list-style: disc;
+}
+
+.animus .talent-body li {
+  margin-bottom: 3px;
+}
+
+.animus .talent-body p {
+  margin: 4px 0;
+}
+
+.animus .text-mechanic {
+  color: var(--accent);
+  font-weight: 800;
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9em;
+  text-transform: uppercase;
 }
 
 .animus .empty-state {
@@ -283,20 +511,18 @@
 }
 
 .animus .bar-fill.hp {
-  background: linear-gradient(90deg, 
-    var(--fire) 0%, 
-    rgba(255, 159, 67, 0.8) 50%, 
-    var(--fire) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--fire) 0%,
+      rgba(255, 159, 67, 0.8) 50%,
+      var(--fire) 100%);
   box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
 }
 
 .animus .bar-fill.pe {
-  background: linear-gradient(90deg, 
-    var(--air) 0%, 
-    rgba(0, 210, 255, 0.8) 50%, 
-    var(--air) 100%
-  );
+  background: linear-gradient(90deg,
+      var(--air) 0%,
+      rgba(0, 210, 255, 0.8) 50%,
+      var(--air) 100%);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
@@ -378,6 +604,52 @@
   color: var(--text-muted);
   text-align: center;
   margin-top: 4px;
+}
+
+.animus .pa-debt-display {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  background: rgba(255, 77, 77, 0.15);
+  border: 1px solid rgba(255, 77, 77, 0.4);
+  color: #ff4d4d;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-top: 8px;
+  height: 24px;
+  width: fit-content;
+  align-self: center;
+  box-shadow: 0 0 10px rgba(255, 77, 77, 0.2);
+}
+
+.animus .pa-debt-control {
+  cursor: pointer;
+  color: var(--text-muted);
+  transition: all 0.2s;
+  font-size: 0.9rem;
+  display: flex;
+  align-items: center;
+  margin-left: 5px;
+}
+
+.animus .pa-debt-control:hover {
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.animus .pa-debt-control.add {
+  margin-top: 5px;
+  color: var(--accent);
+  opacity: 0.6;
+  font-size: 1.1rem;
+  align-self: center;
+}
+
+.animus .pa-debt-control.add:hover {
+  opacity: 1;
+  transform: scale(1.1);
 }
 
 /* ABILITIES GRID SIDE */
@@ -518,7 +790,411 @@
   cursor: pointer;
 }
 
-.animus .skill-roll-btn:hover {
+/* ========================================= */
+/*              COMBAT TAB V3                */
+/* ========================================= */
+
+.animus .combat-section {
+  margin-bottom: 30px;
+}
+
+.animus .section-header-v3 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+}
+
+.animus .section-header-v3 h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+  color: var(--accent);
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.animus .weapons-modern-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.animus .list-header {
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 1fr);
+  padding: 0 20px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.animus .glass-row {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animus .glass-row:hover {
+  background: rgba(157, 78, 221, 0.08);
+  border-color: rgba(157, 78, 221, 0.2);
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.animus .weapon-item-row {
+  display: grid;
+  grid-template-columns: 2.5fr repeat(4, 1fr);
+  align-items: center;
+  padding: 12px 20px;
+}
+
+.animus .item-main-info {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.animus .item-icon-small {
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  object-fit: cover;
+}
+
+.animus .item-icon-mini {
+  width: 26px;
+  height: 26px;
+  border-radius: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animus .item-name-clickable {
+  font-weight: 600;
+  font-size: 0.95rem;
   color: #fff;
-  transform: scale(1.1);
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.animus .item-name-clickable:hover {
+  color: var(--accent);
+}
+
+.animus .col-ac {
+  text-align: center;
+  font-weight: 700;
+  color: var(--text-muted);
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.9rem;
+}
+
+.animus .combat-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.animus .simple-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animus .simple-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+}
+
+/* Grade de Talentos e Rolagem */
+.animus .talents-grid-column {
+  display: flex;
+  flex-direction: column;
+  height: 550px;
+  overflow: hidden;
+}
+
+.animus .talents-scroll-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Scrollbar Customizado para Listas */
+.animus .talents-scroll-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.animus .talents-scroll-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.animus .talents-scroll-list::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--accent-glow);
+}
+
+/* =========================================== */
+/*        ELEMENT DAMAGE TABLE PANEL           */
+/* =========================================== */
+
+.animus .element-damage-table-panel {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid rgba(157, 78, 221, 0.25);
+  border-radius: 12px;
+  overflow: hidden;
+  margin-bottom: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.animus .edt-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 16px;
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.25), transparent);
+  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.72rem;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  color: var(--text-primary);
+}
+
+.animus .edt-header i {
+  color: var(--accent);
+  font-size: 0.85rem;
+  filter: drop-shadow(0 0 4px var(--accent-glow));
+}
+
+.animus .edt-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.8rem;
+}
+
+.animus .edt-table thead tr {
+  background: rgba(157, 78, 221, 0.08);
+  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+}
+
+.animus .edt-table th {
+  padding: 7px 8px;
+  text-align: center;
+  font-weight: 700;
+  color: rgba(157, 78, 221, 0.9);
+  text-transform: uppercase;
+  font-size: 0.6rem;
+  letter-spacing: 0.08em;
+}
+
+.animus .edt-table td {
+  padding: 6px 8px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.04);
+  font-weight: 600;
+}
+
+.animus .edt-table tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.animus .edt-table tbody tr:hover {
+  background: rgba(157, 78, 221, 0.08);
+}
+
+.animus .edt-table td.tier-label {
+  font-weight: 900;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  width: 36px;
+}
+
+/* Tier badge for player-facing tables */
+.animus .edt-table td.tier-label span.tier-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px;
+  height: 22px;
+  background: var(--accent);
+  color: white;
+  border-radius: 50%;
+  font-size: 0.7rem;
+  font-weight: 900;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+
+.animus .edt-table td.pe-cost {
+  color: #00d4ff;
+  font-weight: 700;
+  font-size: 0.72rem;
+  white-space: nowrap;
+}
+
+.animus .edt-table .formula {
+  display: block;
+  font-size: 0.58rem;
+  color: rgba(255, 255, 255, 0.35);
+  font-weight: 400;
+  margin-top: 2px;
+  font-style: italic;
+}
+
+/* ---- Heal panel overrides ---- */
+.animus .heal-panel {
+  border-color: rgba(80, 200, 120, 0.25);
+}
+
+.animus .heal-header {
+  background: linear-gradient(90deg, rgba(80, 200, 120, 0.22), transparent);
+  border-bottom-color: rgba(80, 200, 120, 0.2);
+}
+
+.animus .heal-header i {
+  color: #50c878;
+  filter: drop-shadow(0 0 4px rgba(80, 200, 120, 0.6));
+}
+
+.animus .heal-panel .edt-table thead tr {
+  background: rgba(80, 200, 120, 0.08);
+  border-bottom-color: rgba(80, 200, 120, 0.2);
+}
+
+.animus .heal-panel .edt-table th {
+  color: rgba(80, 200, 120, 0.9);
+}
+
+.animus .heal-panel .edt-table tbody tr:hover {
+  background: rgba(80, 200, 120, 0.06);
+}
+
+/* ---- AC4 critical highlight ---- */
+.animus .edt-table td.ac4-crit {
+  background: rgba(212, 175, 55, 0.1);
+  color: #d4af37;
+  font-weight: 700;
+}
+
+/* =========================================== */
+/*      ELEMENT TABLE EDITOR (ITEM SHEET)      */
+/* =========================================== */
+
+.animus .element-damage-editor {
+  margin: 8px 0 14px;
+  padding: 2px;
+  overflow-x: auto;
+  border-radius: 10px;
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+/* Heal editor border override */
+.animus .heal-editor {
+  border-color: rgba(80, 200, 120, 0.2);
+}
+
+.animus .element-damage-editor .edt-table {
+  font-size: 0.75rem;
+}
+
+.animus .element-damage-editor .edt-table td {
+  padding: 5px 4px;
+  vertical-align: middle;
+}
+
+/* Tier badge in editor */
+.animus .element-damage-editor td.tier-label {
+  width: 30px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+/* PE column */
+.animus .pe-input-col {
+  width: 44px;
+  text-align: center;
+}
+
+.animus .pe-input-col input {
+  width: 36px !important;
+  text-align: center;
+  border-radius: 6px !important;
+  background: rgba(0, 212, 255, 0.08) !important;
+  border-color: rgba(0, 212, 255, 0.3) !important;
+  color: #00d4ff !important;
+  font-weight: 700 !important;
+  padding: 2px 4px !important;
+  font-size: 0.75rem !important;
+}
+
+/* Base + Mult pill */
+.animus .base-mult-input {
+  display: flex;
+  align-items: center;
+  gap: 3px;
+  justify-content: center;
+}
+
+.animus .base-mult-input input {
+  width: 30px !important;
+  text-align: center;
+  padding: 2px 3px !important;
+  font-size: 0.72rem !important;
+  border-radius: 5px !important;
+  background: rgba(255, 255, 255, 0.05) !important;
+  border-color: rgba(255, 255, 255, 0.12) !important;
+}
+
+.animus .base-mult-input input:first-child {
+  border-color: rgba(255, 140, 50, 0.4) !important;
+  color: #ffaa55 !important;
+}
+
+.animus .base-mult-input input:last-child {
+  border-color: rgba(157, 78, 221, 0.4) !important;
+  color: rgba(157, 78, 221, 0.9) !important;
+}
+
+/* Heal editor input override */
+.animus .heal-editor .base-mult-input input:first-child {
+  border-color: rgba(80, 200, 120, 0.4) !important;
+  color: #50c878 !important;
+}
+
+.animus .heal-editor .base-mult-input input:last-child {
+  border-color: rgba(80, 200, 120, 0.3) !important;
+  color: rgba(80, 200, 120, 0.8) !important;
+}
+
+/* Resolved total hint */
+.animus .resolved-hint {
+  display: inline-block;
+  margin-top: 3px;
+  font-size: 0.68rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-shadow: 0 0 6px var(--accent-glow);
+  font-family: 'Outfit', sans-serif;
+}
+
+.animus .heal-editor .resolved-hint {
+  color: #50c878;
+  text-shadow: 0 0 6px rgba(80, 200, 120, 0.5);
 }

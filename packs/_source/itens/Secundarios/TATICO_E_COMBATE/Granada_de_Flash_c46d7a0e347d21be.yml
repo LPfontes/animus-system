@@ -1,0 +1,14 @@
+_id: c46d7a0e347d21be
+name: Granada de Flash
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    <span class="text-mechanic">Teste</span> <span
+    class="text-mechanic">CD</span> 9 <span class="text-attribute">HAB</span> ou
+    alvo fica <span class="text-condition">Desprevenido</span> por 1 <span
+    class="text-mechanic">rodada</span>
+  weight: 0
+  price: 15 Đ
+folder: 5cd7dc6a15f7f111
+_key: '!items!c46d7a0e347d21be'

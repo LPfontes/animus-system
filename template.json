@@ -5,13 +5,16 @@
     "npc": {}
   },
   "Item": {
-    "types": ["talent", "weapon", "armor", "item", "property", "action", "check"],
+    "types": ["talent", "weapon", "armor", "item", "property", "action", "check", "ascendancy", "element", "condition"],
     "talent": {},
     "weapon": {},
     "armor": {},
     "item": {},
     "property": {},
     "action": {},
-    "check": {}
+    "check": {},
+    "ascendancy": {},
+    "element": {},
+    "condition": {}
   }
 }

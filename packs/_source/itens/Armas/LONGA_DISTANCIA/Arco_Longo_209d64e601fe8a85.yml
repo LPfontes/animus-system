@@ -1,0 +1,19 @@
+_id: 209d64e601fe8a85
+name: Arco Longo
+type: weapon
+img: systems/animus/assets/system-icons/weapon/arco_longo.svg
+system:
+  description: 'Tipo: Distância Média<br>Distância 36m, Duas Mãos'
+  damage:
+    ac1: '3'
+    ac2: 4 + 2xHAB
+    ac3: 6 + 3xHAB
+    ac4: 8 + 3xHAB
+  weight: 0
+  price: 35 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: e1470d5c3ce776cd
+_key: '!items!209d64e601fe8a85'

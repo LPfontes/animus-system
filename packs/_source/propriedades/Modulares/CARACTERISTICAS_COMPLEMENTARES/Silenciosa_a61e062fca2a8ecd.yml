@@ -1,0 +1,11 @@
+_id: a61e062fca2a8ecd
+name: Silenciosa
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Ataques não produzem som; <span class="text-mechanic">Vantagem</span> em
+    emboscadas; não revela posição se estiver oculto.<br>
+  price: 100 Đ
+folder: 91b98d36bf015a43
+_key: '!items!a61e062fca2a8ecd'

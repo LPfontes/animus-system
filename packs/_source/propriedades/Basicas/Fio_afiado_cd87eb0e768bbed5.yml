@@ -1,0 +1,8 @@
+_id: cd87eb0e768bbed5
+name: Fio áfiado
+type: item
+img: icons/svg/gear.svg
+system:
+  description: Aumenta o multiplicador de um crítico em +1×atributo.
+folder: 6c0069107d7e49ee
+_key: '!items!cd87eb0e768bbed5'

@@ -1,0 +1,31 @@
+_id: 831a87dfe50e4b25
+name: Mercador
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    A linha de base de venda dos seus itens é 100% do valor base. <br>Você
+    compra itens com 20% de desconto. <br>Pode fazer <span
+    class="text-mechanic">teste</span> de <span
+    class="text-attribute">PER</span> para avaliar qualidades e preços: mundanos
+    <span class="text-mechanic">CD</span> 5; incomuns <span
+    class="text-mechanic">CD</span> 7; raros <span
+    class="text-mechanic">CD</span> 9; épicos <span
+    class="text-mechanic">CD</span> 12; lendários <span
+    class="text-mechanic">CD</span> 14.
+  trigger: ''
+  requirements:
+    description: Profissional em Ofício.
+    talents: {}
+    attributes: []
+    skills:
+      - key: oficio
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c201b8adf46f5416
+_key: '!items!831a87dfe50e4b25'

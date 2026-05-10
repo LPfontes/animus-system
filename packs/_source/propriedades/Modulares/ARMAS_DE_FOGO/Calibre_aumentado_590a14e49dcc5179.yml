@@ -1,0 +1,11 @@
+_id: 590a14e49dcc5179
+name: Calibre aumentado
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Multiplicador de <span class="text-attribute">HAB</span> +1 em todos os
+    acertos; disparo 50% mais alto<br>
+  price: 500 Đ
+folder: bf911a2a673f2bdd
+_key: '!items!590a14e49dcc5179'

@@ -1,327 +1,764 @@
-<form class="{{cssClass}}" autocomplete="off">
+<form class="{{cssClass}} animus item" autocomplete="off">
   <header class="sheet-header">
-    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}"/>
+    <img class="profile-img" src="{{item.img}}" data-edit="img" title="{{item.name}}" />
     <div class="header-fields">
-      <h1 class="charname"><input name="name" type="text" value="{{item.name}}" placeholder="Nome"/></h1>
+      <div class="name-row">
+        <h1 class="charname">
+          {{#if isEditing}}
+          <input name="name" type="text" value="{{item.name}}" placeholder="Nome" />
+          {{else}}
+          <span>{{item.name}}</span>
+          {{/if}}
+        </h1>
+        <div class="header-controls">
+          <a class="toggle-mode-btn {{#if isEditing}}active{{/if}}" data-action="toggleMode"
+            title="{{#if isEditing}}Modo Visualização{{else}}Modo Edição{{/if}}">
+            <i class="fas {{#if isEditing}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
+          </a>
+        </div>
+      </div>
+
+      {{#if (eq item.type "element")}}
+      <div class="item-properties-grid element-props-grid {{#unless isEditing}}view-mode{{/unless}}">
+        <div class="prop-box">
+          <label>Força</label>
+          {{#if isEditing}}
+          <input type="text" name="system.strength" value="{{system.strength}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.strength}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Fraqueza</label>
+          {{#if isEditing}}
+          <input type="text" name="system.weakness" value="{{system.weakness}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.weakness}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Alcance</label>
+          {{#if isEditing}}
+          <input type="text" name="system.range" value="{{system.range}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.range}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Ritmo</label>
+          {{#if isEditing}}
+          <input type="text" name="system.rhythm" value="{{system.rhythm}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.rhythm}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box prop-box-accent">
+          <label>Bônus</label>
+          {{#if isEditing}}
+          <input type="number" name="system.bonus.value" value="{{system.bonus.value}}" />
+          {{else}}
+          <span class="value-display-v3">+{{system.bonus.value}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box prop-box-accent">
+          <label>Atributos</label>
+          {{#if isEditing}}
+          <div class="attribute-editor-v3">
+            <div class="attr-options">
+              <input type="text" name="system.bonus.attributes.0" value="{{system.bonus.attributes.[0]}}"
+                placeholder="Atributo 1" />
+              <input type="text" name="system.bonus.attributes.1" value="{{system.bonus.attributes.[1]}}"
+                placeholder="Atributo 2" />
+            </div>
+            <select name="system.bonus.selectedAttribute">
+              <option value="">(Selecionar Atual)</option>
+              {{#each system.bonus.attributes}}
+              {{#if this}}
+              <option value="{{this}}" {{#if (eq ../system.bonus.selectedAttribute this)}}selected{{/if}}>{{upper this}}
+              </option>
+              {{/if}}
+              {{/each}}
+            </select>
+          </div>
+          {{else}}
+          <span class="value-display-v3">
+            {{#each system.bonus.attributes}}
+            {{upper this}}{{#unless @last}} ou {{/unless}}
+            {{/each}}
+          </span>
+          {{/if}}
+        </div>
+      </div>
+      {{/if}}
+
+      {{#unless (eq item.type "element")}}
+      <div class="item-properties-grid {{#unless isEditing}}view-mode{{/unless}}">
+          {{#if (or (eq item.type "weapon") (eq item.type "armor") (eq item.type "item"))}}
+          <div class="prop-box">
+            <label>{{localize "ANIMUS.Weight"}}</label>
+            {{#if isEditing}}
+            <input type="number" name="system.weight" value="{{system.weight}}" />
+            {{else}}
+            <span class="value-display-v3">{{system.weight}} kg</span>
+            {{/if}}
+          </div>
+          <div class="prop-box">
+            <label>Slots</label>
+            {{#if isEditing}}
+            <input type="number" name="system.slots" value="{{system.slots}}" />
+            {{else}}
+            <span class="value-display-v3">{{system.slots}}</span>
+            {{/if}}
+          </div>
+          <div class="prop-box">
+            <label>{{localize "ANIMUS.Price"}}</label>
+            {{#if isEditing}}
+            <input type="number" name="system.price" value="{{system.price}}" />
+            {{else}}
+            <span class="value-display-v3">{{system.price}} <i class="fas fa-coins"></i></span>
+            {{/if}}
+          </div>
+          {{/if}}
+
+        {{#if (eq item.type "weapon")}}
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Type"}}</label>
+          {{#if isEditing}}
+          <select name="system.type">
+            {{selectOptions config.weaponTypes selected=system.type localize=true}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup config.weaponTypes system.type)}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Tipo de Dano</label>
+          {{#if isEditing}}
+          <select name="system.damageType">
+            {{selectOptions config.damageTypes selected=system.damageType localize=true}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup config.damageTypes system.damageType)}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Attribute"}}</label>
+          {{#if isEditing}}
+          <select name="system.attribute">
+            {{selectOptions config.attributesEnum selected=system.attribute}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{lookup config.attributesEnum system.attribute}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Range"}}</label>
+          {{#if isEditing}}
+          <select name="system.range">
+            {{selectOptions config.weaponRanges selected=system.range localize=true}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup config.weaponRanges system.range)}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Runa Básica</label>
+          {{#if isEditing}}
+          <input type="number" name="system.runeSlots.basic" value="{{system.runeSlots.basic}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.runeSlots.basic}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Runa Reforç.</label>
+          {{#if isEditing}}
+          <input type="number" name="system.runeSlots.reinforced" value="{{system.runeSlots.reinforced}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.runeSlots.reinforced}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "armor")}}
+        <div class="prop-box">
+          <label>Base</label>
+          {{#if isEditing}}
+          <input type="number" name="system.base" value="{{system.base}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.base}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Penalidade (PA)</label>
+          {{#if isEditing}}
+          <input type="number" name="system.penalty" value="{{system.penalty}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.penalty}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Runa Básica</label>
+          {{#if isEditing}}
+          <input type="number" name="system.runeSlots.basic" value="{{system.runeSlots.basic}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.runeSlots.basic}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Runa Reforç.</label>
+          {{#if isEditing}}
+          <input type="number" name="system.runeSlots.reinforced" value="{{system.runeSlots.reinforced}}" min="0" />
+          {{else}}
+          <span class="value-display-v3">{{system.runeSlots.reinforced}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "item")}}
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Quantity"}}</label>
+          {{#if isEditing}}
+          <input type="number" name="system.quantity" value="{{system.quantity}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.quantity}}x</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Type"}}</label>
+          {{#if isEditing}}
+          <input type="text" name="system.itemType" value="{{system.itemType}}"
+            placeholder="Consumível, Ferramenta..." />
+          {{else}}
+          <span class="value-display-v3">{{system.itemType}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "talent")}}
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Cost"}} (PE)</label>
+          {{#if isEditing}}
+          <input type="number" name="system.cost" value="{{system.cost}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.cost}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Action"}} (PA)</label>
+          {{#if isEditing}}
+          <input type="number" name="system.action" value="{{system.action}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.action}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Type"}}</label>
+          {{#if isEditing}}
+          <select name="system.type">
+            {{selectOptions config.talentTypes selected=system.type localize=true}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup config.talentTypes system.type)}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Categoria</label>
+          {{#if isEditing}}
+          <select name="system.subCategory">
+            <option value="">Geral</option>
+            {{selectOptions config.talentCategories selected=system.subCategory labelAttr="label"}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup (lookup config.talentCategories system.subCategory)
+            'label')}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "property")}}
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.BonusDamage"}}</label>
+          {{#if isEditing}}
+          <input type="number" name="system.bonus.damage" value="{{system.bonus.damage}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.bonus.damage}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.BonusMult"}}</label>
+          {{#if isEditing}}
+          <input type="number" name="system.bonus.mult" value="{{system.bonus.mult}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.bonus.mult}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "ascendancy")}}
+        <div class="prop-box">
+          <label>Valor do Bônus</label>
+          {{#if isEditing}}
+          <input type="number" name="system.bonus.value" value="{{system.bonus.value}}" />
+          {{else}}
+          <span class="value-display-v3">+{{system.bonus.value}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Atributo</label>
+          {{#if isEditing}}
+          <select name="system.bonus.selectedAttribute">
+            <option value="">Selecione...</option>
+            {{#each system.bonus.attributes}}
+            <option value="{{this}}" {{#if (eq ../system.bonus.selectedAttribute this)}}selected{{/if}}>{{this}}
+            </option>
+            {{/each}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">
+            {{#each system.bonus.attributes}}
+            {{upper this}}{{#unless @last}} ou {{/unless}}
+            {{/each}}
+          </span>
+          {{/if}}
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "rune")}}
+        <div class="prop-box">
+          <label>Tipo</label>
+          {{#if isEditing}}
+          <select name="system.tier">
+            <option value="basic" {{#if (eq system.tier "basic")}}selected{{/if}}>Básica</option>
+            <option value="reinforced" {{#if (eq system.tier "reinforced")}}selected{{/if}}>Reforçada</option>
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{#if (eq system.tier "basic")}}Básica{{else}}Reforçada{{/if}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Categoria</label>
+          {{#if isEditing}}
+          <select name="system.category">
+            <option value="armor" {{#if (eq system.category "armor")}}selected{{/if}}>Armadura</option>
+            <option value="shield" {{#if (eq system.category "shield")}}selected{{/if}}>Escudo</option>
+            <option value="weapon" {{#if (eq system.category "weapon")}}selected{{/if}}>Arma</option>
+          </select>
+          {{else}}
+          <span class="value-display-v3">
+            {{#if (eq system.category "armor")}}Armadura{{/if}}
+            {{#if (eq system.category "shield")}}Escudo{{/if}}
+            {{#if (eq system.category "weapon")}}Arma{{/if}}
+          </span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Elemento</label>
+          {{#if isEditing}}
+          <select name="system.element">
+            {{selectOptions config.elements selected=system.element}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{lookup config.elements system.element}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Preço</label>
+          <span class="value-display-v3">{{item.system.price}} Đ</span>
+        </div>
+        {{/if}}
+      </div>
+      {{/unless}}
     </div>
   </header>
 
-  <nav class="sheet-tabs tabs" data-group="primary">
-    <a class="item" data-tab="description">{{localize "ANIMUS.Description"}}</a>
-    <a class="item" data-tab="details">{{localize "ANIMUS.Details"}}</a>
-  </nav>
-
-  <section class="sheet-body">
-    {{!-- Aba de Descrição --}}
-    <div class="tab description" data-group="primary" data-tab="description">
-      {{editor system.description target="system.description" button=true owner=owner editable=editable}}
+  <section class="sheet-body scrollable">
+    {{!-- Seção de Descrição (Sempre Visível) --}}
+    <div class="section-header-v3">
+      <i class="fas fa-file-alt"></i>
+      <span>{{localize "ANIMUS.Description"}}</span>
+    </div>
+    <div class="description-editor">
+      {{editor system.description target="system.description" button=true owner=owner editable=isEditing}}
     </div>
 
-    {{!-- Aba de Detalhes --}}
-    <div class="tab details" data-group="primary" data-tab="details">
-      {{!-- Efeito (Comum a todos os itens) --}}
+
+    {{!-- Seção de Arma: Tabela de Dano e Propriedades --}}
+    {{#if (eq item.type "weapon")}}
+    <div class="section-header-v3">
+      <i class="fas fa-swords"></i>
+      <span>{{localize "ANIMUS.DamageTable"}}</span>
+    </div>
+
+    <div class="damage-table-v3 {{#unless isEditing}}view-mode{{/unless}}">
+      <div class="damage-header-v3">
+        <span class="col-level">NÍVEL</span>
+        <span class="col-result">RESULTADO</span>
+        <span class="col-base">BASE</span>
+        <span class="col-mult">MULT</span>
+        <span class="col-attr">ATTR</span>
+      </div>
+      {{#each (list "ac1" "ac2" "ac3" "ac4") as |ac|}}
+      <div class="damage-row-v3 card-style">
+        <div class="ac-column">
+          <span class="ac-label">{{upper ac}}</span>
+          <a class="roll-damage" data-action="rollDamage" data-ac="{{ac}}" title="Rolar Dano">
+            <i class="fas fa-dice-d20"></i>
+          </a>
+        </div>
+
+        <div class="result-column">
+          <span class="result-range">
+            {{#if (eq ac "ac1")}}2 a 5{{/if}}
+            {{#if (eq ac "ac2")}}6 a 9{{/if}}
+            {{#if (eq ac "ac3")}}10 a 12{{/if}}
+            {{#if (eq ac "ac4")}}6+6{{/if}}
+          </span>
+        </div>
+
+        <div class="value-column base">
+          {{#if ../isEditing}}
+          <input type="number" name="system.damage.{{ac}}.base" value="{{lookup (lookup ../system.damage ac) 'base'}}"
+            placeholder="0" />
+          {{else}}
+          <span class="value-display-v3">{{lookup (lookup ../system.damage ac) 'base'}}</span>
+          {{/if}}
+        </div>
+
+        <div class="mult-column">
+          <span class="plus">+</span>
+          {{#if ../isEditing}}
+          <input type="number" name="system.damage.{{ac}}.mult" value="{{lookup (lookup ../system.damage ac) 'mult'}}"
+            placeholder="0" />
+          {{else}}
+          <span class="value-display-v3">{{lookup (lookup ../system.damage ac) 'mult'}}</span>
+          {{/if}}
+        </div>
+
+        <div class="attr-column">
+          <span class="mult-indicator">x{{lookup ../config.attributesEnum ../system.attribute}}</span>
+        </div>
+      </div>
+      {{/each}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-tags"></i>
+      <span>{{localize "ANIMUS.Properties"}}</span>
+      <a class="action-button" data-action="arrayAdd" data-field="properties" title="Adicionar Propriedade">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+
+    <div class="properties-list-v3">
+      {{#each system.properties as |propId i|}}
+      <div class="property-tag-v3">
+        {{#if ../isEditing}}
+        <input type="text" name="system.properties.{{i}}" value="{{propId}}" placeholder="ID da Propriedade..." />
+        <a class="delete-btn" data-action="arrayDelete" data-field="properties" data-index="{{i}}">
+          <i class="fas fa-times"></i>
+        </a>
+        {{else}}
+        <span class="prop-label">{{#if (lookup ../propertyNames propId)}}{{lookup ../propertyNames
+          propId}}{{else}}{{propId}}{{/if}}</span>
+        {{/if}}
+      </div>
+      {{/each}}
+      {{#unless system.properties.length}}
+      <p class="empty-hint">Nenhuma propriedade adicionada.</p>
+      {{/unless}}
+    </div>
+
+    <datalist id="weapon-properties-list">
+      {{#each config.weaponProperties}}
+      <option value="{{this}}"></option>
+      {{/each}}
+    </datalist>
+
+    <div class="section-header-v3">
+      <i class="fas fa-bolt"></i>
+      <span>Ações Especiais (IDs)</span>
+      <a class="action-button" data-action="arrayAdd" data-field="specialActions" title="Adicionar Ação">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+    <div class="properties-list-v3">
+      {{#each system.specialActions as |actionId i|}}
+      <div class="property-tag-v3">
+        <input type="text" name="system.specialActions.{{i}}" value="{{actionId}}" placeholder="ID da Ação..." />
+        <a class="delete-btn" data-action="arrayDelete" data-field="specialActions" data-index="{{i}}">
+          <i class="fas fa-times"></i>
+        </a>
+      </div>
+      {{/each}}
+      {{#unless system.specialActions.length}}
+      <p class="empty-hint">Nenhuma ação especial adicionada.</p>
+      {{/unless}}
+    </div>
+    {{/if}}
+
+    {{!-- Seção de Talento: Gatilho e Requisitos --}}
+    {{#if (eq item.type "talent")}}
+    <div class="section-header-v3">
+      <i class="fas fa-bolt"></i>
+      <span>{{localize "ANIMUS.Trigger"}}</span>
+    </div>
+    <div class="form-group stacked">
+      {{#if isEditing}}
+      <input type="text" name="system.trigger" value="{{system.trigger}}"
+        placeholder="Ex: Ao sofrer um golpe crítico..." />
+      {{else}}
+      <div class="value-display-v3 trigger-display">{{system.trigger}}</div>
+      {{/if}}
+    </div>
+
+    {{/if}}
+
+    {{!-- Seção de Requisitos (Comum a Talentos e Armas) --}}
+    {{#if (or (eq item.type "weapon") (eq item.type "talent"))}}
+    <div class="section-header-v3">
+      <i class="fas fa-scroll"></i>
+      <span>{{localize "ANIMUS.Requirements"}}</span>
+    </div>
+
+    <div class="requirements-container glass-panel">
+      {{!-- Descrição Visual --}}
       <div class="form-group stacked">
-        <label>{{localize "ANIMUS.Effect"}}</label>
-        {{editor system.effect target="system.effect" button=true owner=owner editable=editable}}
+        <label>Descrição Textual</label>
+        <input type="text" name="system.requirements.description" value="{{system.requirements.description}}"
+          placeholder="Ex: Força 3, Atletismo 2..." />
       </div>
 
-      <hr>
-
-      <hr>
-
-      {{!-- Seção de Teste (Check) --}}
-      <div class="check-section">
-        <h3>{{localize "ANIMUS.Check"}}</h3>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Skill"}}</label>
-          <select name="system.check.skill">
-            <option value="-1"></option>
-            {{#select system.check.skill}}
-              {{#each config.skillsEnum as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Attribute"}}</label>
-          <select name="system.check.attribute">
-            <option value="-1">{{localize "ANIMUS.AppNone"}}</option>
-            {{#select system.check.attribute}}
-              {{#each config.attributesEnum as |name key|}}
-                <option value="{{key}}">{{name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.DC"}}</label>
-          <input type="number" name="system.check.dc" value="{{system.check.dc}}"/>
-        </div>
-      </div>
-
-      <hr>
-
-      {{!-- Seção de Aplicação (Resultado) --}}
-      <div class="application-section">
-        <h3>{{localize "ANIMUS.Application"}}</h3>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Type"}}</label>
-          <select name="system.application.type">
-            {{#select system.application.type}}
-              {{#each config.applicationTypes as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-
-        {{#if (ne system.application.type "none")}}
-          <div class="form-group">
-            <label>{{localize "ANIMUS.Formula"}}</label>
-            <input type="text" name="system.application.formula" value="{{system.application.formula}}" placeholder="Ex: 2d6 + 4"/>
-          </div>
-          <div class="form-group">
-            <label>{{localize "ANIMUS.SuccessEffect"}}</label>
-            <input type="text" name="system.application.onSuccess" value="{{system.application.onSuccess}}"/>
-          </div>
-        {{/if}}
-
-        {{#if (eq system.application.type "damage")}}
-          <div class="form-group">
-            <label>{{localize "ANIMUS.Type"}}</label>
-            <select name="system.application.damageType">
-              {{#select system.application.damageType}}
-                {{#each config.weaponTypes as |name key|}}
-                  <option value="{{key}}">{{localize name}}</option>
-                {{/each}}
-              {{/select}}
-            </select>
-          </div>
-        {{/if}}
-
-        {{#if (eq system.application.type "heal")}}
-          <div class="form-group">
-            <label>{{localize "ANIMUS.Resource"}}</label>
-            <select name="system.application.resource">
-              {{#select system.application.resource}}
-                {{#each config.resources as |name key|}}
-                  <option value="{{key}}">{{localize name}}</option>
-                {{/each}}
-              {{/select}}
-            </select>
-          </div>
-        {{/if}}
-
-        {{#if (eq system.application.type "condition")}}
-          <div class="form-group">
-            <label>{{localize "ANIMUS.ConditionName"}}</label>
-            <input type="text" name="system.application.condition" value="{{system.application.condition}}"/>
-          </div>
-        {{/if}}
-      </div>
-
-      <hr>
-
-      {{#if (eq item.type "weapon")}}
-        <div class="form-group">
-          <label>{{localize "ANIMUS.DamageTable"}}</label>
-          <div class="damage-grid-header">
-            <span></span>
-            <span>Base</span>
-            <span>Mult</span>
-          </div>
-          {{#each (list "ac1" "ac2" "ac3" "ac4") as |ac|}}
-            <div class="damage-row">
-              <label>{{upper ac}}</label>
-              <input type="number" name="system.damage.{{ac}}.base" value="{{lookup (lookup ../system.damage ac) 'base'}}"/>
-              <span>+</span>
-              <input type="number" name="system.damage.{{ac}}.mult" value="{{lookup (lookup ../system.damage ac) 'mult'}}"/>
-              <span class="mult-label">x {{../system.attribute}}</span>
+      <div class="requirements-technical-grid">
+        {{!-- Atributos --}}
+        <div class="technical-section">
+          <label><i class="fas fa-stat"></i> Atributos</label>
+          <div class="req-list">
+            {{#each system.requirements.attributes as |attr i|}}
+            <div class="req-row">
+              {{#if ../isEditing}}
+              <select name="system.requirements.attributes.{{i}}.key">
+                {{selectOptions ../config.attributes selected=attr.key localize=true}}
+              </select>
+              <input type="number" name="system.requirements.attributes.{{i}}.value" value="{{attr.value}}" />
+              <a class="delete-btn" data-action="reqDelete" data-type="attributes" data-index="{{i}}"><i
+                  class="fas fa-times"></i></a>
+              {{else}}
+              <span class="req-label-v3">{{localize (lookup ../config.attributes attr.key)}}:</span>
+              <span class="req-value-v3">{{attr.value}}</span>
+              {{/if}}
             </div>
-          {{/each}}
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Type"}}</label>
-          <select name="system.type">
-            {{#select system.type}}
-              {{#each config.weaponTypes as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Attribute"}}</label>
-          <select name="system.attribute">
-            {{#select system.attribute}}
-              {{#each config.attributesEnum as |name key|}}
-                <option value="{{key}}">{{name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Range"}}</label>
-          <select name="system.range">
-            {{#select system.range}}
-              {{#each config.weaponRanges as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-      {{/if}}
-
-      {{#if (eq item.type "armor")}}
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Protection"}}</label>
-          <input type="number" name="system.protection" value="{{system.protection}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Penalty"}}</label>
-          <input type="number" name="system.penalty" value="{{system.penalty}}"/>
-        </div>
-      {{/if}}
-
-      {{#if (eq item.type "talent")}}
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Cost"}} (PE)</label>
-          <input type="number" name="system.cost" value="{{system.cost}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Action"}} (PA)</label>
-          <input type="number" name="system.action" value="{{system.action}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Type"}}</label>
-          <select name="system.type">
-            {{#select system.type}}
-              {{#each config.talentTypes as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Trigger"}}</label>
-          <input type="text" name="system.trigger" value="{{system.trigger}}" placeholder="Ex: Ao sofrer dano..."/>
-        </div>
-      {{/if}}
-      
-      {{#if (eq item.type "property")}}
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Action"}} (PA)</label>
-          <input type="number" name="system.action" value="{{system.action}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Type"}}</label>
-          <select name="system.type">
-            {{#select system.type}}
-              {{#each config.propertyTypes as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.BonusDamage"}}</label>
-          <input type="number" name="system.bonus.damage" value="{{system.bonus.damage}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.BonusMult"}}</label>
-          <input type="number" name="system.bonus.mult" value="{{system.bonus.mult}}"/>
-        </div>
-      {{/if}}
-      
-      {{#if (eq item.type "action")}}
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Type"}}</label>
-          <select name="system.type">
-            {{#select system.type}}
-              {{#each config.actionTypes as |name key|}}
-                <option value="{{key}}">{{localize name}}</option>
-              {{/each}}
-            {{/select}}
-          </select>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.ActionCost"}}</label>
-          <input type="number" name="system.cost" value="{{system.cost}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.PECost"}}</label>
-          <input type="number" name="system.peCost" value="{{system.peCost}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Trigger"}}</label>
-          <input type="text" name="system.trigger" value="{{system.trigger}}"/>
-        </div>
-      {{/if}}
-
-      <div class="form-group">
-          <label>{{localize "ANIMUS.DefenseBonus"}}</label>
-          <input type="number" name="system.bonus.defense" value="{{system.bonus.defense}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.DefenseMult"}}</label>
-          <input type="number" name="system.bonus.defenseMult" value="{{system.bonus.defenseMult}}"/>
-        </div>
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Reach"}}</label>
-          <input type="number" name="system.bonus.reach" value="{{system.bonus.reach}}" step="1.5"/>
-        </div>
-
-        <div class="form-group">
-          <label>{{localize "ANIMUS.ACBonus"}}</label>
-          <div class="ac-bonus-grid">
-            {{#each (list "ac1" "ac2" "ac3" "ac4") as |ac|}}
-              <div class="ac-input">
-                <label>{{upper ac}}</label>
-                <input type="number" name="system.bonus.ac.{{ac}}" value="{{lookup ../system.bonus.ac ac}}"/>
-              </div>
             {{/each}}
           </div>
+          {{#if isEditing}}<a class="add-btn" data-action="reqAdd" data-type="attributes"><i
+              class="fas fa-plus"></i></a>{{/if}}
         </div>
 
-        <div class="form-group">
-          <label>{{localize "ANIMUS.Flags"}}</label>
-          <div class="flags-grid">
-            <label><input type="checkbox" name="system.flags.isLight" {{checked system.flags.isLight}}/> {{localize "ANIMUS.IsLight"}}</label>
-            <label><input type="checkbox" name="system.flags.isVersatile" {{checked system.flags.isVersatile}}/> {{localize "ANIMUS.IsVersatile"}}</label>
-            <label><input type="checkbox" name="system.flags.ignoreShields" {{checked system.flags.ignoreShields}}/> {{localize "ANIMUS.IgnoreShields"}}</label>
-            <label><input type="checkbox" name="system.flags.isSilent" {{checked system.flags.isSilent}}/> {{localize "ANIMUS.IsSilent"}}</label>
-            <label><input type="checkbox" name="system.flags.isThrown" {{checked system.flags.isThrown}}/> {{localize "ANIMUS.IsThrown"}}</label>
-          </div>
-        </div>
-      {{/if}}
-
-      <div class="form-group">
-        <label>{{localize "ANIMUS.Weight"}}</label>
-        <input type="number" name="system.weight" value="{{system.weight}}"/>
-      </div>
-      <div class="form-group">
-        <label>{{localize "ANIMUS.Price"}}</label>
-        <input type="number" name="system.price" value="{{system.price}}"/>
-      </div>
-
-      <hr>
-
-      {{!-- Ações Especiais --}}
-      <div class="special-actions-section">
-        <div class="section-header flexrow">
-          <h3>{{localize "ANIMUS.SpecialActions"}}</h3>
-          <a class="item-control" data-action="arrayAdd" data-field="specialActions" title="Adicionar Ação"><i class="fas fa-plus"></i></a>
-        </div>
-        <div class="actions-list">
-          {{#each system.specialActions as |actionId index|}}
-            <div class="action-row flexrow">
-              <input type="text" name="system.specialActions.{{index}}" value="{{actionId}}" placeholder="ID da Ação"/>
-              <a class="item-control" data-action="arrayDelete" data-field="specialActions" data-index="{{index}}" title="Remover"><i class="fas fa-trash"></i></a>
+        {{!-- Perícias --}}
+        <div class="technical-section">
+          <label><i class="fas fa-book"></i> Perícias</label>
+          <div class="req-list">
+            {{#each system.requirements.skills as |skill i|}}
+            <div class="req-row">
+              {{#if ../isEditing}}
+              <select name="system.requirements.skills.{{i}}.key">
+                {{selectOptions ../config.skills selected=skill.key labelAttr="label" localize=true}}
+              </select>
+              <input type="number" name="system.requirements.skills.{{i}}.rank" value="{{skill.rank}}" />
+              <a class="delete-btn" data-action="reqDelete" data-type="skills" data-index="{{i}}"><i
+                  class="fas fa-times"></i></a>
+              {{else}}
+              <span class="req-label-v3">{{localize (lookup (lookup ../config.skills skill.key) 'label')}}:</span>
+              <span class="req-value-v3">Ranque {{skill.rank}}</span>
+              {{/if}}
             </div>
-          {{/each}}
+            {{/each}}
+          </div>
+          {{#if isEditing}}<a class="add-btn" data-action="reqAdd" data-type="skills"><i
+              class="fas fa-plus"></i></a>{{/if}}
+        </div>
+
+        {{!-- Talentos (Dicionário Nome:ID) --}}
+        <div class="technical-section full-width">
+          <label><i class="fas fa-brain"></i> Talentos (Requisitos)</label>
+          <div class="req-list-tags">
+            {{#each system.requirements.talents as |talentId talentName|}}
+            <div class="req-tag {{#unless ../isEditing}}view-mode{{/unless}}">
+              <span class="talent-name-label">{{talentName}}</span>
+              {{#if ../isEditing}}
+              <input type="text" name="system.requirements.talents.{{talentName}}" value="{{talentId}}"
+                placeholder="ID do Talento" />
+              <a class="delete-btn" data-action="reqDelete" data-type="talents" data-index="{{talentName}}"><i
+                  class="fas fa-times"></i></a>
+              {{/if}}
+            </div>
+            {{/each}}
+          </div>
+          {{#if isEditing}}<a class="add-btn" data-action="reqAdd" data-type="talents"><i class="fas fa-plus"></i>
+            Adicionar Talento</a>{{/if}}
         </div>
       </div>
     </div>
+    {{/if}}
+
+    {{!-- Armadura: Cálculo de Proteção --}}
+    {{#if (eq item.type "armor")}}
+    <div class="section-header-v3">
+      <i class="fas fa-shield-halved"></i>
+      <span>Cálculo de Proteção</span>
+    </div>
+
+    <div class="protection-formula-v3 card-style">
+      <div class="formula-segment">
+        <span class="label">Base</span>
+        <span class="value">{{system.base}}</span>
+      </div>
+      <div class="formula-operator">+</div>
+      <div class="formula-segment">
+        <span class="label">Potência</span>
+        <div class="calc-box">
+          {{#if isEditing}}
+          <input type="number" name="system.multPOT" value="{{system.multPOT}}" min="0" />
+          {{else}}
+          <span class="value">{{system.multPOT}}</span>
+          {{/if}}
+          <span class="multiplier">× POT</span>
+        </div>
+      </div>
+      <div class="formula-operator">+</div>
+      <div class="formula-segment">
+        <span class="label">Habilidade</span>
+        <div class="calc-box">
+          {{#if isEditing}}
+          <input type="number" name="system.multHAB" value="{{system.multHAB}}" min="0" />
+          {{else}}
+          <span class="value">{{system.multHAB}}</span>
+          {{/if}}
+          <span class="multiplier">× HAB</span>
+        </div>
+      </div>
+      <div class="formula-operator">=</div>
+      <div class="formula-result">
+        <span class="label">Proteção Final</span>
+        <span class="value">{{system.totalProtection}}</span>
+      </div>
+    </div>
+    {{/if}}
+
+
+    {{!-- Runa --}}
+    {{#if (eq item.type "rune")}}
+    <div class="section-header-v3">
+      <i class="fas fa-gem"></i>
+      <span>Efeito da Runa</span>
+    </div>
+    <div class="description-editor {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.description target="system.description" button=true owner=owner editable=isEditing}}
+    </div>
+    {{/if}}
+
+    {{!-- Ascendência --}}
+    {{#if (eq item.type "ascendancy")}}
+
+    <div class="section-header-v3">
+      <i class="fas fa-hand-sparkles"></i>
+      <span>Habilidades Inatas</span>
+    </div>
+    <div class="innate-abilities-list">
+      {{#each system.innateAbilities}}
+      <div class="innate-ability glass-panel">
+        <strong>{{this.name}}:</strong> {{{this.mechanicalEffect}}}
+        <p>{{{this.description}}}</p>
+      </div>
+      {{/each}}
+    </div>
+    {{/if}}
+
+    {{!-- Elemental --}}
+    {{#if (eq item.type "element")}}
+
+    <div class="section-header-v3">
+      <i class="fas fa-sparkles"></i>
+      <span>Efeitos Secundários</span>
+    </div>
+    <div class="form-group stacked">
+      <label>Fora de Combate (Sem PE)</label>
+      {{#if isEditing}}
+      <input type="text" name="system.secondaryEffects.outOfCombat" value="{{system.secondaryEffects.outOfCombat}}"
+        placeholder="Ex: Reflexo Elétrico..." />
+      {{else}}
+      <div class="value-display-v3 secondary-effect-display">{{{system.secondaryEffects.outOfCombat}}}</div>
+      {{/if}}
+    </div>
+    <div class="form-group stacked">
+      <label>Em Combate (1 PA, Sem PE)</label>
+      {{#if isEditing}}
+      <input type="text" name="system.secondaryEffects.inCombat" value="{{system.secondaryEffects.inCombat}}"
+        placeholder="Ex: Descarga..." />
+      {{else}}
+      <div class="value-display-v3 secondary-effect-display">{{{system.secondaryEffects.inCombat}}}</div>
+      {{/if}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-brain"></i>
+      <span>Filosofia do Elemento</span>
+    </div>
+    <div class="description-editor mini {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.philosophy target="system.philosophy" button=true owner=owner editable=isEditing}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-fingerprint"></i>
+      <span>Característica Inata</span>
+    </div>
+    <div class="description-editor mini {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.innateCharacteristic target="system.innateCharacteristic" button=true owner=owner
+      editable=isEditing}}
+    </div>
+    {{/if}}
+
+
+
+
+    {{!-- Condição --}}
+    {{#if (eq item.type "condition")}}
+    <div class="section-header-v3">
+      <i class="fas fa-skull-crossbones"></i>
+      <span>Desvantagem</span>
+    </div>
+    <div class="description-editor mini {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.penalty target="system.penalty" button=true owner=owner editable=isEditing}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-exclamation-triangle"></i>
+      <span>Causa</span>
+    </div>
+    <div class="description-editor mini {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.cause target="system.cause" button=true owner=owner editable=isEditing}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-heart-pulse"></i>
+      <span>Como Remover</span>
+    </div>
+    <div class="description-editor mini {{#unless isEditing}}view-mode{{/unless}}">
+      {{editor system.removal target="system.removal" button=true owner=owner editable=isEditing}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-clock"></i>
+      <span>Duração</span>
+    </div>
+    <div class="form-group stacked">
+      {{#if isEditing}}
+      <input type="text" name="system.duration" value="{{system.duration}}"
+        placeholder="Ex: 2 rodadas, Permanente..." />
+      {{else}}
+      <div class="value-display-v3 duration-display">{{system.duration}}</div>
+      {{/if}}
+    </div>
+    {{/if}}
+
   </section>
 </form>

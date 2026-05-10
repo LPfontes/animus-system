@@ -1,0 +1,11 @@
+_id: 9117dfc9d9dac21b
+name: Especializada
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Escolha 1 manobra de combate; você recebe <span
+    class="text-mechanic">Vantagem</span> ao usá-la com esta arma.<br>
+  price: 100 Đ
+folder: 91b98d36bf015a43
+_key: '!items!9117dfc9d9dac21b'

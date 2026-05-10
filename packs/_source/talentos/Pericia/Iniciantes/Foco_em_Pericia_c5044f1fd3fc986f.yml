@@ -1,0 +1,22 @@
+_id: c5044f1fd3fc986f
+name: Foco em Perícia
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando você rolar um resultado '1' na perícia escolhida, altere esse valor
+    para '3'.
+  trigger: Rolar 1 na perícia escolhida
+  requirements:
+    description: Amador em perícia escolhida.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: d65c273bff169b30
+_key: '!items!c5044f1fd3fc986f'

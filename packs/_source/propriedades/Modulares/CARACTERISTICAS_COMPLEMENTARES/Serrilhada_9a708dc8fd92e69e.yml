@@ -1,0 +1,11 @@
+_id: 9a708dc8fd92e69e
+name: Serrilhada
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Acertos 3 ou 4: alvo sofre Sangramento (perde 2 <span
+    class="text-resource">PV</span>/turno por 2 turnos).<br>
+  price: 75 Đ
+folder: 91b98d36bf015a43
+_key: '!items!9a708dc8fd92e69e'

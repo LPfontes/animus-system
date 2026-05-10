@@ -1,0 +1,25 @@
+_id: b0b73b37764e0313
+name: Familiaridade com o Assunto
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Escolha uma perícia entre: Ofício, Medicina, Conhecimento arcano ou
+    Natureza. <br>Para essa perícia, você pode gastar 3 <span
+    class="text-resource">PE</span> para alterar o valor da rolagem para '10'.
+  trigger: Rolar na perícia escolhida
+  requirements:
+    description: 1 ponto em COGNIÇÃO.
+    talents: {}
+    attributes:
+      - key: cog
+        value: 1
+    skills: []
+  cost: 3
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: d65c273bff169b30
+_key: '!items!b0b73b37764e0313'

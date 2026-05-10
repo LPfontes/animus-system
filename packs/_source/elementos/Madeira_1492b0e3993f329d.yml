@@ -1,0 +1,113 @@
+_id: 1492b0e3993f329d
+name: Madeira
+type: element
+img: systems/animus/assets/system-icons/elements/madeira.svg
+system:
+  description: >-
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
+    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
+    PE</td><td>2+2d</td><td>3+2d</td><td>4+3d</td><td>5+3d</td></tr><tr><td>6
+    PE</td><td>4+2d</td><td>6+3d</td><td>7+3d</td><td>9+4d</td></tr><tr><td>9
+    PE</td><td>7+2d</td><td>9+3d</td><td>11+4d</td><td>13+4d</td></tr></table><h3>Tabela
+    de Cura</h3><table border='1'><tr><th>Nível PE</th><th>1 acerto</th><th>2
+    acertos</th><th>3 acertos</th><th>4 acertos (crít.)</th></tr><tr><td>3
+    PE</td><td>1+1×ANI</td><td>2+2×ANI</td><td>4+2×ANI</td><td>5+3×ANI</td></tr><tr><td>6
+    PE</td><td>3+2×ANI</td><td>5+2×ANI</td><td>7+3×ANI</td><td>9+4×ANI</td></tr><tr><td>9
+    PE</td><td>5+2×ANI</td><td>8+3×ANI</td><td>11+4×ANI</td><td>14+5×ANI</td></tr></table>
+  strength: 'Versátil: dano + cura + controle'
+  weakness: Vulnerável a Fogo
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - per
+    selectedAttribute: ''
+  range: 18m
+  rhythm: Moderado
+  damageTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 2
+        mult: 2
+      ac2:
+        base: 3
+        mult: 2
+      ac3:
+        base: 4
+        mult: 3
+      ac4:
+        base: 5
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 4
+        mult: 2
+      ac2:
+        base: 6
+        mult: 3
+      ac3:
+        base: 7
+        mult: 3
+      ac4:
+        base: 9
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 7
+        mult: 2
+      ac2:
+        base: 9
+        mult: 3
+      ac3:
+        base: 11
+        mult: 4
+      ac4:
+        base: 13
+        mult: 4
+  healTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 1
+        mult: 1
+      ac2:
+        base: 2
+        mult: 2
+      ac3:
+        base: 4
+        mult: 2
+      ac4:
+        base: 5
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 3
+        mult: 2
+      ac2:
+        base: 5
+        mult: 2
+      ac3:
+        base: 7
+        mult: 3
+      ac4:
+        base: 9
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 5
+        mult: 2
+      ac2:
+        base: 8
+        mult: 3
+      ac3:
+        base: 11
+        mult: 4
+      ac4:
+        base: 14
+        mult: 5
+_key: '!items!1492b0e3993f329d'

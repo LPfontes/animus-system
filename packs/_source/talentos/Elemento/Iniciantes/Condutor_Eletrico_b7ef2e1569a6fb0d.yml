@@ -1,0 +1,26 @@
+_id: b7ef2e1569a6fb0d
+name: Condutor Elétrico
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando um alvo está Saturado (Água), seu próximo ataque de Trovão nele neste
+    turno tem +2d na rolagem e causa +<span class="text-attribute">ANI</span> de
+    <span class="text-mechanic">dano</span> elétrico adicional. <br>Gaste 2
+    <span class="text-resource">PE</span> adicionais para ativar.
+  trigger: ''
+  requirements:
+    description: Amador em Elemento (Trovão); acesso a Água (via runa, aliado ou Mestiço).
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 1
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c9cedbb0457d5fe4
+_key: '!items!b7ef2e1569a6fb0d'

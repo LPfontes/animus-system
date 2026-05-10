@@ -1,9 +1,12 @@
+import ANIMUS from "../../config.mjs";
+
 export default class AnimusItemData extends foundry.abstract.TypeDataModel {
   static defineSchema() {
     const fields = foundry.data.fields;
     return {
       description: new fields.HTMLField({ initial: "" }),
       effect: new fields.HTMLField({ initial: "" }),
+      category: new fields.StringField({ initial: "", choices: Object.keys(ANIMUS.itemTypes), blank: true }),
       
       // Dados para realização de testes (Checks)
       check: new fields.SchemaField({
@@ -23,8 +26,21 @@ export default class AnimusItemData extends foundry.abstract.TypeDataModel {
       }),
 
       quantity: new fields.NumberField({ initial: 1, integer: true, min: 0 }),
-      weight: new fields.NumberField({ initial: 0, min: 0 }),
-      price: new fields.NumberField({ initial: 0, min: 0 })
+      weight: new fields.StringField({ initial: "0" }),
+      slots: new fields.NumberField({ initial: 1, integer: true, min: 0 }),
+      price: new fields.StringField({ initial: "0" }),
+      requirements: new fields.SchemaField({
+        talents: new fields.ObjectField({ initial: {} }),
+        attributes: new fields.ArrayField(new fields.SchemaField({
+          key: new fields.StringField({ initial: "pot" }),
+          value: new fields.NumberField({ initial: 1, integer: true, min: 1 })
+        }), { initial: [] }),
+        skills: new fields.ArrayField(new fields.SchemaField({
+          key: new fields.StringField({ initial: "atletismo" }),
+          rank: new fields.NumberField({ initial: 1, integer: true, min: 1 })
+        }), { initial: [] }),
+        description: new fields.StringField({ initial: "" })
+      })
     };
   }
 }

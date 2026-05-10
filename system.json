@@ -23,7 +23,71 @@
     "css/parts/chat.css",
     "css/animus.css"
   ],
-  "packs": [],
+  "packs": [
+    {
+      "name": "talentos",
+      "label": "Talentos",
+      "path": "packs/talentos",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "itens",
+      "label": "Itens",
+      "path": "packs/itens",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "acoes",
+      "label": "Ações",
+      "path": "packs/acoes",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "propriedades",
+      "label": "Propriedades",
+      "path": "packs/propriedades",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "ascendencias",
+      "label": "Ascendências",
+      "path": "packs/ascendencias",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "elementos",
+      "label": "Elementos",
+      "path": "packs/elementos",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "condicoes",
+      "label": "Condições",
+      "path": "packs/condicoes",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "utilidades-elementais",
+      "label": "Utilidades Elementais",
+      "path": "packs/utilidades-elementais",
+      "type": "Item",
+      "system": "animus"
+    },
+    {
+      "name": "runas",
+      "label": "Runas",
+      "path": "packs/runas",
+      "type": "Item",
+      "system": "animus"
+    }
+  ],
   "languages": [
     {
       "lang": "pt-BR",

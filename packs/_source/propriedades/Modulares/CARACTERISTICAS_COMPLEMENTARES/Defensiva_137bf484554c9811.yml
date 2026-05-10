@@ -1,0 +1,11 @@
+_id: 137bf484554c9811
+name: Defensiva
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Enquanto empunhada, concede <span class="text-resource">Proteção</span>
+    igual a 1x o valor de HABILIDADE.<br>
+  price: 75 Đ
+folder: 91b98d36bf015a43
+_key: '!items!137bf484554c9811'

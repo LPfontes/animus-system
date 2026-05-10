@@ -1,0 +1,29 @@
+_id: 39415bab1c0f43fe
+name: Contra-Estratégia
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando um oponente usa uma <span class="text-attribute">HAB</span> de
+    talento, você pode gastar 2 <span class="text-resource">PE</span> (<span
+    class="text-mechanic">reação</span>) para reduzir o efeito dessa <span
+    class="text-attribute">HAB</span> na metade. <br>aplica-se a bônus de <span
+    class="text-mechanic">dano</span>, cura, movimentação extra, etc. <br>[Não
+    funciona contra ataques diretos  apenas contra efeitos de talentos].
+  trigger: ''
+  requirements:
+    description: Profissional em Compreensão; Análise Rápida.
+    talents:
+      Análise Rápida: fb4e20f68c9b88c2
+    attributes: []
+    skills:
+      - key: compreensao
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!39415bab1c0f43fe'

@@ -1,0 +1,23 @@
+_id: dc6c33144948a90a
+name: Combatente Reflexivo
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Você pode declarar e executar suas <span class="text-mechanic">ações</span>
+    de combate em qualquer ordem dentro do seu turno, sem precisar anunciá-las
+    antecipadamente ao Narrador.
+  trigger: ''
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!dc6c33144948a90a'

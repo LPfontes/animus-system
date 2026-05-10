@@ -1,0 +1,12 @@
+_id: 89488ad5fb0ef4fc
+name: Corda Silenciosa
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Ataques não revelam posição; alvo precisa de <span
+    class="text-mechanic">teste</span> de Percepção <span
+    class="text-mechanic">CD</span> 9 para localizar.<br>
+  price: 60 Đ
+folder: 9acbeec4c3638a31
+_key: '!items!89488ad5fb0ef4fc'

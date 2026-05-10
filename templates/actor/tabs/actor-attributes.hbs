@@ -1,4 +1,65 @@
 <div class="tab attributes {{tabs.attributes.cssClass}}" data-group="primary" data-tab="attributes">
+
+
+  {{!-- Painel de Evolução (Níveis 2+) --}}
+  {{#if (gt system.details.level 1)}}
+  <div class="advancement-panel-v3 glass-panel"
+    style="margin-bottom: 20px; padding: 15px; border-left: 3px solid var(--accent);">
+    <div class="advancement-header"
+      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i>
+        EVOLUÇÃO</span>
+      <span class="points-pool"
+        style="font-size: 0.8rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 10px; border-radius: 20px;">
+        Pontos Restantes: <span
+          style="color: {{#if (eq pointsRemaining 0)}}var(--text-muted){{else}}#fff{{/if}}">{{pointsRemaining}}</span>
+      </span>
+    </div>
+
+    <div class="advancement-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
+      {{!-- Distribuição de PV/PE/PA --}}
+      <div class="distribution-section">
+        <label
+          style="font-size: 0.6rem; font-weight: 900; color: var(--text-muted); display: block; margin-bottom: 8px;">DISTRIBUIR
+          PONTOS (+3 por nível)</label>
+        <div class="dist-row" style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
+          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PV</span>
+          <input type="number" name="system.details.advancement.distributedPoints.hp"
+            value="{{system.details.advancement.distributedPoints.hp}}"
+            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
+          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PE</span>
+          <input type="number" name="system.details.advancement.distributedPoints.pe"
+            value="{{system.details.advancement.distributedPoints.pe}}"
+            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
+          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PA</span>
+          <input type="number" name="system.details.advancement.distributedPoints.pa"
+            value="{{system.details.advancement.distributedPoints.pa}}"
+            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
+        </div>
+      </div>
+
+      {{!-- Bônus de Atributos (Níveis Ímpares) --}}
+      <div class="odd-level-bonuses">
+        <label
+          style="font-size: 0.6rem; font-weight: 900; color: var(--text-muted); display: block; margin-bottom: 8px;">ATRIBUTOS
+          (Níveis Ímpares)</label>
+        <div class="bonuses-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
+          {{#each oddLevels}}
+          <div class="odd-choice" style="display: flex; align-items: center; gap: 5px;">
+            <span style="font-size: 0.7rem; font-weight: 800; color: var(--accent);">Nv{{this.level}}:</span>
+            <select name="system.details.advancement.attributeBonuses.{{this.level}}"
+              style="background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; font-size: 0.7rem;">
+              <option value="">---</option>
+              {{selectOptions ../config.attributesSimple selected=this.selected}}
+            </select>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/if}}
+
   {{!-- Header Superior com Dados Básicos --}}
   <div class="glass-panel header-info-row">
     <div class="input-group">
@@ -10,17 +71,54 @@
       <input name="system.details.level" type="number" value="{{system.details.level}}" class="input-field" min="1"
         max="10" />
     </div>
-    <div class="input-group">
+    <div class="input-group drop-zone" data-type="ascendancy">
       <label class="input-label">ASCENDÊNCIA</label>
-      <select name="system.details.ascendancy" class="input-field">
-        {{selectOptions config.ascendancies selected=system.details.ascendancy}}
-      </select>
+      <div class="item-slot {{#if ascendancy}}active{{/if}}">
+        <span class="slot-text">{{#if ascendancy}}{{ascendancy.name}}{{else}}Selecionar{{/if}}</span>
+        {{#if ascendancy}}
+        <a class="slot-control delete" data-action="deleteItem" data-item-id="{{ascendancy.id}}"><i
+            class="fas fa-times"></i></a>
+        <a class="slot-control bonus-edit {{#unless ascendancy.system.bonus.selectedAttribute}}pending{{/unless}}"
+          data-action="openBonusSelector" data-item-id="{{ascendancy.id}}" title="Selecionar Bônus">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+        {{/if}}
+      </div>
     </div>
-    <div class="input-group">
+    <div class="input-group drop-zone" data-type="element">
       <label class="input-label">ELEMENTAL</label>
-      <select name="system.details.element" class="input-field">
-        {{selectOptions config.elements selected=system.details.element}}
-      </select>
+      <div class="item-slot {{#if element}}active{{/if}}">
+        <span class="slot-text">{{#if element}}{{element.name}}{{else}}Selecionar{{/if}}</span>
+        {{#if element}}
+        <a class="slot-control delete" data-action="deleteItem" data-item-id="{{element.id}}"><i
+            class="fas fa-times"></i></a>
+        <a class="slot-control bonus-edit {{#unless element.system.bonus.selectedAttribute}}pending{{/unless}}"
+          data-action="openBonusSelector" data-item-id="{{element.id}}" title="Selecionar Bônus">
+          <i class="fas fa-plus-circle"></i>
+        </a>
+        {{/if}}
+      </div>
+    </div>
+
+    <div class="input-group rest-group">
+      <label class="input-label">DESCANSAR</label>
+      <div class="rest-buttons" style="display: flex; gap: 5px;">
+        <button type="button" class="rest-btn short" data-action="shortRest" title="Descanso Curto (10-30 min)"
+          style="height: 42px; background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.3); color: #00f2ff; border-radius: 10px; cursor: pointer; padding: 0 10px; font-weight: 800; font-size: 0.7rem;">
+          <i class="fas fa-hourglass-half"></i> {{system.details.shortRests}}/2
+        </button>
+        <button type="button" class="rest-btn long" data-action="longRest" title="Descanso Longo (8h)"
+          style="height: 42px; background: rgba(157, 78, 221, 0.1); border: 1px solid rgba(157, 78, 221, 0.3); color: #9d4edd; border-radius: 10px; cursor: pointer; padding: 0 10px;">
+          <i class="fas fa-bed"></i>
+        </button>
+      </div>
+    </div>
+
+    <div class="input-group gear-group">
+      <button type="button" class="edit-mode-toggle {{#if editMode}}active{{/if}}" data-action="toggleEditMode"
+        title="Modo de Edição Livre">
+        <i class="fas fa-cog"></i>
+      </button>
     </div>
   </div>
 
@@ -57,7 +155,8 @@
               <div class="defense-mini-box">
                 <i class="fas fa-shield shield-icon-mini"></i>
                 <div class="stat-label-mini">
-                  <input type="number" name="system.status.prot.value" value="{{system.status.prot.value}}" class="defense-value-mini" />
+                  <input type="number" name="system.status.prot.value" value="{{system.status.prot.value}}"
+                    class="defense-value-mini" />
                 </div>
               </div>
             </div>
@@ -89,6 +188,18 @@
                 </div>
                 {{/each}}
               </div>
+              {{#if system.status.pa.debt}}
+              <div class="pa-debt-display" title="PA gasto do próximo turno (Reação)">
+                <i class="fas fa-undo"></i> -{{system.status.pa.debt}}
+                <a class="pa-debt-control" data-action="updatePADebt" data-delta="-1"><i
+                    class="fas fa-minus-circle"></i></a>
+              </div>
+              {{else}}
+              <a class="pa-debt-control add" data-action="updatePADebt" data-delta="1"
+                title="Gastar PA da rodada seguinte (Reação)">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+              {{/if}}
             </div>
           </div>
         </div>
@@ -97,12 +208,51 @@
 
     {{!-- Coluna Direita (Retrato): Grade de Talentos --}}
     <div class="talents-grid-column">
-      <h3 class="category-title">TALENTOS</h3>
+      <div class="header-with-action">
+        <h3 class="category-title">TALENTOS</h3>
+        <div class="status-item {{#if (eq talentCount 2)}}complete{{/if}}"
+          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount 2)}}var(--fire){{else}}var(--accent){{/if}};">
+          <i class="fas fa-brain"></i> {{talentCount}} / 2
+        </div>
+        <button type="button" class="action-btn small" data-action="openTalentManager" title="Gerenciar Talentos">
+          <i class="fas fa-cog"></i> Gerenciar
+        </button>
+      </div>
+
+      <div class="category-filters">
+        <button type="button" class="category-btn {{#if (eq filters.talents 'all')}}active{{/if}}"
+          data-action="filterTalents" data-category="all">
+          <i class="fas fa-th-large"></i>
+        </button>
+        {{#each talentCategories}}
+        <button type="button" class="category-btn {{#if (eq ../filters.talents this.id)}}active{{/if}}"
+          data-action="filterTalents" data-category="{{this.id}}" title="{{this.label}}">
+          <i class="{{this.icon}}"></i>
+        </button>
+        {{/each}}
+      </div>
+
       <div class="talents-scroll-list">
+        {{!-- Habilidades Inatas da Ascendência --}}
+        {{#each ascendancy.system.innateAbilities as |ability|}}
+        <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})">
+          <div class="talent-header">
+            <span class="talent-name"><i class="fas fa-dna mini-icon"></i> {{ability.name}}</span>
+          </div>
+          <div class="talent-body">
+            {{#if ability.mechanicalEffect}}<strong>{{{ability.mechanicalEffect}}}</strong><br>{{/if}}
+            {{{ability.description}}}
+          </div>
+        </div>
+        {{/each}}
+
         {{#each talents as |talent|}}
         <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}">
           <div class="talent-header">
-            <span class="talent-name">{{talent.name}}</span>
+            <div class="talent-name-wrapper">
+              <span class="talent-name">{{talent.name}}</span>
+              <span class="talent-category-tag">{{talent.system.subCategory}}</span>
+            </div>
             <div class="talent-controls">
               <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
               <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -114,15 +264,33 @@
           </div>
           {{/if}}
         </div>
-        {{else}}
-        <div class="empty-state">Nenhum talento adquirido</div>
         {{/each}}
+
+        {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length))}}
+        <div class="empty-state">Nenhum talento adquirido</div>
+        {{/if}}
       </div>
     </div>
   </div>
 
   {{!-- Grade de Habilidades --}}
   <div class="abilities-grid-column">
+    <div class="abilities-header"
+      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px; padding: 0 5px;">
+      <h3 class="category-title" style="margin: 0;">PERÍCIAS</h3>
+      <div class="header-status-pills" style="display: flex; gap: 15px;">
+        <div class="status-item {{#if (eq attrCount attrLimit)}}complete{{/if}}"
+          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt attrCount attrLimit)}}var(--fire){{else}}var(--accent){{/if}};"
+          title="Pontos de Atributo">
+          <i class="fas fa-star"></i> Atributos: {{attrCount}} / {{attrLimit}}
+        </div>
+        <div class="status-item {{#if (eq skillCount 4)}}complete{{/if}}"
+          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt skillCount 4)}}var(--fire){{else}}var(--accent){{/if}};"
+          title="Pontos de Perícia">
+          <i class="fas fa-list-check"></i> Perícias: {{skillCount}} / 4
+        </div>
+      </div>
+    </div>
     <div class="abilities-categories-row">
       {{#each unifiedAbilities as |category|}}
       <div class="ability-category">

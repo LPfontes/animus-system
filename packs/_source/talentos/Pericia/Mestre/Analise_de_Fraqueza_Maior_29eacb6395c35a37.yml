@@ -1,0 +1,27 @@
+_id: 29eacb6395c35a37
+name: Análise de Fraqueza Maior
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Identifica as fraquezas de uma criatura. <br>[Um inimigo com fraquezas
+    expostas diminui a dificuldade dos acertos em 3] <br>[aumenta os
+    multiplicadores de atributo contra esse oponente em +×2 em todos os
+    acertos].
+  trigger: ''
+  requirements:
+    description: Mestre em Conhecimento arcano; Análise de Fraqueza
+    talents:
+      Análise de Fraqueza: 40a9e7b1369dd52b
+    attributes: []
+    skills:
+      - key: con_arcano
+        rank: 3
+  cost: 0
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!29eacb6395c35a37'

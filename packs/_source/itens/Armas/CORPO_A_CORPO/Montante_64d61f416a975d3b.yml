@@ -1,0 +1,19 @@
+_id: 64d61f416a975d3b
+name: Montante
+type: weapon
+img: systems/animus/assets/system-icons/weapon/montante.svg
+system:
+  description: 'Tipo: Cortante Média<br>Duas Mãos'
+  damage:
+    ac1: '3'
+    ac2: 4 + 2xPOT
+    ac3: 6 + 3xPOT
+    ac4: 8 + 3xPOT
+  weight: 0
+  price: 20 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: bd51c3d03d930431
+_key: '!items!64d61f416a975d3b'

@@ -1,0 +1,12 @@
+_id: d50dd0e4dd6085a5
+name: Média
+type: armor
+img: systems/animus/assets/system-icons/armor/breastplate.svg
+system:
+  description: >-
+    Proteção: +7<br>Penalidade: +1 ação em Movimento (Correr,
+    Deslocar-se)<br>Lógica: 7 + (1 x POT) + (1 x HAB)
+  weight: 0
+  price: 20 Đ
+folder: 33fd8916c4554f13
+_key: '!items!d50dd0e4dd6085a5'

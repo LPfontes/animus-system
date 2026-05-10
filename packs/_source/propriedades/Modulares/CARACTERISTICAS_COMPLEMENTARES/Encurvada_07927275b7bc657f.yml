@@ -1,0 +1,11 @@
+_id: 07927275b7bc657f
+name: Encurvada
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Adiciona +1 de <span class="text-mechanic">dano</span> no segundo acerto e
+    +2 no quarto acerto. <br>Requisito: Arma Cortante ou Perfurante.<br>
+  price: 50 Đ
+folder: 91b98d36bf015a43
+_key: '!items!07927275b7bc657f'

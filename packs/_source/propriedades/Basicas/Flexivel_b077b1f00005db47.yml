@@ -1,0 +1,8 @@
+_id: b077b1f00005db47
+name: Flexível
+type: item
+img: icons/svg/gear.svg
+system:
+  description: Ignora cobertura de escudos leves e Proteção de escudos no ataque.
+folder: 6c0069107d7e49ee
+_key: '!items!b077b1f00005db47'

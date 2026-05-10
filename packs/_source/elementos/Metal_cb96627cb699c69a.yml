@@ -1,0 +1,66 @@
+_id: cb96627cb699c69a
+name: Metal
+type: element
+img: systems/animus/assets/system-icons/elements/metal.svg
+system:
+  description: >-
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
+    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
+    PE</td><td>5+1d</td><td>6+2d</td><td>8+2d</td><td>9+3d</td></tr><tr><td>6
+    PE</td><td>7+2d</td><td>9+2d</td><td>11+3d</td><td>13+4d</td></tr><tr><td>9
+    PE</td><td>9+3d</td><td>12+3d</td><td>14+4d</td><td>17+5d</td></tr></table>
+  strength: Crítico fácil + dano cresc.
+  weakness: Sem cura/controle
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - per
+    selectedAttribute: ''
+  range: 9m
+  rhythm: Alta intensidade
+  damageTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 5
+        mult: 1
+      ac2:
+        base: 6
+        mult: 2
+      ac3:
+        base: 8
+        mult: 2
+      ac4:
+        base: 9
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 7
+        mult: 2
+      ac2:
+        base: 9
+        mult: 2
+      ac3:
+        base: 11
+        mult: 3
+      ac4:
+        base: 13
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 9
+        mult: 3
+      ac2:
+        base: 12
+        mult: 3
+      ac3:
+        base: 14
+        mult: 4
+      ac4:
+        base: 17
+        mult: 5
+  healTable: {}
+_key: '!items!cb96627cb699c69a'

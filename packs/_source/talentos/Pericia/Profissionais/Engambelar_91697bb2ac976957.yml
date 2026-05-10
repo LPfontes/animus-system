@@ -1,0 +1,29 @@
+_id: 91697bb2ac976957
+name: Engambelar
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Enquanto você está em uma negociação, pode gastar 2 <span
+    class="text-resource">PE</span> para recuperar a paciência perdida na sua
+    rolagem. <br>(O limite de usos é igual ao atributo <span
+    class="text-attribute">PRE</span>. )
+  trigger: Uma negociação
+  requirements:
+    description: 1 ponto em PRESENÇA; Profissional em Enganação; Argumento Irrefutável.
+    talents:
+      Argumento Irrefutável: dd3f2cd9fec3bbbd
+    attributes:
+      - key: pre
+        value: 1
+    skills:
+      - key: enganacao
+        rank: 2
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c201b8adf46f5416
+_key: '!items!91697bb2ac976957'

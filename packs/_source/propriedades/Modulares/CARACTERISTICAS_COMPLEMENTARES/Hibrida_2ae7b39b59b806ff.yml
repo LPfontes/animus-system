@@ -1,0 +1,9 @@
+_id: 2ae7b39b59b806ff
+name: Híbrida
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: 'A arma possui mais de um tipo de uso (ex: corte e perfuração).<br>'
+  price: 25 Đ
+folder: 91b98d36bf015a43
+_key: '!items!2ae7b39b59b806ff'

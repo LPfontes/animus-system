@@ -1,0 +1,10 @@
+_id: f2f3a6dd44f86c58
+name: Bálsamo Superior
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: Cura 2d6+2 <span class="text-resource">PV</span>; usável em combate
+  weight: 0
+  price: 30 Đ
+folder: af1210fca9de3586
+_key: '!items!f2f3a6dd44f86c58'

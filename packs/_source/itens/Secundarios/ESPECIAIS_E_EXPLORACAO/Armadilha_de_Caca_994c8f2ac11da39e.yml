@@ -1,0 +1,14 @@
+_id: 994c8f2ac11da39e
+name: Armadilha de Caça
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    <span class="text-mechanic">Teste</span> <span
+    class="text-mechanic">CD</span> 10 <span class="text-attribute">HAB</span>
+    ou fica <span class="text-condition">Imobilizado</span> e sofre 1d6+4 <span
+    class="text-mechanic">dano</span>
+  weight: 0
+  price: 15 Đ
+folder: f67425a08c83ef01
+_key: '!items!994c8f2ac11da39e'

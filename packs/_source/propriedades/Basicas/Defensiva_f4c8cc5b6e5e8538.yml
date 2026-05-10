@@ -1,0 +1,8 @@
+_id: f4c8cc5b6e5e8538
+name: Defensiva
+type: item
+img: icons/svg/gear.svg
+system:
+  description: Enquanto empunhada, concede Proteção igual a 1×HAB.
+folder: 6c0069107d7e49ee
+_key: '!items!f4c8cc5b6e5e8538'

@@ -1,0 +1,32 @@
+_id: 60f3401bfb972f84
+name: Infusão de Ataque
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Antes de realizar um ataque físico, gaste 2 <span
+    class="text-resource">PE</span>: a arma fica imbuída com seu elemento até o
+    fim do ataque. <br>O ataque causa +1 de <span
+    class="text-mechanic">dano</span> elemental em todos os acertos e aplica a
+    condição inata com 1 <span class="text-mechanic">acerto</span> a menos que o
+    mínimo normal.
+  trigger: Antes de realizar um ataque
+  requirements:
+    description: Amador em Luta ou Pontaria; Amador em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 1
+      - key: luta
+        rank: 1
+      - key: elemento
+        rank: 1
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c9cedbb0457d5fe4
+_key: '!items!60f3401bfb972f84'

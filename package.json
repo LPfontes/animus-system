@@ -1,0 +1,22 @@
+{
+  "name": "animus-system",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "build:packs": "node utils/packs.mjs compile",
+    "extract:packs": "node utils/packs.mjs extract",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@foundryvtt/foundryvtt-cli": "^3.0.3",
+    "yargs": "^18.0.0"
+  },
+  "dependencies": {
+    "js-yaml": "^4.1.1"
+  }
+}

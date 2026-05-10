@@ -1,0 +1,11 @@
+_id: 789b704f11658a19
+name: Dupla
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Pode ser usada com 1 ou 2 mãos. Se usada com 2 mãos, concede +2 de <span
+    class="text-mechanic">dano</span> em todos os acertos.<br>
+  price: 75 Đ
+folder: 91b98d36bf015a43
+_key: '!items!789b704f11658a19'

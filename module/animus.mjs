@@ -67,7 +67,37 @@ async function preloadHandlebarsTemplates() {
 
     // Main sheets
     "systems/animus/templates/actor/actor-sheet.hbs",
-    "systems/animus/templates/item/item-sheet.hbs"
+    "systems/animus/templates/item/item-sheet.hbs",
+    "systems/animus/templates/apps/compendium-browser.hbs",
+    "systems/animus/templates/apps/talent-manager.hbs"
   ];
   return loadTemplates(paths);
 }
+
+/* -------------------------------------------- */
+/*  Combat Hooks                                */
+/* -------------------------------------------- */
+
+/**
+ * Reset PA at start of turn and apply debt from reactions
+ */
+Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
+  const combatant = combat.combatant;
+  const actor = combatant?.actor;
+  if (!actor || actor.type !== "character") return;
+
+  const pa = actor.system.status.pa;
+  
+  // Se houver dívida, subtrair do máximo. Caso contrário, resetar para o máximo.
+  const debt = pa.debt || 0;
+  const newPA = Math.max(0, pa.max - debt);
+  
+  await actor.update({
+    "system.status.pa.value": newPA,
+    "system.status.pa.debt": 0
+  });
+
+  if (debt > 0) {
+    ui.notifications.info(`${actor.name} iniciou o turno com ${newPA} PA (${debt} descontado por reações).`);
+  }
+});

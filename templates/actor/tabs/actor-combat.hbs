@@ -1,64 +1,134 @@
 <div class="tab combat {{tabs.combat.cssClass}}" data-group="primary" data-tab="combat">
-  <div class="section-header">
-    <h3>{{localize "ANIMUS.Weapons"}}</h3>
+
+  {{!-- Tabela de Dano Elemental --}}
+  {{#if element.resolvedDamageTable}}
+  <div class="element-damage-table-panel">
+    <div class="edt-header">
+      <i class="fas fa-fire"></i>
+      <span>{{element.name}} — Tabela de Dano (ANI {{system.attributes.ani.value}})</span>
+    </div>
+    <table class="edt-table">
+      <thead>
+        <tr>
+          <th>Nível</th>
+          <th>PE</th>
+          <th>AC1</th>
+          <th>AC2</th>
+          <th>AC3</th>
+          <th>AC4</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each element.resolvedDamageTable as |tier key|}}
+        <tr>
+          <td class="tier-label">{{key}}</td>
+          <td class="pe-cost">{{tier.pe}} PE</td>
+          <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
+          <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
+          <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
+          <td>{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
   </div>
-  <table class="damage-table">
-    <thead>
-      <tr>
-        <th>{{localize "ANIMUS.Weapon"}}</th>
-        <th>AC1</th>
-        <th>AC2</th>
-        <th>AC3</th>
-        <th>AC4</th>
-      </tr>
-    </thead>
-    <tbody>
-      {{#each weapons as |weapon|}}
-      <tr class="item-row" data-item-id="{{weapon.id}}">
-        <td class="item-name">
-          <img src="{{weapon.img}}" width="24" height="24" class="item-img" />
-          <a class="item-edit" data-action="editItem">{{weapon.name}}</a>
-        </td>
-        <td>{{weapon.calculatedDamage.ac1}}</td>
-        <td>{{weapon.calculatedDamage.ac2}}</td>
-        <td>{{weapon.calculatedDamage.ac3}}</td>
-        <td>{{weapon.calculatedDamage.ac4}}</td>
-      </tr>
-      {{/each}}
-    </tbody>
-  </table>
+  {{/if}}
+
+  {{!-- Tabela de Cura do Elemento --}}
+  {{#if element.resolvedHealTable}}
+  <div class="element-damage-table-panel heal-panel">
+    <div class="edt-header heal-header">
+      <i class="fas fa-heart"></i>
+      <span>{{element.name}} — Tabela de Cura (ANI {{system.attributes.ani.value}})</span>
+    </div>
+    <table class="edt-table">
+      <thead>
+        <tr>
+          <th>+ Cura</th>
+          <th>PE</th>
+          <th>1 acerto</th>
+          <th>2 acertos</th>
+          <th>3 acertos</th>
+          <th><i class="fas fa-star"></i> 4 acertos</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each element.resolvedHealTable as |tier key|}}
+        <tr>
+          <td class="tier-label">Nív. {{key}}</td>
+          <td class="pe-cost">{{tier.pe}} PE</td>
+          <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
+          <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
+          <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
+          <td class="ac4-crit">{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+  {{/if}}
+
+  {{!-- Seção de Armas --}}
+  <div class="combat-section">
+    <div class="section-header-v3">
+      <h3>{{localize "ANIMUS.Weapons"}}</h3>
+    </div>
+
+    <div class="weapons-modern-list">
+      <div class="list-header">
+        <div class="col-name">{{localize "ANIMUS.Weapon"}}</div>
+        <div class="col-ac">AC1</div>
+        <div class="col-ac">AC2</div>
+        <div class="col-ac">AC3</div>
+        <div class="col-ac">AC4</div>
+      </div>
+
+      <div class="list-body">
+        {{#each weapons as |weapon|}}
+        <div class="weapon-item-row item-row glass-row" data-item-id="{{weapon.id}}">
+          <div class="item-main-info">
+            <img src="{{weapon.img}}" class="item-icon-small" />
+            <span class="item-name-clickable" data-action="editItem">{{weapon.name}}</span>
+          </div>
+          <div class="col-ac">{{weapon.calculatedDamage.ac1}}</div>
+          <div class="col-ac">{{weapon.calculatedDamage.ac2}}</div>
+          <div class="col-ac">{{weapon.calculatedDamage.ac3}}</div>
+          <div class="col-ac">{{weapon.calculatedDamage.ac4}}</div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+  </div>
 
   {{!-- Talentos e Ações --}}
-  <div class="grid grid-2col">
-    <div>
-      <div class="section-header">
+  <div class="combat-bottom-grid">
+    <div class="combat-section">
+      <div class="section-header-v3">
         <h3>{{localize "ANIMUS.Talents"}}</h3>
       </div>
-      <ul class="item-list">
+      <div class="simple-item-list">
         {{#each talents as |talent|}}
-        <li class="item-row" data-item-id="{{talent.id}}">
-          <div class="item-name">
-            <img src="{{talent.img}}" width="24" height="24" class="item-img" />
-            <a class="item-edit" data-action="editItem">{{talent.name}}</a>
-          </div>
-        </li>
+        <div class="simple-item-row item-row glass-row" data-item-id="{{talent.id}}">
+          <img src="{{talent.img}}" class="item-icon-mini" />
+          <span class="item-name-clickable" data-action="editItem">{{talent.name}}</span>
+        </div>
         {{/each}}
-      </ul>
+      </div>
     </div>
-    <div>
-      <div class="section-header">
+
+    <div class="combat-section">
+      <div class="section-header-v3">
         <h3>{{localize "ANIMUS.Actions"}}</h3>
       </div>
-      <ul class="item-list">
+      <div class="simple-item-list">
         {{#each actions as |action|}}
-        <li class="item-row" data-item-id="{{action.id}}">
-          <div class="item-name">
-            <img src="{{action.img}}" width="24" height="24" class="item-img" />
-            <a class="item-edit" data-action="editItem">{{action.name}}</a>
-          </div>
-        </li>
+        <div class="simple-item-row item-row glass-row" data-item-id="{{action.id}}">
+          <img src="{{action.img}}" class="item-icon-mini" />
+          <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
+        </div>
         {{/each}}
-      </ul>
+      </div>
     </div>
   </div>
+
 </div>

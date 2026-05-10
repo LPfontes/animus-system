@@ -1,0 +1,21 @@
+<div class="browser-container">
+  <header class="browser-header">
+    <h2>{{title}}</h2>
+    <div class="search-bar">
+      <i class="fas fa-search"></i>
+      <input type="text" placeholder="Filtrar..." />
+    </div>
+  </header>
+
+  <div class="browser-list glass-panel">
+    {{#each items}}
+    <div class="browser-item" data-action="selectItem" data-uuid="{{this.uuid}}" title="Clique para selecionar">
+      <img src="{{this.img}}" />
+      <span class="item-name">{{this.name}}</span>
+      <i class="fas fa-plus-circle select-icon"></i>
+    </div>
+    {{else}}
+    <div class="empty-state">Nenhum item do tipo {{type}} encontrado nos compêndios.</div>
+    {{/each}}
+  </div>
+</div>

@@ -1,0 +1,78 @@
+<div class="manager-container">
+  <header class="manager-header">
+    <div class="header-top">
+      <h2>GESTÃO DE TALENTOS</h2>
+      <div class="search-bar">
+        <div class="input-wrapper">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Buscar talento..." value="{{filters.search}}" />
+        </div>
+        <label class="available-filter" title="Mostrar apenas talentos cujos requisitos você atende">
+          <input type="checkbox" data-action="toggleAvailable" {{#if filters.availableOnly}}checked{{/if}} />
+          <span><i class="fas fa-check-circle"></i> Disponíveis</span>
+        </label>
+      </div>
+    </div>
+
+    <div class="category-filters">
+      <button type="button" class="category-btn {{#if (eq filters.category 'all')}}active{{/if}}"
+        data-action="filterCategory" data-category="all">
+        <i class="fas fa-th-large"></i> Todos
+      </button>
+      {{#each categories}}
+      <button type="button" class="category-btn {{#if (eq ../filters.category this.id)}}active{{/if}}"
+        data-action="filterCategory" data-category="{{this.id}}">
+        <i class="{{this.icon}}"></i> {{this.label}}
+      </button>
+      {{/each}}
+    </div>
+  </header>
+
+  <div class="manager-list glass-panel">
+    {{#each talents}}
+    <div class="talent-entry {{#if this.owned}}owned{{/if}} {{#unless this.metRequirements}}locked{{/unless}}"
+      data-name="{{this.name}}" data-category="{{this.category}}" data-met-reqs="{{this.metRequirements}}"
+      data-owned="{{this.owned}}">
+      <div class="entry-main">
+        <img src="{{this.img}}" />
+        <div class="entry-info">
+          <div class="entry-header">
+            <span class="talent-name">{{this.name}}</span>
+            <span class="talent-category">{{this.category}}</span>
+          </div>
+          <div class="talent-desc">{{{this.description}}}</div>
+
+          {{#unless this.metRequirements}}
+          <div class="requirements-lock">
+            <i class="fas fa-lock"></i> Requisitos:
+            <ul>
+              {{#each this.requirementErrors}}
+              <li>{{this}}</li>
+              {{/each}}
+            </ul>
+          </div>
+          {{else}}
+          {{#unless this.owned}}
+          <div class="requirements-met">
+            <i class="fas fa-check-circle"></i> Requisitos atendidos
+          </div>
+          {{/unless}}
+          {{/unless}}
+        </div>
+      </div>
+      <div class="entry-actions">
+        {{#if this.owned}}
+        <button type="button" class="add-btn owned" disabled><i class="fas fa-check"></i> Adquirido</button>
+        {{else}}
+        <button type="button" class="add-btn {{#unless this.metRequirements}}disabled{{/unless}}"
+          data-action="addTalent" data-uuid="{{this.uuid}}" {{#unless this.metRequirements}}disabled{{/unless}}>
+          <i class="fas fa-plus"></i> Adquirir
+        </button>
+        {{/if}}
+      </div>
+    </div>
+    {{else}}
+    <div class="empty-state">Nenhum talento encontrado.</div>
+    {{/each}}
+  </div>
+</div>

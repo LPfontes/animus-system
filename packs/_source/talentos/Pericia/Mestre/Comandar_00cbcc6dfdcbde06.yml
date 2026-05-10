@@ -1,0 +1,27 @@
+_id: 00cbcc6dfdcbde06
+name: Comandar
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Dê um comando a um aliado. <br>Se ele seguir seu comando, ganhará 6 <span
+    class="text-mechanic">ações</span> para realizá-lo. <br>Comandos precisam
+    ser precisos (ex: 'Ataque aquele oponente', 'Destrua aquela ponte',
+    'Conserte aquele mecanismo').
+  trigger: ''
+  requirements:
+    description: Profissional em Persuasão; Dar Ordem.
+    talents:
+      Dar Ordem: f1ddbc0166dcccb9
+    attributes: []
+    skills:
+      - key: persuasao
+        rank: 2
+  cost: 5
+  action: 6
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!00cbcc6dfdcbde06'

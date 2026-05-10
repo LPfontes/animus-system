@@ -1,0 +1,10 @@
+_id: 6b5b8c998e3e2519
+name: Repetir a mesma ação
+type: action
+img: systems/animus/assets/system-icons/action/targeting.svg
+system:
+  description: >-
+    Gasta 1 PA extra ao repetir exatamente a mesma ação realizada anteriormente
+    no mesmo turno.
+  cost: 1
+_key: '!items!6b5b8c998e3e2519'

@@ -1,0 +1,26 @@
+_id: e6eef9315288f4a5
+name: Artista de Campo
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Você sabe entreter seus colegas com piadas, histórias, músicas ou outras
+    formas. <br>Quando realizar um descanso curto ou longo, você pode dar 5
+    <span class="text-resource">PE</span> extra aos seus aliados até o próximo
+    descanso longo.
+  trigger: Descanso curto ou longo
+  requirements:
+    description: 1 ponto em PRESENÇA.
+    talents: {}
+    attributes:
+      - key: pre
+        value: 1
+    skills: []
+  cost: 5
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: d65c273bff169b30
+_key: '!items!e6eef9315288f4a5'

@@ -1,0 +1,19 @@
+_id: f707836db2abc8aa
+name: Besta Pesada
+type: weapon
+img: systems/animus/assets/system-icons/weapon/besta_pesada.svg
+system:
+  description: 'Tipo: Distância Média<br>Distância 36m, Recarga'
+  damage:
+    ac1: '2'
+    ac2: 3 + 1xHAB
+    ac3: 4 + 3xHAB
+    ac4: 7 + 6xHAB
+  weight: 0
+  price: 30 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: e1470d5c3ce776cd
+_key: '!items!f707836db2abc8aa'

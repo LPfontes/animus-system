@@ -1,0 +1,28 @@
+_id: 2b24826a6c664868
+name: Finalizar
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando um oponente estiver com 15% ou menos do <span
+    class="text-resource">PV</span> máximo, qualquer ataque é considerado fatal 
+    você escolhe entre desmaiar ou eliminar o alvo. <br>Contra alvos com ND
+    maior que o seu nível, o limiar é 10%.
+  trigger: ''
+  requirements:
+    description: Mestre em Luta ou Pontaria.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 3
+      - key: luta
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!2b24826a6c664868'

@@ -1,0 +1,11 @@
+_id: 0fab2866691b3327
+name: Reforçada
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Aumenta o multiplicador de POTÊNCIA de todos os níveis de <span
+    class="text-mechanic">acerto</span> em 1.<br>
+  price: 100 Đ
+folder: fa7f1e2a93a2af1b
+_key: '!items!0fab2866691b3327'

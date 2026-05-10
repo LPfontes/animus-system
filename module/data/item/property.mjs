@@ -26,18 +26,8 @@ export default class AnimusPropertyData extends AnimusItemData {
         })
       }),
 
-      // Requisitos para poder usar a propriedade
-      requirements: new fields.SchemaField({
-        weaponTypes: new fields.ArrayField(new fields.StringField()),
-        attributes: new fields.ArrayField(new fields.SchemaField({
-          key: new fields.StringField(),
-          value: new fields.NumberField()
-        })),
-        skills: new fields.ArrayField(new fields.SchemaField({
-          key: new fields.StringField(),
-          rank: new fields.NumberField()
-        }))
-      }),
+      // Tipos de arma compatíveis com esta propriedade (complementa os requisitos do base)
+      weaponTypes: new fields.ArrayField(new fields.StringField({ initial: "" }), { initial: [] }),
 
       // Marcadores de mecânicas especiais
       flags: new fields.SchemaField({

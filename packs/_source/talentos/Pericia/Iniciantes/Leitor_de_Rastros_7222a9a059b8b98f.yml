@@ -1,0 +1,24 @@
+_id: 7222a9a059b8b98f
+name: Leitor de Rastros
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    10 minutos de Análise revelam: quantas criaturas, tamanho, direção, quando
+    passaram. <br>automático, sem <span class="text-mechanic">teste</span>.
+  trigger: ''
+  requirements:
+    description: Amador em Investigação.
+    talents: {}
+    attributes: []
+    skills:
+      - key: investigacao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: d65c273bff169b30
+_key: '!items!7222a9a059b8b98f'

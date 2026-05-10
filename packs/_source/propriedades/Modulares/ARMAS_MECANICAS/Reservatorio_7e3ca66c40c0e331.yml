@@ -1,0 +1,11 @@
+_id: 7e3ca66c40c0e331
+name: Reservatório
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Segundo projétil pré-carregado; o segundo disparo no mesmo turno custa +1
+    <span class="text-mechanic">PA</span>.<br>
+  price: 80 Đ
+folder: 9acbeec4c3638a31
+_key: '!items!7e3ca66c40c0e331'

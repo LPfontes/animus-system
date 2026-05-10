@@ -1,0 +1,10 @@
+_id: 369e82ee6cc1e27d
+name: Mapa da Região
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: Elimina penalidade de Terreno Desconhecido
+  weight: 0
+  price: 10 Đ
+folder: f67425a08c83ef01
+_key: '!items!369e82ee6cc1e27d'

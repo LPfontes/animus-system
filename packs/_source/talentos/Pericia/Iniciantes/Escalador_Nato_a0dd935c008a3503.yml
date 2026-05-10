@@ -1,0 +1,25 @@
+_id: a0dd935c008a3503
+name: Escalador Nato
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Escala sem equipamento. <br><span class="text-mechanic">Vantagem</span> em
+    Atletismo para escalada. <br>Queda de até 6m sem <span
+    class="text-mechanic">dano</span>.
+  trigger: ''
+  requirements:
+    description: Amador em Atletismo.
+    talents: {}
+    attributes: []
+    skills:
+      - key: atletismo
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: d65c273bff169b30
+_key: '!items!a0dd935c008a3503'

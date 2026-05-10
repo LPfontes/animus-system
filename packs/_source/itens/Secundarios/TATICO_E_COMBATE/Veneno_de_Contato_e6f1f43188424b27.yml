@@ -1,0 +1,13 @@
+_id: e6f1f43188424b27
+name: Veneno de Contato
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    2 <span class="text-resource">PV</span> de <span
+    class="text-mechanic">dano</span>/turno por 3 turnos (<span
+    class="text-mechanic">CD</span> 8 <span class="text-attribute">POT</span>)
+  weight: 0
+  price: 20 Đ
+folder: 5cd7dc6a15f7f111
+_key: '!items!e6f1f43188424b27'

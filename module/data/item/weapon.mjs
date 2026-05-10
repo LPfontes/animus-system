@@ -26,10 +26,15 @@ export default class AnimusWeaponData extends AnimusItemData {
         })
       }),
       attribute: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 5 }),
-      type: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 4 }),
+      damageType: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+      type: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       range: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3 }),
       properties: new fields.ArrayField(new fields.StringField(), { initial: [] }),
-      specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] })
+      specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      runeSlots: new fields.SchemaField({
+        basic: new fields.NumberField({ initial: 2, integer: true, min: 0 }),
+        reinforced: new fields.NumberField({ initial: 1, integer: true, min: 0 })
+      })
     };
   }
 
@@ -49,5 +54,12 @@ export default class AnimusWeaponData extends AnimusItemData {
     }
 
     return table;
+  }
+
+  /**
+   * Retorna os itens de propriedade vinculados a esta arma.
+   */
+  get propertyItems() {
+    return this.properties.map(id => game.items.get(id) || game.packs.get("animus-system.propriedades")?.index.get(id)).filter(p => p);
   }
 }

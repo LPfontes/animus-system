@@ -1,0 +1,25 @@
+_id: c909e864d8a2ce88
+name: Furtivo Urbano
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Em ambientes construídos (cidades, masmorras, interiores), você tem <span
+    class="text-mechanic">Vantagem</span> em Furtividade sempre que houver
+    sombras, multidões ou objetos para se esconder.
+  trigger: ''
+  requirements:
+    description: Amador em Furtividade.
+    talents: {}
+    attributes: []
+    skills:
+      - key: furtividade
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!c909e864d8a2ce88'

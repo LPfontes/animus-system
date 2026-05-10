@@ -1,0 +1,12 @@
+_id: 0f98407a80b4717a
+name: Fogo Engarrafado
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    Causa 1d6+4 de <span class="text-mechanic">dano</span> de fogo; arde por 2
+    <span class="text-mechanic">rodadas</span>
+  weight: 0
+  price: 7 Đ
+folder: 5cd7dc6a15f7f111
+_key: '!items!0f98407a80b4717a'

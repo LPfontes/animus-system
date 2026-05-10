@@ -1,0 +1,24 @@
+_id: b0a26337622b9d59
+name: Resistência Brutal
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Recebe Resistência (<span class="text-mechanic">dano</span> pela metade)
+    contra <span class="text-mechanic">Dano</span> Físico enquanto estiver em
+    Fúria.
+  trigger: Fúria
+  requirements:
+    description: Entrar em Fúria Maior.
+    talents:
+      Entrar em Fúria Maior: 834d5014b16b84f6
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!b0a26337622b9d59'

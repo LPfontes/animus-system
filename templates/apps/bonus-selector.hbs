@@ -1,0 +1,26 @@
+<div class="bonus-selector-container glass-panel">
+  <header class="selector-header">
+    <img src="{{itemImg}}" class="item-icon" />
+    <div class="header-text">
+      <span class="item-type">{{itemType}}</span>
+      <h3>{{itemName}}</h3>
+    </div>
+  </header>
+
+  <p class="instruction">Escolha qual atributo receberá o bônus de <strong>+1</strong> concedido por esta escolha:</p>
+
+  <div class="options-grid">
+    {{#each options}}
+    <label class="option-card {{#if this.selected}}active{{/if}}">
+      <input type="radio" name="selectedAttribute" value="{{this.key}}" {{#if this.selected}}checked{{/if}} />
+      <span class="attr-label">{{this.label}}</span>
+    </label>
+    {{/each}}
+  </div>
+
+  <footer class="selector-footer">
+    <button type="button" class="confirm-btn" data-action="submit">
+      <i class="fas fa-check"></i> CONFIRMAR SELEÇÃO
+    </button>
+  </footer>
+</div>

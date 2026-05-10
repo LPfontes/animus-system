@@ -1,0 +1,29 @@
+_id: e15f864020d655eb
+name: Exaltar
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Usa as <span class="text-mechanic">ações</span> da próxima <span
+    class="text-mechanic">rodada</span> nesta <span
+    class="text-mechanic">rodada</span>  na próxima <span
+    class="text-mechanic">rodada</span>, não terá <span
+    class="text-mechanic">ações</span> disponíveis.
+  trigger: ''
+  requirements:
+    description: Mestre em Luta ou Pontaria.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 3
+      - key: luta
+        rank: 3
+  cost: 6
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!e15f864020d655eb'

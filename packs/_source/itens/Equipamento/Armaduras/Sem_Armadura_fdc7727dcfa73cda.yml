@@ -1,0 +1,10 @@
+_id: fdc7727dcfa73cda
+name: Sem Armadura
+type: armor
+img: systems/animus/assets/system-icons/armor/breastplate.svg
+system:
+  description: 'Proteção: +0<br>Penalidade: Nenhuma<br>Lógica: 0 + (0 x POT) + (0 x HAB)'
+  weight: 0
+  price: 0 Đ
+folder: 33fd8916c4554f13
+_key: '!items!fdc7727dcfa73cda'

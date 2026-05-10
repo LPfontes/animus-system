@@ -1,0 +1,27 @@
+_id: e6d265886ddb5bd8
+name: Estratega das Sombras
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Você usa conhecimento onde outros usam força. <br>Pode usar <span
+    class="text-attribute">COG</span> como atributo de combate em qualquer
+    rolagem de Luta ou Pontaria, 1×/<span class="text-mechanic">rodada</span>.
+  trigger: ''
+  requirements:
+    description: Mestre em Compreensão; Análise Marcial; Ponto Cego.
+    talents:
+      Análise Marcial: 5ba219482fb61843
+      Ponto Cego: 7c3de6cec85b3c70
+    attributes: []
+    skills:
+      - key: compreensao
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!e6d265886ddb5bd8'

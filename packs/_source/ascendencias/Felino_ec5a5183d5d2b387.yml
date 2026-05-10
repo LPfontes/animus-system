@@ -1,0 +1,48 @@
+_id: ec5a5183d5d2b387
+name: Felino
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/felino.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Garras:</strong> Permite ataque
+    com 1 <span class="text-mechanic">PA</span> (uma garra) ou 3 <span
+    class="text-mechanic">PA</span> (duas garras).<br>Lâminas naturais de
+    queratina. <br>Use estatísticas de arma cortante
+    leve.</li><li><strong>Reação Rápida:</strong> Trasforma <span
+    class="text-mechanic">vantagem</span> em <span
+    class="text-mechanic">desvantagem</span> em ataques surpresa<br>Ataques
+    surpresa contra você têm <span class="text-mechanic">Desvantagem</span> em
+    vez de <span class="text-mechanic">Vantagem</span>.</li><li><strong>Visão
+    Noturna:</strong> Ignorar penalidade escuridão<br>Enxerga perfeitamente na
+    escuridão sem penalidades.</li><li><strong>Furtividade Felina:</strong> +1d
+    em testes de Furtividade<br>Movimentos instintivamente
+    silenciosos.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - hab
+      - per
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Garras
+      description: >-
+        Lâminas naturais de queratina. <br>Use estatísticas de arma cortante
+        leve.
+      mechanicalEffect: >-
+        Permite ataque com 1 <span class="text-mechanic">PA</span> (uma garra)
+        ou 3 <span class="text-mechanic">PA</span> (duas garras).
+    - name: Reação Rápida
+      description: >-
+        Ataques surpresa contra você têm <span
+        class="text-mechanic">Desvantagem</span> em vez de <span
+        class="text-mechanic">Vantagem</span>.
+      mechanicalEffect: >-
+        Trasforma <span class="text-mechanic">vantagem</span> em <span
+        class="text-mechanic">desvantagem</span> em ataques surpresa
+    - name: Visão Noturna
+      description: Enxerga perfeitamente na escuridão sem penalidades.
+      mechanicalEffect: Ignorar penalidade escuridão
+    - name: Furtividade Felina
+      description: Movimentos instintivamente silenciosos.
+      mechanicalEffect: +1d em testes de Furtividade
+_key: '!items!ec5a5183d5d2b387'

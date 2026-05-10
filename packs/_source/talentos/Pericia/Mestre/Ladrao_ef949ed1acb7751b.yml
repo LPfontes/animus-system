@@ -1,0 +1,28 @@
+_id: ef949ed1acb7751b
+name: Ladrão
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Pode forçar fechaduras e desativar armadilhas com +1d no <span
+    class="text-mechanic">teste</span>. <br>Com ferramentas de ladrão, reduz o
+    tempo necessário à metade. <br>Pode identificar o tipo de armadilha sem
+    acionar (<span class="text-attribute">PER</span> <span
+    class="text-mechanic">CD</span> 7).
+  trigger: ''
+  requirements:
+    description: Amador em Prestidigitação; nível 4+.
+    talents:
+      Prestidigitação: e7e2a31a65753cbc
+    attributes: []
+    skills:
+      - key: prestidigitacao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!ef949ed1acb7751b'

@@ -1,0 +1,24 @@
+_id: e127832249e704ce
+name: Consistência
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando você rola um <span class="text-mechanic">teste</span> da
+    perícia-chave, o valor mínimo que você pode ter como resultado é 9.
+    <br>Qualquer valor menor que esse é aumentado para esse.
+  trigger: Teste de perícia-chave
+  requirements:
+    description: Profissional em Perícia-Chave; Foco em Perícia.
+    talents:
+      Foco em Perícia: b0224ad16d714bf5
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c201b8adf46f5416
+_key: '!items!e127832249e704ce'

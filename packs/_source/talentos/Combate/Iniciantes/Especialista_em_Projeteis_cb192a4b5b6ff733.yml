@@ -1,0 +1,25 @@
+_id: cb192a4b5b6ff733
+name: Especialista em Projéteis
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    +1 de <span class="text-mechanic">dano</span> em todos os ataques à
+    distância. <br>Ao utilizar projéteis especiais, o <span
+    class="text-mechanic">dano</span> aumenta em +3 (em vez de +1).
+  trigger: passiva
+  requirements:
+    description: Amador em Pontaria.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: 6a0bccb2bd2261a2
+_key: '!items!cb192a4b5b6ff733'

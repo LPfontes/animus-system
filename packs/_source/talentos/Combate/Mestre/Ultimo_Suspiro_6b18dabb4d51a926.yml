@@ -1,0 +1,28 @@
+_id: 6b18dabb4d51a926
+name: Último Suspiro
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando você falha no <span class="text-mechanic">teste</span> do Duro de
+    Matar, você ganha o dobro dos seus pontos de <span
+    class="text-mechanic">ação</span> de um turno comum e tem <span
+    class="text-mechanic">vantagem</span> em todos seus testes. <br>Após isso,
+    você cai.
+  trigger: ''
+  requirements:
+    description: Mestre em Resistência; Duro de Matar.
+    talents:
+      Duro de Matar: 2528ed833aac2cd2
+    attributes: []
+    skills:
+      - key: resistencia
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!6b18dabb4d51a926'

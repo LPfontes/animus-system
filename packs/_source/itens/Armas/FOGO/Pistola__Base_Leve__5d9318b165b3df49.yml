@@ -1,0 +1,19 @@
+_id: 5d9318b165b3df49
+name: Pistola (Base Leve)
+type: weapon
+img: systems/animus/assets/system-icons/weapon/pistola__base_leve_.svg
+system:
+  description: 'Tipo: Arma de Fogo<br>'
+  damage:
+    ac1: 1 + 1xHAB + 2
+    ac2: 1 + 2xHAB + 2
+    ac3: 2 + 3xHAB + 2
+    ac4: 3 + 4xHAB + 2
+  weight: 0
+  price: 200 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: 12a3c819990821c3
+_key: '!items!5d9318b165b3df49'

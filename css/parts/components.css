@@ -64,4 +64,511 @@
 }
 
 /* Helpers */
-.animus .tab:not(.active) { display: none !important; }
+.animus .tab:not(.active) {
+  display: none !important;
+}
+
+/* Compendium Browser */
+.animus.compendium-browser .browser-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  padding: 10px;
+}
+
+.animus.compendium-browser .browser-header h2 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.2rem;
+  color: var(--accent);
+  margin: 0 0 10px 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+}
+
+.animus.compendium-browser .search-bar {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.animus.compendium-browser .search-bar i {
+  position: absolute;
+  left: 12px;
+  color: var(--text-muted);
+}
+
+.animus.compendium-browser .search-bar input {
+  width: 100%;
+  padding: 8px 12px 8px 35px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: white;
+}
+
+.animus.compendium-browser .browser-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  padding: 10px !important;
+}
+
+.animus.compendium-browser .browser-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.animus.compendium-browser .browser-item:hover {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: var(--accent);
+  transform: translateX(5px);
+}
+
+.animus.compendium-browser .browser-item img {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+}
+
+.animus.compendium-browser .item-name {
+  flex: 1;
+  font-weight: 600;
+  color: white;
+}
+
+.animus.compendium-browser .select-icon {
+  color: var(--accent);
+  opacity: 0.5;
+  font-size: 1.2rem;
+}
+
+.animus.compendium-browser .browser-item:hover .select-icon {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Talent Manager */
+.animus.talent-manager .manager-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  padding: 15px;
+}
+
+.animus.talent-manager .manager-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.animus.talent-manager .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.animus.talent-manager .search-bar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex: 1;
+}
+
+.animus.talent-manager .input-wrapper {
+  position: relative;
+  flex: 1;
+}
+
+.animus.talent-manager .input-wrapper i {
+  position: absolute;
+  left: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--text-muted);
+}
+
+.animus.talent-manager .input-wrapper input {
+  width: 100%;
+  padding: 8px 12px 8px 35px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: white;
+}
+
+.animus.talent-manager .available-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+}
+
+.animus.talent-manager .available-filter:hover {
+  background: rgba(157, 78, 221, 0.05);
+  color: #fff;
+}
+
+.animus.talent-manager .available-filter input:checked+span {
+  color: var(--accent);
+}
+
+.animus.talent-manager .requirements-lock {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 77, 77, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 77, 77, 0.15);
+  font-size: 0.75rem;
+  color: var(--fire);
+}
+
+.animus.talent-manager .requirements-lock i {
+  margin-right: 5px;
+}
+
+.animus.talent-manager .requirements-lock ul {
+  margin: 5px 0 0 15px;
+  padding: 0;
+  list-style: disc;
+}
+
+.animus.talent-manager .requirements-met {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(46, 204, 113, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(46, 204, 113, 0.15);
+  font-size: 0.75rem;
+  color: #2ecc71;
+}
+
+.animus.talent-manager .requirements-met i {
+  margin-right: 5px;
+}
+
+.animus.talent-manager .talent-entry.locked {
+  border-color: rgba(255, 77, 77, 0.2);
+}
+
+.animus.talent-manager .add-btn.disabled {
+  border-color: var(--border);
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.animus.talent-manager .add-btn.disabled:hover {
+  box-shadow: none;
+}
+
+.animus.talent-manager .manager-header .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.animus.talent-manager .manager-header h2 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--accent);
+  margin: 0;
+  letter-spacing: 0.15rem;
+  font-size: 1.4rem;
+}
+
+.animus.talent-manager .search-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.animus.talent-manager .input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.animus.talent-manager .input-wrapper i {
+  position: absolute;
+  left: 12px;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.animus.talent-manager .input-wrapper input {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  color: white;
+  padding: 8px 12px 8px 35px;
+  border-radius: 8px;
+  width: 250px;
+  transition: all 0.2s;
+}
+
+.animus.talent-manager .input-wrapper input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  outline: none;
+}
+
+.animus.talent-manager .available-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  user-select: none;
+}
+
+.animus.talent-manager .available-filter input {
+  margin: 0;
+}
+
+.animus.talent-manager .available-filter span {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.animus.talent-manager .category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.animus.talent-manager .category-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.animus.talent-manager .category-btn:hover,
+.animus.talent-manager .category-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.talent-manager .manager-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px !important;
+}
+
+.animus.talent-manager .talent-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.animus.talent-manager .entry-main {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.animus.talent-manager .talent-entry img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.animus.talent-manager .entry-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.animus.talent-manager .talent-name {
+  font-weight: 800;
+  color: white;
+  font-size: 1rem;
+}
+
+.animus.talent-manager .talent-category {
+  font-size: 0.65rem;
+  background: rgba(157, 78, 221, 0.2);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.animus.talent-manager .talent-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.animus.talent-manager .add-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.animus.talent-manager .add-btn:hover {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.talent-manager .add-btn.owned {
+  border-color: #2ecc71;
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  cursor: default;
+}
+
+/* Bonus Selector Modal */
+.animus.bonus-selector .bonus-selector-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus.bonus-selector .selector-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.animus.bonus-selector .item-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.bonus-selector .item-type {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.animus.bonus-selector h3 {
+  margin: 0;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+}
+
+.animus.bonus-selector .instruction {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.animus.bonus-selector .options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.animus.bonus-selector .option-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.animus.bonus-selector .option-card:hover {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: var(--accent);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.animus.bonus-selector .option-card.active {
+  background: rgba(157, 78, 221, 0.2);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.animus.bonus-selector .option-card input {
+  display: none;
+}
+
+.animus.bonus-selector .attr-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.animus.bonus-selector .confirm-btn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.animus.bonus-selector .confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}

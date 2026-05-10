@@ -1,0 +1,29 @@
+_id: cee1b6c30a2f231a
+name: Provocação Letal
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Após derrotar um oponente, pode gastar 2 <span
+    class="text-resource">PE</span> para fazer um <span
+    class="text-mechanic">teste</span> de Intimidação contra todos os inimigos
+    visíveis. <br>Os que falharem gastam +1 <span
+    class="text-resource">PA</span> em todos os ataques contra você na próxima
+    <span class="text-mechanic">rodada</span>.
+  trigger: Após derrotar um oponente
+  requirements:
+    description: Profissional em Intimidação; Presença de Combate; nível 4+.
+    talents:
+      Presença de Combate: 5a3a35a86c598b17
+    attributes: []
+    skills:
+      - key: intimidacao
+        rank: 2
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!cee1b6c30a2f231a'

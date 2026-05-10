@@ -1,0 +1,8 @@
+_id: 81527c06d5dbb68e
+name: Encurvada
+type: item
+img: icons/svg/gear.svg
+system:
+  description: '+1 dano no acerto 2 e +2 no acerto 4. Pré-req: Cortante ou Perfurante.'
+folder: 6c0069107d7e49ee
+_key: '!items!81527c06d5dbb68e'

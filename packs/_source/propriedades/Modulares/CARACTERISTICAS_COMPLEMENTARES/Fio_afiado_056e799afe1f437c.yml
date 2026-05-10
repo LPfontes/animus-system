@@ -1,0 +1,11 @@
+_id: 056e799afe1f437c
+name: Fio afiado
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Aumenta o multiplicador de um <span class="text-mechanic">acerto
+    Crítico</span> em +1x o atributo base.<br>
+  price: 50 Đ
+folder: 91b98d36bf015a43
+_key: '!items!056e799afe1f437c'

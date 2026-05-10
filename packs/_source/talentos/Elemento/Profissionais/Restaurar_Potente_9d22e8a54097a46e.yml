@@ -1,0 +1,22 @@
+_id: 9d22e8a54097a46e
+name: Restaurar Potente
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: As Curas elementais aumentam o valor fixo de seu efeito em +2.
+  trigger: ''
+  requirements:
+    description: Profissional em Medicina.
+    talents: {}
+    attributes: []
+    skills:
+      - key: medicina
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: 39e2ad49f9088004
+_key: '!items!9d22e8a54097a46e'

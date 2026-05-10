@@ -1,0 +1,11 @@
+_id: 25f9a6e2cfcc6d96
+name: Reações Defensivas
+type: action
+img: systems/animus/assets/system-icons/action/broken-shield.svg
+system:
+  description: >-
+    Um personagem pode gastar PA da rodada seguinte para ativar habilidades
+    defensivas (tag Reação) fora de seu turno. Essas ações são descontadas do
+    próximo turno.
+  cost: 0
+_key: '!items!25f9a6e2cfcc6d96'

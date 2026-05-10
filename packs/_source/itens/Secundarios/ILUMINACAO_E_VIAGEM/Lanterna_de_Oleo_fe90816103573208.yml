@@ -1,0 +1,10 @@
+_id: fe90816103573208
+name: Lanterna de Óleo
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: 6h de luz com óleo; iluminação discreta
+  weight: 0
+  price: 10 Đ
+folder: ec461ee0e7ff19c3
+_key: '!items!fe90816103573208'

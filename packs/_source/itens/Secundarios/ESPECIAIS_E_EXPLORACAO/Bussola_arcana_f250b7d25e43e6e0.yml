@@ -1,0 +1,10 @@
+_id: f250b7d25e43e6e0
+name: Bússola arcana
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: Aponta para a maior concentração de anima
+  weight: 0
+  price: 120 Đ
+folder: f67425a08c83ef01
+_key: '!items!f250b7d25e43e6e0'

@@ -1,0 +1,26 @@
+_id: 0679fa7ffc3e5af1
+name: Contra-elemento
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Realize um ataque elemental contra o <span class="text-mechanic">dano</span>
+    do oponente para reduzi-lo no valor que resultar seu ataque. <br>Caso o
+    <span class="text-mechanic">dano</span> seja maior que o do oponente, ele é
+    zerado.
+  trigger: ''
+  requirements:
+    description: Profissional em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: 23
+    dc: 0
+folder: 39e2ad49f9088004
+_key: '!items!0679fa7ffc3e5af1'

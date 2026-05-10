@@ -1,0 +1,23 @@
+_id: ca9f566f84f90449
+name: Predador
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: Igual ao Caçador de Cabeças, mas aumenta o multiplicador para ×2.
+  trigger: ''
+  requirements:
+    description: Mestre em Sobrevivência; Caçador de Cabeças.
+    talents:
+      Caçador de Cabeças: 4426c5c58bb0dbd4
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: a6bae926e036c588
+_key: '!items!ca9f566f84f90449'

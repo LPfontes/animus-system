@@ -1,0 +1,26 @@
+_id: 06d0558b2382905c
+name: Carga Imparável
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Mover 6m ou mais antes de atacar: +2 <span
+    class="text-mechanic">dano</span>. <br>Com 3+ acertos, empurra o alvo 3m.
+  trigger: Antes de atacar
+  requirements:
+    description: Profissional em Atletismo; Amador em Luta; nível 4+.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 1
+      - key: atletismo
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: c201b8adf46f5416
+_key: '!items!06d0558b2382905c'

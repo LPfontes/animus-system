@@ -1,0 +1,8 @@
+_id: 13220c8392e3ce3e
+name: Ação Coordenada
+type: action
+img: systems/animus/assets/system-icons/action/targeting.svg
+system:
+  description: Gasta 1 PA adicional para conceder Vantagem a um aliado.
+  cost: 1
+_key: '!items!13220c8392e3ce3e'

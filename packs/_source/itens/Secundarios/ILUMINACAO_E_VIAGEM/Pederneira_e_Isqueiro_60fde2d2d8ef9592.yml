@@ -1,0 +1,12 @@
+_id: 60fde2d2d8ef9592
+name: Pederneira e Isqueiro
+type: item
+img: icons/svg/item-bag.svg
+system:
+  description: >-
+    Acender fogo exige <span class="text-mechanic">teste</span> <span
+    class="text-mechanic">CD</span> 8 <span class="text-attribute">HAB</span>
+  weight: 0
+  price: 5 Đ
+folder: ec461ee0e7ff19c3
+_key: '!items!60fde2d2d8ef9592'

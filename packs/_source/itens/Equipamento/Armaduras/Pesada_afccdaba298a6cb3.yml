@@ -1,0 +1,12 @@
+_id: afccdaba298a6cb3
+name: Pesada
+type: armor
+img: systems/animus/assets/system-icons/armor/breastplate.svg
+system:
+  description: >-
+    Proteção: +12<br>Penalidade: +1 ação em QUALQUER ação; Desvantagem em
+    Furtividade<br>Lógica: 12 + (2 x POT) + (0 x HAB)
+  weight: 0
+  price: 60 Đ
+folder: 33fd8916c4554f13
+_key: '!items!afccdaba298a6cb3'

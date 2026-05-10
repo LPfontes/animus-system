@@ -1,0 +1,25 @@
+_id: ae1599f3b648c80d
+name: Oportunismo
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Quando um oponente está com <span class="text-mechanic">desvantagem</span>,
+    você aumenta seus acertos em 1 passo contra ele.
+  trigger: ''
+  requirements:
+    description: Profissional em Furtividade; Ataque Furtivo.
+    talents:
+      Ataque Furtivo: f4f8499bd1a30f8c
+    attributes: []
+    skills:
+      - key: furtividade
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: e85e90ea0f0bf712
+_key: '!items!ae1599f3b648c80d'

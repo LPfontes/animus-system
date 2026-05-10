@@ -1,0 +1,12 @@
+_id: 81fe7f652bc0929d
+name: Arremessável
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Permite arremessar a arma até 9m usando <span
+    class="text-attribute">HAB</span>; recuperar a arma custa 1 <span
+    class="text-mechanic">PA</span>.<br>
+  price: 50 Đ
+folder: 91b98d36bf015a43
+_key: '!items!81fe7f652bc0929d'

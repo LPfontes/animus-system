@@ -1,0 +1,30 @@
+_id: 2d84f51f1c9a2330
+name: Mente de Guerra
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    1×/<span class="text-mechanic">cena</span>, gaste 5 <span
+    class="text-resource">PE</span> para pausar mentalmente e recalcular.
+    <br>Escolha um de: (a) Cancelar uma <span class="text-mechanic">ação</span>
+    já declarada antes de resolver seus efeitos; (b) Forçar um re-roll em um
+    <span class="text-mechanic">teste</span> de qualquer aliado ou inimigo
+    visível; (c) Ganhar 2 <span class="text-resource">PA</span> extras nessa
+    <span class="text-mechanic">rodada</span>.
+  trigger: ''
+  requirements:
+    description: Mestre em Compreensão; Contra-Estratégia.
+    talents:
+      Contra-Estratégia: 53fde0712d55b7e7
+    attributes: []
+    skills:
+      - key: compreensao
+        rank: 3
+  cost: 5
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: f5846711e68e1f9d
+_key: '!items!2d84f51f1c9a2330'

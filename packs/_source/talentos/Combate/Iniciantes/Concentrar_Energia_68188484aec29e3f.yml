@@ -1,0 +1,25 @@
+_id: 68188484aec29e3f
+name: Concentrar Energia
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Você dedica o turno a acumular <span class="text-attribute">ANI</span>.
+    <br>Seu próximo ataque elemental neste turno ou no próximo tem custo de
+    <span class="text-resource">PE</span> reduzido em 4 (mínimo 1).
+  trigger: ''
+  requirements:
+    description: Amador em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 1
+  cost: 0
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: 6a0bccb2bd2261a2
+_key: '!items!68188484aec29e3f'

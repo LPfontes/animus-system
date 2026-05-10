@@ -1,0 +1,8 @@
+_id: d37ffa2176be2017
+name: Ocultável
+type: item
+img: icons/svg/gear.svg
+system:
+  description: O alvo fica Desprevenido quando essa arma é sacada pela primeira vez.
+folder: 6c0069107d7e49ee
+_key: '!items!d37ffa2176be2017'

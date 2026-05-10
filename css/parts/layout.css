@@ -2,16 +2,23 @@
 /*             SIDEBAR & LAYOUT              */
 /* ========================================= */
 
-.animus.application .window-content,
+/* Regra especial para a ficha de personagem (necessária para abas laterais e efeitos de vidro) */
 .animus.sheet.actor,
+.animus.sheet.actor .window-content,
 .animus.sheet.actor form {
+  height: 100%;
   overflow: visible !important;
 }
 
-.animus .window-content>form {
+.animus.sheet.item .window-content {
+  overflow: hidden !important;
+}
+
+.animus .window-content > form {
   height: 100%;
   display: flex;
   flex-direction: column;
+  min-height: 0;
   overflow: visible !important;
 }
 
@@ -83,8 +90,8 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  padding: 20px;
   height: 100%;
+  min-height: 0;
   overflow-y: auto;
   overflow-x: hidden;
   background: rgba(15, 15, 25, 0.4);

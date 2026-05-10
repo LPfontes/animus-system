@@ -1,0 +1,11 @@
+_id: 09b0a87cce339a27
+name: Reforçada
+type: item
+img: icons/svg/upgrade.svg
+system:
+  description: >-
+    Aumenta o alcance máximo em +15m. <br>Ataques além do alcance base sofrem
+    <span class="text-mechanic">desvantagem</span>.<br>
+  price: 50 Đ
+folder: 9acbeec4c3638a31
+_key: '!items!09b0a87cce339a27'

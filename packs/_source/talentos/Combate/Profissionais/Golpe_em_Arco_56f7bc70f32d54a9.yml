@@ -1,0 +1,26 @@
+_id: 56f7bc70f32d54a9
+name: Golpe em Arco
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Realiza um ataque em arco à sua frente com uma arma com a qual possua
+    Maestria Marcial. <br>Todos os alvos recebem o <span
+    class="text-mechanic">dano</span> da sua rolagem.
+  trigger: ''
+  requirements:
+    description: Profissional em Luta; Maestria Marcial.
+    talents:
+      Maestria Marcial: 83a721ac1600af78
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+  cost: 0
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: e85e90ea0f0bf712
+_key: '!items!56f7bc70f32d54a9'

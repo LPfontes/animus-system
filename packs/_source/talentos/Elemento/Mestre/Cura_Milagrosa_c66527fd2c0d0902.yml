@@ -1,0 +1,24 @@
+_id: c66527fd2c0d0902
+name: Cura Milagrosa
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Ao curar com elemento, você pode escolher o valor máximo de cura em vez de
+    rolar.
+  trigger: ''
+  requirements:
+    description: Mestre em aura.
+    talents: {}
+    attributes: []
+    skills:
+      - key: aura
+        rank: 3
+  cost: 3
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+folder: cceac30928a1dc9b
+_key: '!items!c66527fd2c0d0902'

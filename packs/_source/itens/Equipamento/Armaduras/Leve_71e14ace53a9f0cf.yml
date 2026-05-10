@@ -1,0 +1,10 @@
+_id: 71e14ace53a9f0cf
+name: Leve
+type: armor
+img: systems/animus/assets/system-icons/armor/breastplate.svg
+system:
+  description: 'Proteção: +2<br>Penalidade: Nenhuma<br>Lógica: 2 + (0 x POT) + (1 x HAB)'
+  weight: 0
+  price: 5 Đ
+folder: 33fd8916c4554f13
+_key: '!items!71e14ace53a9f0cf'

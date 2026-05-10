@@ -1,0 +1,19 @@
+_id: e3358718a7df30a0
+name: Mosquete/Carabina (Base Média)
+type: weapon
+img: systems/animus/assets/system-icons/weapon/mosquete_carabina__base_media_.svg
+system:
+  description: 'Tipo: Arma de Fogo<br>'
+  damage:
+    ac1: 1 + 2xHAB + 4
+    ac2: 2 + 3xHAB + 4
+    ac3: 3 + 4xHAB + 4
+    ac4: 5 + 5xHAB + 4
+  weight: 0
+  price: 500 Đ
+  check:
+    attribute: 0
+    skill: 1
+    dc: 0
+folder: 12a3c819990821c3
+_key: '!items!e3358718a7df30a0'

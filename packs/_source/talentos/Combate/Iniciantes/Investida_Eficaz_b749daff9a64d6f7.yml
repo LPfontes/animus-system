@@ -1,0 +1,24 @@
+_id: b749daff9a64d6f7
+name: Investida Eficaz
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Mova até 6m em linha reta e ataque. <br>O ataque ganha +3 de <span
+    class="text-mechanic">dano</span>. <br>Com ac. 3+: o alvo testa <span
+    class="text-attribute">POT</span> <span class="text-mechanic">CD</span> 8 ou
+    é <span class="text-condition">Derrubado</span>.
+  trigger: ''
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 8
+folder: 6a0bccb2bd2261a2
+_key: '!items!b749daff9a64d6f7'

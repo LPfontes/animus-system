@@ -1,0 +1,27 @@
+_id: 07e185ff054c8a45
+name: Sifão de aura
+type: talent
+img: systems/animus/assets/system-icons/book/book-aura.svg
+system:
+  description: >-
+    Realize um <span class="text-mechanic">teste</span> de Controle Elemental.
+    <br>O valor total que tirar no dado será aumentado no valor de <span
+    class="text-resource">PE</span> para o alvo utilizar um ataque elemental.
+  trigger: ''
+  requirements:
+    description: Profissional em Controle Elemental.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+      - key: controle
+        rank: 2
+  cost: 5
+  action: 2
+  check:
+    attribute: -1
+    skill: 23
+    dc: 0
+folder: 39e2ad49f9088004
+_key: '!items!07e185ff054c8a45'
