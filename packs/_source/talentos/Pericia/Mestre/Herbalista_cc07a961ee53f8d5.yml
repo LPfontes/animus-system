@@ -3,12 +3,8 @@ name: Herbalista
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Em ambientes naturais, pode identificar e colher ervas medicinais sem <span
-    class="text-mechanic">teste</span>. <br>Com 30 minutos e um Kit BAsico de
-    Medicina, cria antídotos para venenos comuns e remédios que curam 1d6 <span
-    class="text-resource">PV</span> uma vez por descanso longo.
-  trigger: ''
+  description: Em ambientes naturais, pode identificar e colher ervas medicinais sem <span class="text-mechanic">teste</span>. <br>Com 30 minutos e um Kit BAsico de Medicina, cria antídotos para venenos comuns e remédios que curam 1d6 <span class="text-resource">PV</span> uma vez por descanso longo.
+  trigger: ""
   requirements:
     description: Amador em Medicina ou Sobrevivência.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!cc07a961ee53f8d5'
+_key: "!items!cc07a961ee53f8d5"

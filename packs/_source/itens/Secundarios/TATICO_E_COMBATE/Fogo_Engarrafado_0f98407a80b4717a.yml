@@ -1,8 +1,14 @@
 _id: 0f98407a80b4717a
 name: Fogo Engarrafado
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  application:
+    type: "damage"
+    formula: "1d6"
+    condition: ""
+  subCategory: tatico
   description: >-
     Causa 1d6+4 de <span class="text-mechanic">dano</span> de fogo; arde por 2
     <span class="text-mechanic">rodadas</span>

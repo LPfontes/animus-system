@@ -3,10 +3,8 @@ name: Forma de Batalha
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    No primeiro turno de qualquer combate, seus ataques elementais e de luta
-    custam -1 <span class="text-resource">PA</span> (mínimo 1).
-  trigger: ''
+  description: No primeiro turno de qualquer combate, seus ataques elementais e de luta custam -1 <span class="text-resource">PA</span> (mínimo 1).
+  trigger: ""
   requirements:
     description: Foco Elemental; nível 4+.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!effce35fe7ba5b6c'
+_key: "!items!effce35fe7ba5b6c"

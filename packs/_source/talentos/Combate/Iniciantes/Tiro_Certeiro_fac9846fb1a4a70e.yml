@@ -3,9 +3,7 @@ name: Tiro Certeiro
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Anula penalidades por atacar alvo em combate corporal; anula chance de
-    acertar aliados.
+  description: Anula penalidades por atacar alvo em combate corporal; anula chance de acertar aliados.
   trigger: passiva
   requirements:
     description: Amador em Pontaria.
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!fac9846fb1a4a70e'
+_key: "!items!fac9846fb1a4a70e"

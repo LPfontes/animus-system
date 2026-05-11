@@ -3,13 +3,8 @@ name: Escudeiro
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você estiver usando um escudo e um aliado adjacente for o alvo de um
-    ataque, pode gastar 1 <span class="text-mechanic">ação</span> (da próxima
-    <span class="text-mechanic">rodada</span>) para se interpor: você se torna o
-    alvo do ataque e aplica os bônus de <span
-    class="text-resource">Proteção</span> do escudo contra ele.
-  trigger: ''
+  description: "Quando você estiver usando um escudo e um aliado adjacente for o alvo de um ataque, pode gastar 1 <span class=\"text-mechanic\">ação</span> (da próxima <span class=\"text-mechanic\">rodada</span>) para se interpor: você se torna o alvo do ataque e aplica os bônus de <span class=\"text-resource\">Proteção</span> do escudo contra ele."
+  trigger: ""
   requirements:
     description: Proatividade com Escudos.
     talents:
@@ -22,5 +17,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!35ae3add67a8d88a'
+_key: "!items!35ae3add67a8d88a"

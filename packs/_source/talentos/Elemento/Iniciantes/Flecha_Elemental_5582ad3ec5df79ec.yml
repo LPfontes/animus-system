@@ -3,13 +3,7 @@ name: Flecha Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ao disparar uma arma à distância, gaste 2 <span
-    class="text-resource">PE</span>: o projétil se torna energia elemental pura.
-    <br>O ataque causa <span class="text-mechanic">dano</span> do tipo elemental
-    (em vez de físico) e com 3+ acertos, o projétil explode no impacto em raio
-    de 1,5m, causando <span class="text-mechanic">dano</span> = 1 + 1×<span
-    class="text-attribute">ANI</span> a todos na area.
+  description: "Ao disparar uma arma à distância, gaste 2 <span class=\"text-resource\">PE</span>: o projétil se torna energia elemental pura. <br>O ataque causa <span class=\"text-mechanic\">dano</span> do tipo elemental (em vez de físico) e com 3+ acertos, o projétil explode no impacto em raio de 1,5m, causando <span class=\"text-mechanic\">dano</span> = 1 + 1×<span class=\"text-attribute\">ANI</span> a todos na area."
   trigger: Antes de realizar um ataque
   requirements:
     description: Amador em Pontaria; Amador em Elemento. (Exclusivo de Pontaria)
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!5582ad3ec5df79ec'
+_key: "!items!5582ad3ec5df79ec"

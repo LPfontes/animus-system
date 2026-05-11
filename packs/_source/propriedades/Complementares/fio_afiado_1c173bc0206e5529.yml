@@ -1,0 +1,20 @@
+_id: 1c173bc0206e5529
+name: Fio afiado
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Aumenta o multiplicador de um <span class="text-mechanic">acerto
+    Crítico</span> em +1x o atributo base.
+  price: 50 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!1c173bc0206e5529'

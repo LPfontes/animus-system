@@ -3,10 +3,7 @@ name: Língua de Prata
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando estiver negociando com um NPC, você pode gastar 4 <span
-    class="text-resource">PE</span> para transformar o valor de uma rolagem para
-    '11'.
+  description: Quando estiver negociando com um NPC, você pode gastar 4 <span class="text-resource">PE</span> para transformar o valor de uma rolagem para '11'.
   trigger: Uma negociação
   requirements:
     description: Profissional em Persuasão; Argumento Irrefutável.
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!21bbc50cbfbe537d'
+_key: "!items!21bbc50cbfbe537d"

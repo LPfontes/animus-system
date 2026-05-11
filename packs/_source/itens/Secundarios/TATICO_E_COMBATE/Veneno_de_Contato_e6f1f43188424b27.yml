@@ -1,8 +1,18 @@
 _id: e6f1f43188424b27
 name: Veneno de Contato
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  check:
+    attribute: "pot"
+    skill: ""
+    dc: 12
+  application:
+    type: "damage"
+    formula: "1d6"
+    condition: "envenenado"
+  subCategory: tatico
   description: >-
     2 <span class="text-resource">PV</span> de <span
     class="text-mechanic">dano</span>/turno por 3 turnos (<span

@@ -1,0 +1,23 @@
+_id: b893bba6c3d1239f
+name: Equilibrada
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Substitui o modificador de POTÊNCIA por HABILIDADE no cálculo de <span
+    class="text-mechanic">dano</span>. <br>adiciona +1xHAB extra no
+    multiplicador de cada nível de <span
+    class="text-mechanic">acerto</span>.<p><i>Lógica: Trocar atributo Base (POT
+    -> HAB) e incrementar multiplicador em +1.</i></p>
+  price: 100 Đ
+  subCategory: Principais
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: fa7f1e2a93a2af1b
+_key: '!items!b893bba6c3d1239f'

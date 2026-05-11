@@ -1,8 +1,0 @@
-_id: 63d01110cef169fe
-name: Aparar
-type: item
-img: icons/svg/gear.svg
-system:
-  description: '1x/rodada: gaste 1 PE como reação para reduzir o dano recebido em 3.'
-folder: 6c0069107d7e49ee
-_key: '!items!63d01110cef169fe'

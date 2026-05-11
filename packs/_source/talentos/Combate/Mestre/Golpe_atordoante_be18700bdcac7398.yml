@@ -3,11 +3,7 @@ name: Golpe atordoante
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando sua rolagem de ataque resultar em 4 acertos, pode gastar 2 <span
-    class="text-resource">PE</span> para atordoar o alvo por 1 <span
-    class="text-mechanic">rodada</span> (custo de todas as suas <span
-    class="text-mechanic">ações</span> aumenta em 1).
+  description: Quando sua rolagem de ataque resultar em 4 acertos, pode gastar 2 <span class="text-resource">PE</span> para atordoar o alvo por 1 <span class="text-mechanic">rodada</span> (custo de todas as suas <span class="text-mechanic">ações</span> aumenta em 1).
   trigger: Ataque com 4 acertos
   requirements:
     description: Amador em Luta ou Pontaria.
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!be18700bdcac7398'
+_key: "!items!be18700bdcac7398"

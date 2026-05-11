@@ -19,8 +19,10 @@ export const actor = {
 export const item = {
   weapon: AnimusWeaponData,
   armor: AnimusArmorData,
+  shield: AnimusArmorData,
   talent: AnimusTalentData,
   item: AnimusItemData,
+  secondary: AnimusItemData,
   property: AnimusPropertyData,
   action: AnimusActionData,
   check: AnimusCheckData,

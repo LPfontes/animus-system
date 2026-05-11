@@ -3,9 +3,7 @@ name: Autoconfiança
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Adiciona o valor de <span class="text-attribute">PRE</span> a um <span
-    class="text-mechanic">teste</span> de Perícia.
+  description: Adiciona o valor de <span class="text-attribute">PRE</span> a um <span class="text-mechanic">teste</span> de Perícia.
   trigger: Teste de Perícia
   requirements:
     description: 1 ponto em PRESENÇA.
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!65b5715e5658ccf7'
+_key: "!items!65b5715e5658ccf7"

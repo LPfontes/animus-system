@@ -3,10 +3,8 @@ name: Potência Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Desbloqueia Nível 3 (9 <span class="text-resource">PE</span> base). <br>Sem
-    este talento: apenas Nív. <br>1 e 2.
-  trigger: ''
+  description: "Desbloqueia Nível 3 (9 <span class=\"text-resource\">PE</span> base). <br>Sem este talento: apenas Nív. <br>1 e 2."
+  trigger: ""
   requirements:
     description: ANI 3
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!7017cc3eb33702c5'
+_key: "!items!7017cc3eb33702c5"

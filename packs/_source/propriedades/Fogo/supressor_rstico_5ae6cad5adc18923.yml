@@ -1,0 +1,20 @@
+_id: 5ae6cad5adc18923
+name: Supressor Rústico
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    <span class="text-mechanic">CD</span> de localização aumenta de 5 para 9;
+    alcance -10m; quebra após 10 disparos
+  price: 150 Đ
+  subCategory: Fogo
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: bf911a2a673f2bdd
+_key: '!items!5ae6cad5adc18923'

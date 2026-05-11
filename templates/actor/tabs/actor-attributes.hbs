@@ -1,61 +1,20 @@
 <div class="tab attributes {{tabs.attributes.cssClass}}" data-group="primary" data-tab="attributes">
 
 
-  {{!-- Painel de Evolução (Níveis 2+) --}}
-  {{#if (gt system.details.level 1)}}
-  <div class="advancement-panel-v3 glass-panel"
-    style="margin-bottom: 20px; padding: 15px; border-left: 3px solid var(--accent);">
-    <div class="advancement-header"
-      style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i>
-        EVOLUÇÃO</span>
-      <span class="points-pool"
-        style="font-size: 0.8rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 10px; border-radius: 20px;">
-        Pontos Restantes: <span
-          style="color: {{#if (eq pointsRemaining 0)}}var(--text-muted){{else}}#fff{{/if}}">{{pointsRemaining}}</span>
-      </span>
+  {{!-- Botão de Evolução (Apenas se houver pendências) --}}
+  {{#if pendingAdvancement}}
+  <div class="advancement-launcher glass-panel" style="margin-bottom: 20px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent);">
+    <div class="launcher-label">
+      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i> EVOLUÇÃO DISPONÍVEL</span>
+      <p style="margin: 0; font-size: 0.7rem; color: var(--text-muted);">Distribua seus pontos de nível e bônus de atributo.</p>
     </div>
-
-    <div class="advancement-grid" style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
-      {{!-- Distribuição de PV/PE/PA --}}
-      <div class="distribution-section">
-        <label
-          style="font-size: 0.6rem; font-weight: 900; color: var(--text-muted); display: block; margin-bottom: 8px;">DISTRIBUIR
-          PONTOS (+3 por nível)</label>
-        <div class="dist-row" style="display: flex; align-items: center; gap: 10px; margin-bottom: 5px;">
-          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PV</span>
-          <input type="number" name="system.details.advancement.distributedPoints.hp"
-            value="{{system.details.advancement.distributedPoints.hp}}"
-            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
-          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PE</span>
-          <input type="number" name="system.details.advancement.distributedPoints.pe"
-            value="{{system.details.advancement.distributedPoints.pe}}"
-            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
-          <span style="width: 30px; font-weight: 800; font-size: 0.7rem;">PA</span>
-          <input type="number" name="system.details.advancement.distributedPoints.pa"
-            value="{{system.details.advancement.distributedPoints.pa}}"
-            style="width: 50px; background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; text-align: center;" />
-        </div>
-      </div>
-
-      {{!-- Bônus de Atributos (Níveis Ímpares) --}}
-      <div class="odd-level-bonuses">
-        <label
-          style="font-size: 0.6rem; font-weight: 900; color: var(--text-muted); display: block; margin-bottom: 8px;">ATRIBUTOS
-          (Níveis Ímpares)</label>
-        <div class="bonuses-list" style="display: flex; flex-wrap: wrap; gap: 10px;">
-          {{#each oddLevels}}
-          <div class="odd-choice" style="display: flex; align-items: center; gap: 5px;">
-            <span style="font-size: 0.7rem; font-weight: 800; color: var(--accent);">Nv{{this.level}}:</span>
-            <select name="system.details.advancement.attributeBonuses.{{this.level}}"
-              style="background: rgba(0,0,0,0.2); border: 1px solid var(--border); color: #fff; border-radius: 4px; font-size: 0.7rem;">
-              <option value="">---</option>
-              {{selectOptions ../config.attributesSimple selected=this.selected}}
-            </select>
-          </div>
-          {{/each}}
-        </div>
-      </div>
+    <div class="launcher-actions" style="display: flex; align-items: center; gap: 15px;">
+      <span class="points-badge {{#if (eq pointsRemaining 0)}}complete{{/if}}" style="font-size: 0.75rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 12px; border-radius: 20px;">
+        Pontos: {{pointsRemaining}}
+      </span>
+      <button type="button" class="btn-open-advancement" data-action="openAdvancement" style="background: var(--accent); color: #fff; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 900; cursor: pointer; transition: transform 0.2s;">
+        ABRIR PAINEL
+      </button>
     </div>
   </div>
   {{/if}}
@@ -139,8 +98,8 @@
                 <div class="bar-fill hp" style="width: {{hpPercent}}%"></div>
                 <div class="bar-values-overlay">
                   <div class="stat-values">
-                    <input type="number" name="system.status.hp.value" value="{{system.status.hp.value}}"
-                      class="stat-input-overlay" />
+                    <input type="number" data-path="system.status.hp.value" value="{{system.status.hp.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
                     <span class="stat-sep">/</span>
                     <span class="stat-max-overlay">{{system.status.hp.max}}</span>
                   </div>
@@ -151,12 +110,12 @@
 
             {{!-- Escudo Flutuante sobre a Vida --}}
             <div class="defense-floating-on-hp">
-              <span class="defense-label">PROTEÇÃO</span>
+              <span class="defense-label">{{localize "ANIMUS.Protection"}}</span>
               <div class="defense-mini-box">
                 <i class="fas fa-shield shield-icon-mini"></i>
                 <div class="stat-label-mini">
-                  <input type="number" name="system.status.prot.value" value="{{system.status.prot.value}}"
-                    class="defense-value-mini" />
+                  <input type="number" data-path="system.status.prot.value" value="{{system.status.prot.value}}"
+                    class="defense-value-mini stat-sync-input" data-dtype="Number" />
                 </div>
               </div>
             </div>
@@ -171,8 +130,8 @@
                   <div class="bar-ghost pe" style="width: {{pePercent}}%"></div>
                   <div class="bar-fill pe" style="width: {{pePercent}}%"></div>
                   <div class="bar-values-overlay">
-                    <input type="number" name="system.status.pe.value" value="{{system.status.pe.value}}"
-                      class="stat-input-overlay" />
+                    <input type="number" data-path="system.status.pe.value" value="{{system.status.pe.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
                     <span class="stat-sep">/</span>
                     <span class="stat-max-overlay">{{system.status.pe.max}}</span>
                   </div>
@@ -284,10 +243,10 @@
           title="Pontos de Atributo">
           <i class="fas fa-star"></i> Atributos: {{attrCount}} / {{attrLimit}}
         </div>
-        <div class="status-item {{#if (eq skillCount 4)}}complete{{/if}}"
-          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt skillCount 4)}}var(--fire){{else}}var(--accent){{/if}};"
+        <div class="status-item {{#if (eq skillCount skillLimit)}}complete{{/if}}"
+          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt skillCount skillLimit)}}var(--fire){{else}}var(--accent){{/if}};"
           title="Pontos de Perícia">
-          <i class="fas fa-list-check"></i> Perícias: {{skillCount}} / 4
+          <i class="fas fa-list-check"></i> Perícias: {{skillCount}} / {{skillLimit}}
         </div>
       </div>
     </div>

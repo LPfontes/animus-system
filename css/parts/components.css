@@ -68,94 +68,358 @@
   display: none !important;
 }
 
-/* Compendium Browser */
-.animus.compendium-browser .browser-container {
+/* Compendium Browser V2 */
+.animus .compendium-browser.animus-v2 {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  padding: 0;
+  overflow: hidden;
+  background: var(--panel-bg);
+}
+
+.compendium-browser .filters {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 10px 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid rgba(0, 242, 255, 0.1);
+}
+
+.compendium-browser .damage-filters {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.compendium-browser .damage-filter-btn {
+  width: auto;
+  min-width: 32px;
+  height: 32px;
+  padding: 0 8px;
+  border-radius: 6px;
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  color: #9d4edd;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  font-size: 0.8rem;
+}
+
+.compendium-browser .filter-label {
+  font-size: 0.7rem;
+  font-weight: 800;
+  margin-left: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.compendium-browser .damage-filter-btn:hover {
+  background: rgba(157, 78, 221, 0.2);
+  border-color: #9d4edd;
+  transform: translateY(-2px);
+}
+
+.compendium-browser .damage-filter-btn.active {
+  background: #9d4edd;
+  color: #fff;
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.5);
+  border-color: #fff;
+}
+
+.compendium-browser .damage-filter-btn[data-type="all"] {
+  background: rgba(0, 242, 255, 0.1);
+  border-color: rgba(0, 242, 255, 0.3);
+  color: #00f2ff;
+}
+
+.compendium-browser .damage-filter-btn[data-type="all"].active {
+  background: #00f2ff;
+  color: #000;
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+/* Scrollbar Custom */
+.animus .browser-header {
+  padding: 20px;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--border);
   display: flex;
   flex-direction: column;
   gap: 15px;
-  height: 100%;
-  padding: 10px;
 }
 
-.animus.compendium-browser .browser-header h2 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.2rem;
-  color: var(--accent);
-  margin: 0 0 10px 0;
-  text-transform: uppercase;
-  letter-spacing: 0.1rem;
-}
-
-.animus.compendium-browser .search-bar {
+.animus .browser-header .search-bar {
   position: relative;
   display: flex;
   align-items: center;
 }
 
-.animus.compendium-browser .search-bar i {
+.animus .browser-header .search-bar i {
   position: absolute;
-  left: 12px;
-  color: var(--text-muted);
+  left: 15px;
+  color: var(--accent);
 }
 
-.animus.compendium-browser .search-bar input {
+.animus .browser-header .search-input {
   width: 100%;
-  padding: 8px 12px 8px 35px;
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.4);
   border: 1px solid var(--border);
-  border-radius: 8px;
-  color: white;
+  border-radius: 12px;
+  padding: 10px 15px 10px 40px;
+  color: #fff;
+  font-family: 'Outfit', sans-serif;
+  transition: all 0.2s;
 }
 
-.animus.compendium-browser .browser-list {
-  flex: 1;
-  overflow-y: auto;
+.animus .browser-header .search-input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  outline: none;
+}
+
+.animus .browser-nav.tabs {
   display: flex;
-  flex-direction: column;
-  gap: 5px;
-  padding: 10px !important;
+  gap: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px;
+  border-radius: 12px;
 }
 
-.animus.compendium-browser .browser-item {
+.animus .tab-btn {
+  flex: 1;
+  background: transparent;
+  border: none;
+  color: var(--text-muted);
+  padding: 8px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s;
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.animus .tab-btn:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.animus .tab-btn.active {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 4px 12px var(--accent-glow);
+}
+
+.animus .browser-content {
+  flex: 1;
+  overflow-y: auto;
+  padding: 20px;
+}
+
+.animus .item-list {
+  display: flex;
+  flex-direction: column;
   gap: 12px;
-  padding: 10px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid transparent;
-  transition: all 0.2s ease;
+}
+
+.animus .browser-item {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 15px;
+  padding: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.animus .browser-item:hover {
+  border-color: var(--accent);
+  background: rgba(157, 78, 221, 0.05);
+}
+
+.animus .item-main-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  padding: 12px 15px;
   cursor: pointer;
 }
 
-.animus.compendium-browser .browser-item:hover {
-  background: rgba(157, 78, 221, 0.1);
-  border-color: var(--accent);
-  transform: translateX(5px);
+.animus .item-img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  object-fit: cover;
 }
 
-.animus.compendium-browser .browser-item img {
-  width: 40px;
-  height: 40px;
-  border-radius: 8px;
+.animus .item-info {
+  flex: 1;
+}
+
+.animus .item-name {
+  margin: 0 0 5px 0;
+  font-size: 1.1rem;
+  font-family: 'Cinzel', serif;
+  color: #fff;
+  letter-spacing: 1px;
+}
+
+.animus .item-summary-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.animus .tag {
+  font-size: 0.65rem;
+  font-weight: 800;
+  padding: 3px 10px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+}
+
+.animus .tag.cat {
+  background: rgba(157, 78, 221, 0.2);
+  color: var(--accent);
+}
+
+.animus .tag.dmg {
+  background: rgba(255, 77, 77, 0.1);
+  color: var(--fire);
+}
+
+.animus .tag.prot {
+  background: rgba(0, 255, 136, 0.1);
+  color: #00ff88;
+}
+
+.animus .item-actions {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.animus .add-btn {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  background: var(--accent);
+  border: none;
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.2s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.animus .add-btn:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+.animus .expand-icon {
+  color: var(--text-muted);
+  transition: transform 0.3s ease;
+}
+
+.animus .browser-item.expanded .expand-icon {
+  transform: rotate(180deg);
+  color: var(--accent);
+}
+
+.animus .item-details {
+  padding: 0 15px 15px 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(0, 0, 0, 0.2);
+  animation: slideDown 0.3s ease-out;
+}
+
+@keyframes slideDown {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.animus .details-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding-top: 15px;
+}
+
+.animus .detail-box label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  letter-spacing: 1px;
+}
+
+.animus .dmg-table-mini {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+}
+
+.animus .dmg-table-mini span {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 5px;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  text-align: center;
   border: 1px solid var(--border);
 }
 
-.animus.compendium-browser .item-name {
-  flex: 1;
-  font-weight: 600;
-  color: white;
+.animus .text-content {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.5;
 }
 
-.animus.compendium-browser .select-icon {
-  color: var(--accent);
-  opacity: 0.5;
-  font-size: 1.2rem;
+.animus .empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  color: var(--text-muted);
+  gap: 15px;
 }
 
-.animus.compendium-browser .browser-item:hover .select-icon {
-  opacity: 1;
-  transform: scale(1.1);
+.animus .empty-state i {
+  font-size: 3rem;
+  opacity: 0.2;
+}
+
+/* Custom Scrollbar for Browser */
+.animus .custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.animus .custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.animus .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.animus .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: var(--accent);
 }
 
 /* Talent Manager */
@@ -352,6 +616,183 @@
   display: flex;
   align-items: center;
   gap: 5px;
+}
+
+/* --- Advancement Modal --- */
+.advancement-app .advancement-panel {
+  padding: 20px;
+}
+
+.advancement-app .advancement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.advancement-app .header-title {
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.advancement-app .points-pool {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: 1px solid var(--border);
+}
+
+.advancement-app .points-pool.complete {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.advancement-app .advancement-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.advancement-app .section-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.advancement-app .dist-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.advancement-app .stat-label {
+  width: 30px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.advancement-app .input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.advancement-app .input-wrapper input {
+  width: 45px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.advancement-app .adjust-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  transition: all 0.2s;
+}
+
+.advancement-app .adjust-btn:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.advancement-app .adjust-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.advancement-app .stat-bonus {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #00ff88;
+  margin-left: auto;
+}
+
+.advancement-app .bonus-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.advancement-app .level-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: var(--accent);
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.advancement-app .bonus-row select {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.advancement-app .advancement-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.advancement-app .footer-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.advancement-app .save-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+  transition: transform 0.2s;
+}
+
+.advancement-app .save-btn:hover {
+  transform: scale(1.02);
 }
 
 .animus.talent-manager .category-filters {

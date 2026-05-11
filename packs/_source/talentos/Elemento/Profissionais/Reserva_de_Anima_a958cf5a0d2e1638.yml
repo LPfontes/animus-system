@@ -3,10 +3,8 @@ name: Reserva de Anima
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Aumenta o valor de Pontos de <span class="text-resource">Energia</span> por
-    nível em 1.
-  trigger: ''
+  description: Aumenta o valor de Pontos de <span class="text-resource">Energia</span> por nível em 1.
+  trigger: ""
   requirements:
     description: 1 Ponto em ANIMA.
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!a958cf5a0d2e1638'
+_key: "!items!a958cf5a0d2e1638"

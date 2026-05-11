@@ -8,6 +8,7 @@ export default class AnimusPropertyData extends AnimusItemData {
     return {
       ...baseSchema,
       type: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3 }),
+      subCategory: new fields.StringField({ initial: "" }),
       action: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
       

@@ -40,11 +40,19 @@ Hooks.once("init", function() {
   });
 
   Handlebars.registerHelper('upper', function(str) {
-    return str.toUpperCase();
+    return str ? String(str).toUpperCase() : "";
+  });
+
+  Handlebars.registerHelper('lower', function(str) {
+    return str ? String(str).toLowerCase() : "";
   });
 
   Handlebars.registerHelper('eq', function(a, b) {
     return a === b;
+  });
+
+  Handlebars.registerHelper('gt', function(a, b) {
+    return a > b;
   });
 
   Handlebars.registerHelper('add', function(a, b) {
@@ -53,6 +61,20 @@ Hooks.once("init", function() {
 
   Handlebars.registerHelper('sub', function(a, b) {
     return a - b;
+  });
+
+  Handlebars.registerHelper('and', function() {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.every(Boolean);
+  });
+
+  Handlebars.registerHelper('or', function() {
+    const args = Array.prototype.slice.call(arguments, 0, -1);
+    return args.some(Boolean);
+  });
+
+  Handlebars.registerHelper('not', function(v) {
+    return !v;
   });
 });
 
@@ -99,5 +121,58 @@ Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
 
   if (debt > 0) {
     ui.notifications.info(`${actor.name} iniciou o turno com ${newPA} PA (${debt} descontado por reações).`);
+  }
+});
+
+/* -------------------------------------------- */
+/*  Chat UI Hooks                               */
+/* -------------------------------------------- */
+
+Hooks.on("renderChatMessageHTML", (message, html, data) => {
+  // Adicionar classe de estilo do sistema
+  html.classList.add("animus");
+
+  const btn = html.querySelector('.apply-damage-btn');
+  if (btn) {
+    btn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      const damage = parseInt(btn.dataset.damage);
+      const targeted = Array.from(game.user.targets);
+      const selected = canvas.tokens.controlled;
+      
+      // Priorizar alvos marcados (retículo), senão usar tokens selecionados
+      const finalTargets = targeted.length > 0 ? targeted : selected;
+
+      if (finalTargets.length === 0) {
+        return ui.notifications.warn("Selecione ou marque um alvo (T) para aplicar o dano.");
+      }
+
+      for (let token of finalTargets) {
+        const actor = token.actor;
+        if (!actor) continue;
+
+        const hp = actor.system.status.hp;
+        const prot = actor.system.status.prot;
+
+        let remaining = damage;
+        let currentProt = prot.value;
+        let currentHP = hp.value;
+
+        // 1. Descontar da Proteção primeiro
+        let newProt = Math.max(0, currentProt - remaining);
+        let absorbed = currentProt - newProt;
+        remaining -= absorbed;
+
+        // 2. Descontar da Vida o que sobrar
+        let newHP = Math.max(0, currentHP - remaining);
+        
+        await actor.update({
+          "system.status.prot.value": newProt,
+          "system.status.hp.value": newHP
+        });
+
+        ui.notifications.info(`Aplicado ${damage} de dano a ${actor.name}. (Prot: -${absorbed}, PV: -${remaining})`);
+      }
+    });
   }
 });

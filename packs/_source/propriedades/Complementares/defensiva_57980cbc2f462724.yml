@@ -1,0 +1,20 @@
+_id: 57980cbc2f462724
+name: Defensiva
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Enquanto empunhada, concede <span class="text-resource">Proteção</span>
+    igual a 1x o valor de HABILIDADE.
+  price: 75 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!57980cbc2f462724'

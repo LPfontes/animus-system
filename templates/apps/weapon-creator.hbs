@@ -1,0 +1,124 @@
+<div class="weapon-creator-container glass-panel">
+  <form class="weapon-creator-form" autocomplete="off">
+    <div class="creator-header">
+      <div class="header-main">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <img class="weapon-img" src="systems/animus/assets/system-icons/items/sword.svg" data-edit="img" title="Mudar Ícone" />
+          <div class="name-group">
+            <label>NOME DA ARMA</label>
+            <input type="text" name="name" placeholder="Ex: Espada de Plasma" value="Nova Arma" required />
+          </div>
+        </div>
+        <button type="button" class="header-control icon fa-solid fa-xmark" data-tooltip="Fechar" aria-label="Fechar" data-action="close"></button>
+      </div>
+    </div>
+
+    <div class="creator-grid">
+      {{!-- Coluna Esquerda: Definições Básicas --}}
+      <div class="creator-section">
+        <div class="section-title"><i class="fas fa-cog"></i> Configurações Básicas</div>
+        <div class="form-group">
+          <label>Tipo de Arma</label>
+          <select name="system.type">
+            {{selectOptions config.weaponTypes localize=true}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Atributo Base</label>
+          <select name="system.attribute">
+            {{selectOptions config.attributesEnum}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Alcance</label>
+          <select name="system.range">
+            {{selectOptions config.weaponRanges localize=true}}
+          </select>
+        </div>
+      </div>
+
+      {{!-- Coluna Direita: Tabela de Dano (Bases e Multiplicadores) --}}
+      <div class="creator-section">
+        <div class="section-title"><i class="fas fa-dice-d20"></i> Progressão de Dano</div>
+        <div class="damage-matrix">
+          <div class="matrix-header">
+            <span>AC</span>
+            <span>BASE</span>
+            <span>MULT</span>
+          </div>
+          {{#each (list 1 2 3 4) as |num|}}
+          <div class="matrix-row">
+            <span class="ac-label">AC{{num}}</span>
+            <input type="number" name="system.damage.ac{{num}}.base" value="{{lookup (lookup ../defaultDamage (concat 'ac' num)) 'base'}}" min="0" />
+            <input type="number" name="system.damage.ac{{num}}.mult" value="{{lookup (lookup ../defaultDamage (concat 'ac' num)) 'mult'}}" min="0" />
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </div>
+
+    {{!-- Propriedades --}}
+    <div class="creator-section properties-section">
+      <div class="section-title">Customização e Características</div>
+
+      <div class="property-selection-container">
+        {{!-- Tabela 1: Principais --}}
+        <div class="property-dropdown-group">
+          <label class="section-subtitle">Características Principais (Tabela 1)</label>
+          <select name="system.properties" data-type="Principais" class="main-prop-select">
+            <option value="">— Nenhuma —</option>
+            {{#each properties.Principais}}
+            <option value="{{this.id}}" title="{{this.desc}}">{{this.name}}</option>
+            {{/each}}
+          </select>
+          <div class="property-desc-preview" data-group="Principais"></div>
+        </div>
+
+        {{!-- Tabela 2: Unificada (Complementares, Mecânicas, Fogo) --}}
+        <div class="property-dropdown-group">
+          <label class="section-subtitle">Características Complementares (Tabela 2) <span class="limit-counter" data-group="table2">0/3</span></label>
+          <div class="add-prop-wrapper">
+            <select class="add-property-select" data-type="table2">
+              <option value="" disabled selected>Adicionar característica...</option>
+              
+              <optgroup label="Complementares">
+                {{#each properties.Complementares}}
+                <option value="{{this.id}}" title="{{this.desc}}">{{this.name}}</option>
+                {{/each}}
+              </optgroup>
+
+              <optgroup label="Mecânicas" data-group="Mecânicas">
+                {{#each properties.Mecânicas}}
+                <option value="{{this.id}}" title="{{this.desc}}">{{this.name}}</option>
+                {{/each}}
+              </optgroup>
+
+              <optgroup label="Armas de Fogo" data-group="Fogo">
+                {{#each properties.Fogo}}
+                <option value="{{this.id}}" title="{{this.desc}}">{{this.name}}</option>
+                {{/each}}
+              </optgroup>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      {{!-- Resumo de Propriedades Selecionadas --}}
+      <div class="selected-properties-summary">
+        <label class="section-subtitle">Características Selecionadas</label>
+        <div class="selected-chips-list">
+          <span class="empty-text">Nenhuma característica selecionada</span>
+        </div>
+      </div>
+    </div>
+
+    <footer class="creator-footer">
+      <button type="button" class="cancel-btn" data-action="close">
+        <i class="fas fa-times"></i> CANCELAR
+      </button>
+      <button type="button" class="create-btn" data-action="submit">
+        <i class="fas fa-check"></i> FORJAR ARMA
+      </button>
+    </footer>
+  </form>
+</div>

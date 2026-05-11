@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Um personagem aliado pode substituir um dado pelo valor '4'.
-  trigger: ''
+  trigger: ""
   requirements:
     description: Amador em Persuasão.
     talents: {}
@@ -18,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!6725570043f70051'
+_key: "!items!6725570043f70051"

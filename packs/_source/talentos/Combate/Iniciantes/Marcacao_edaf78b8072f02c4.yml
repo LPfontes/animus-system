@@ -3,12 +3,8 @@ name: Marcação
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você identifica um ponto fraco do oponente. <br>O alvo fica <span
-    class="text-condition">Marcado</span> até o início do seu próximo turno:
-    aliados têm +1 no <span class="text-mechanic">grau de acerto</span> contra
-    ele.
-  trigger: ''
+  description: "Você identifica um ponto fraco do oponente. <br>O alvo fica <span class=\"text-condition\">Marcado</span> até o início do seu próximo turno: aliados têm +1 no <span class=\"text-mechanic\">grau de acerto</span> contra ele."
+  trigger: ""
   requirements:
     description: Amador em Luta ou Pontaria.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!edaf78b8072f02c4'
+_key: "!items!edaf78b8072f02c4"

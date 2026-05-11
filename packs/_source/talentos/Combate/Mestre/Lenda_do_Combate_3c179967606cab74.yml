@@ -3,11 +3,8 @@ name: Lenda do Combate
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    A primeira vez que derrotar um oponente em uma <span
-    class="text-mechanic">rodada</span>, receba 2 pontos de <span
-    class="text-mechanic">ação</span>.
-  trigger: ''
+  description: A primeira vez que derrotar um oponente em uma <span class="text-mechanic">rodada</span>, receba 2 pontos de <span class="text-mechanic">ação</span>.
+  trigger: ""
   requirements:
     description: Mestre em Luta ou Pontaria.
     talents: {}
@@ -23,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!3c179967606cab74'
+_key: "!items!3c179967606cab74"

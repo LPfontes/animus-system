@@ -3,11 +3,8 @@ name: Concentração Potente
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando gasta uma <span class="text-mechanic">ação</span> extra para conjurar
-    o elemento, ao invés de reduzir em 4 o custo, reduz em 7 para cada <span
-    class="text-mechanic">ação</span>.
-  trigger: ''
+  description: Quando gasta uma <span class="text-mechanic">ação</span> extra para conjurar o elemento, ao invés de reduzir em 4 o custo, reduz em 7 para cada <span class="text-mechanic">ação</span>.
+  trigger: ""
   requirements:
     description: Amador em Perícia Elemental.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!af6f352cd07ecb80'
+_key: "!items!af6f352cd07ecb80"

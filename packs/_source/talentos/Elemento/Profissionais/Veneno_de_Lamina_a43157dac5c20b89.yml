@@ -3,16 +3,10 @@ name: Veneno de Lâmina
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Antes de atacar, infunde a arma com veneno elemental. <br>Com 3+ acertos:
-    aplica <span class="text-condition">Envenenado</span> (comum) + a condição
-    inata do elemento simultaneamente. <br>O veneno não se acumula com outros
-    venenos ativos no alvo.
+  description: "Antes de atacar, infunde a arma com veneno elemental. <br>Com 3+ acertos: aplica <span class=\"text-condition\">Envenenado</span> (comum) + a condição inata do elemento simultaneamente. <br>O veneno não se acumula com outros venenos ativos no alvo."
   trigger: Antes de atacar
   requirements:
-    description: >-
-      Profissional em Luta ou Pontaria; Amador em Elemento (Madeira ou Metal);
-      nível 4+. 
+    description: "Profissional em Luta ou Pontaria; Amador em Elemento (Madeira ou Metal); nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -28,5 +22,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!a43157dac5c20b89'
+_key: "!items!a43157dac5c20b89"

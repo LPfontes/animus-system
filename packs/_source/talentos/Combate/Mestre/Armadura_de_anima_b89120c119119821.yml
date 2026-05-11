@@ -3,14 +3,8 @@ name: Armadura de anima
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Envolve seu corpo com seu elemento. <br>Por 3 <span
-    class="text-mechanic">rodadas</span>, você ganha <span
-    class="text-resource">Proteção</span> igual a <span
-    class="text-attribute">ANI</span>×2 e qualquer um que te atacar em combate
-    corpo a corpo recebe <span class="text-mechanic">dano</span> igual a <span
-    class="text-attribute">ANI</span> do seu elemento.
-  trigger: ''
+  description: Envolve seu corpo com seu elemento. <br>Por 3 <span class="text-mechanic">rodadas</span>, você ganha <span class="text-resource">Proteção</span> igual a <span class="text-attribute">ANI</span>×2 e qualquer um que te atacar em combate corpo a corpo recebe <span class="text-mechanic">dano</span> igual a <span class="text-attribute">ANI</span> do seu elemento.
+  trigger: ""
   requirements:
     description: Profissional em aura; Amador em Resistência; nível 4+.
     talents: {}
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!b89120c119119821'
+_key: "!items!b89120c119119821"

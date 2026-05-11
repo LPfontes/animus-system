@@ -1,8 +1,0 @@
-_id: e81446268f6d6ab6
-name: Dupla
-type: item
-img: icons/svg/gear.svg
-system:
-  description: 'Usável com 1 ou 2 mãos. Com 2 mãos: +2 dano em todos os acertos.'
-folder: 6c0069107d7e49ee
-_key: '!items!e81446268f6d6ab6'

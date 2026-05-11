@@ -3,14 +3,7 @@ name: Pugilismo
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Após acertar um ataque com punhos ou arma natural, pode agarrar o alvo como
-    <span class="text-mechanic">ação livre</span> (0 <span
-    class="text-resource">PA</span> adicional) por 2 <span
-    class="text-resource">PE</span>. <br>Se já tiver o alvo <span
-    class="text-condition">agarrado</span>, pode causar <span
-    class="text-mechanic">dano</span> de punho automaticamente por 1 <span
-    class="text-resource">PA</span>.
+  description: Após acertar um ataque com punhos ou arma natural, pode agarrar o alvo como <span class="text-mechanic">ação livre</span> (0 <span class="text-resource">PA</span> adicional) por 2 <span class="text-resource">PE</span>. <br>Se já tiver o alvo <span class="text-condition">agarrado</span>, pode causar <span class="text-mechanic">dano</span> de punho automaticamente por 1 <span class="text-resource">PA</span>.
   trigger: ação livre
   requirements:
     description: Amador em Luta.
@@ -25,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!e475b441f01afc62'
+_key: "!items!e475b441f01afc62"

@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Em 30 minutos cria Bomba de Fumaça, Acido ou Bálsamo. <br>2×/descanso.
-  trigger: ''
+  trigger: ""
   requirements:
     description: Profissional em Ofício; nível 4+.
     talents: {}
@@ -18,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!8cbdc7d928351cf9'
+_key: "!items!8cbdc7d928351cf9"

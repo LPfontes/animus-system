@@ -3,10 +3,8 @@ name: Aura Protegida
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Imponha <span class="text-mechanic">Desvantagem</span> em ataques elementais
-    que tenham você como alvo.
-  trigger: ''
+  description: Imponha <span class="text-mechanic">Desvantagem</span> em ataques elementais que tenham você como alvo.
+  trigger: ""
   requirements:
     description: Profissional em aura.
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!b66aa78625ce7bc5'
+_key: "!items!b66aa78625ce7bc5"

@@ -3,12 +3,8 @@ name: Mascate
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Compra itens comuns com 10% de desconto. <br>Vende itens com 10% de
-    acréscimo sobre o valor base. <br>Pode identificar falsificações e
-    supervalorizações with um <span class="text-mechanic">teste</span> de
-    Intuição.
-  trigger: ''
+  description: Compra itens comuns com 10% de desconto. <br>Vende itens com 10% de acréscimo sobre o valor base. <br>Pode identificar falsificações e supervalorizações with um <span class="text-mechanic">teste</span> de Intuição.
+  trigger: ""
   requirements:
     description: Amador em Persuasão ou Enganação.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!69acdcbc8ba0727b'
+_key: "!items!69acdcbc8ba0727b"

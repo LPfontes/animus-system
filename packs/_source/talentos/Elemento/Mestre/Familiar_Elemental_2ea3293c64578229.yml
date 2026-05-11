@@ -3,13 +3,8 @@ name: Familiar Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Cria uma entidade elemental pequena que persiste por <span
-    class="text-mechanic">cena</span>. <br>Ela pode realizar tarefas simples e
-    concede +1d em um tipo de <span class="text-mechanic">teste</span>
-    relacionado ao seu elemento. <br>O familiar tem 1 <span
-    class="text-resource">PV</span> e se dissolve se atacado.
-  trigger: ''
+  description: Cria uma entidade elemental pequena que persiste por <span class="text-mechanic">cena</span>. <br>Ela pode realizar tarefas simples e concede +1d em um tipo de <span class="text-mechanic">teste</span> relacionado ao seu elemento. <br>O familiar tem 1 <span class="text-resource">PV</span> e se dissolve se atacado.
+  trigger: ""
   requirements:
     description: Elemento áutônomo; nível 4+.
     talents:
@@ -24,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!2ea3293c64578229'
+_key: "!items!2ea3293c64578229"

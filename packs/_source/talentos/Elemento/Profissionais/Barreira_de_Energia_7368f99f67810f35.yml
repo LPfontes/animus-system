@@ -3,11 +3,7 @@ name: Barreira de Energia
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Passiva: ao receber <span class="text-mechanic">dano</span>, pode optar por
-    absorvê-lo com <span class="text-resource">PE</span> (dobro do <span
-    class="text-mechanic">dano</span>) em vez de <span
-    class="text-resource">PV</span>.
+  description: "Passiva: ao receber <span class=\"text-mechanic\">dano</span>, pode optar por absorvê-lo com <span class=\"text-resource\">PE</span> (dobro do <span class=\"text-mechanic\">dano</span>) em vez de <span class=\"text-resource\">PV</span>."
   trigger: Ao receber dano
   requirements:
     description: Profissional em aura; Hemomancia.
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!7368f99f67810f35'
+_key: "!items!7368f99f67810f35"

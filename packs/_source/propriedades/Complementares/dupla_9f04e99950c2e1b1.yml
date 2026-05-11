@@ -1,0 +1,20 @@
+_id: 9f04e99950c2e1b1
+name: Dupla
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Pode ser usada com 1 ou 2 mãos. Se usada com 2 mãos, concede +2 de <span
+    class="text-mechanic">dano</span> em todos os acertos.
+  price: 75 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: true
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!9f04e99950c2e1b1'

@@ -3,12 +3,8 @@ name: Análise de Fraqueza
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Identifica as fraquezas de uma criatura. <br>Gastando mais 2 <span
-    class="text-mechanic">ações</span>, pode avisar aliados com detalhes
-    suficientes para que sejam exploradas. <br>[Um inimigo com fraquezas
-    expostas diminui a dificuldade dos acertos em 2].
-  trigger: ''
+  description: Identifica as fraquezas de uma criatura. <br>Gastando mais 2 <span class="text-mechanic">ações</span>, pode avisar aliados com detalhes suficientes para que sejam exploradas. <br>[Um inimigo com fraquezas expostas diminui a dificuldade dos acertos em 2].
+  trigger: ""
   requirements:
     description: Profissional em Conhecimento arcano; Análise.
     talents:
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!04e245e4e9f29663'
+_key: "!items!04e245e4e9f29663"

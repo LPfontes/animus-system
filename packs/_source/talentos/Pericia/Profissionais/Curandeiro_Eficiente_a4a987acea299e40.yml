@@ -3,10 +3,8 @@ name: Curandeiro Eficiente
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ao usar um kit de primeiros socorros, você cura o valor do dado inteiro ao
-    invés da metade.
-  trigger: ''
+  description: Ao usar um kit de primeiros socorros, você cura o valor do dado inteiro ao invés da metade.
+  trigger: ""
   requirements:
     description: Profissional em Medicina; Médico de Campo.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!a4a987acea299e40'
+_key: "!items!a4a987acea299e40"

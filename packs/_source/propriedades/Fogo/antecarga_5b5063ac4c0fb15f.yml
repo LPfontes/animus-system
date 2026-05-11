@@ -1,0 +1,20 @@
+_id: 5b5063ac4c0fb15f
+name: Antecarga
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Recarga pela boca: 2 <span class="text-mechanic">PA</span>; exige duas mãos
+    livres; não pode ser feita em movimento.
+  price: Incluso
+  subCategory: Fogo
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: bf911a2a673f2bdd
+_key: '!items!5b5063ac4c0fb15f'

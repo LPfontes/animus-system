@@ -1,8 +1,12 @@
 _id: d1c93a24169cbbb5
 name: Nenhum
-type: armor
+type: shield
 img: systems/animus/assets/system-icons/armor/dragon-shield.svg
 system:
+  type: none
+  base: 0
+  multPOT: 0
+  multHAB: 0
   description: 'PVs Base: 0<br>Restrição: Nenhuma<br>Lógica: 0'
   weight: 0
   price: 0 Đ

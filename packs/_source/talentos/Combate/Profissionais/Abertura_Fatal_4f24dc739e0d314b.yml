@@ -3,12 +3,8 @@ name: Abertura Fatal
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você força uma brecha na defesa do oponente. <br>Faça um <span
-    class="text-mechanic">teste</span> de Luta ou Pontaria oposto. <br>Se
-    vencer: o alvo fica <span class="text-condition">Desprevenido</span> até o
-    início do seu próximo turno.
-  trigger: ''
+  description: "Você força uma brecha na defesa do oponente. <br>Faça um <span class=\"text-mechanic\">teste</span> de Luta ou Pontaria oposto. <br>Se vencer: o alvo fica <span class=\"text-condition\">Desprevenido</span> até o início do seu próximo turno."
+  trigger: ""
   requirements:
     description: Profissional em Luta ou Pontaria.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: 1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!4f24dc739e0d314b'
+_key: "!items!4f24dc739e0d314b"

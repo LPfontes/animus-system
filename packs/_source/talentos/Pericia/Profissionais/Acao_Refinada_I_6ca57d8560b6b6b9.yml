@@ -3,15 +3,10 @@ name: Ação Refinada I
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Diminui o custo de uma <span class="text-mechanic">ação</span> em 1 Ponto de
-    <span class="text-mechanic">ação</span> (mínimo 1). <br>[Compre esse talento
-    várias vezes para cada tipo de <span class="text-mechanic">ação</span>.
-    <br>Só pode ser comprado 1 vez por tipo de <span
-    class="text-mechanic">ação</span>].
+  description: Diminui o custo de uma <span class="text-mechanic">ação</span> em 1 Ponto de <span class="text-mechanic">ação</span> (mínimo 1). <br>[Compre esse talento várias vezes para cada tipo de <span class="text-mechanic">ação</span>. <br>Só pode ser comprado 1 vez por tipo de <span class="text-mechanic">ação</span>].
   trigger: Uma ação especifica
   requirements:
-    description: ''
+    description: ""
     talents: {}
     attributes: []
     skills: []
@@ -21,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!6ca57d8560b6b6b9'
+_key: "!items!6ca57d8560b6b6b9"

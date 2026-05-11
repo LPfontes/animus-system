@@ -3,14 +3,8 @@ name: Forma Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Transforma temporariamente partes do seu corpo no seu elemento. <br>Por 3
-    <span class="text-mechanic">rodadas</span>: seus ataques físicos causam
-    <span class="text-mechanic">dano</span> elemental ao invés de físico; você é
-    imune ao <span class="text-mechanic">dano</span> do seu próprio elemento;
-    suas manobras de combate causam <span class="text-mechanic">dano</span>
-    igual a <span class="text-attribute">ANI</span> do seu elemento no alvo.
-  trigger: ''
+  description: "Transforma temporariamente partes do seu corpo no seu elemento. <br>Por 3 <span class=\"text-mechanic\">rodadas</span>: seus ataques físicos causam <span class=\"text-mechanic\">dano</span> elemental ao invés de físico; você é imune ao <span class=\"text-mechanic\">dano</span> do seu próprio elemento; suas manobras de combate causam <span class=\"text-mechanic\">dano</span> igual a <span class=\"text-attribute\">ANI</span> do seu elemento no alvo."
+  trigger: ""
   requirements:
     description: Mestre em Elemento; Golpe Imbuído; Armadura de Anima.
     talents:
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!5bae919c1b8f36b4'
+_key: "!items!5bae919c1b8f36b4"

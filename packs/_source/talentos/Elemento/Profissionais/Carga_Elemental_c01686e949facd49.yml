@@ -3,16 +3,10 @@ name: Carga Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Realize uma investida de pelo menos 4,5m. <br>O ataque físico ocorre
-    normalmente e ao impactar, todos em raio 2m ao redor do ponto de impacto
-    (exceto o atacante) sofrem <span class="text-mechanic">dano</span> = <span
-    class="text-attribute">ANI</span> do seu elemento e fazem Resistência <span
-    class="text-mechanic">CD</span> 7+<span class="text-attribute">ANI</span>
-    contra a condição inata.
-  trigger: ''
+  description: Realize uma investida de pelo menos 4,5m. <br>O ataque físico ocorre normalmente e ao impactar, todos em raio 2m ao redor do ponto de impacto (exceto o atacante) sofrem <span class="text-mechanic">dano</span> = <span class="text-attribute">ANI</span> do seu elemento e fazem Resistência <span class="text-mechanic">CD</span> 7+<span class="text-attribute">ANI</span> contra a condição inata.
+  trigger: ""
   requirements:
-    description: 'Profissional em Luta; Amador em Elemento; nível 4+. '
+    description: "Profissional em Luta; Amador em Elemento; nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!c01686e949facd49'
+_key: "!items!c01686e949facd49"

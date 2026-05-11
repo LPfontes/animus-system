@@ -3,11 +3,7 @@ name: Artista de Campo
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você sabe entreter seus colegas com piadas, histórias, músicas ou outras
-    formas. <br>Quando realizar um descanso curto ou longo, você pode dar 5
-    <span class="text-resource">PE</span> extra aos seus aliados até o próximo
-    descanso longo.
+  description: Você sabe entreter seus colegas com piadas, histórias, músicas ou outras formas. <br>Quando realizar um descanso curto ou longo, você pode dar 5 <span class="text-resource">PE</span> extra aos seus aliados até o próximo descanso longo.
   trigger: Descanso curto ou longo
   requirements:
     description: 1 ponto em PRESENÇA.
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!e6eef9315288f4a5'
+_key: "!items!e6eef9315288f4a5"

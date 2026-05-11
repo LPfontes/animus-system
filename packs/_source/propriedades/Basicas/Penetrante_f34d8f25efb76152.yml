@@ -1,8 +1,0 @@
-_id: f34d8f25efb76152
-name: Penetrante
-type: item
-img: icons/svg/gear.svg
-system:
-  description: Ignora Proteção de armaduras leves; contra médias/pesadas reduz em 2.
-folder: 6c0069107d7e49ee
-_key: '!items!f34d8f25efb76152'

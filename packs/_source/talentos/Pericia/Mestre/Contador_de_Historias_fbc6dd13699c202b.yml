@@ -3,13 +3,8 @@ name: Contador de Histórias
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Narrar uma história breve ou cantar. <br>Todos os aliados que ouvirem ganham
-    <span class="text-mechanic">Vantagem</span> no próximo <span
-    class="text-mechanic">teste</span> até o início da próxima <span
-    class="text-mechanic">rodada</span>. <br>1×/<span
-    class="text-mechanic">cena</span>.
-  trigger: ''
+  description: Narrar uma história breve ou cantar. <br>Todos os aliados que ouvirem ganham <span class="text-mechanic">Vantagem</span> no próximo <span class="text-mechanic">teste</span> até o início da próxima <span class="text-mechanic">rodada</span>. <br>1×/<span class="text-mechanic">cena</span>.
+  trigger: ""
   requirements:
     description: Amador em Desempenho; nível 4+.
     talents: {}
@@ -21,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!fbc6dd13699c202b'
+_key: "!items!fbc6dd13699c202b"

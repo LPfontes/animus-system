@@ -3,11 +3,7 @@ name: Mestre das Sombras
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ao atacar de surpresa, você tem o direito de fazer um <span
-    class="text-mechanic">teste</span> de furtividade automaticamente, sem
-    gastar <span class="text-mechanic">ações</span> ou <span
-    class="text-resource">PE</span>.
+  description: Ao atacar de surpresa, você tem o direito de fazer um <span class="text-mechanic">teste</span> de furtividade automaticamente, sem gastar <span class="text-mechanic">ações</span> ou <span class="text-resource">PE</span>.
   trigger: Ataque surpresa
   requirements:
     description: Mestre em Furtividade.
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: 5
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!96ec5c9a1377e341'
+_key: "!items!96ec5c9a1377e341"

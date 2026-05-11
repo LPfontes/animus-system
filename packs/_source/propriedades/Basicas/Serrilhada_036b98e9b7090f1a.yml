@@ -1,8 +1,0 @@
-_id: 036b98e9b7090f1a
-name: Serrilhada
-type: item
-img: icons/svg/gear.svg
-system:
-  description: '3+ acertos: Sangramento  alvo perde 2 PV/turno por 2 turnos (não acumula).'
-folder: 6c0069107d7e49ee
-_key: '!items!036b98e9b7090f1a'

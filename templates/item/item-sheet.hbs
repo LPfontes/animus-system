@@ -132,16 +132,6 @@
           {{/if}}
         </div>
         <div class="prop-box">
-          <label>Tipo de Dano</label>
-          {{#if isEditing}}
-          <select name="system.damageType">
-            {{selectOptions config.damageTypes selected=system.damageType localize=true}}
-          </select>
-          {{else}}
-          <span class="value-display-v3">{{localize (lookup config.damageTypes system.damageType)}}</span>
-          {{/if}}
-        </div>
-        <div class="prop-box">
           <label>{{localize "ANIMUS.Attribute"}}</label>
           {{#if isEditing}}
           <select name="system.attribute">

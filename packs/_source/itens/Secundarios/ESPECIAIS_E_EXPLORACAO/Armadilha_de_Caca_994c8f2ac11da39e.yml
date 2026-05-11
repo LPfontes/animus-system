@@ -1,8 +1,17 @@
 _id: 994c8f2ac11da39e
 name: Armadilha de Caça
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  check:
+    attribute: "hab"
+    skill: ""
+    dc: 10
+  application:
+    type: "damage"
+    formula: "1d6+4"
+    condition: "imobilizado"
+  subCategory: especial
   description: >-
     <span class="text-mechanic">Teste</span> <span
     class="text-mechanic">CD</span> 10 <span class="text-attribute">HAB</span>

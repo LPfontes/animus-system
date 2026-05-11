@@ -3,12 +3,10 @@ name: Protetor
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando um aliado adjacente for atacado, joga-se à frente. <br>O aliado recua
-    1 espaço (1,5m) e você assume a posição dele, tornando-se o alvo do ataque.
+  description: Quando um aliado adjacente for atacado, joga-se à frente. <br>O aliado recua 1 espaço (1,5m) e você assume a posição dele, tornando-se o alvo do ataque.
   trigger: reação
   requirements:
-    description: ''
+    description: ""
     talents: {}
     attributes: []
     skills: []
@@ -18,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!c3a31eba8f496c20'
+_key: "!items!c3a31eba8f496c20"

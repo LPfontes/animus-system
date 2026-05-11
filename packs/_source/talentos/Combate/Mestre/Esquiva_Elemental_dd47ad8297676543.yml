@@ -3,12 +3,7 @@ name: Esquiva Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você é atacado, pode gastar 2 <span class="text-resource">PE</span>
-    como <span class="text-mechanic">reação</span> para se deslocar 1,5m em
-    qualquer direção E disparar uma rajada do seu elemento na direção do
-    atacante (<span class="text-mechanic">dano</span> igual ao Nível 1 do seu
-    elemento, custo já pago).
+  description: Quando você é atacado, pode gastar 2 <span class="text-resource">PE</span> como <span class="text-mechanic">reação</span> para se deslocar 1,5m em qualquer direção E disparar uma rajada do seu elemento na direção do atacante (<span class="text-mechanic">dano</span> igual ao Nível 1 do seu elemento, custo já pago).
   trigger: Como reação a ataque
   requirements:
     description: Profissional em acrobacia; Amador em aura; nível 4+.
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!dd47ad8297676543'
+_key: "!items!dd47ad8297676543"

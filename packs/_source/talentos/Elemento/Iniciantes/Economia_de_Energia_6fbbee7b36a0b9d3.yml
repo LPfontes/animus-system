@@ -3,12 +3,8 @@ name: Economia de Energia
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    O custo de <span class="text-resource">PE</span> em uma <span
-    class="text-attribute">HAB</span> de talento fica diminuído em 2 <span
-    class="text-resource">PE</span> (mínimo 1). <br>(Escolha várias vezes para
-    habilidades diferentes. )
-  trigger: ''
+  description: O custo de <span class="text-resource">PE</span> em uma <span class="text-attribute">HAB</span> de talento fica diminuído em 2 <span class="text-resource">PE</span> (mínimo 1). <br>(Escolha várias vezes para habilidades diferentes. )
+  trigger: ""
   requirements:
     description: Um talento que use PE.
     talents: {}
@@ -20,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!6fbbee7b36a0b9d3'
+_key: "!items!6fbbee7b36a0b9d3"

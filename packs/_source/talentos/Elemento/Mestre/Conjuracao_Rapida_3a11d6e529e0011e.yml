@@ -3,11 +3,8 @@ name: Conjuração Rápida
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    1×/<span class="text-mechanic">cena</span>: use um ataque elemental de Nível
-    1 com custo de apenas 1 <span class="text-mechanic">ação</span> (em vez de
-    2).
-  trigger: ''
+  description: "1×/<span class=\"text-mechanic\">cena</span>: use um ataque elemental de Nível 1 com custo de apenas 1 <span class=\"text-mechanic\">ação</span> (em vez de 2)."
+  trigger: ""
   requirements:
     description: Amador em Elemento.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!3a11d6e529e0011e'
+_key: "!items!3a11d6e529e0011e"

@@ -3,10 +3,8 @@ name: Perfeccionismo da Experiência
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ao usar armas da Maestria Marcial, pode re-rolar qualquer resultado de '1'
-    que cair nos dados do <span class="text-mechanic">Teste</span> de Ataque.
-  trigger: ''
+  description: Ao usar armas da Maestria Marcial, pode re-rolar qualquer resultado de '1' que cair nos dados do <span class="text-mechanic">Teste</span> de Ataque.
+  trigger: ""
   requirements:
     description: Mestre em Luta ou Pontaria.
     talents: {}
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!c0f70cbd605299a1'
+_key: "!items!c0f70cbd605299a1"

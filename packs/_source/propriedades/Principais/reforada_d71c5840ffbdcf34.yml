@@ -1,0 +1,21 @@
+_id: d71c5840ffbdcf34
+name: Reforçada
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Aumenta o multiplicador de POTÊNCIA de todos os níveis de <span
+    class="text-mechanic">acerto</span> em 1.<p><i>Lógica: Incrementar
+    multiplicador de POT em +1.</i></p>
+  price: 100 Đ
+  subCategory: Principais
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: fa7f1e2a93a2af1b
+_key: '!items!d71c5840ffbdcf34'

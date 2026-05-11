@@ -1,8 +1,15 @@
 _id: 6fe332a07c50d78b
 name: Bálsamo Curativo
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  application:
+    type: heal
+    formula: "1d6"
+    resource: pv
+    condition: ""
+  subCategory: cura
   description: Cura 1d6 <span class="text-resource">PV</span> em descanso curto
   weight: 0
   price: 10 Đ

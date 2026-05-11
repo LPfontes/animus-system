@@ -3,13 +3,8 @@ name: Fogo alastrado
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando há Ignição ativa em um alvo, gaste 2 <span
-    class="text-resource">PE</span> e 1 <span class="text-resource">PA</span>: o
-    fogo se alastra em raio 3m ao redor do alvo. <br>Todos na área fazem
-    Resistência <span class="text-mechanic">CD</span> 8+<span
-    class="text-attribute">ANI</span> ou sofrem Ignição.
-  trigger: ''
+  description: "Quando há Ignição ativa em um alvo, gaste 2 <span class=\"text-resource\">PE</span> e 1 <span class=\"text-resource\">PA</span>: o fogo se alastra em raio 3m ao redor do alvo. <br>Todos na área fazem Resistência <span class=\"text-mechanic\">CD</span> 8+<span class=\"text-attribute\">ANI</span> ou sofrem Ignição."
+  trigger: ""
   requirements:
     description: Amador em Elemento (Fogo); acesso a Vento.
     talents: {}
@@ -23,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!b01a53753c9d2a99'
+_key: "!items!b01a53753c9d2a99"

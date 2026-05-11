@@ -1,8 +1,11 @@
 _id: 49f9b90de753d38c
 name: Arco Curto
 type: weapon
-img: systems/animus/assets/system-icons/weapon/arco_curto.svg
+img: systems/animus/assets/system-icons/weapon/bow-arrow.svg
 system:
+  category: projetil
+  damageType: distancia
+  type: distancia_leve
   description: 'Tipo: Distância Leve<br>Distância 18m'
   damage:
     ac1: '2'
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 15 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: hab
+    skill: pontaria
     dc: 0
 folder: e1470d5c3ce776cd
 _key: '!items!49f9b90de753d38c'

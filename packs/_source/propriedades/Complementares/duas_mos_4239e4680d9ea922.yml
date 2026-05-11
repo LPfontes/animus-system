@@ -1,0 +1,20 @@
+_id: 4239e4680d9ea922
+name: Duas Mãos
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Aumenta o <span class="text-mechanic">dano</span> em +3 para todos os
+    acertos. <br>Exige ambas as mãos livre para uso.
+  price: 50 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!4239e4680d9ea922'

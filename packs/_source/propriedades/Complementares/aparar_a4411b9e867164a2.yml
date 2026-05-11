@@ -1,0 +1,22 @@
+_id: a4411b9e867164a2
+name: Aparar
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    1x/<span class="text-mechanic">rodada</span>: gaste 1 <span
+    class="text-resource">PE</span> como <span
+    class="text-mechanic">reação</span> para reduzir o <span
+    class="text-mechanic">dano</span> recebido em 3.
+  price: 100 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!a4411b9e867164a2'

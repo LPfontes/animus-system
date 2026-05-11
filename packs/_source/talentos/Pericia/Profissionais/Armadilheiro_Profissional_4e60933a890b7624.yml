@@ -4,11 +4,9 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Como armadilheiro, mas com efeitos extras:.
-  trigger: ''
+  trigger: ""
   requirements:
-    description: >-
-      Profissional em Sobrevivência; Profissional em Prestidigitação;
-      armadilheiro.
+    description: Profissional em Sobrevivência; Profissional em Prestidigitação; armadilheiro.
     talents:
       Prestidigitação: e7e2a31a65753cbc
       Armadilheiro: 941a50cfa939b17d
@@ -24,5 +22,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!4e60933a890b7624'
+_key: "!items!4e60933a890b7624"

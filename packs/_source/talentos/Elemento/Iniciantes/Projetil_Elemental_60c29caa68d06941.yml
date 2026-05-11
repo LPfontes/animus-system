@@ -3,10 +3,8 @@ name: Projétil Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ataques elementais a 9m (+3 <span class="text-resource">PE</span>).
-    <br>Projétil visível do elemento.
-  trigger: ''
+  description: Ataques elementais a 9m (+3 <span class="text-resource">PE</span>). <br>Projétil visível do elemento.
+  trigger: ""
   requirements:
     description: ANI 1
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!60c29caa68d06941'
+_key: "!items!60c29caa68d06941"

@@ -3,12 +3,8 @@ name: Investigador
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Com 10 minutos de Análise em uma <span class="text-mechanic">cena</span>,
-    local ou objeto, ganha +1d em <span class="text-attribute">PER</span> para
-    encontrar pistas ocultas. <br>Pode fazer uma segunda rolagem se a primeira
-    falhar (1×/<span class="text-mechanic">cena</span>).
-  trigger: ''
+  description: Com 10 minutos de Análise em uma <span class="text-mechanic">cena</span>, local ou objeto, ganha +1d em <span class="text-attribute">PER</span> para encontrar pistas ocultas. <br>Pode fazer uma segunda rolagem se a primeira falhar (1×/<span class="text-mechanic">cena</span>).
+  trigger: ""
   requirements:
     description: Amador em Percepção; Cognição 1+; nível 4+.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!815c1c2b3fe6436c'
+_key: "!items!815c1c2b3fe6436c"

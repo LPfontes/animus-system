@@ -3,15 +3,10 @@ name: Golpe Saturante
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Após acertar com 3+ acertos em um ataque físico, gaste 2 <span
-    class="text-resource">PE</span>: aplique Saturado no alvo. <br>O Saturado
-    aplicado por este talento se ativa também com <span
-    class="text-mechanic">dano</span> físico (não apenas elemental), desde que o
-    próximo ataque cause 1+ <span class="text-mechanic">acerto</span>.
+  description: "Após acertar com 3+ acertos em um ataque físico, gaste 2 <span class=\"text-resource\">PE</span>: aplique Saturado no alvo. <br>O Saturado aplicado por este talento se ativa também com <span class=\"text-mechanic\">dano</span> físico (não apenas elemental), desde que o próximo ataque cause 1+ <span class=\"text-mechanic\">acerto</span>."
   trigger: Após acertar com 3+ acertos
   requirements:
-    description: 'Profissional em Luta; Amador em Elemento (Água); nível 4+. '
+    description: "Profissional em Luta; Amador em Elemento (Água); nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!ea416d60a42b8fcb'
+_key: "!items!ea416d60a42b8fcb"

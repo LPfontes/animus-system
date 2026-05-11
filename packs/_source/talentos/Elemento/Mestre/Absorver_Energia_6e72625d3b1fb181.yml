@@ -3,10 +3,7 @@ name: Absorver Energia
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando derrota um oponente, recupera 4 <span class="text-resource">PE</span>
-    e ganha 1 <span class="text-resource">PA</span>. <br>(Limitado ao valor de
-    <span class="text-attribute">ANI</span> por turno. )
+  description: Quando derrota um oponente, recupera 4 <span class="text-resource">PE</span> e ganha 1 <span class="text-resource">PA</span>. <br>(Limitado ao valor de <span class="text-attribute">ANI</span> por turno. )
   trigger: Quando derrota um oponente
   requirements:
     description: Mestre em Elemento.
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!6e72625d3b1fb181'
+_key: "!items!6e72625d3b1fb181"

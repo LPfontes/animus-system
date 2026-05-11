@@ -3,13 +3,8 @@ name: Execução Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando um alvo está abaixo de 25% de <span class="text-resource">PV</span>
-    máximo e tem uma condição elemental ativa, seu ataque físico pode detonar a
-    condição: o <span class="text-mechanic">dano</span> do ataque aumenta em
-    2×<span class="text-attribute">ANI</span> do tipo elemental da condição.
-    <br>A condição é consumida e seu efeito ocorre uma última vez.
-  trigger: ''
+  description: "Quando um alvo está abaixo de 25% de <span class=\"text-resource\">PV</span> máximo e tem uma condição elemental ativa, seu ataque físico pode detonar a condição: o <span class=\"text-mechanic\">dano</span> do ataque aumenta em 2×<span class=\"text-attribute\">ANI</span> do tipo elemental da condição. <br>A condição é consumida e seu efeito ocorre uma última vez."
+  trigger: ""
   requirements:
     description: Mestre em Luta; Mestre em Elemento; nível 8+.
     talents: {}
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!edacf2f2d30972ed'
+_key: "!items!edacf2f2d30972ed"

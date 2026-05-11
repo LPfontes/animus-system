@@ -1,8 +1,10 @@
 _id: 60fde2d2d8ef9592
 name: Pederneira e Isqueiro
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: false
+  subCategory: viagem
   description: >-
     Acender fogo exige <span class="text-mechanic">teste</span> <span
     class="text-mechanic">CD</span> 8 <span class="text-attribute">HAB</span>

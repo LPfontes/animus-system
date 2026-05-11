@@ -3,9 +3,7 @@ name: Altivez
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Altera um dado em um <span class="text-mechanic">teste</span> de <span
-    class="text-attribute">PRE</span> para o valor 5.
+  description: Altera um dado em um <span class="text-mechanic">teste</span> de <span class="text-attribute">PRE</span> para o valor 5.
   trigger: Teste de PRESENÇA
   requirements:
     description: 1 ponto em PRESENÇA.
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!38a7948e54849b77'
+_key: "!items!38a7948e54849b77"

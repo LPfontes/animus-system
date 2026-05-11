@@ -1,0 +1,21 @@
+_id: f416af9d359d5f83
+name: Penetrante
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Ignora <span class="text-resource">Proteção</span> de armaduras leves;
+    contra médias/pesadas reduz a <span class="text-resource">Proteção</span> em
+    2.
+  price: 100 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!f416af9d359d5f83'

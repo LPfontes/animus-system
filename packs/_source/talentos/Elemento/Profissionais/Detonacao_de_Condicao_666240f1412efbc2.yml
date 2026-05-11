@@ -3,14 +3,10 @@ name: Detonação de Condição
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Converta uma condição elemental ativa no alvo em explosão. <br>O alvo sofre
-    <span class="text-mechanic">dano</span> = 3 + 2×<span
-    class="text-attribute">ANI</span> do tipo do elemento da condição. <br>A
-    condição é consumida.
+  description: Converta uma condição elemental ativa no alvo em explosão. <br>O alvo sofre <span class="text-mechanic">dano</span> = 3 + 2×<span class="text-attribute">ANI</span> do tipo do elemento da condição. <br>A condição é consumida.
   trigger: Após causar uma condição elemental
   requirements:
-    description: 'Profissional em Elemento. '
+    description: "Profissional em Elemento. "
     talents: {}
     attributes: []
     skills:
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!666240f1412efbc2'
+_key: "!items!666240f1412efbc2"

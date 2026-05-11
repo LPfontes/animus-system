@@ -3,11 +3,8 @@ name: Visão do Mago
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ignora penalidades de visibilidade, neblina e escuridão. <br>Também consegue
-    enxergar as auras de todas as criaturas vivas dos arredores até o fim da
-    <span class="text-mechanic">cena</span>.
-  trigger: ''
+  description: Ignora penalidades de visibilidade, neblina e escuridão. <br>Também consegue enxergar as auras de todas as criaturas vivas dos arredores até o fim da <span class="text-mechanic">cena</span>.
+  trigger: ""
   requirements:
     description: Mestre em Conhecimento arcano.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!f5b7269cfd24dd26'
+_key: "!items!f5b7269cfd24dd26"

@@ -1,0 +1,20 @@
+_id: 0df4bdacbc60f202
+name: Arremesso Pesado
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    A arma pode ser lançada a alcance médio (até 30m) com <span
+    class="text-attribute">POT</span>.
+  price: 50 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: true
+folder: 91b98d36bf015a43
+_key: '!items!0df4bdacbc60f202'

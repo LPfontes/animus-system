@@ -1,21 +1,146 @@
 const ANIMUS = {};
 
+/* -------------------------------------------- */
+/*  Atributos e Perícias                        */
+/* -------------------------------------------- */
+
 ANIMUS.attributes = {
-  pot: "ANIMUS.POT",
-  hab: "ANIMUS.HAB",
-  cog: "ANIMUS.COG",
-  per: "ANIMUS.PER",
-  pre: "ANIMUS.PRE",
-  ani: "ANIMUS.ANI"
+  pot: { label: "POT", i18n: "ANIMUS.POT", index: 0 },
+  hab: { label: "HAB", i18n: "ANIMUS.HAB", index: 1 },
+  cog: { label: "COG", i18n: "ANIMUS.COG", index: 2 },
+  per: { label: "PER", i18n: "ANIMUS.PER", index: 3 },
+  pre: { label: "PRE", i18n: "ANIMUS.PRE", index: 4 },
+  ani: { label: "ANI", i18n: "ANIMUS.ANI", index: 5 }
 };
 
-ANIMUS.attributesSimple = {
-  pot: "POT",
-  hab: "HAB",
-  cog: "COG",
-  per: "PER",
-  pre: "PRE",
-  ani: "ANI"
+ANIMUS.attributesByIndex = Object.fromEntries(
+  Object.entries(ANIMUS.attributes).map(([key, val]) => [val.index, key])
+);
+
+ANIMUS.attributesEnum = Object.fromEntries(
+  Object.entries(ANIMUS.attributes).map(([key, val]) => [key, val.label])
+);
+
+ANIMUS.skills = {
+  atletismo: { label: "ANIMUS.SkillAtletismo", attr: "pot", index: 0 },
+  luta: { label: "ANIMUS.SkillLuta", attr: "pot", index: 1 },
+  resistencia: { label: "ANIMUS.SkillResistencia", attr: "pot", index: 2 },
+  proeza: { label: "ANIMUS.SkillProeza", attr: "pot", index: 3 },
+  acrobacia: { label: "ANIMUS.SkillAcrobacia", attr: "hab", index: 4 },
+  furtividade: { label: "ANIMUS.SkillFurtividade", attr: "hab", index: 5 },
+  pontaria: { label: "ANIMUS.SkillPontaria", attr: "hab", index: 6 },
+  prestidigitacao: { label: "ANIMUS.SkillPrestidigitacao", attr: "hab", index: 7 },
+  oficio: { label: "ANIMUS.SkillOficio", attr: "cog", index: 8 },
+  natureza: { label: "ANIMUS.SkillNatureza", attr: "cog", index: 9 },
+  con_arcano: { label: "ANIMUS.SkillConArcano", attr: "cog", index: 10 },
+  medicina: { label: "ANIMUS.SkillMedicina", attr: "cog", index: 11 },
+  percepcao: { label: "ANIMUS.SkillPercepcao", attr: "per", index: 12 },
+  compreensao: { label: "ANIMUS.SkillCompreensao", attr: "per", index: 13 },
+  sobrevivencia: { label: "ANIMUS.SkillSobrevivencia", attr: "per", index: 14 },
+  investigacao: { label: "ANIMUS.SkillInvestigacao", attr: "per", index: 15 },
+  persuasao: { label: "ANIMUS.SkillPersuasao", attr: "pre", index: 16 },
+  intimidacao: { label: "ANIMUS.SkillIntimidacao", attr: "pre", index: 17 },
+  enganacao: { label: "ANIMUS.SkillEnganacao", attr: "pre", index: 18 },
+  performance: { label: "ANIMUS.SkillPerformance", attr: "pre", index: 19 },
+  elemento: { label: "ANIMUS.SkillElemento", attr: "ani", index: 20 },
+  aura: { label: "ANIMUS.SkillAura", attr: "ani", index: 21 },
+  intuicao: { label: "ANIMUS.SkillIntuicao", attr: "ani", index: 22 },
+  controle: { label: "ANIMUS.SkillControle", attr: "ani", index: 23 }
+};
+
+ANIMUS.skillsByIndex = Object.fromEntries(
+  Object.entries(ANIMUS.skills).map(([key, val]) => [val.index, key])
+);
+
+/* -------------------------------------------- */
+/*  Tipos e Categorias                          */
+/* -------------------------------------------- */
+
+ANIMUS.itemTypes = {
+  weapon: "ANIMUS.ItemWeapon",
+  armor: "ANIMUS.ItemArmor",
+  shield: "ANIMUS.ItemShield",
+  secondary: "ANIMUS.ItemSecondary",
+  gear: "ANIMUS.ItemGear",
+  talent: "ANIMUS.ItemTalent",
+  element: "ANIMUS.ItemElement",
+  ascendancy: "ANIMUS.ItemAscendancy",
+  property: "ANIMUS.ItemProperty",
+  action: "ANIMUS.ItemAction",
+  condition: "ANIMUS.ItemCondition",
+  rune: "ANIMUS.ItemRune"
+};
+
+ANIMUS.weaponTypes = {
+  cortante_leve: "ANIMUS.WeaponType.cortante_leve",
+  cortante_medio: "ANIMUS.WeaponType.cortante_medio",
+  contusa_leve: "ANIMUS.WeaponType.contusa_leve",
+  contusa_medio: "ANIMUS.WeaponType.contusa_medio",
+  perfurante_leve: "ANIMUS.WeaponType.perfurante_leve",
+  perfurante_medio: "ANIMUS.WeaponType.perfurante_medio",
+  distancia_leve: "ANIMUS.WeaponType.distancia_leve",
+  distancia_media: "ANIMUS.WeaponType.distancia_media",
+  fogo_leve: "ANIMUS.WeaponType.fogo_leve",
+  fogo_media: "ANIMUS.WeaponType.fogo_media"
+};
+
+ANIMUS.armorTypes = {
+  none: "ANIMUS.ArmorNone",
+  leve: "ANIMUS.ArmorLeve",
+  media: "ANIMUS.ArmorMedia",
+  pesada: "ANIMUS.ArmorPesada"
+};
+
+ANIMUS.weaponCategories = {
+  branca: "ANIMUS.WeaponCategoryBranca",
+  fogo: "ANIMUS.WeaponCategoryFogo",
+  projetil: "ANIMUS.WeaponCategoryProjetil"
+};
+
+ANIMUS.damageTypes = {
+  cortante: "ANIMUS.DamageCortante",
+  perfurante: "ANIMUS.DamagePerfurante",
+  contuso: "ANIMUS.DamageContuso",
+  fogo: "ANIMUS.DamageFogo",
+  energia: "ANIMUS.DamageEnergia",
+  venenoso: "ANIMUS.DamageVenenoso",
+  eletrico: "ANIMUS.DamageEletrico",
+  gelo: "ANIMUS.DamageGelo",
+  luz: "ANIMUS.DamageLuz",
+  trevas: "ANIMUS.DamageTrevas",
+  distancia: "ANIMUS.DamageDistancia"
+};
+
+ANIMUS.weaponSubTypes = {
+  cortante_leve: "ANIMUS.WeaponType.cortante_leve",
+  cortante_medio: "ANIMUS.WeaponType.cortante_medio",
+  contusa_leve: "ANIMUS.WeaponType.contusa_leve",
+  contusa_medio: "ANIMUS.WeaponType.contusa_medio",
+  perfurante_leve: "ANIMUS.WeaponType.perfurante_leve",
+  perfurante_medio: "ANIMUS.WeaponType.perfurante_medio",
+  distancia_leve: "ANIMUS.WeaponType.distancia_leve",
+  distancia_media: "ANIMUS.WeaponType.distancia_media",
+  fogo_leve: "ANIMUS.WeaponType.fogo_leve",
+  fogo_media: "ANIMUS.WeaponType.fogo_media"
+};
+
+// Mapeamentos para compatibilidade com dados legados (índices numéricos)
+ANIMUS.weaponTypesByIndex = {
+  0: "cortante_leve", 1: "cortante_medio", 2: "contusa_leve", 3: "contusa_medio",
+  4: "perfurante_leve", 5: "perfurante_medio", 6: "distancia_leve", 7: "distancia_media",
+  8: "fogo_leve", 9: "fogo_media"
+};
+
+ANIMUS.damageTypesByIndex = {
+  0: "cortante", 1: "perfurante", 2: "contuso", 3: "fogo", 4: "energia",
+  5: "venenoso", 6: "eletrico", 7: "gelo", 8: "luz", 9: "trevas"
+};
+
+ANIMUS.weaponRanges = {
+  0: "ANIMUS.RangeCorpoACorpo",
+  1: "ANIMUS.RangeCurto",
+  2: "ANIMUS.RangeMedio",
+  3: "ANIMUS.RangeLongo"
 };
 
 ANIMUS.talentTypes = {
@@ -38,111 +163,18 @@ ANIMUS.actionTypes = {
   2: "ANIMUS.ActionUtilitaria"
 };
 
-ANIMUS.weaponTypes = {
-  0: "ANIMUS.WeaponCortanteLeve",
-  1: "ANIMUS.WeaponCortanteMedio",
-  2: "ANIMUS.WeaponContusaLeve",
-  3: "ANIMUS.WeaponContusaMedio",
-  4: "ANIMUS.WeaponPerfuranteLeve",
-  5: "ANIMUS.WeaponPerfuranteMedio",
-  6: "ANIMUS.WeaponDistanciaLeve",
-  7: "ANIMUS.WeaponDistanciaMedia"
+ANIMUS.gearCategories = {
+  cura: "ANIMUS.GearCura",
+  tatico: "ANIMUS.GearTatico",
+  viagem: "ANIMUS.GearViagem",
+  especial: "ANIMUS.GearEspecial",
+  iluminacao: "ANIMUS.GearIluminacao"
 };
 
-ANIMUS.weaponRanges = {
-  0: "ANIMUS.RangeCorpoACorpo",
-  1: "ANIMUS.RangeCurto",
-  2: "ANIMUS.RangeMedio",
-  3: "ANIMUS.RangeLongo"
-};
-
-ANIMUS.attributesEnum = {
-  0: "POT",
-  1: "HAB",
-  2: "COG",
-  3: "PER",
-  4: "PRE",
-  5: "ANI"
-};
-
-ANIMUS.damageTypes = {
-  0: "ANIMUS.DamageCortante",
-  1: "ANIMUS.DamagePerfurante",
-  2: "ANIMUS.DamageContuso",
-  3: "ANIMUS.DamageFogo",
-  4: "ANIMUS.DamageEnergia",
-  5: "ANIMUS.DamageVenenoso",
-  6: "ANIMUS.DamageEletrico",
-  7: "ANIMUS.DamageGelo",
-  8: "ANIMUS.DamageLuz",
-  9: "ANIMUS.DamageTrevas"
-};
-
-ANIMUS.applicationTypes = {
-  none: "ANIMUS.AppNone",
-  damage: "ANIMUS.AppDamage",
-  heal: "ANIMUS.AppHeal",
-  condition: "ANIMUS.AppCondition",
-  test: "ANIMUS.AppTest"
-};
-
-ANIMUS.resources = {
-  pv: "ANIMUS.PV",
-  pe: "ANIMUS.PE"
-};
-
-ANIMUS.skillsEnum = {
-  0: "ANIMUS.SkillAtletismo",
-  1: "ANIMUS.SkillLuta",
-  2: "ANIMUS.SkillResistencia",
-  3: "ANIMUS.SkillProeza",
-  4: "ANIMUS.SkillAcrobacia",
-  5: "ANIMUS.SkillFurtividade",
-  6: "ANIMUS.SkillPontaria",
-  7: "ANIMUS.SkillPrestidigitacao",
-  8: "ANIMUS.SkillOficio",
-  9: "ANIMUS.SkillNatureza",
-  10: "ANIMUS.SkillConArcano",
-  11: "ANIMUS.SkillMedicina",
-  12: "ANIMUS.SkillPercepcao",
-  13: "ANIMUS.SkillCompreensao",
-  14: "ANIMUS.SkillSobrevivencia",
-  15: "ANIMUS.SkillInvestigacao",
-  16: "ANIMUS.SkillPersuasao",
-  17: "ANIMUS.SkillIntimidacao",
-  18: "ANIMUS.SkillEnganacao",
-  19: "ANIMUS.SkillPerformance",
-  20: "ANIMUS.SkillElemento",
-  21: "ANIMUS.SkillAura",
-  22: "ANIMUS.SkillIntuicao",
-  23: "ANIMUS.SkillControle"
-};
-
-ANIMUS.skills = {
-  atletismo: { label: "ANIMUS.SkillAtletismo", attr: "pot" },
-  luta: { label: "ANIMUS.SkillLuta", attr: "pot" },
-  resistencia: { label: "ANIMUS.SkillResistencia", attr: "pot" },
-  proeza: { label: "ANIMUS.SkillProeza", attr: "pot" },
-  acrobacia: { label: "ANIMUS.SkillAcrobacia", attr: "hab" },
-  furtividade: { label: "ANIMUS.SkillFurtividade", attr: "hab" },
-  pontaria: { label: "ANIMUS.SkillPontaria", attr: "hab" },
-  prestidigitacao: { label: "ANIMUS.SkillPrestidigitacao", attr: "hab" },
-  oficio: { label: "ANIMUS.SkillOficio", attr: "cog" },
-  natureza: { label: "ANIMUS.SkillNatureza", attr: "cog" },
-  con_arcano: { label: "ANIMUS.SkillConArcano", attr: "cog" },
-  medicina: { label: "ANIMUS.SkillMedicina", attr: "cog" },
-  percepcao: { label: "ANIMUS.SkillPercepcao", attr: "per" },
-  compreensao: { label: "ANIMUS.SkillCompreensao", attr: "per" },
-  sobrevivencia: { label: "ANIMUS.SkillSobrevivencia", attr: "per" },
-  investigacao: { label: "ANIMUS.SkillInvestigacao", attr: "per" },
-  persuasao: { label: "ANIMUS.SkillPersuasao", attr: "pre" },
-  intimidacao: { label: "ANIMUS.SkillIntimidacao", attr: "pre" },
-  enganacao: { label: "ANIMUS.SkillEnganacao", attr: "pre" },
-  performance: { label: "ANIMUS.SkillPerformance", attr: "pre" },
-  elemento: { label: "ANIMUS.SkillElemento", attr: "ani" },
-  aura: { label: "ANIMUS.SkillAura", attr: "ani" },
-  intuicao: { label: "ANIMUS.SkillIntuicao", attr: "ani" },
-  controle: { label: "ANIMUS.SkillControle", attr: "ani" }
+ANIMUS.talentCategories = {
+  "Combate": { label: "ANIMUS.TalentCategoryCombate", icon: "fas fa-swords" },
+  "Elemento": { label: "ANIMUS.TalentCategoryElemento", icon: "fas fa-fire-alt" },
+  "Pericia": { label: "ANIMUS.TalentCategoryPericia", icon: "fas fa-scroll" }
 };
 
 ANIMUS.ascendancies = {
@@ -168,25 +200,6 @@ ANIMUS.elements = {
   trevas: "Trevas"
 };
 
-ANIMUS.talentCategories = {
-  "Geral": { label: "Geral", icon: "fas fa-tag" },
-  "Combate": { label: "Combate", icon: "fas fa-swords" },
-  "Elemento": { label: "Elemento", icon: "fas fa-fire-alt" },
-  "Pericia": { label: "Perícia", icon: "fas fa-scroll" },
-  "Utilidade": { label: "Utilidade", icon: "fas fa-tools" },
-  "Modulares": { label: "Modulares", icon: "fas fa-puzzle-piece" }
-};
-
-ANIMUS.itemTypes = {
-  talent: "ANIMUS.ItemTalent",
-  element: "ANIMUS.ItemElement",
-  ascendancy: "ANIMUS.ItemAscendancy",
-  property: "ANIMUS.ItemProperty",
-  action: "ANIMUS.ItemAction",
-  condition: "ANIMUS.ItemCondition",
-  rune: "ANIMUS.ItemRune"
-};
-
 ANIMUS.weaponProperties = [
   "Arremessável",
   "Ocultável",
@@ -199,6 +212,10 @@ ANIMUS.weaponProperties = [
   "Brutal",
   "Ágil"
 ];
+
+/* -------------------------------------------- */
+/*  Progressão                                  */
+/* -------------------------------------------- */
 
 ANIMUS.LEVEL_CAPS = {
   1: { pa: 4, attrCap: 2, attrPoints: 1 },

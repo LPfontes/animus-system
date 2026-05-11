@@ -1,8 +1,15 @@
 _id: f3e653c0e2fd2d6b
 name: Refresco Vigorizante
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  application:
+    type: heal
+    formula: "1d6 + 3"
+    resource: prot
+    condition: ""
+  subCategory: cura
   description: Recupera 1d6+3 <span class="text-resource">Proteção</span> imediatos
   weight: 0
   price: 14 Đ

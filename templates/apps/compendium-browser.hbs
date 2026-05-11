@@ -1,21 +1,197 @@
-<div class="browser-container">
+<div class="compendium-browser animus-v2 glass-panel">
   <header class="browser-header">
-    <h2>{{title}}</h2>
     <div class="search-bar">
       <i class="fas fa-search"></i>
-      <input type="text" placeholder="Filtrar..." />
+      <input type="text" name="search" placeholder="Buscar no compêndio..." class="search-input" value="{{searchQuery}}" />
     </div>
+    
+    <div class="browser-nav tabs">
+      <button type="button" class="tab-btn {{#if (eq activeTab 'weapon')}}active{{/if}}" data-action="setTab" data-tab="weapon">
+        <i class="fas fa-swords"></i> Armas
+      </button>
+      <button type="button" class="tab-btn {{#if (eq activeTab 'equipment')}}active{{/if}}" data-action="setTab" data-tab="equipment">
+        <i class="fas fa-shield-halved"></i> Equipamento
+      </button>
+      <button type="button" class="tab-btn {{#if (eq activeTab 'secondary')}}active{{/if}}" data-action="setTab" data-tab="secondary">
+        <i class="fas fa-backpack"></i> Secundários
+      </button>
+    </div>
+
+    {{#if (eq activeTab 'weapon')}}
+    <div class="filters">
+      <div class="damage-filters">
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'all')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="all" title="Todos os Danos">
+          <i class="fas fa-asterisk"></i>
+          <span class="filter-label">Todos</span>
+        </button>
+        
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'cortante')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="cortante" title="Cortante">
+          <i class="fas fa-sword"></i>
+          <span class="filter-label">Cortante</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'perfurante')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="perfurante" title="Perfurante">
+          <i class="fas fa-hand-point-up"></i>
+          <span class="filter-label">Perfurante</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'contuso')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="contuso" title="Contuso">
+          <i class="fas fa-hammer"></i>
+          <span class="filter-label">Contuso</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'distancia')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="distancia" title="Distância">
+          <i class="fas fa-crosshairs"></i>
+          <span class="filter-label">Distância</span>
+        </button>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq activeTab 'equipment')}}
+    <div class="filters">
+      <div class="damage-filters armor-filters">
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'all')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="all" title="Todos">
+          <i class="fas fa-asterisk"></i>
+          <span class="filter-label">Todos</span>
+        </button>
+        
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'none')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="none" title="Sem Armadura">
+          <i class="fas fa-user"></i>
+          <span class="filter-label">Nenhuma</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'leve')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="leve" title="Leve">
+          <i class="fas fa-shield"></i>
+          <span class="filter-label">Leve</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'media')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="media" title="Média">
+          <i class="fas fa-shield-halved"></i>
+          <span class="filter-label">Média</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'pesada')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="pesada" title="Pesada">
+          <i class="fas fa-shield-quartered"></i>
+          <span class="filter-label">Pesada</span>
+        </button>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq activeTab 'secondary')}}
+    <div class="filters">
+      <div class="damage-filters">
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'all')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="all" title="Todos">
+          <i class="fas fa-asterisk"></i>
+          <span class="filter-label">Todos</span>
+        </button>
+        
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'cura')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="cura" title="Cura e Utilitários">
+          <i class="fas fa-heart"></i>
+          <span class="filter-label">Cura</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'tatico')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="tatico" title="Tático e Combate">
+          <i class="fas fa-bomb"></i>
+          <span class="filter-label">Tático</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'iluminacao')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="iluminacao" title="Iluminação">
+          <i class="fas fa-lamp"></i>
+          <span class="filter-label">Luz</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'viagem')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="viagem" title="Exploração e Viagem">
+          <i class="fas fa-compass"></i>
+          <span class="filter-label">Viagem</span>
+        </button>
+
+        <button type="button" class="damage-filter-btn {{#if (eq damageTypeFilter 'especial')}}active{{/if}}" 
+          data-action="setDamageFilter" data-type="especial" title="Itens Especiais">
+          <i class="fas fa-sparkles"></i>
+          <span class="filter-label">Especial</span>
+        </button>
+      </div>
+    </div>
+    {{/if}}
   </header>
 
-  <div class="browser-list glass-panel">
-    {{#each items}}
-    <div class="browser-item" data-action="selectItem" data-uuid="{{this.uuid}}" title="Clique para selecionar">
-      <img src="{{this.img}}" />
-      <span class="item-name">{{this.name}}</span>
-      <i class="fas fa-plus-circle select-icon"></i>
+  <div class="browser-content custom-scrollbar">
+    <div class="item-list">
+      {{#each items}}
+      <div class="browser-item glass-panel {{#if expanded}}expanded{{/if}}" data-item-id="{{this.id}}">
+        <div class="item-main-row" data-action="toggleExpand" data-id="{{this.id}}">
+          <img src="{{this.img}}" class="item-img" onerror="this.src='icons/svg/item-bag.svg'" />
+          <div class="item-info">
+            <h4 class="item-name">{{this.name}}</h4>
+            <div class="item-summary-tags">
+              <span class="tag cat">{{this.displayCategory}}</span>
+              {{#if (eq this.type 'weapon')}}
+                <span class="tag dmg"><i class="fas fa-burst"></i> {{this.displayDamage}}</span>
+              {{else}}
+                {{#if this.system.base}}
+                  <span class="tag prot"><i class="fas fa-shield"></i> {{this.system.base}}</span>
+                {{/if}}
+              {{/if}}
+            </div>
+          </div>
+          <div class="item-actions">
+            <button type="button" class="action-btn add-btn" data-action="addItem" data-id="{{this.id}}" title="Adicionar à Ficha">
+              <i class="fas fa-plus"></i>
+            </button>
+            <i class="fas fa-chevron-down expand-icon"></i>
+          </div>
+        </div>
+
+        {{#if expanded}}
+        <div class="item-details accordion-content">
+          <div class="details-grid">
+            {{#if (eq this.type 'weapon')}}
+            <div class="detail-box">
+              <label>Tabela de Dano</label>
+              <div class="dmg-table-mini">
+                <span>AC1: {{this.damageTable.ac1}}</span>
+                <span>AC2: {{this.damageTable.ac2}}</span>
+                <span>AC3: {{this.damageTable.ac3}}</span>
+                <span>AC4: {{this.damageTable.ac4}}</span>
+              </div>
+            </div>
+            {{/if}}
+            
+            <div class="detail-box description">
+              <label>Descrição / Efeitos</label>
+              <div class="text-content">
+                {{{this.system.description}}}
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+
+      {{#unless items.length}}
+      <div class="empty-state">
+        <i class="fas fa-ghost"></i>
+        <p>Nenhum item encontrado.</p>
+      </div>
+      {{/unless}}
     </div>
-    {{else}}
-    <div class="empty-state">Nenhum item do tipo {{type}} encontrado nos compêndios.</div>
-    {{/each}}
   </div>
 </div>

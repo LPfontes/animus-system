@@ -1,4 +1,5 @@
 export class AnimusActor extends Actor {
+
   /** @override */
   async _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);

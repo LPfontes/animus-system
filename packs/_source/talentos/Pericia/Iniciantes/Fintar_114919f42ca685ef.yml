@@ -3,13 +3,8 @@ name: Fintar
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Realize um <span class="text-mechanic">teste</span> de Enganação contra
-    <span class="text-attribute">PER</span> do alvo. <br>Se ele falhar fica com
-    <span class="text-mechanic">desvantagem</span> contra suas <span
-    class="text-mechanic">ações</span> até a próxima <span
-    class="text-mechanic">rodada</span>.
-  trigger: ''
+  description: Realize um <span class="text-mechanic">teste</span> de Enganação contra <span class="text-attribute">PER</span> do alvo. <br>Se ele falhar fica com <span class="text-mechanic">desvantagem</span> contra suas <span class="text-mechanic">ações</span> até a próxima <span class="text-mechanic">rodada</span>.
+  trigger: ""
   requirements:
     description: Amador em Enganação.
     talents: {}
@@ -23,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!114919f42ca685ef'
+_key: "!items!114919f42ca685ef"

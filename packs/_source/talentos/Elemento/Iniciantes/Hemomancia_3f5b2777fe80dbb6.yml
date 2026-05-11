@@ -3,12 +3,8 @@ name: Hemomancia
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Passiva: você pode pagar custos de <span class="text-resource">PE</span> com
-    <span class="text-resource">Proteção</span>, a um custo de 2 pontos de <span
-    class="text-resource">Proteção</span> por 1 <span
-    class="text-resource">PE</span>.
-  trigger: ''
+  description: "Passiva: você pode pagar custos de <span class=\"text-resource\">PE</span> com <span class=\"text-resource\">Proteção</span>, a um custo de 2 pontos de <span class=\"text-resource\">Proteção</span> por 1 <span class=\"text-resource\">PE</span>."
+  trigger: ""
   requirements:
     description: Amador em aura.
     talents: {}
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!3f5b2777fe80dbb6'
+_key: "!items!3f5b2777fe80dbb6"

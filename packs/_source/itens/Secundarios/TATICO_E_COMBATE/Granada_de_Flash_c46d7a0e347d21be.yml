@@ -1,8 +1,18 @@
 _id: c46d7a0e347d21be
 name: Granada de Flash
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  check:
+    attribute: "hab"
+    skill: ""
+    dc: 9
+  application:
+    type: "condition"
+    formula: ""
+    condition: "desprevenido"
+  subCategory: tatico
   description: >-
     <span class="text-mechanic">Teste</span> <span
     class="text-mechanic">CD</span> 9 <span class="text-attribute">HAB</span> ou

@@ -1,0 +1,21 @@
+_id: 9d76da19a87b7400
+name: Bipé Desmontável
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Quando apoiado (gasta 1 <span class="text-mechanic">PA</span>), o próximo
+    ataque pode adicionar 1x <span class="text-attribute">POT</span> ao <span
+    class="text-mechanic">dano</span>.
+  price: 120 Đ
+  subCategory: Fogo
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: bf911a2a673f2bdd
+_key: '!items!9d76da19a87b7400'

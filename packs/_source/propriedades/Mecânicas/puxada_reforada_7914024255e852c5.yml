@@ -1,0 +1,20 @@
+_id: 7914024255e852c5
+name: Puxada Reforçada
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    +1 no multiplicador de <span class="text-attribute">HAB</span> em todos os
+    níveis de <span class="text-mechanic">acerto</span>.
+  price: 50 Đ
+  subCategory: Mecânicas
+  requirements:
+    description: HAB +1
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 9acbeec4c3638a31
+_key: '!items!7914024255e852c5'

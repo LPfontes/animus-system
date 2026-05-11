@@ -3,11 +3,8 @@ name: Explorador Habilidoso
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Em viagens, você elimina penalidades de terreno difícil (barro, neve, selva)
-    para si e para aliados que seguem seu caminho. <br>Nunca se perde com mapa
-    disponível e tem +1d para navegar sem mapa.
-  trigger: ''
+  description: Em viagens, você elimina penalidades de terreno difícil (barro, neve, selva) para si e para aliados que seguem seu caminho. <br>Nunca se perde com mapa disponível e tem +1d para navegar sem mapa.
+  trigger: ""
   requirements:
     description: Amador em Sobrevivência; nível 4+.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!c38c2f4893b36542'
+_key: "!items!c38c2f4893b36542"

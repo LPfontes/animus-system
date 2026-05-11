@@ -3,18 +3,10 @@ name: Terreno Marcial
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Após acertar com 3+ acertos em um ataque físico, crie Terreno Elemental em
-    raio 2m ao redor do alvo por 2 <span class="text-mechanic">rodadas</span>.
-    <br>[Fogo = Ignição ao cruzar | Terra = Terreno Difícil | Madeira = Raízes
-    ao entrar (<span class="text-mechanic">CD</span> 8+<span
-    class="text-attribute">ANI</span>) | Água = Encharcado ao entrar | Vento =
-    <span class="text-mechanic">Desvantagem</span> em Pontaria ao sair | Trovão
-    = +2 <span class="text-mechanic">dano</span> na área | Metal = <span
-    class="text-condition">Sangramento</span> ao cruzar].
+  description: Após acertar com 3+ acertos em um ataque físico, crie Terreno Elemental em raio 2m ao redor do alvo por 2 <span class="text-mechanic">rodadas</span>. <br>[Fogo = Ignição ao cruzar | Terra = Terreno Difícil | Madeira = Raízes ao entrar (<span class="text-mechanic">CD</span> 8+<span class="text-attribute">ANI</span>) | Água = Encharcado ao entrar | Vento = <span class="text-mechanic">Desvantagem</span> em Pontaria ao sair | Trovão = +2 <span class="text-mechanic">dano</span> na área | Metal = <span class="text-condition">Sangramento</span> ao cruzar].
   trigger: Após acertar com 3+ acertos
   requirements:
-    description: 'Profissional em Luta; Profissional em Elemento; nível 4+. '
+    description: "Profissional em Luta; Profissional em Elemento; nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -28,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!9795cb017c76d5d6'
+_key: "!items!9795cb017c76d5d6"

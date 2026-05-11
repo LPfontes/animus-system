@@ -3,10 +3,8 @@ name: Indulgir
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Recupera 3 <span class="text-resource">PE</span>. <br>Pode repetir quantas
-    vezes quiser no turno.
-  trigger: ''
+  description: Recupera 3 <span class="text-resource">PE</span>. <br>Pode repetir quantas vezes quiser no turno.
+  trigger: ""
   requirements:
     description: Amador em aura.
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!4799ce2a713893a2'
+_key: "!items!4799ce2a713893a2"

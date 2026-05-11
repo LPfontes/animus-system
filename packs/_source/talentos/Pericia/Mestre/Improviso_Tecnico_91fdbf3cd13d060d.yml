@@ -3,12 +3,8 @@ name: Improviso Técnico
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando não tem a ferramenta certa, você improvisa. <br>Pode usar qualquer
-    objeto do ambiente como substituto de um kit (Primeiros Socorros, Ferreiro,
-    Prestidigitação) 1×/<span class="text-mechanic">cena</span>, sem os bônus do
-    kit mas sem penalidade na rolagem.
-  trigger: ''
+  description: Quando não tem a ferramenta certa, você improvisa. <br>Pode usar qualquer objeto do ambiente como substituto de um kit (Primeiros Socorros, Ferreiro, Prestidigitação) 1×/<span class="text-mechanic">cena</span>, sem os bônus do kit mas sem penalidade na rolagem.
+  trigger: ""
   requirements:
     description: Amador em Ofício.
     talents: {}
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!91fdbf3cd13d060d'
+_key: "!items!91fdbf3cd13d060d"

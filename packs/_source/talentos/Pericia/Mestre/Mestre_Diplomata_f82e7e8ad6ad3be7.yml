@@ -3,12 +3,8 @@ name: Mestre Diplomata
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Pode converter uma situação de hostilidade 1×/entre descansos longos (NPC
-    Antagônico ou Relutante) em uma conversa neutra com um único argumento.
-    <br>O NPC concorda em ouvir, mas não necessariamente aceitar. <br>A
-    paciência dele começa em 5 (independente do antagonismo).
-  trigger: ''
+  description: Pode converter uma situação de hostilidade 1×/entre descansos longos (NPC Antagônico ou Relutante) em uma conversa neutra com um único argumento. <br>O NPC concorda em ouvir, mas não necessariamente aceitar. <br>A paciência dele começa em 5 (independente do antagonismo).
+  trigger: ""
   requirements:
     description: Embaixador; nível 8+.
     talents:
@@ -21,5 +17,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!f82e7e8ad6ad3be7'
+_key: "!items!f82e7e8ad6ad3be7"

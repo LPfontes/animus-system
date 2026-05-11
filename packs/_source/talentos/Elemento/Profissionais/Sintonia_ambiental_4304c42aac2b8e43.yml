@@ -3,11 +3,8 @@ name: Sintonia ambiental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você estiver em um ambiente cercado por seu elemento (ou que possua
-    abundância dele), recupera 4 <span class="text-resource">PE</span> por turno
-    (ou recupera completamente os PEs em um descanso curto).
-  trigger: ''
+  description: Quando você estiver em um ambiente cercado por seu elemento (ou que possua abundância dele), recupera 4 <span class="text-resource">PE</span> por turno (ou recupera completamente os PEs em um descanso curto).
+  trigger: ""
   requirements:
     description: Profissional em aura; Indulgir.
     talents:
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!4304c42aac2b8e43'
+_key: "!items!4304c42aac2b8e43"

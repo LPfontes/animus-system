@@ -1,8 +1,13 @@
 _id: f250b7d25e43e6e0
 name: Bússola arcana
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  check:
+    attribute: "pot"
+    skill: "sobrevivencia"
+    dc: 0
+  subCategory: especial
   description: Aponta para a maior concentração de anima
   weight: 0
   price: 120 Đ

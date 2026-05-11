@@ -3,9 +3,7 @@ name: Resiliente
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você ganha +1 <span class="text-resource">PV</span> por nível de personagem
-    a partir do momento em que o talento é adquirido (não retroativo).
+  description: Você ganha +1 <span class="text-resource">PV</span> por nível de personagem a partir do momento em que o talento é adquirido (não retroativo).
   trigger: passiva
   requirements:
     description: 2 pontos em POTÊNCIA.
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!d16b8ed954b4291b'
+_key: "!items!d16b8ed954b4291b"

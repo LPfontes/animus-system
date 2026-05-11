@@ -3,10 +3,8 @@ name: Ação Refinada II
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você diminui o custo da <span class="text-mechanic">ação</span> escolhida em
-    '<span class="text-mechanic">ação</span> Refinada' em mais 1 (mínimo 1).
-  trigger: ''
+  description: Você diminui o custo da <span class="text-mechanic">ação</span> escolhida em '<span class="text-mechanic">ação</span> Refinada' em mais 1 (mínimo 1).
+  trigger: ""
   requirements:
     description: Mestre em Perícia-Chave; ação Refinada I.
     talents:
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!4c40f4036ff1067f'
+_key: "!items!4c40f4036ff1067f"

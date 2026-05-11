@@ -3,11 +3,8 @@ name: Leitura de Campo
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você observa o padrão de combate do inimigo. <br>até o início do seu próximo
-    turno, o primeiro ataque do alvo contra qualquer aliado tem +1 de
-    dificuldade.
-  trigger: ''
+  description: Você observa o padrão de combate do inimigo. <br>até o início do seu próximo turno, o primeiro ataque do alvo contra qualquer aliado tem +1 de dificuldade.
+  trigger: ""
   requirements:
     description: Amador em Percepção.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!8549ca7eea3c8e14'
+_key: "!items!8549ca7eea3c8e14"

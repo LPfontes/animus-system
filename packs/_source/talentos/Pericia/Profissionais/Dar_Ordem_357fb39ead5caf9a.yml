@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Dá uma ordem a um aliado.
-  trigger: ''
+  trigger: ""
   requirements:
     description: Profissional em Persuasão.
     talents: {}
@@ -18,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!357fb39ead5caf9a'
+_key: "!items!357fb39ead5caf9a"

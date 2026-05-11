@@ -1,0 +1,18 @@
+_id: e5512513ac66a8c5
+name: Retrocarga
+type: property
+img: icons/svg/gear.svg
+system:
+  description: Permite recarregar em movimento (2 <span class="text-mechanic">PA</span>)
+  price: 300 Đ
+  subCategory: Fogo
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: bf911a2a673f2bdd
+_key: '!items!e5512513ac66a8c5'

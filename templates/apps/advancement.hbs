@@ -1,0 +1,34 @@
+<div class="animus advancement-panel glass-panel">
+  <div class="advancement-header">
+    <span class="header-title"><i class="fas fa-level-up-alt"></i> EVOLUÇÃO - NÍVEL {{system.details.level}}</span>
+    <span class="points-pool {{#if (eq pointsRemaining 0)}}complete{{/if}}">
+      Pontos Disponíveis: <span class="value">{{pointsRemaining}}</span>
+    </span>
+  </div>
+
+  <div class="advancement-grid">
+    {{!-- Distribuição de Pontos --}}
+    <div class="distribution-section">
+      <label class="section-label">DISTRIBUIR PONTOS (+3 por nível)</label>
+      <div class="dist-container">
+        {{#each stats as |stat|}}
+        <div class="dist-row">
+          <span class="stat-label">{{stat.label}}</span>
+          <div class="input-wrapper">
+            <button type="button" class="adjust-btn" data-action="adjust" data-stat="{{stat.id}}" data-delta="-1" {{#if (eq stat.value 0)}}disabled{{/if}}>-</button>
+            <input type="number" name="system.details.advancement.distributedPoints.{{stat.id}}" value="{{stat.value}}" readonly>
+            <button type="button" class="adjust-btn" data-action="adjust" data-stat="{{stat.id}}" data-delta="1" {{#if (eq ../pointsRemaining 0)}}disabled{{/if}}>+</button>
+          </div>
+          <span class="stat-bonus">+{{stat.bonus}}</span>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="advancement-footer">
+    <p class="footer-hint">Alterações de pontos de atributo e perícias devem ser feitas diretamente na grade da ficha.</p>
+    <button type="button" class="save-btn" data-action="confirm"><i class="fas fa-check"></i> CONFIRMAR EVOLUÇÃO</button>
+  </footer>
+</div>

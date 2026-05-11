@@ -1,8 +1,11 @@
 _id: 5d9318b165b3df49
 name: Pistola (Base Leve)
 type: weapon
-img: systems/animus/assets/system-icons/weapon/pistola__base_leve_.svg
+img: systems/animus/assets/system-icons/weapon/crossed-pistols.svg
 system:
+  category: fogo
+  damageType: fogo
+  type: fogo_leve
   description: 'Tipo: Arma de Fogo<br>'
   damage:
     ac1: 1 + 1xHAB + 2
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 200 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: hab
+    skill: pontaria
     dc: 0
 folder: 12a3c819990821c3
 _key: '!items!5d9318b165b3df49'

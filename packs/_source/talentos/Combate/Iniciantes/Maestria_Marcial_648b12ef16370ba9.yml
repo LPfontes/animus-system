@@ -3,11 +3,8 @@ name: Maestria Marcial
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Escolha entre armas cortantes, perfurantes, contundentes ou à distância.
-    <br>Quando estiver usando o tipo de arma escolhido e rolar algum '1' na
-    rolagem, altere esse valor para 3. <br>Limitado a um dado por rolagem
-  trigger: ''
+  description: Escolha entre armas cortantes, perfurantes, contundentes ou à distância. <br>Quando estiver usando o tipo de arma escolhido e rolar algum '1' na rolagem, altere esse valor para 3. <br>Limitado a um dado por rolagem
+  trigger: ""
   requirements:
     description: Amador em Luta ou Pontaria.
     talents: {}
@@ -23,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!648b12ef16370ba9'
+_key: "!items!648b12ef16370ba9"

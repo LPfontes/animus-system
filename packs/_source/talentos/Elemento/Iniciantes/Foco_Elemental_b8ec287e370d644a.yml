@@ -3,11 +3,8 @@ name: Foco Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Reduz o custo em −2 <span class="text-resource">PE</span> de um Componente
-    de Custo (ex: alcance, Forma, no) permanentemente. <br>Pode ser escolhido
-    várias vezes para Componentes diferentes.
-  trigger: ''
+  description: "Reduz o custo em −2 <span class=\"text-resource\">PE</span> de um Componente de Custo (ex: alcance, Forma, no) permanentemente. <br>Pode ser escolhido várias vezes para Componentes diferentes."
+  trigger: ""
   requirements:
     description: Amador em Controle Elemental.
     talents: {}
@@ -23,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!b8ec287e370d644a'
+_key: "!items!b8ec287e370d644a"

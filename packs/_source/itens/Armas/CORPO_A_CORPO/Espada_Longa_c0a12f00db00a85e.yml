@@ -1,8 +1,11 @@
 _id: c0a12f00db00a85e
 name: Espada Longa
 type: weapon
-img: systems/animus/assets/system-icons/weapon/espada_longa.svg
+img: systems/animus/assets/system-icons/weapon/crossed-swords.svg
 system:
+  category: branca
+  damageType: cortante
+  type: cortante_medio
   description: 'Tipo: Cortante Média<br>'
   damage:
     ac1: '3'
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 15 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: pot
+    skill: luta
     dc: 0
 folder: bd51c3d03d930431
 _key: '!items!c0a12f00db00a85e'

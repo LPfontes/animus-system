@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Aumenta um atributo de 3 para 4. <br>(Só pode ser comprada uma vez. )
-  trigger: ''
+  trigger: ""
   requirements:
     description: 3 pontos em atributo.
     talents: {}
@@ -16,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!123ee629443fab82'
+_key: "!items!123ee629443fab82"

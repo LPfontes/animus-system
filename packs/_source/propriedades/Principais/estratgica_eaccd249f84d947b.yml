@@ -1,0 +1,21 @@
+_id: eaccd249f84d947b
+name: Estratégica
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Adiciona 1x PERSPICÁCIA nos multiplicadores de <span
+    class="text-mechanic">dano</span> da arma.<p><i>Lógica: Somar valor de PER
+    ao resultado final de cada nível de acerto.</i></p>
+  price: 100 Đ
+  subCategory: Principais
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: fa7f1e2a93a2af1b
+_key: '!items!eaccd249f84d947b'

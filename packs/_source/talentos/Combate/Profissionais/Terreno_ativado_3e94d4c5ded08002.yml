@@ -3,11 +3,7 @@ name: Terreno ativado
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você infunde energia elemental no terreno ao redor (raio 3m). <br>Criaturas
-    que saírem da área sofrem a condição inata do seu elemento (Resistência
-    <span class="text-mechanic">CD</span> 7+<span
-    class="text-attribute">ANI</span>).
+  description: Você infunde energia elemental no terreno ao redor (raio 3m). <br>Criaturas que saírem da área sofrem a condição inata do seu elemento (Resistência <span class="text-mechanic">CD</span> 7+<span class="text-attribute">ANI</span>).
   trigger: Criaturas que saírem da area
   requirements:
     description: Profissional em Elemento; nível 4+.
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!3e94d4c5ded08002'
+_key: "!items!3e94d4c5ded08002"

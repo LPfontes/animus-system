@@ -3,10 +3,8 @@ name: Entrar em Fúria Maior
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Igual à Fúria, porém passa a ser 3 PVs perdidos ao invés de 5 PVs por ponto
-    de bônus.
-  trigger: ''
+  description: Igual à Fúria, porém passa a ser 3 PVs perdidos ao invés de 5 PVs por ponto de bônus.
+  trigger: ""
   requirements:
     description: Entrar em Fúria; Profissional em Luta.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!8736617a32f3d423'
+_key: "!items!8736617a32f3d423"

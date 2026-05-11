@@ -3,11 +3,8 @@ name: Elemento Persistente
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando fizer sustentação do seu poder elemental, você tem direito a um <span
-    class="text-mechanic">teste</span> de Controle Elemental e diminuir o custo
-    da sustentação no valor igual ao resultado.
-  trigger: ''
+  description: Quando fizer sustentação do seu poder elemental, você tem direito a um <span class="text-mechanic">teste</span> de Controle Elemental e diminuir o custo da sustentação no valor igual ao resultado.
+  trigger: ""
   requirements:
     description: Profissional em Controle Elemental; Persistência Elemental
     talents:
@@ -24,5 +21,6 @@ system:
     attribute: -1
     skill: 23
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!40f50ee3b19434dc'
+_key: "!items!40f50ee3b19434dc"

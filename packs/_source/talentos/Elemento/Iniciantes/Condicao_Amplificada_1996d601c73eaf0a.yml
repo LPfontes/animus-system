@@ -3,11 +3,8 @@ name: Condição Amplificada
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    A força do seu elemento é difícil de resistir. <br>Quando você aplica a
-    condição inata do seu elemento, a <span class="text-mechanic">CD</span> de
-    resistência do alvo sobe em +2.
-  trigger: ''
+  description: A força do seu elemento é difícil de resistir. <br>Quando você aplica a condição inata do seu elemento, a <span class="text-mechanic">CD</span> de resistência do alvo sobe em +2.
+  trigger: ""
   requirements:
     description: Amador em Elemento.
     talents: {}
@@ -21,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!1996d601c73eaf0a'
+_key: "!items!1996d601c73eaf0a"

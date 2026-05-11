@@ -3,10 +3,8 @@ name: Canalização Profunda
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Na Rolagem de Perícia para redução de <span class="text-resource">PE</span>,
-    os resultados '1' e '2' contam como '3' para fins de redução.
-  trigger: ''
+  description: Na Rolagem de Perícia para redução de <span class="text-resource">PE</span>, os resultados '1' e '2' contam como '3' para fins de redução.
+  trigger: ""
   requirements:
     description: Profissional em Controle Elemental.
     talents: {}
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!d2d22e7fb46ab1c8'
+_key: "!items!d2d22e7fb46ab1c8"

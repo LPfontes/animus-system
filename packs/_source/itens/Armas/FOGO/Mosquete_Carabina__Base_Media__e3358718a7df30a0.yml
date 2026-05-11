@@ -1,8 +1,11 @@
 _id: e3358718a7df30a0
 name: Mosquete/Carabina (Base Média)
 type: weapon
-img: systems/animus/assets/system-icons/weapon/mosquete_carabina__base_media_.svg
+img: systems/animus/assets/system-icons/weapon/lee-enfield.svg
 system:
+  category: fogo
+  damageType: fogo
+  type: fogo_media
   description: 'Tipo: Arma de Fogo<br>'
   damage:
     ac1: 1 + 2xHAB + 4
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 500 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: hab
+    skill: pontaria
     dc: 0
 folder: 12a3c819990821c3
 _key: '!items!e3358718a7df30a0'

@@ -1,8 +1,10 @@
 _id: 90a22e71ab674321
 name: Tocha
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: false
+  subCategory: iluminacao
   description: 1h de luz, 9m claro / 18m difuso
   weight: 0
   price: 2 Đ

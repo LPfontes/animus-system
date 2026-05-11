@@ -3,11 +3,8 @@ name: Combater com Duas armas
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Realiza um ataque com a arma secundária. <br>O ataque aplica metade do
-    multiplicador de atributo no <span class="text-mechanic">dano</span>
-    (arredondado para baixo). <br>Requer armas leves em cada mão.
-  trigger: ''
+  description: Realiza um ataque com a arma secundária. <br>O ataque aplica metade do multiplicador de atributo no <span class="text-mechanic">dano</span> (arredondado para baixo). <br>Requer armas leves em cada mão.
+  trigger: ""
   requirements:
     description: Amador em Luta ou Pontaria.
     talents: {}
@@ -23,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!aea4bdfd5aad725f'
+_key: "!items!aea4bdfd5aad725f"

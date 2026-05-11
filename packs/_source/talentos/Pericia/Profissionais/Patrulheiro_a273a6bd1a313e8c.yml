@@ -3,12 +3,8 @@ name: Patrulheiro
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Enquanto estiver consciente, você não sofre a condição de <span
-    class="text-mechanic">rodada</span> surpresa e sabe quantos oponentes ou
-    ameaças há na <span class="text-mechanic">cena</span>, mesmo que não possa
-    vê-los diretamente.
-  trigger: ''
+  description: Enquanto estiver consciente, você não sofre a condição de <span class="text-mechanic">rodada</span> surpresa e sabe quantos oponentes ou ameaças há na <span class="text-mechanic">cena</span>, mesmo que não possa vê-los diretamente.
+  trigger: ""
   requirements:
     description: Profissional em Sobrevivência; Sentinela.
     talents:
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!a273a6bd1a313e8c'
+_key: "!items!a273a6bd1a313e8c"

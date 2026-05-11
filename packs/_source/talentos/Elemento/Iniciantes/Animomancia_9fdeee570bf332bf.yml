@@ -3,10 +3,8 @@ name: Animomancia
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Realize um <span class="text-mechanic">Teste</span> de Perícia ligado a
-    <span class="text-attribute">ANI</span> com +1d.
-  trigger: ''
+  description: Realize um <span class="text-mechanic">Teste</span> de Perícia ligado a <span class="text-attribute">ANI</span> com +1d.
+  trigger: ""
   requirements:
     description: Amador em Controle Elemental.
     talents: {}
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!9fdeee570bf332bf'
+_key: "!items!9fdeee570bf332bf"

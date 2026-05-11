@@ -1,0 +1,20 @@
+_id: 4150b46246d66fc4
+name: Ocultável
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    O alvo fica <span class="text-condition">Desprevenido</span> quando essa
+    arma é sacada pela primeira vez em combate.
+  price: 50 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!4150b46246d66fc4'

@@ -1,8 +1,14 @@
 _id: dae79fe33bfa33fc
 name: Bomba de Fumaça
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  application:
+    type: "condition"
+    formula: ""
+    condition: "desvantagem_percepcao"
+  subCategory: tatico
   description: >-
     Area de 3m; impõe <span class="text-mechanic">Desvantagem</span> em
     Percepção e Pontaria

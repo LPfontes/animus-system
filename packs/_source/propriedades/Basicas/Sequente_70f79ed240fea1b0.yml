@@ -1,8 +1,0 @@
-_id: 70f79ed240fea1b0
-name: Sequente
-type: item
-img: icons/svg/gear.svg
-system:
-  description: Seu primeiro ataque subsequente no turno custa 1 ação a menos.
-folder: 6c0069107d7e49ee
-_key: '!items!70f79ed240fea1b0'

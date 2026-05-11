@@ -3,10 +3,8 @@ name: Disparo Letal
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Pode transformar 3 acertos em um <span class="text-mechanic">acerto</span>
-    <span class="text-mechanic">crítico</span>.
-  trigger: ''
+  description: Pode transformar 3 acertos em um <span class="text-mechanic">acerto</span> <span class="text-mechanic">crítico</span>.
+  trigger: ""
   requirements:
     description: Mestre em Pontaria; Tiro Certeiro.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!7484847b372c76d5'
+_key: "!items!7484847b372c76d5"

@@ -3,14 +3,8 @@ name: Presença de Combate
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você vencer um ataque com 3+ acertos, pode gastar 1 <span
-    class="text-resource">PE</span> para fazer um <span
-    class="text-mechanic">teste</span> de Intimidação gratuito contra todos que
-    testemunharam o ataque. <br>Sucesso: o alvo fica amedrontado por 1 <span
-    class="text-mechanic">rodada</span> (<span
-    class="text-mechanic">desvantagem</span> em todos os testes).
-  trigger: ''
+  description: "Quando você vencer um ataque com 3+ acertos, pode gastar 1 <span class=\"text-resource\">PE</span> para fazer um <span class=\"text-mechanic\">teste</span> de Intimidação gratuito contra todos que testemunharam o ataque. <br>Sucesso: o alvo fica amedrontado por 1 <span class=\"text-mechanic\">rodada</span> (<span class=\"text-mechanic\">desvantagem</span> em todos os testes)."
+  trigger: ""
   requirements:
     description: Amador em Intimidação; Amador em Luta.
     talents: {}
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!609b4d0211f3a987'
+_key: "!items!609b4d0211f3a987"

@@ -3,13 +3,8 @@ name: Golpe Imbuído
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Imbui a arma com seu elemento. <br>O ataque causa +<span
-    class="text-attribute">ANI</span> de <span class="text-mechanic">dano</span>
-    elemental adicional em todos os acertos. <br>(O <span
-    class="text-mechanic">dano</span> elemental não conta como ataque elemental
-    para fins de perícia. )
-  trigger: ''
+  description: Imbui a arma com seu elemento. <br>O ataque causa +<span class="text-attribute">ANI</span> de <span class="text-mechanic">dano</span> elemental adicional em todos os acertos. <br>(O <span class="text-mechanic">dano</span> elemental não conta como ataque elemental para fins de perícia. )
+  trigger: ""
   requirements:
     description: Amador em Luta; Amador em Elemento; nível 4+.
     talents: {}
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!769bfc3aa3175a2c'
+_key: "!items!769bfc3aa3175a2c"

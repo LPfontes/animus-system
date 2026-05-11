@@ -3,12 +3,7 @@ name: Esquiva Básica
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando atacado, reduz os acertos recebidos em 1 (mínimo ac. 1). <br>Limite:
-    1×/<span class="text-mechanic">rodada</span>. <br>Não funciona se <span
-    class="text-condition">Imobilizado</span>, <span
-    class="text-condition">agarrado</span> ou <span
-    class="text-condition">Atordoado</span>.
+  description: "Quando atacado, reduz os acertos recebidos em 1 (mínimo ac. 1). <br>Limite: 1×/<span class=\"text-mechanic\">rodada</span>. <br>Não funciona se <span class=\"text-condition\">Imobilizado</span>, <span class=\"text-condition\">agarrado</span> ou <span class=\"text-condition\">Atordoado</span>."
   trigger: reação
   requirements:
     description: Amador em acrobacia ou Luta.
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!e5079dbb1d4d1855'
+_key: "!items!e5079dbb1d4d1855"

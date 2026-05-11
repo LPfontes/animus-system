@@ -1,0 +1,20 @@
+_id: e35d07407af619ba
+name: Puxada Pesada
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    +1xPOT em todos os acertos além do multiplicador de <span
+    class="text-attribute">HAB</span>.
+  price: 40 Đ
+  subCategory: Mecânicas
+  requirements:
+    description: POT +1
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 9acbeec4c3638a31
+_key: '!items!e35d07407af619ba'

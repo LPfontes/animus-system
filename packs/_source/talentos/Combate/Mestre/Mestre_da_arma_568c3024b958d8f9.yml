@@ -3,9 +3,7 @@ name: Mestre da arma
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    O multiplicador de atributo para o <span class="text-mechanic">Dano</span>
-    Final aumenta em +1.
+  description: O multiplicador de atributo para o <span class="text-mechanic">Dano</span> Final aumenta em +1.
   trigger: passiva
   requirements:
     description: Profissional em Luta ou Pontaria.
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!568c3024b958d8f9'
+_key: "!items!568c3024b958d8f9"

@@ -3,11 +3,8 @@ name: Muralha Intransponível
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando estiver usando um escudo pesado ou maior, você pode entrar em
-    cobertura total para você e qualquer aliado atrás de você. <br>Manobras de
-    empurrar ou habilidades que obriguem movimentação são anuladas.
-  trigger: ''
+  description: Quando estiver usando um escudo pesado ou maior, você pode entrar em cobertura total para você e qualquer aliado atrás de você. <br>Manobras de empurrar ou habilidades que obriguem movimentação são anuladas.
+  trigger: ""
   requirements:
     description: Mestre em Resistência; Proatividade com Escudos.
     talents:
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!e488c3dbf621d36f'
+_key: "!items!e488c3dbf621d36f"

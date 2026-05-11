@@ -3,13 +3,8 @@ name: Mestre da Esquiva
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Como Esquiva Eficiente, mas reduz acertos em metade do seu valor de <span
-    class="text-attribute">HAB</span> (arredondado para baixo, mínimo 1).
-    <br>Funciona no primeiro ataque de cada <span
-    class="text-mechanic">rodada</span>. <br>HAB 2 = 1. <br>HAB 3 = 1. <br>HAB 4
-    = 2.
-  trigger: ''
+  description: Como Esquiva Eficiente, mas reduz acertos em metade do seu valor de <span class="text-attribute">HAB</span> (arredondado para baixo, mínimo 1). <br>Funciona no primeiro ataque de cada <span class="text-mechanic">rodada</span>. <br>HAB 2 = 1. <br>HAB 3 = 1. <br>HAB 4 = 2.
+  trigger: ""
   requirements:
     description: 2 pontos em HABILIDADE; Esquiva Eficiente.
     talents:
@@ -24,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!ad5a4ec97dfada1c'
+_key: "!items!ad5a4ec97dfada1c"

@@ -3,11 +3,8 @@ name: Impulso Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você canaliza seu elemento em um ataque físico. <br>O ataque causa +<span
-    class="text-attribute">ANI</span> de <span class="text-mechanic">dano</span>
-    elemental adicional em todos os acertos.
-  trigger: ''
+  description: Você canaliza seu elemento em um ataque físico. <br>O ataque causa +<span class="text-attribute">ANI</span> de <span class="text-mechanic">dano</span> elemental adicional em todos os acertos.
+  trigger: ""
   requirements:
     description: Profissional em Luta; Amador em Elemento.
     talents: {}
@@ -23,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!2494be943c4d863a'
+_key: "!items!2494be943c4d863a"

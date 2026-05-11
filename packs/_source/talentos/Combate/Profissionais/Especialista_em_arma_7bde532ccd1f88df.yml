@@ -3,10 +3,8 @@ name: Especialista em arma
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando usa uma arma de Maestria Marcial, aumenta o <span
-    class="text-mechanic">acerto</span> em 1 passo.
-  trigger: ''
+  description: Quando usa uma arma de Maestria Marcial, aumenta o <span class="text-mechanic">acerto</span> em 1 passo.
+  trigger: ""
   requirements:
     description: Profissional em Luta ou Pontaria; Maestria Marcial.
     talents:
@@ -23,5 +21,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!7bde532ccd1f88df'
+_key: "!items!7bde532ccd1f88df"

@@ -3,9 +3,7 @@ name: Proteção Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você é atacado pelo mesmo elemento do seu personagem, diminua o
-    número de acertos em 1.
+  description: Quando você é atacado pelo mesmo elemento do seu personagem, diminua o número de acertos em 1.
   trigger: Quando você é atacado
   requirements:
     description: Amador em aura.
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!2a4062b48681bf9a'
+_key: "!items!2a4062b48681bf9a"

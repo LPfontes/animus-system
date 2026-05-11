@@ -3,12 +3,8 @@ name: Antecipar
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    1×/<span class="text-mechanic">rodada</span>: ao declarar sua <span
-    class="text-mechanic">ação</span>, pode 'marcar' um oponente. <br>Se ele
-    tiver a mesma iniciativa ou agir depois, você resolve seu ataque primeiro
-    nessa <span class="text-mechanic">rodada</span>.
-  trigger: ''
+  description: "1×/<span class=\"text-mechanic\">rodada</span>: ao declarar sua <span class=\"text-mechanic\">ação</span>, pode 'marcar' um oponente. <br>Se ele tiver a mesma iniciativa ou agir depois, você resolve seu ataque primeiro nessa <span class=\"text-mechanic\">rodada</span>."
+  trigger: ""
   requirements:
     description: Perspicácia 2+; nível 8+.
     talents: {}
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!f0ba1beb60571d5e'
+_key: "!items!f0ba1beb60571d5e"

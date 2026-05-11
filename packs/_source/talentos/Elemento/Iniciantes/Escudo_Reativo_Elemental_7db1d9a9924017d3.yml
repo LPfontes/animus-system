@@ -3,14 +3,7 @@ name: Escudo Reativo Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você usa aparar ou interpõe um escudo, gaste 2 <span
-    class="text-resource">PE</span> como <span
-    class="text-mechanic">reação</span>: o atacante recebe <span
-    class="text-mechanic">dano</span> = 1 + 1×<span
-    class="text-attribute">ANI</span> do seu elemento e sofre a condição inata
-    (Resistência <span class="text-mechanic">CD</span> 7+<span
-    class="text-attribute">ANI</span> para evitar).
+  description: "Quando você usa aparar ou interpõe um escudo, gaste 2 <span class=\"text-resource\">PE</span> como <span class=\"text-mechanic\">reação</span>: o atacante recebe <span class=\"text-mechanic\">dano</span> = 1 + 1×<span class=\"text-attribute\">ANI</span> do seu elemento e sofre a condição inata (Resistência <span class=\"text-mechanic\">CD</span> 7+<span class=\"text-attribute\">ANI</span> para evitar)."
   trigger: Como reação
   requirements:
     description: Amador em Elemento; aparar ou Proatividade com Escudos.
@@ -26,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!7db1d9a9924017d3'
+_key: "!items!7db1d9a9924017d3"

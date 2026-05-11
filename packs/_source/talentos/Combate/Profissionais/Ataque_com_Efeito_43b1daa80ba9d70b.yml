@@ -3,10 +3,7 @@ name: Ataque com Efeito
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando realizar um ataque em um oponente pode gastar 3 <span
-    class="text-resource">PE</span> para realizar uma manobra com uma arma que
-    possua Maestria Marcial.
+  description: Quando realizar um ataque em um oponente pode gastar 3 <span class="text-resource">PE</span> para realizar uma manobra com uma arma que possua Maestria Marcial.
   trigger: Ação de ataque
   requirements:
     description: Profissional em Luta; Maestria Marcial.
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!43b1daa80ba9d70b'
+_key: "!items!43b1daa80ba9d70b"

@@ -3,11 +3,8 @@ name: Area Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Ataques em área (linha, cone ou explosão). <br>+1 <span
-    class="text-resource">PE</span> (3m) / +3 <span
-    class="text-resource">PE</span> (6m).
-  trigger: ''
+  description: Ataques em área (linha, cone ou explosão). <br>+1 <span class="text-resource">PE</span> (3m) / +3 <span class="text-resource">PE</span> (6m).
+  trigger: ""
   requirements:
     description: ANI 2 + Projétil Elem.
     talents:
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!47d77d74010facef'
+_key: "!items!47d77d74010facef"

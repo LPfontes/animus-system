@@ -3,10 +3,8 @@ name: Médico Econômico
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você pode usar um kit de primeiros socorros o dobro de vezes (10 vezes em
-    vez de 5).
-  trigger: ''
+  description: Você pode usar um kit de primeiros socorros o dobro de vezes (10 vezes em vez de 5).
+  trigger: ""
   requirements:
     description: Profissional em Medicina; Médico de Campo.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!c51ae6095690f61c'
+_key: "!items!c51ae6095690f61c"

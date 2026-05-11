@@ -3,12 +3,8 @@ name: Dupla Condição
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você ativa a condição avançada do seu elemento (4 acertos ou +1 <span
-    class="text-resource">PA</span> declarado antes da rolagem), você aplica
-    também a condição inata no mesmo alvo  os dois efeitos ficam ativos
-    simultaneamente.
-  trigger: ''
+  description: Quando você ativa a condição avançada do seu elemento (4 acertos ou +1 <span class="text-resource">PA</span> declarado antes da rolagem), você aplica também a condição inata no mesmo alvo  os dois efeitos ficam ativos simultaneamente.
+  trigger: ""
   requirements:
     description: Profissional em Elemento; Condição amplificada.
     talents:
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!4fc72281fcb87d5d'
+_key: "!items!4fc72281fcb87d5d"

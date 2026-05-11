@@ -3,6 +3,12 @@ name: Pesada
 type: armor
 img: systems/animus/assets/system-icons/armor/breastplate.svg
 system:
+  type: pesada
+  base: 12
+  multPOT: 2
+  multHAB: 0
+  paPenalty: 2
+  actionPenalty: 1
   description: >-
     Proteção: +12<br>Penalidade: +1 ação em QUALQUER ação; Desvantagem em
     Furtividade<br>Lógica: 12 + (2 x POT) + (0 x HAB)

@@ -3,12 +3,8 @@ name: Campo de Condição
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você aplica sua condição inata, ela se irradia: todas as criaturas a
-    3m do alvo fazem Resistência <span class="text-mechanic">CD</span> 7+<span
-    class="text-attribute">ANI</span> ou sofrem a condição inata por 1 <span
-    class="text-mechanic">rodada</span>.
-  trigger: ''
+  description: "Quando você aplica sua condição inata, ela se irradia: todas as criaturas a 3m do alvo fazem Resistência <span class=\"text-mechanic\">CD</span> 7+<span class=\"text-attribute\">ANI</span> ou sofrem a condição inata por 1 <span class=\"text-mechanic\">rodada</span>."
+  trigger: ""
   requirements:
     description: Mestre em Elemento.
     talents: {}
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!ceba8ea6c5509f40'
+_key: "!items!ceba8ea6c5509f40"

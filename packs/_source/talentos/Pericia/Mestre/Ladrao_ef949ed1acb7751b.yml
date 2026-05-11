@@ -3,13 +3,8 @@ name: Ladrão
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Pode forçar fechaduras e desativar armadilhas com +1d no <span
-    class="text-mechanic">teste</span>. <br>Com ferramentas de ladrão, reduz o
-    tempo necessário à metade. <br>Pode identificar o tipo de armadilha sem
-    acionar (<span class="text-attribute">PER</span> <span
-    class="text-mechanic">CD</span> 7).
-  trigger: ''
+  description: Pode forçar fechaduras e desativar armadilhas com +1d no <span class="text-mechanic">teste</span>. <br>Com ferramentas de ladrão, reduz o tempo necessário à metade. <br>Pode identificar o tipo de armadilha sem acionar (<span class="text-attribute">PER</span> <span class="text-mechanic">CD</span> 7).
+  trigger: ""
   requirements:
     description: Amador em Prestidigitação; nível 4+.
     talents:
@@ -24,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!ef949ed1acb7751b'
+_key: "!items!ef949ed1acb7751b"

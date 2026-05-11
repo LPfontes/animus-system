@@ -3,11 +3,7 @@ name: Terreno Favorito
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Escolha entre os ambientes: urbano, floresta, deserto, campo, subterrâneo e
-    aquático. <br>No seu terreno favorito, sempre que rolar um '1' no dado, você
-    pode re-rolar esse dado uma única vez. <br>(Limitado a um dado por rolagem.
-    )
+  description: "Escolha entre os ambientes: urbano, floresta, deserto, campo, subterrâneo e aquático. <br>No seu terreno favorito, sempre que rolar um '1' no dado, você pode re-rolar esse dado uma única vez. <br>(Limitado a um dado por rolagem. )"
   trigger: passiva
   requirements:
     description: Amador em Sobrevivência.
@@ -22,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!299df1129f440834'
+_key: "!items!299df1129f440834"

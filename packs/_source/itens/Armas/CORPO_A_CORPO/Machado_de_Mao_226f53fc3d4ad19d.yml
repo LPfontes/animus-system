@@ -1,8 +1,11 @@
 _id: 226f53fc3d4ad19d
 name: Machado de Mão
 type: weapon
-img: systems/animus/assets/system-icons/weapon/machado_de_mao.svg
+img: systems/animus/assets/system-icons/weapon/tomahawk.svg
 system:
+  category: branca
+  damageType: cortante
+  type: cortante_leve
   description: 'Tipo: Cortante Leve<br>Arremessável'
   damage:
     ac1: '2'
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 10 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: pot
+    skill: luta
     dc: 0
 folder: bd51c3d03d930431
 _key: '!items!226f53fc3d4ad19d'

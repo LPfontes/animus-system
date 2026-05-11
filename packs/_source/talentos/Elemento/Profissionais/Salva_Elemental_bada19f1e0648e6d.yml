@@ -3,16 +3,10 @@ name: Salva Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Dispare 3 projéteis elementais podem atingir alvos diferentes ou o mesmo.
-    <br>Todos usam a mesma rolagem de dados. <br>Cada projétil causa <span
-    class="text-mechanic">dano</span> = Nível 1 do seu elemento (sem
-    multiplicador de <span class="text-attribute">ANI</span>). <br>A condição
-    inata se aplica a cada <span class="text-mechanic">acerto</span> de 3+
-    independentemente.
-  trigger: ''
+  description: Dispare 3 projéteis elementais podem atingir alvos diferentes ou o mesmo. <br>Todos usam a mesma rolagem de dados. <br>Cada projétil causa <span class="text-mechanic">dano</span> = Nível 1 do seu elemento (sem multiplicador de <span class="text-attribute">ANI</span>). <br>A condição inata se aplica a cada <span class="text-mechanic">acerto</span> de 3+ independentemente.
+  trigger: ""
   requirements:
-    description: 'Profissional em Pontaria; Amador em Elemento; nível 4+. '
+    description: "Profissional em Pontaria; Amador em Elemento; nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!bada19f1e0648e6d'
+_key: "!items!bada19f1e0648e6d"

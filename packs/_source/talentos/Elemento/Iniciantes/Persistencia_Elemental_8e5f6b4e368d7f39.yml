@@ -3,12 +3,8 @@ name: Persistência Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando recebe <span class="text-mechanic">dano</span>, você não precisa
-    fazer um <span class="text-mechanic">teste</span> de Controle Elemental para
-    sustentar um efeito contínuo do elemento, tendo sucesso automaticamente 
-    exceto se seus <span class="text-resource">PV</span> chegarem a 0.
-  trigger: ''
+  description: Quando recebe <span class="text-mechanic">dano</span>, você não precisa fazer um <span class="text-mechanic">teste</span> de Controle Elemental para sustentar um efeito contínuo do elemento, tendo sucesso automaticamente  exceto se seus <span class="text-resource">PV</span> chegarem a 0.
+  trigger: ""
   requirements:
     description: Amador em Controle Elemental.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: 23
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!8e5f6b4e368d7f39'
+_key: "!items!8e5f6b4e368d7f39"

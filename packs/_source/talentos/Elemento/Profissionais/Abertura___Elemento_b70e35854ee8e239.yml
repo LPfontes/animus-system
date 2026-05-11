@@ -3,16 +3,10 @@ name: Abertura + Elemento
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Faça um <span class="text-mechanic">teste</span> oposto de Luta. <br>Se
-    vencer: o alvo fica <span class="text-condition">Marcado</span> (−2 <span
-    class="text-resource">Proteção</span> de armadura até o próximo ataque
-    recebido) E sofre a condição inata do seu elemento (Resistência <span
-    class="text-mechanic">CD</span> 8+<span class="text-attribute">ANI</span>
-    para evitar).
+  description: "Faça um <span class=\"text-mechanic\">teste</span> oposto de Luta. <br>Se vencer: o alvo fica <span class=\"text-condition\">Marcado</span> (−2 <span class=\"text-resource\">Proteção</span> de armadura até o próximo ataque recebido) E sofre a condição inata do seu elemento (Resistência <span class=\"text-mechanic\">CD</span> 8+<span class=\"text-attribute\">ANI</span> para evitar)."
   trigger: Após um teste oposto
   requirements:
-    description: 'Profissional em Luta; Profissional em Elemento; nível 4+. '
+    description: "Profissional em Luta; Profissional em Elemento; nível 4+. "
     talents: {}
     attributes: []
     skills:
@@ -26,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!b70e35854ee8e239'
+_key: "!items!b70e35854ee8e239"

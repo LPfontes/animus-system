@@ -3,10 +3,8 @@ name: Alcance Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Alcance médio 18m (+5 <span class="text-resource">PE</span>) e longo 36m (+8
-    <span class="text-resource">PE</span>). <br>Exige linha de visão.
-  trigger: ''
+  description: Alcance médio 18m (+5 <span class="text-resource">PE</span>) e longo 36m (+8 <span class="text-resource">PE</span>). <br>Exige linha de visão.
+  trigger: ""
   requirements:
     description: ANI 2 + Projétil Elem.
     talents:
@@ -21,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: c9cedbb0457d5fe4
-_key: '!items!92dcf6f9e94eaf6c'
+_key: "!items!92dcf6f9e94eaf6c"

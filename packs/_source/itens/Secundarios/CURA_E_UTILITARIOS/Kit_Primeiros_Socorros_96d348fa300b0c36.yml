@@ -1,8 +1,15 @@
 _id: 96d348fa300b0c36
 name: Kit Primeiros Socorros
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: true
+  application:
+    type: condition
+    formula: ""
+    resource: pv
+    condition: "estavel"
+  subCategory: cura
   description: >-
     Estabiliza personagem a 0 <span class="text-resource">PV</span> sem <span
     class="text-mechanic">teste</span>

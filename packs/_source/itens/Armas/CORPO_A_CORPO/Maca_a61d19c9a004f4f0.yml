@@ -1,8 +1,11 @@
 _id: a61d19c9a004f4f0
 name: Maça
 type: weapon
-img: systems/animus/assets/system-icons/weapon/maca.svg
+img: systems/animus/assets/system-icons/weapon/flanged-mace.svg
 system:
+  category: branca
+  damageType: contuso
+  type: contusa_medio
   description: 'Tipo: Contusa Média<br>'
   damage:
     ac1: 2 + 1xPOT
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 15 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: pot
+    skill: luta
     dc: 0
 folder: bd51c3d03d930431
 _key: '!items!a61d19c9a004f4f0'

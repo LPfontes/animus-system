@@ -1,0 +1,20 @@
+_id: 5e2b5226643ca313
+name: Sequente
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Seu primeiro ataque subsequente no mesmo turno custa 1 <span
+    class="text-mechanic">PA</span> a menos.
+  price: 75 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!5e2b5226643ca313'

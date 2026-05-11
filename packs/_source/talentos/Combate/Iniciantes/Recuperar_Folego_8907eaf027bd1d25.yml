@@ -3,14 +3,10 @@ name: Recuperar Fôlego
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Respira fundo e reavalia o campo. <br>Recupera 1d6+<span
-    class="text-attribute">POT</span> de <span
-    class="text-resource">Proteção</span>. <br>Pode ser feito uma vez por <span
-    class="text-mechanic">rodada</span>.
-  trigger: ''
+  description: Respira fundo e reavalia o campo. <br>Recupera 1d6+<span class="text-attribute">POT</span> de <span class="text-resource">Proteção</span>. <br>Pode ser feito uma vez por <span class="text-mechanic">rodada</span>.
+  trigger: ""
   requirements:
-    description: ''
+    description: ""
     talents: {}
     attributes: []
     skills: []
@@ -20,5 +16,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!8907eaf027bd1d25'
+_key: "!items!8907eaf027bd1d25"

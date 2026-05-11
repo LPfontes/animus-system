@@ -1,0 +1,20 @@
+_id: 83888054ab7488a2
+name: Mira de Precisão
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Gaste 1 <span class="text-mechanic">PA</span> mirando; próximo ataque conta
+    como +1 nível de <span class="text-mechanic">acerto</span> adicional.
+  price: 35 Đ
+  subCategory: Mecânicas
+  requirements:
+    description: Pontaria Profissional
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: 9acbeec4c3638a31
+_key: '!items!83888054ab7488a2'

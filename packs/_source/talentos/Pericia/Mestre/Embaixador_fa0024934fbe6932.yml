@@ -3,10 +3,7 @@ name: Embaixador
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    O máximo de pontos de paciência que você gasta de um NPC durante uma
-    negociação é 2. <br>Quando uma negociação é concluída, pegue um resultado de
-    interesse acima do que conseguiu (no máximo Interesse Máximo).
+  description: O máximo de pontos de paciência que você gasta de um NPC durante uma negociação é 2. <br>Quando uma negociação é concluída, pegue um resultado de interesse acima do que conseguiu (no máximo Interesse Máximo).
   trigger: negociação
   requirements:
     description: Profissional em Persuasão e Enganação; Diplomata.
@@ -24,5 +21,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!fa0024934fbe6932'
+_key: "!items!fa0024934fbe6932"

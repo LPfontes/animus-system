@@ -3,11 +3,8 @@ name: Anatomia do Caos
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Pode disparar um ataque físico e um ataque elemental de Nível 1
-    simultaneamente contra o mesmo alvo. <br>ambos usam a mesma rolagem de
-    dados.
-  trigger: ''
+  description: Pode disparar um ataque físico e um ataque elemental de Nível 1 simultaneamente contra o mesmo alvo. <br>ambos usam a mesma rolagem de dados.
+  trigger: ""
   requirements:
     description: Mestre em Luta ou Pontaria; Profissional em Elemento; nível 8+.
     talents: {}
@@ -25,5 +22,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!18bce0816fdabe52'
+_key: "!items!18bce0816fdabe52"

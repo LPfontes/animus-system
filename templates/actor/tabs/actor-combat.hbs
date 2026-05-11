@@ -1,134 +1,233 @@
 <div class="tab combat {{tabs.combat.cssClass}}" data-group="primary" data-tab="combat">
 
-  {{!-- Tabela de Dano Elemental --}}
-  {{#if element.resolvedDamageTable}}
-  <div class="element-damage-table-panel">
-    <div class="edt-header">
-      <i class="fas fa-fire"></i>
-      <span>{{element.name}} — Tabela de Dano (ANI {{system.attributes.ani.value}})</span>
-    </div>
-    <table class="edt-table">
-      <thead>
-        <tr>
-          <th>Nível</th>
-          <th>PE</th>
-          <th>AC1</th>
-          <th>AC2</th>
-          <th>AC3</th>
-          <th>AC4</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each element.resolvedDamageTable as |tier key|}}
-        <tr>
-          <td class="tier-label">{{key}}</td>
-          <td class="pe-cost">{{tier.pe}} PE</td>
-          <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
-          <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
-          <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
-          <td>{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-  {{/if}}
+  <div class="main-profile-layout">
+    {{!-- Coluna Esquerda: Retrato e Status --}}
+    <div class="portrait-stats-column">
+      <div class="portrait-frame">
+        <img src="{{actor.img}}" data-edit="img" data-action="editImage" title="{{actor.name}}" />
 
-  {{!-- Tabela de Cura do Elemento --}}
-  {{#if element.resolvedHealTable}}
-  <div class="element-damage-table-panel heal-panel">
-    <div class="edt-header heal-header">
-      <i class="fas fa-heart"></i>
-      <span>{{element.name}} — Tabela de Cura (ANI {{system.attributes.ani.value}})</span>
-    </div>
-    <table class="edt-table">
-      <thead>
-        <tr>
-          <th>+ Cura</th>
-          <th>PE</th>
-          <th>1 acerto</th>
-          <th>2 acertos</th>
-          <th>3 acertos</th>
-          <th><i class="fas fa-star"></i> 4 acertos</th>
-        </tr>
-      </thead>
-      <tbody>
-        {{#each element.resolvedHealTable as |tier key|}}
-        <tr>
-          <td class="tier-label">Nív. {{key}}</td>
-          <td class="pe-cost">{{tier.pe}} PE</td>
-          <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
-          <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
-          <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
-          <td class="ac4-crit">{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
-        </tr>
-        {{/each}}
-      </tbody>
-    </table>
-  </div>
-  {{/if}}
+        {{!-- Status Sobreposto ao Topo (Não Contido) --}}
+        <div class="floating-stats-overlay">
+          {{!-- Vida (PV) com Defesa Sobreposta --}}
+          <div class="stat-group hp relative-container">
+            <div class="stat-label">VIDA (PV)</div>
+            <div class="bar-with-icon">
+              <div class="bar-track">
+                <div class="bar-ghost hp" style="width: {{hpPercent}}%"></div>
+                <div class="bar-fill hp" style="width: {{hpPercent}}%"></div>
+                <div class="bar-values-overlay">
+                  <div class="stat-values">
+                    <input type="number" data-path="system.status.hp.value" value="{{system.status.hp.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
+                    <span class="stat-sep">/</span>
+                    <span class="stat-max-overlay">{{system.status.hp.max}}</span>
+                  </div>
 
-  {{!-- Seção de Armas --}}
-  <div class="combat-section">
-    <div class="section-header-v3">
-      <h3>{{localize "ANIMUS.Weapons"}}</h3>
-    </div>
+                </div>
+              </div>
+            </div>
 
-    <div class="weapons-modern-list">
-      <div class="list-header">
-        <div class="col-name">{{localize "ANIMUS.Weapon"}}</div>
-        <div class="col-ac">AC1</div>
-        <div class="col-ac">AC2</div>
-        <div class="col-ac">AC3</div>
-        <div class="col-ac">AC4</div>
-      </div>
-
-      <div class="list-body">
-        {{#each weapons as |weapon|}}
-        <div class="weapon-item-row item-row glass-row" data-item-id="{{weapon.id}}">
-          <div class="item-main-info">
-            <img src="{{weapon.img}}" class="item-icon-small" />
-            <span class="item-name-clickable" data-action="editItem">{{weapon.name}}</span>
+            {{!-- Escudo Flutuante sobre a Vida --}}
+            <div class="defense-floating-on-hp">
+              <span class="defense-label">PROTEÇÃO</span>
+              <div class="defense-mini-box">
+                <i class="fas fa-shield shield-icon-mini"></i>
+                <div class="stat-label-mini">
+                  <input type="number" data-path="system.status.prot.value" value="{{system.status.prot.value}}"
+                    class="defense-value-mini stat-sync-input" data-dtype="Number" />
+                </div>
+              </div>
+            </div>
           </div>
-          <div class="col-ac">{{weapon.calculatedDamage.ac1}}</div>
-          <div class="col-ac">{{weapon.calculatedDamage.ac2}}</div>
-          <div class="col-ac">{{weapon.calculatedDamage.ac3}}</div>
-          <div class="col-ac">{{weapon.calculatedDamage.ac4}}</div>
+
+          {{!-- Segunda Linha: PE e PA --}}
+          <div class="overlay-secondary-row-v4">
+            <div class="stat-group pe">
+              <div class="stat-label">PE</div>
+              <div class="bar-with-icon">
+                <div class="bar-track">
+                  <div class="bar-ghost pe" style="width: {{pePercent}}%"></div>
+                  <div class="bar-fill pe" style="width: {{pePercent}}%"></div>
+                  <div class="bar-values-overlay">
+                    <input type="number" data-path="system.status.pe.value" value="{{system.status.pe.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
+                    <span class="stat-sep">/</span>
+                    <span class="stat-max-overlay">{{system.status.pe.max}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stat-group pa">
+              <div class="stat-label">PA</div>
+              <div class="pa-pips-v3">
+                {{#each paPips}}
+                <div class="pa-pip {{#if filled}}filled{{/if}}" data-action="updatePA" data-value="{{add @index 1}}">
+                </div>
+                {{/each}}
+              </div>
+              {{#if system.status.pa.debt}}
+              <div class="pa-debt-display" title="PA gasto do próximo turno (Reação)">
+                <i class="fas fa-undo"></i> -{{system.status.pa.debt}}
+                <a class="pa-debt-control" data-action="updatePADebt" data-delta="-1"><i
+                    class="fas fa-minus-circle"></i></a>
+              </div>
+              {{else}}
+              <a class="pa-debt-control add" data-action="updatePADebt" data-delta="1"
+                title="Gastar PA da rodada seguinte (Reação)">
+                <i class="fas fa-plus-circle"></i>
+              </a>
+              {{/if}}
+            </div>
+          </div>
         </div>
-        {{/each}}
+      </div>
+    </div>
+
+    {{!-- Coluna Direita: Conteúdo de Combate --}}
+    <div class="combat-content-column">
+      {{!-- Seção de Armas --}}
+      <div class="combat-section">
+        <div class="header-with-action">
+        <h3 class="category-title">ARMAS</h3>
+        <button type="button" class="action-btn small" data-action="openWeaponBrowser" title="Adicionar Arma do Compêndio">
+          <i class="fas fa-search"></i> Compêndio
+        </button>
+        <button type="button" class="action-btn small" data-action="openWeaponCreator" data-type="weapon">
+          <i class="fas fa-plus"></i> Criar
+        </button>
+      </div>
+
+        <div class="weapons-modern-list">
+          <div class="list-header">
+            <div class="col-name">{{localize "ANIMUS.Weapon"}}</div>
+            <div class="col-ac">AC1</div>
+            <div class="col-ac">AC2</div>
+            <div class="col-ac">AC3</div>
+            <div class="col-ac">AC4</div>
+          </div>
+
+          <div class="list-body">
+            {{#each weapons as |weapon|}}
+            <div class="weapon-item-row item-row glass-row" data-item-id="{{weapon.id}}">
+              <div class="item-main-info">
+                <div class="roll-icon-btn" data-action="rollWeapon" title="Rolar Ataque">
+                  <i class="fas fa-dice-d20"></i>
+                </div>
+                <img src="{{weapon.img}}" class="item-icon-small" />
+                <span class="item-name-clickable" data-action="editItem">{{weapon.name}}</span>
+              </div>
+              <div class="col-ac">{{weapon.calculatedDamage.ac1}}</div>
+              <div class="col-ac">{{weapon.calculatedDamage.ac2}}</div>
+              <div class="col-ac">{{weapon.calculatedDamage.ac3}}</div>
+              <div class="col-ac">{{weapon.calculatedDamage.ac4}}</div>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+
+      {{!-- Talentos e Ações --}}
+      <div class="combat-bottom-grid">
+        <div class="combat-section">
+          <div class="section-header-v3">
+            <h3>{{localize "ANIMUS.Talents"}}</h3>
+          </div>
+          <div class="simple-item-list">
+            {{#each talents as |talent|}}
+            <div class="simple-item-row item-row glass-row" data-item-id="{{talent.id}}">
+              <img src="{{talent.img}}" class="item-icon-mini" />
+              <span class="item-name-clickable" data-action="editItem">{{talent.name}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="combat-section">
+          <div class="section-header-v3">
+            <h3>{{localize "ANIMUS.Actions"}}</h3>
+          </div>
+          <div class="simple-item-list">
+            {{#each actions as |action|}}
+            <div class="simple-item-row item-row glass-row" data-item-id="{{action.id}}">
+              <img src="{{action.img}}" class="item-icon-mini" />
+              <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
-  {{!-- Talentos e Ações --}}
-  <div class="combat-bottom-grid">
-    <div class="combat-section">
-      <div class="section-header-v3">
-        <h3>{{localize "ANIMUS.Talents"}}</h3>
+  <div class="combat-tables">
+    {{!-- Tabela de Dano Elemental --}}
+    {{#if element.resolvedDamageTable}}
+    <div class="element-damage-table-panel">
+      <div class="edt-header">
+        <i class="fas fa-fire"></i>
+        <span>{{element.name}} — Tabela de Dano (ANI {{system.attributes.ani.value}})</span>
       </div>
-      <div class="simple-item-list">
-        {{#each talents as |talent|}}
-        <div class="simple-item-row item-row glass-row" data-item-id="{{talent.id}}">
-          <img src="{{talent.img}}" class="item-icon-mini" />
-          <span class="item-name-clickable" data-action="editItem">{{talent.name}}</span>
-        </div>
-        {{/each}}
-      </div>
+      <table class="edt-table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>PE</th>
+            <th>AC 1</th>
+            <th>AC 2</th>
+            <th>AC 3</th>
+            <th><i class="fas fa-star"></i>AC 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each element.resolvedDamageTable as |tier key|}}
+          <tr>
+            <td class="tier-label">{{key}}</td>
+            <td class="pe-cost">{{tier.pe}} PE</td>
+            <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
+            <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
+            <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
+            <td>{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
+    {{/if}}
 
-    <div class="combat-section">
-      <div class="section-header-v3">
-        <h3>{{localize "ANIMUS.Actions"}}</h3>
+    {{!-- Tabela de Cura do Elemento --}}
+    {{#if element.resolvedHealTable}}
+    <div class="element-damage-table-panel heal-panel">
+      <div class="edt-header heal-header">
+        <i class="fas fa-heart"></i>
+        <span>{{element.name}} — Tabela de Cura (ANI {{system.attributes.ani.value}})</span>
       </div>
-      <div class="simple-item-list">
-        {{#each actions as |action|}}
-        <div class="simple-item-row item-row glass-row" data-item-id="{{action.id}}">
-          <img src="{{action.img}}" class="item-icon-mini" />
-          <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
-        </div>
-        {{/each}}
-      </div>
+      <table class="edt-table">
+        <thead>
+          <tr>
+            <th>Nível</th>
+            <th>PE</th>
+            <th>AC 1</th>
+            <th>AC 2</th>
+            <th>AC 3</th>
+            <th><i class="fas fa-star"></i>AC 4</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each element.resolvedHealTable as |tier key|}}
+          <tr>
+            <td class="tier-label">{{key}}</td>
+            <td class="pe-cost">{{tier.pe}} PE</td>
+            <td>{{tier.ac1.total}} <span class="formula">({{tier.ac1.label}})</span></td>
+            <td>{{tier.ac2.total}} <span class="formula">({{tier.ac2.label}})</span></td>
+            <td>{{tier.ac3.total}} <span class="formula">({{tier.ac3.label}})</span></td>
+            <td class="ac4-crit">{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
     </div>
+    {{/if}}
   </div>
 
 </div>

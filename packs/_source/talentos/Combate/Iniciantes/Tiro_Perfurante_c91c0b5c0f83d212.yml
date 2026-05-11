@@ -3,12 +3,8 @@ name: Tiro Perfurante
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando dispara com uma arma à distância que tenha Maestria Marcial, pode
-    utilizar metade dos acertos no alvo imediatamente atrás do oponente.
-    <br>[Caso o alvo seja Grande ou maior, pode causar o <span
-    class="text-mechanic">dano</span> no mesmo alvo].
-  trigger: ''
+  description: Quando dispara com uma arma à distância que tenha Maestria Marcial, pode utilizar metade dos acertos no alvo imediatamente atrás do oponente. <br>[Caso o alvo seja Grande ou maior, pode causar o <span class="text-mechanic">dano</span> no mesmo alvo].
+  trigger: ""
   requirements:
     description: Amador em Pontaria; Maestria Marcial em armas à distância.
     talents:
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!c91c0b5c0f83d212'
+_key: "!items!c91c0b5c0f83d212"

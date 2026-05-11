@@ -3,10 +3,8 @@ name: Canção de Foco
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Aliados ganham <span class="text-mechanic">Vantagem</span> no próximo <span
-    class="text-mechanic">teste</span>.
-  trigger: ''
+  description: Aliados ganham <span class="text-mechanic">Vantagem</span> no próximo <span class="text-mechanic">teste</span>.
+  trigger: ""
   requirements:
     description: Amador em Performance.
     talents: {}
@@ -20,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: d65c273bff169b30
-_key: '!items!6a32f6c16ff84d15'
+_key: "!items!6a32f6c16ff84d15"

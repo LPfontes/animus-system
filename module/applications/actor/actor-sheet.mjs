@@ -4,6 +4,9 @@ import { AnimusRoll } from "../../dice.mjs";
 import { AnimusCompendiumBrowser } from "../compendium-browser.mjs";
 import { AnimusTalentManager } from "../talent-manager.mjs";
 import { AnimusBonusSelector } from "../bonus-selector.mjs";
+import { AnimusAdvancement } from "./advancement.mjs";
+import { AnimusWeaponCreator } from "../weapon-creator.mjs";
+import { AnimusRollDialog } from "../roll-dialog.mjs";
 
 export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   constructor(options = {}) {
@@ -12,6 +15,10 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.filters = {
       talents: "all"
     };
+  }
+
+  get actor() {
+    return this.document;
   }
 
   /** @override */
@@ -35,7 +42,13 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       openBonusSelector: AnimusActorSheet.prototype._onOpenBonusSelector,
       openTalentManager: AnimusActorSheet.prototype._onOpenTalentManager,
       toggleEditMode: AnimusActorSheet.prototype._onToggleEditMode,
-      filterTalents: AnimusActorSheet.prototype._onFilterTalents
+      filterTalents: AnimusActorSheet.prototype._onFilterTalents,
+      openAdvancement: AnimusActorSheet.prototype._onOpenAdvancement,
+      openWeaponCreator: AnimusActorSheet.prototype._onOpenWeaponCreator,
+      openWeaponBrowser: AnimusActorSheet.prototype._onOpenWeaponBrowser,
+      rollWeapon: AnimusActorSheet.prototype._onRollWeapon,
+      toggleEquip: AnimusActorSheet.prototype._onToggleEquip,
+      useItem: AnimusActorSheet.prototype._onUseItem
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -60,18 +73,19 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   /** @override */
   async _prepareContext(options) {
+    const system = this.document.system;
     const context = {
       actor: this.document,
-      system: this.document.system,
+      system: system,
       config: CONFIG.ANIMUS,
       editMode: this.editMode,
       owner: this.document.isOwner,
       editable: this.isEditable,
       tabs: this._getTabs(options),
-      hpPercent: Math.min(100, Math.max(0, (this.actor.system.status.hp.value / (this.actor.system.status.hp.max || 1)) * 100)),
-      pePercent: Math.min(100, Math.max(0, (this.actor.system.status.pe.value / (this.actor.system.status.pe.max || 1)) * 100)),
-      paPips: Array.from({length: this.actor.system.status.pa.max || 0}, (_, i) => ({
-        filled: i < this.actor.system.status.pa.value
+      hpPercent: Math.min(100, Math.max(0, (system.status.hp.value / (system.status.hp.max || 1)) * 100)),
+      pePercent: Math.min(100, Math.max(0, (system.status.pe.value / (system.status.pe.max || 1)) * 100)),
+      paPips: Array.from({length: system.status.pa.max || 0}, (_, i) => ({
+        filled: i < system.status.pa.value
       }))
     };
 
@@ -82,14 +96,22 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const properties = [];
     const actions = [];
     const checks = [];
-    const gear = [];
+
     let activeAscendancy = null;
     let activeElement = null;
+
+    const gear = {
+      armor: [],
+      shield: [],
+      secondary: [],
+      other: []
+    };
 
     for (let i of items) {
       const itemData = i.toObject();
       itemData.id = i.id;
       itemData.img = i.img;
+      itemData.isEquipped = i.system.equipped;
 
       if (i.type === "weapon") {
         itemData.calculatedDamage = i.system.damageTable;
@@ -110,7 +132,10 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         activeElement.resolvedDamageTable = i.system.resolvedDamageTable;
         activeElement.resolvedHealTable = i.system.resolvedHealTable;
       }
-      else gear.push(itemData);
+      else if (i.type === "armor") gear.armor.push(itemData);
+      else if (i.type === "shield") gear.shield.push(itemData);
+      else if (i.type === "secondary") gear.secondary.push(itemData);
+      else gear.other.push(itemData);
     }
 
     context.weapons = weapons;
@@ -118,12 +143,11 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.properties = properties;
     context.actions = actions;
     context.checks = checks;
-    context.items = gear;
+    context.gear = gear;
     context.ascendancy = activeAscendancy;
     context.element = activeElement;
 
     // Group skills by attribute (Unified Style)
-    const system = this.actor.system;
     const categories = [
       { title: 'FÍSICOS', attrs: ['pot', 'hab'] },
       { title: 'MENTAIS', attrs: ['cog', 'per'] },
@@ -134,7 +158,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       title: cat.title,
       attributes: cat.attrs.map(attrKey => ({
         key: attrKey,
-        label: CONFIG.ANIMUS.attributes[attrKey],
+        label: CONFIG.ANIMUS.attributes[attrKey].i18n,
         value: system.attributes[attrKey].value,
         skills: Object.entries(CONFIG.ANIMUS.skills)
           .filter(([_, s]) => s.attr === attrKey)
@@ -148,9 +172,9 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }));
 
     // Evolução e Pontos (Usa os dados calculados no AnimusCharacterData)
-    context.pointsTotal = system.statPoints.total;
-    context.pointsSpent = system.statPoints.spent;
-    context.pointsRemaining = system.statPoints.available;
+    context.pointsRemaining = this.actor.system.pointsRemaining || 0;
+    context.attrPoints = this.actor.system.attrPoints || { total: 0, available: 0 };
+    context.skillPoints = this.actor.system.skillPoints || { total: 0, available: 0 };
 
     // Níveis Ímpares para Bônus de Atributo
     const level = system.details.level;
@@ -159,17 +183,21 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       selected: system.details.advancement.attributeBonuses[l] || ""
     }));
 
+    // Verificar se há evolução pendente
+    const hasUnspentPoints = context.pointsRemaining > 0 || context.attrPoints.available > 0 || context.skillPoints.available > 0;
+    context.pendingAdvancement = (level > 1) && hasUnspentPoints;
+
     // Contadores para Criação
-    context.skillCount = Object.values(system.skills).reduce((acc, s) => acc + (s.value || 0), 0);
-    context.talentCount = talents.length;
+    context.skillCount = context.skillPoints.total - context.skillPoints.available;
+    context.skillLimit = context.skillPoints.total;
     
     // Pontos de Atributo
-    context.attrLimit = system.attrPoints.total;
-    context.attrCount = Object.entries(this.actor._source.system.attributes || {}).reduce((acc, [_, a]) => acc + Math.max(0, a.value || 0), 0);
+    context.attrLimit = context.attrPoints.total;
+    context.attrCount = context.attrPoints.total - context.attrPoints.available;
 
     // Dados para Filtros
     context.filters = this.filters;
-    context.talentCategories = Object.entries(CONFIG.ANIMUS.talentCategories).map(([id, data]) => ({
+    context.talentCategories = Object.entries(CONFIG.ANIMUS.talentCategories || {}).map(([id, data]) => ({
       id,
       ...data
     }));
@@ -186,26 +214,31 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Garantir que as barras estejam corretas após cada renderização
     this._updateBars();
 
-    // Listeners para atualização em tempo real das barras ao digitar
-    let saveTimeout;
-    html.querySelectorAll('.stat-input-overlay').forEach(input => {
-      input.addEventListener('input', (ev) => {
-        const val = parseInt(ev.target.value) || 0;
-        const name = ev.target.name;
-        const maxPath = name.replace('.value', '.max');
-        const max = foundry.utils.getProperty(this.actor, maxPath) || 1;
-        const percent = Math.min(100, Math.max(0, (val / max) * 100));
+    // Listener para animação das barras e sincronização (com delay)
+    let syncTimeout;
+    html.addEventListener('input', (ev) => {
+      if (!ev.target.classList.contains('stat-input-overlay') && !ev.target.classList.contains('stat-sync-input')) return;
+      
+      const input = ev.target;
+      const val = Number(input.value) || 0;
+      const path = input.dataset.path || input.name;
+      
+      // 1. Animação imediata das barras (Visual)
+      const maxPath = path.replace('.value', '.max');
+      const max = foundry.utils.getProperty(this.actor, maxPath) || 1;
+      const percent = Math.min(100, Math.max(0, (val / max) * 100));
 
-        const type = name.includes('.hp.') ? 'hp' : 'pe';
-        const bar = html.querySelector(`.bar-fill.${type}`);
-        if (bar) bar.style.width = `${percent}%`;
+      const type = path.includes('.hp.') ? 'hp' : 'pe';
+      const bar = html.querySelector(`.bar-fill.${type}`);
+      if (bar) bar.style.width = `${percent}%`;
 
-        // Forçar salvamento automático após 1s de inatividade
-        clearTimeout(saveTimeout);
-        saveTimeout = setTimeout(async () => {
-          await this.actor.update({ [name]: val });
-        }, 1000);
-      });
+      // 2. Sincronização com delay (Dados)
+      if (input.classList.contains('stat-sync-input')) {
+        clearTimeout(syncTimeout);
+        syncTimeout = setTimeout(() => {
+          this.actor.update({ [path]: val });
+        }, 1000); // 1 segundo de delay para evitar spam no banco enquanto digita
+      }
     });
 
     // Adiciona listener para troca de abas (suporte manual adicional)
@@ -255,6 +288,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    */
   async _onUpdateAbility(event, target) {
     const { ability, value } = target.dataset;
+    const system = this.actor.system;
     const newValue = parseInt(value);
     const currentValue = foundry.utils.getProperty(this.actor._source.system, `${ability}.value`) || 0;
     const isAttribute = ability.startsWith("attributes.");
@@ -306,11 +340,9 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
           finalValue = 1;
         }
 
-        // Limite de pontos de perícia (4 base)
-        const totalSkillPoints = 4;
-        const otherSpent = Object.entries(this.actor._source.system.skills)
-          .filter(([key, _]) => `skills.${key}` !== ability)
-          .reduce((acc, [_, s]) => acc + (s.value || 0), 0);
+        // Limite de pontos de perícia dinâmico
+        const totalSkillPoints = system.skillPoints?.total || 4;
+        const otherSpent = (system.skillPoints?.spent || 0) - currentValue;
 
         if (otherSpent + finalValue > totalSkillPoints) {
           ui.notifications.warn(`Limite de pontos de perícia atingido (${totalSkillPoints}).`);
@@ -418,6 +450,59 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /**
+   * Rola um ataque com uma arma
+   * @param {PointerEvent} event
+   * @param {HTMLElement} target
+   */
+  async _onRollWeapon(event, target) {
+    const itemId = target.dataset.itemId || target.closest("[data-item-id]")?.dataset.itemId;
+    const weapon = this.actor.items.get(itemId);
+    if (!weapon) return;
+
+    // Se estiver segurando Shift ou Alt, fazemos a rolagem rápida sem abrir o modal
+    if (event.shiftKey || event.altKey || event.ctrlKey) {
+      return this._executeWeaponRoll(weapon, {
+        advantage: event.shiftKey ? "advantage" : (event.altKey || event.ctrlKey ? "disadvantage" : null),
+        bonus: 0
+      });
+    }
+
+    // Caso contrário, usamos o novo diálogo modernizado (ApplicationV2)
+    const result = await AnimusRollDialog.awaitRoll(weapon);
+    if (!result) return;
+
+    return this._executeWeaponRoll(weapon, {
+      advantage: result.advantage === "none" ? null : result.advantage,
+      bonus: parseInt(result.bonus) || 0
+    });
+  }
+
+  /**
+   * Executa a lógica de rolagem final da arma
+   * @private
+   */
+  async _executeWeaponRoll(weapon, options = {}) {
+    const attrKey = (weapon.system.attribute || "pot").toLowerCase();
+    const skillKey = attrKey === "hab" ? "pontaria" : "luta";
+    
+    const attr = this.actor.system.attributes[attrKey];
+    const skill = this.actor.system.skills[skillKey];
+
+    const poolSize = 2 + (skill?.value || 0);
+    const totalBonus = (attr?.value || 0) + (options.bonus || 0);
+    const hitTable = weapon.system.damageTable;
+
+    await AnimusRoll.rollTest({
+      poolSize: poolSize,
+      attributeValue: totalBonus,
+      label: `Ataque com ${weapon.name}`,
+      hitTable: hitTable,
+      advantage: options.advantage,
+      speaker: this.actor
+    });
+  }
+
+  /**
    * Handle editing the actor's image
    * @param {PointerEvent} event
    * @param {HTMLElement} target
@@ -496,6 +581,36 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const category = target.dataset.category;
     this.filters.talents = category;
     this.render();
+  }
+
+  /**
+   * Abre o painel de evolução
+   */
+  async _onOpenAdvancement(event, target) {
+    const manager = new AnimusAdvancement({
+      document: this.actor
+    });
+    manager.render(true);
+  }
+
+  /**
+   * Abre o navegador de itens filtrado para armas
+   */
+  async _onOpenWeaponBrowser(event, target) {
+    new AnimusCompendiumBrowser({ 
+      actor: this.actor,
+      packId: "animus.itens"
+    }).render(true);
+  }
+
+  /**
+   * Abre o criador de armas customizadas
+   */
+  async _onOpenWeaponCreator(event, target) {
+    const creator = new AnimusWeaponCreator({
+      actor: this.actor
+    });
+    creator.render(true);
   }
 
   /**
@@ -595,5 +710,54 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     }
 
     return super._onDrop(event);
+  }
+
+  /**
+   * Toggle equipped state for an item
+   */
+  async _onToggleEquip(event, target) {
+    const itemId = target.closest(".item-row").dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    const isEquipped = item.system.equipped;
+
+    // Se for armadura ou escudo, desequipar outros do mesmo tipo
+    if (!isEquipped && ["armor", "shield"].includes(item.type)) {
+      const otherEquipped = this.actor.items.filter(i => i.type === item.type && i.system.equipped && i.id !== item.id);
+      for (let o of otherEquipped) {
+        await o.update({ "system.equipped": false });
+      }
+    }
+
+    await item.update({ "system.equipped": !isEquipped });
+    
+    // Sincronizar Proteção (tanto ao equipar quanto desequipar)
+    if (["armor", "shield"].includes(item.type)) {
+      this.actor.prepareData(); 
+      const newMax = this.actor.system.status.prot.max;
+      const currentValue = this.actor.system.status.prot.value;
+      
+      // Se equipou, sobe para o máximo. Se desequipou, garante que não passe do novo máximo.
+      const newValue = !isEquipped ? newMax : Math.min(currentValue, newMax);
+      
+      await this.actor.update({ "system.status.prot.value": newValue });
+    }
+    
+    const label = !isEquipped ? "Equipado" : "Desequipado";
+    ui.notifications.info(`${item.name} ${label}.`);
+    this.render();
+  }
+
+  /**
+   * Use a consumable item
+   */
+  async _onUseItem(event, target) {
+    const itemId = target.closest(".item-row").dataset.itemId;
+    const item = this.actor.items.get(itemId);
+    if (!item) return;
+
+    // Chamar a lógica de uso do item (definida na classe AnimusItem)
+    return item.use();
   }
 }

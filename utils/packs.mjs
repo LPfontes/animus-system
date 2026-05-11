@@ -17,11 +17,17 @@ async function compile() {
     const dest = path.join(PACK_DEST, pack);
     
     console.log(`Compiling ${pack}...`);
-    await compilePack(src, dest, { 
-      recursive: true, 
-      yaml: true,
-      log: true 
-    });
+    try {
+      await compilePack(src, dest, { 
+        recursive: true, 
+        yaml: true,
+        log: true 
+      });
+      console.log(`Finished compiling ${pack}.`);
+    } catch (err) {
+      console.error(`Error compiling ${pack}:`, err);
+      throw err;
+    }
   }
 }
 

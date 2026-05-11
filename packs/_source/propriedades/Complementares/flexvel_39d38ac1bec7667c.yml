@@ -1,0 +1,20 @@
+_id: 39d38ac1bec7667c
+name: Flexível
+type: property
+img: icons/svg/gear.svg
+system:
+  description: >-
+    Ignora a cobertura de escudos leves e a <span
+    class="text-resource">Proteção</span> fornecida por escudos no ataque.
+  price: 75 Đ
+  subCategory: Complementares
+  requirements:
+    description: ''
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: true
+    isSilent: false
+    isThrown: false
+folder: 91b98d36bf015a43
+_key: '!items!39d38ac1bec7667c'

@@ -1,8 +1,11 @@
 _id: f707836db2abc8aa
 name: Besta Pesada
 type: weapon
-img: systems/animus/assets/system-icons/weapon/besta_pesada.svg
+img: systems/animus/assets/system-icons/weapon/crossbow.svg
 system:
+  category: projetil
+  damageType: distancia
+  type: distancia_media
   description: 'Tipo: Distância Média<br>Distância 36m, Recarga'
   damage:
     ac1: '2'
@@ -12,8 +15,8 @@ system:
   weight: 0
   price: 30 Đ
   check:
-    attribute: 0
-    skill: 1
+    attribute: hab
+    skill: pontaria
     dc: 0
 folder: e1470d5c3ce776cd
 _key: '!items!f707836db2abc8aa'

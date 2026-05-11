@@ -3,10 +3,8 @@ name: Postura de Impacto
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você ajusta seu ângulo de ataque. <br>até o final do turno, seu próximo
-    ataque tem <span class="text-mechanic">Vantagem</span>.
-  trigger: ''
+  description: Você ajusta seu ângulo de ataque. <br>até o final do turno, seu próximo ataque tem <span class="text-mechanic">Vantagem</span>.
+  trigger: ""
   requirements:
     description: Amador em Luta ou Pontaria.
     talents: {}
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: 6a0bccb2bd2261a2
-_key: '!items!352508b49742b174'
+_key: "!items!352508b49742b174"

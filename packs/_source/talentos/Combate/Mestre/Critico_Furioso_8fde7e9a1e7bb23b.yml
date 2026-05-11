@@ -3,10 +3,8 @@ name: Crítico Furioso
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Aumenta o multiplicador de atributo do <span
-    class="text-mechanic">Crítico</span> em +3×.
-  trigger: ''
+  description: Aumenta o multiplicador de atributo do <span class="text-mechanic">Crítico</span> em +3×.
+  trigger: ""
   requirements:
     description: Mestre em Luta ou Pontaria.
     talents: {}
@@ -22,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: a6bae926e036c588
-_key: '!items!8fde7e9a1e7bb23b'
+_key: "!items!8fde7e9a1e7bb23b"

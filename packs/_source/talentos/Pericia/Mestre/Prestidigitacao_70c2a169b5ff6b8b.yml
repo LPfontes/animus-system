@@ -3,11 +3,8 @@ name: Prestidigitação
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    +1d em testes de Prestidigitação para esconder objetos pequenos, falsificar
-    documentos simples ou realizar truques de manipulação. <br>Pode esconder
-    objetos pequenos mesmo sob inspeção casual.
-  trigger: ''
+  description: +1d em testes de Prestidigitação para esconder objetos pequenos, falsificar documentos simples ou realizar truques de manipulação. <br>Pode esconder objetos pequenos mesmo sob inspeção casual.
+  trigger: ""
   requirements:
     description: Amador em Prestidigitação.
     talents:
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!70c2a169b5ff6b8b'
+_key: "!items!70c2a169b5ff6b8b"

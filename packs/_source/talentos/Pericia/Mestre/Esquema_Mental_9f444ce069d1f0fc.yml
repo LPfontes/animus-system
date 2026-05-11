@@ -3,13 +3,8 @@ name: Esquema Mental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando você não ataca na sua <span class="text-mechanic">rodada</span> e usa
-    suas <span class="text-mechanic">ações</span> apenas para observar ou
-    mover-se, na próxima <span class="text-mechanic">rodada</span> todos os seus
-    ataques têm +1 no número de acertos. <br>(Bônus não acumula entre <span
-    class="text-mechanic">rodadas</span>. )
-  trigger: ''
+  description: Quando você não ataca na sua <span class="text-mechanic">rodada</span> e usa suas <span class="text-mechanic">ações</span> apenas para observar ou mover-se, na próxima <span class="text-mechanic">rodada</span> todos os seus ataques têm +1 no número de acertos. <br>(Bônus não acumula entre <span class="text-mechanic">rodadas</span>. )
+  trigger: ""
   requirements:
     description: 1 ponto em COGNIÇÃO.
     talents: {}
@@ -23,5 +18,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!9f444ce069d1f0fc'
+_key: "!items!9f444ce069d1f0fc"

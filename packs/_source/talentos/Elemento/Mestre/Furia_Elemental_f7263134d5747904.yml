@@ -3,12 +3,8 @@ name: Fúria Elemental
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Você pode aumentar o <span class="text-mechanic">dano</span> de um ataque
-    elemental em +1 para cada 2 <span class="text-resource">PE</span> extras
-    consumidos. <br>(O valor máximo de <span class="text-resource">PE</span>
-    extra que pode usar é o dobro do seu nível. )
-  trigger: ''
+  description: Você pode aumentar o <span class="text-mechanic">dano</span> de um ataque elemental em +1 para cada 2 <span class="text-resource">PE</span> extras consumidos. <br>(O valor máximo de <span class="text-resource">PE</span> extra que pode usar é o dobro do seu nível. )
+  trigger: ""
   requirements:
     description: Mestre em Perícia Elemental.
     talents:
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!f7263134d5747904'
+_key: "!items!f7263134d5747904"

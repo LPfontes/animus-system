@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: Pode realizar um ataque em dois alvos distintos.
-  trigger: ''
+  trigger: ""
   requirements:
     description: Profissional em Pontaria; Tiro Certeiro.
     talents:
@@ -19,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!d6de83a45674e023'
+_key: "!items!d6de83a45674e023"

@@ -4,11 +4,9 @@ type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
   description: .
-  trigger: ''
+  trigger: ""
   requirements:
-    description: >-
-      Profissional em Medicina; Profissional em Natureza; Amador em Conhecimento
-      arcano; apotecário.
+    description: Profissional em Medicina; Profissional em Natureza; Amador em Conhecimento arcano; apotecário.
     talents:
       Apotecário: 25a5affec119ae15
     attributes: []
@@ -25,5 +23,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: c201b8adf46f5416
-_key: '!items!f1e4dc5c834bfdde'
+_key: "!items!f1e4dc5c834bfdde"

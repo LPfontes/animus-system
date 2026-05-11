@@ -3,11 +3,8 @@ name: Baluarte Maior
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Igual ao Baluarte, porém gasta 5 <span class="text-resource">PE</span> para
-    diminuir todos os danos recebidos até a sua próxima <span
-    class="text-mechanic">rodada</span>.
-  trigger: ''
+  description: Igual ao Baluarte, porém gasta 5 <span class="text-resource">PE</span> para diminuir todos os danos recebidos até a sua próxima <span class="text-mechanic">rodada</span>.
+  trigger: ""
   requirements:
     description: Profissional em Resistência; Baluarte Menor.
     talents:
@@ -22,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!fa153bd3c2ed2c84'
+_key: "!items!fa153bd3c2ed2c84"

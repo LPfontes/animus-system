@@ -3,12 +3,8 @@ name: Sombra Perfeita
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Pode usar Furtividade para se tornar socialmente 'invisível': NPCs que
-    interagiram com você disfarçado precisam de <span
-    class="text-mechanic">CD</span> 12 para te reconhecer depois. <br>Com 10
-    minutos de preparação, cria disfarce convincente que resiste a inspetores.
-  trigger: ''
+  description: "Pode usar Furtividade para se tornar socialmente 'invisível': NPCs que interagiram com você disfarçado precisam de <span class=\"text-mechanic\">CD</span> 12 para te reconhecer depois. <br>Com 10 minutos de preparação, cria disfarce convincente que resiste a inspetores."
+  trigger: ""
   requirements:
     description: Mestre em Furtividade ou Enganação; nível 8+.
     talents: {}
@@ -24,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!4064bc7412e227ab'
+_key: "!items!4064bc7412e227ab"

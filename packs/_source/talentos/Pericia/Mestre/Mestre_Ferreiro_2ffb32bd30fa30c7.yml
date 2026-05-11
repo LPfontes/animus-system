@@ -3,13 +3,8 @@ name: Mestre Ferreiro
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    [Pode reparar qualquer equipamento em qualquer lugar] <br>[Manutenção de
-    armas concede +2 de <span class="text-mechanic">dano</span> em todos os
-    acertos] <br>[Manutenção de armaduras concede 2 <span
-    class="text-resource">Proteção</span> extras] <br>[Custo de criação de
-    equipamentos é de ¼].
-  trigger: ''
+  description: "[Pode reparar qualquer equipamento em qualquer lugar] <br>[Manutenção de armas concede +2 de <span class=\"text-mechanic\">dano</span> em todos os acertos] <br>[Manutenção de armaduras concede 2 <span class=\"text-resource\">Proteção</span> extras] <br>[Custo de criação de equipamentos é de ¼]."
+  trigger: ""
   requirements:
     description: Mestre em Prestidigitação; Ferreiro.
     talents:
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Pericia
 folder: f5846711e68e1f9d
-_key: '!items!2ffb32bd30fa30c7'
+_key: "!items!2ffb32bd30fa30c7"

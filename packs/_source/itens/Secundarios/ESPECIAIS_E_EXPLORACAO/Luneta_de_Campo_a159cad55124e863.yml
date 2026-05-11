@@ -1,8 +1,13 @@
 _id: a159cad55124e863
 name: Luneta de Campo
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  check:
+    attribute: "pot"
+    skill: "percepcao"
+    dc: 0
+  subCategory: especial
   description: >-
     Observação a 300m; <span class="text-mechanic">Vantagem</span> em Pontaria à
     distância

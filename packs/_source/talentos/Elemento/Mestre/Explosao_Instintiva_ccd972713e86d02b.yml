@@ -3,11 +3,7 @@ name: Explosão Instintiva
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    1×/<span class="text-mechanic">cena</span>: quando for atingido por 3+
-    acertos, pode gastar 3 <span class="text-resource">PE</span> como <span
-    class="text-mechanic">reação</span> para lançar um ataque elemental de Nível
-    1 imediatamente contra o atacante.
+  description: "1×/<span class=\"text-mechanic\">cena</span>: quando for atingido por 3+ acertos, pode gastar 3 <span class=\"text-resource\">PE</span> como <span class=\"text-mechanic\">reação</span> para lançar um ataque elemental de Nível 1 imediatamente contra o atacante."
   trigger: Como reação
   requirements:
     description: Foco Elemental; nível 4+.
@@ -23,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: cceac30928a1dc9b
-_key: '!items!ccd972713e86d02b'
+_key: "!items!ccd972713e86d02b"

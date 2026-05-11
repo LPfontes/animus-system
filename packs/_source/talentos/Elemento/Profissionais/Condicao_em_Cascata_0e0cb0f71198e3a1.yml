@@ -3,12 +3,7 @@ name: Condição em Cascata
 type: talent
 img: systems/animus/assets/system-icons/book/book-aura.svg
 system:
-  description: >-
-    Quando um alvo com sua condição inata ativa for atingido por qualquer ataque
-    aliado, a condição se propaga para a criatura adjacente mais próxima (que
-    ainda não tenha a condição ativa). <br>Ela faz Resistência <span
-    class="text-mechanic">CD</span> 7+<span class="text-attribute">ANI</span>
-    para evitar. <br>1×/<span class="text-mechanic">rodada</span>.
+  description: Quando um alvo com sua condição inata ativa for atingido por qualquer ataque aliado, a condição se propaga para a criatura adjacente mais próxima (que ainda não tenha a condição ativa). <br>Ela faz Resistência <span class="text-mechanic">CD</span> 7+<span class="text-attribute">ANI</span> para evitar. <br>1×/<span class="text-mechanic">rodada</span>.
   trigger: Após causar uma condição elemental
   requirements:
     description: Profissional em Controle Elemental.
@@ -25,5 +20,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Elemento
 folder: 39e2ad49f9088004
-_key: '!items!0e0cb0f71198e3a1'
+_key: "!items!0e0cb0f71198e3a1"

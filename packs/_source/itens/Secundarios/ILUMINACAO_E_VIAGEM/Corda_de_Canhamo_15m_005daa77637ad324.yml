@@ -1,8 +1,10 @@
 _id: 005daa77637ad324
 name: Corda de Cânhamo 15m
-type: item
+type: secondary
 img: icons/svg/item-bag.svg
 system:
+  consumable: false
+  subCategory: viagem
   description: >-
     Suporta 200kg; <span class="text-mechanic">Vantagem</span> em testes de
     escalada

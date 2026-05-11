@@ -19,5 +19,6 @@ system:
     attribute: -1
     skill: -1
     dc: 0
+  subCategory: Combate
 folder: e85e90ea0f0bf712
-_key: '!items!00d95d87e1590145'
+_key: "!items!00d95d87e1590145"
