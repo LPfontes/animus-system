@@ -1,0 +1,361 @@
+/* =========================================== */
+/*            WEAPON CREATOR MODAL             */
+/* =========================================== */
+
+.animus.weapon-creator {
+  --creator-accent: #9d4edd;
+  --creator-bg: rgba(15, 12, 25, 0.95);
+}
+
+.animus .weapon-creator-container {
+  padding: 20px;
+  background: var(--creator-bg);
+  color: #fff;
+}
+
+.animus .creator-header {
+  margin-bottom: 25px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animus .header-main {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.animus .weapon-img {
+  width: 64px;
+  height: 64px;
+  padding: 10px;
+  background: rgba(157, 78, 221, 0.1);
+  border: 2px solid var(--creator-accent);
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.animus .weapon-img:hover {
+  background: rgba(157, 78, 221, 0.2);
+  transform: scale(1.05);
+}
+
+.animus .name-group {
+  flex: 1;
+}
+
+.animus .name-group label {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  color: var(--creator-accent);
+  margin-bottom: 5px;
+}
+
+.animus .name-group input {
+  width: 100%;
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  font-size: 1.5rem;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  padding: 5px 0;
+}
+
+.animus .name-group input:focus {
+  outline: none;
+  border-color: var(--creator-accent);
+}
+
+.animus .creator-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 30px;
+  margin-bottom: 20px;
+}
+
+.animus .section-title {
+  font-size: 0.8rem;
+  font-weight: 900;
+  margin-bottom: 15px;
+  color: rgba(255, 255, 255, 0.8);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.animus .section-title i {
+  color: var(--creator-accent);
+}
+
+.animus .form-group {
+  margin-bottom: 12px;
+}
+
+.animus .form-group label {
+  display: block;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.5);
+  margin-bottom: 4px;
+}
+
+.animus .damage-matrix {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.animus .matrix-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  font-size: 0.6rem;
+  font-weight: 900;
+  color: var(--creator-accent);
+  text-align: center;
+  margin-bottom: 8px;
+}
+
+.animus .matrix-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  gap: 10px;
+  margin-bottom: 5px;
+  align-items: center;
+}
+
+.animus .ac-label {
+  font-weight: 900;
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+.animus .matrix-row input {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  text-align: center;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.animus .properties-input input {
+  width: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.animus .creator-footer {
+  margin-top: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.animus .create-btn {
+  background: var(--creator-accent);
+  color: #fff;
+  border: none;
+  padding: 12px 40px;
+  border-radius: 30px;
+  font-weight: 900;
+  font-family: 'Outfit', sans-serif;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+  transition: all 0.3s ease;
+}
+
+.animus .create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
+  filter: brightness(1.1);
+}
+
+.animus .properties-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+  gap: 20px;
+}
+
+.animus .search-box {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 5px 15px;
+  flex: 1;
+  max-width: 300px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+}
+
+.animus .search-box i {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.animus .search-box input {
+  background: none;
+  border: none;
+  color: white;
+  font-size: 0.9rem;
+  width: 100%;
+}
+
+.animus .search-box input:focus {
+  outline: none;
+  box-shadow: none;
+}
+
+.animus .property-dropdown-group {
+  margin-bottom: 20px;
+}
+
+.animus .property-dropdown-group select {
+  width: 100%;
+  padding: 8px;
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(157, 78, 221, 0.2);
+  border-radius: 6px;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.animus .property-dropdown-group select:focus {
+  outline: none;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+.animus .property-desc-preview {
+  margin-top: 8px;
+  font-size: 0.75rem;
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 8px 12px;
+  background: rgba(157, 78, 221, 0.05);
+  border-left: 2px solid var(--accent);
+  border-radius: 0 4px 4px 0;
+  display: none;
+  line-height: 1.4;
+}
+
+.animus .property-desc-preview.active {
+  display: block;
+}
+
+.animus .triple-select {
+  display: flex;
+  gap: 10px;
+}
+
+.animus .triple-select select {
+  flex: 1;
+}
+
+.animus .property-group {
+  margin-bottom: 25px;
+}
+
+.animus .section-subtitle {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  font-size: 0.75rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 8px;
+}
+
+.animus .chip-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  object-fit: cover;
+}
+
+.animus .properties-selector-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 12px;
+  max-height: 250px;
+  overflow-y: auto;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.animus .property-chip {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  user-select: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animus .property-chip:hover {
+  background: rgba(157, 78, 221, 0.15);
+  border-color: rgba(157, 78, 221, 0.3);
+}
+
+.animus .property-chip input[type="checkbox"] {
+  width: 14px;
+  height: 14px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.animus .section-header-with-limit {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+.animus .limit-counter {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.8rem;
+  font-weight: 900;
+  color: #4cc9f0;
+  background: rgba(0, 0, 0, 0.3);
+  padding: 2px 8px;
+  border-radius: 4px;
+  border: 1px solid rgba(76, 201, 240, 0.3);
+}
+
+.animus .limit-counter.at-limit {
+  color: #f72585;
+  border-color: rgba(247, 37, 133, 0.5);
+  box-shadow: 0 0 10px rgba(247, 37, 133, 0.2);
+}
+
+.animus .property-chip.disabled {
+  opacity: 0.3;
+  filter: grayscale(1);
+  cursor: not-allowed;
+  pointer-events: none;
+}
+
+.animus .property-chip:has(input:checked) {
+  background: rgba(157, 78, 221, 0.3);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}

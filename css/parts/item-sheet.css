@@ -1,0 +1,195 @@
+/* ========================================= */
+/*            ITEM SHEET LAYOUT              */
+/* ========================================= */
+
+.animus.item {
+  background: var(--bg-deep);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+}
+
+/* Header Modernizado */
+.animus.item .sheet-header {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.15), transparent);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.animus.item .profile-img {
+  width: 80px;
+  height: 80px;
+  border-radius: 12px;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  background: #000;
+  cursor: pointer;
+  object-fit: contain;
+}
+
+.animus.item .header-fields {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animus.item .charname {
+  margin: 0;
+  border: none;
+}
+
+.animus.item .charname input {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 900;
+  color: #fff;
+  text-shadow: 0 0 15px var(--accent-glow);
+  height: 100%;
+  padding: 0;
+}
+
+.name-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  width: 100%;
+}
+
+.header-controls {
+  display: flex;
+  align-items: center;
+}
+
+.toggle-mode-btn {
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.toggle-mode-btn:hover {
+  background: rgba(157, 78, 221, 0.15);
+  color: #fff;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+.toggle-mode-btn.active {
+  background: var(--accent);
+  color: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 15px var(--accent-glow);
+}
+
+/* Tabs Estilizadas */
+.animus.item .sheet-tabs {
+  background: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--border);
+  padding: 0 1rem;
+}
+
+.animus.item .sheet-tabs .item {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  padding: 12px 20px;
+  transition: all 0.2s;
+  border-bottom: 2px solid transparent;
+}
+
+.animus.item .sheet-tabs .item.active {
+  color: var(--accent);
+  text-shadow: 0 0 10px var(--accent-glow);
+  border-bottom-color: var(--accent);
+}
+
+/* Scrollable Body */
+.animus.item .sheet-body.scrollable {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+  padding: 1.5rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) transparent;
+}
+
+.animus.item .sheet-body.scrollable::-webkit-scrollbar {
+  width: 5px;
+}
+
+.animus.item .sheet-body.scrollable::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 10px;
+}
+
+.animus.item form {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+/* Description Editor */
+.description-editor {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  margin-bottom: 1rem;
+}
+
+.animus.item .editor {
+  height: 100%;
+  background: transparent;
+  padding: 0.5rem;
+}
+
+/* Section Header V3 */
+.section-header-v3 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 12px;
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.2), transparent);
+  border-left: 3px solid var(--accent);
+  margin: 1rem 0 0.5rem 0;
+  border-radius: 4px;
+}
+
+.section-header-v3 i {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.section-header-v3 span {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  flex: 1;
+}
+
+.section-header-v3 .action-button {
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.section-header-v3 .action-button:hover {
+  color: var(--accent);
+}

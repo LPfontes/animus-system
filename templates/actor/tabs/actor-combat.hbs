@@ -72,11 +72,6 @@
                 <a class="pa-debt-control" data-action="updatePADebt" data-delta="-1"><i
                     class="fas fa-minus-circle"></i></a>
               </div>
-              {{else}}
-              <a class="pa-debt-control add" data-action="updatePADebt" data-delta="1"
-                title="Gastar PA da rodada seguinte (Reação)">
-                <i class="fas fa-plus-circle"></i>
-              </a>
               {{/if}}
             </div>
           </div>
@@ -176,7 +171,59 @@
       </div>
     </div>
   </div>
+  {{!-- Seção de Ações - Movida para fora do grid --}}
+  <div class="combat-section">
+    <div class="section-header header-with-action">
+      <div class="header-content">
+        <h3 class="category-title">AÇÕES</h3>
+      </div>
+    </div>
+    <div class="actions-modern-list">
+      {{!-- Ações Básicas (Sempre Visíveis) --}}
+      {{#each config.basicActions as |action|}}
+      {{#unless (or (eq action.name 'Uso Elemental') (eq action.name 'Atacar'))}}
+      <div class="action-item-row glass-row basic-action" data-action="toggleActionDescription">
+        <div class="action-row-main">
+          <div class="item-main-info">
+            <div class="roll-icon-btn" data-action="rollBasicAction" data-name="{{action.name}}">
+              <i class="fas fa-play"></i>
+            </div>
+            <img src="{{action.img}}" class="item-icon-small" />
+            <span class="item-name">{{action.name}}</span>
+          </div>
+          
+          <div class="item-tags">
+            <span class="tag cost">{{action.cost}} PA</span>
+          </div>
+        </div>
+        <div class="action-description">{{action.description}}</div>
+      </div>
+      {{/unless}}
+      {{/each}}
 
+      {{!-- Ações Customizadas/Adquiridas --}}
+      {{#each actions as |action|}}
+      <div class="action-item-row glass-row item-row" data-item-id="{{action.id}}" data-action="toggleActionDescription">
+        <div class="action-row-main">
+          <div class="item-main-info">
+            <div class="roll-icon-btn" data-action="useItem" title="Usar Ação">
+              <i class="fas fa-play"></i>
+            </div>
+            <img src="{{action.img}}" class="item-icon-small" />
+            <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
+          </div>
+          <div class="item-tags">
+            {{#if action.system.cost}}<span class="tag cost">{{action.system.cost}} PA</span>{{/if}}
+            {{#if action.system.range}}<span class="tag range">{{action.system.range}}</span>{{/if}}
+          </div>
+        </div>
+        {{#if action.system.description}}
+        <div class="action-description">{{{action.system.description}}}</div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </div> 
   <div class="grid grid-2">
     {{!-- Seção de Armas --}}
     <div class="combat-section">
@@ -233,54 +280,30 @@
       </div>
     </div>
 
-    {{!-- Seção de Ações --}}
+    {{!-- Seção de Itens de Combate --}}
     <div class="combat-section">
       <div class="section-header header-with-action">
         <div class="header-content">
-          <h3 class="category-title">AÇÕES</h3>
+          <h3 class="category-title">ITENS DE COMBATE</h3>
+        </div>
+        <div class="header-buttons">
+          <button type="button" class="action-btn small" data-action="openBrowser" data-type="secondary" title="Adicionar Item do Compêndio">
+            <i class="fas fa-search"></i> Compêndio
+          </button>
         </div>
       </div>
-      <div class="actions-modern-list">
-        {{!-- Ações Básicas (Sempre Visíveis) --}}
-        {{#each config.basicActions as |action|}}
-        <div class="action-item-row glass-row basic-action {{#if (eq action.name 'Uso Elemental')}}elemental-action{{/if}}" 
-          data-action="{{#if (eq action.name 'Uso Elemental')}}rollElemental{{else}}rollBasicAction{{/if}}" 
-          data-name="{{action.name}}">
-          
+      <div class="list-body">
+        {{#each gear.secondary as |item|}}
+        <div class="item-row glass-row" data-item-id="{{item.id}}">
           <div class="item-main-info">
-            <div class="roll-icon-btn">
+            <div class="roll-icon-btn" data-action="useItem" title="Usar Item">
               <i class="fas fa-play"></i>
             </div>
-            {{#if (eq action.name "Uso Elemental")}}
-            <i class="fas fa-star item-icon-small" style="color: var(--accent); font-size: 1.4em; width:28px; text-align:center;"></i>
-            {{else}}
-            <img src="{{action.img}}" class="item-icon-small" />
-            {{/if}}
-            <span class="item-name">{{action.name}}</span>
-          </div>
-          
-          <div class="item-tags">
-            <span class="tag cost">{{action.cost}} PA</span>
-            {{#if (eq action.name "Uso Elemental")}}
-            <span class="tag elemental">Elemental</span>
-            {{/if}}
-          </div>
-        </div>
-        {{/each}}
-
-        {{!-- Ações Customizadas/Adquiridas --}}
-        {{#each actions as |action|}}
-        <div class="action-item-row glass-row item-row" data-item-id="{{action.id}}">
-          <div class="item-main-info">
-            <div class="roll-icon-btn" data-action="useItem" title="Usar Ação">
-              <i class="fas fa-play"></i>
-            </div>
-            <img src="{{action.img}}" class="item-icon-small" />
-            <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
+            <img src="{{item.img}}" class="item-icon-small" />
+            <span class="item-name-clickable" data-action="editItem">{{item.name}}</span>
           </div>
           <div class="item-tags">
-            {{#if action.system.cost}}<span class="tag cost">{{action.system.cost}} PA</span>{{/if}}
-            {{#if action.system.range}}<span class="tag range">{{action.system.range}}</span>{{/if}}
+            <span class="tag quantity">{{item.system.quantity}} unid.</span>
           </div>
         </div>
         {{/each}}
@@ -289,6 +312,25 @@
   </div>
 
   <div class="combat-tables">
+    {{!-- Uso Elemental - Movido para cá --}}
+    <div class="action-item-row glass-row basic-action elemental-action" data-action="toggleActionDescription" style="margin-bottom: 15px; grid-column: span 2;">
+      <div class="action-row-main">
+        <div class="item-main-info">
+          <div class="roll-icon-btn" data-action="rollElemental" data-name="Uso Elemental">
+            <i class="fas fa-play"></i>
+          </div>
+          <i class="fas fa-star item-icon-small" style="color: var(--accent); font-size: 1.1em; width:22px; text-align:center;"></i>
+          <span class="item-name">Uso Elemental</span>
+        </div>
+        
+        <div class="item-tags">
+          <span class="tag cost">1 PA</span>
+          <span class="tag elemental">Elemental</span>
+        </div>
+      </div>
+      <div class="action-description">Ativa o uso elemental do seu elemento, consultando a tabela de dano ou cura.</div>
+    </div>
+
     {{!-- Tabela de Dano Elemental --}}
     {{#if element.resolvedDamageTable}}
     <div class="element-damage-table-panel">

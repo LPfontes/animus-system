@@ -1,0 +1,97 @@
+/* =========================================== */
+/*               BIOGRAPHY TAB                 */
+/* =========================================== */
+
+.animus .tab.biography.active {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  height: 100%;
+}
+
+.animus .biography-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.animus .bio-top-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr;
+  gap: 20px;
+}
+
+.animus .bio-column {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus .bio-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animus .bio-section.full-height {
+  flex: 1;
+}
+
+.animus .bio-section .section-title {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.85rem;
+  letter-spacing: 0.15rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 800;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  padding-bottom: 8px;
+}
+
+.animus .bio-section .section-title i {
+  font-size: 0.9rem;
+  opacity: 0.8;
+}
+
+.animus .bio-section textarea {
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #fff;
+  padding: 10px;
+  font-size: 0.9rem;
+  resize: vertical;
+  font-family: "Outfit", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.animus .bio-section textarea:focus {
+  border-color: var(--accent);
+  background: rgba(157, 78, 221, 0.05);
+  box-shadow: 0 0 10px var(--accent-glow);
+  outline: none;
+}
+
+.animus .bio-section .editor-container {
+  min-height: 100px;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.animus .bio-section .editor {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  padding: 5px;
+}
+
+.animus .biography-full .editor-container {
+  min-height: 300px;
+}

@@ -1,0 +1,92 @@
+/* ========================================= */
+/*            ITEM DESCRIPTIONS              */
+/* ========================================= */
+
+.properties-list-v3 {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  padding: 0.5rem;
+}
+
+.property-tag-v3 {
+  gap: 5px;
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: border-color 0.2s;
+}
+
+.property-tag-v3:focus-within {
+  border-color: var(--accent);
+}
+
+.property-tag-v3 input {
+  border: none !important;
+  background: transparent !important;
+  padding: 4px 8px !important;
+  font-size: 0.75rem !important;
+  width: 120px;
+}
+
+.property-tag-v3 .delete-btn {
+  padding: 4px 8px;
+  background: rgba(255, 0, 0, 0.1);
+  color: var(--text-muted);
+  cursor: pointer;
+  border-left: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.property-tag-v3 .delete-btn:hover {
+  background: rgba(255, 0, 0, 0.3);
+  color: #fff;
+}
+
+.property-tag-v3 i {
+  font-size: 0.8rem;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+.empty-hint {
+  font-size: 0.75rem;
+  font-style: italic;
+  color: var(--text-muted);
+  width: 100%;
+  text-align: center;
+  margin: 10px 0;
+}
+
+/* --- Block Descriptions --- */
+.properties-descriptions-block {
+  margin: 10px 0;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prop-desc-item {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.prop-desc-item strong {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.prop-desc-item span {
+  color: var(--text-muted);
+}

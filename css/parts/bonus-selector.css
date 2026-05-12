@@ -1,0 +1,108 @@
+/* ========================================= */
+/*            BONUS SELECTOR MODAL           */
+/* ========================================= */
+
+.animus.bonus-selector .bonus-selector-container {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus.bonus-selector .selector-header {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.animus.bonus-selector .item-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.bonus-selector .item-type {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--accent);
+  letter-spacing: 0.1em;
+}
+
+.animus.bonus-selector h3 {
+  margin: 0;
+  color: white;
+  font-family: 'Outfit', sans-serif;
+}
+
+.animus.bonus-selector .instruction {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+  margin: 0;
+}
+
+.animus.bonus-selector .options-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+}
+
+.animus.bonus-selector .option-card {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.animus.bonus-selector .option-card:hover {
+  background: rgba(157, 78, 221, 0.15);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.animus.bonus-selector .option-card.active,
+.animus.bonus-selector .option-card:has(input:checked) {
+  background: rgba(157, 78, 221, 0.25);
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-1px);
+}
+
+.animus.bonus-selector .option-card input {
+  display: none;
+}
+
+.animus.bonus-selector .attr-label {
+  font-weight: 800;
+  font-size: 0.9rem;
+  color: #fff;
+}
+
+.animus.bonus-selector .confirm-btn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  transition: all 0.3s;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+}
+
+.animus.bonus-selector .confirm-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+}

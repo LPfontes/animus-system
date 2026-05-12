@@ -1,0 +1,178 @@
+/* =========================================== */
+/*               INVENTORY TAB                 */
+/* =========================================== */
+.animus .inventory-sidebar {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 20px;
+  gap: 15px;
+}
+.animus .inventory-section {
+  margin-bottom: 30px;
+  background: rgba(20, 20, 25, 0.4);
+  padding: 15px;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.03);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.animus .inventory-section .section-header {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 12px;
+  margin-bottom: 18px;
+  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
+  position: relative;
+  gap: 15px;
+}
+
+.animus .inventory-section .section-header::after {
+  content: '';
+  position: absolute;
+  bottom: -1px;
+  left: 0;
+  width: 40px;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .inventory-section h3 {
+  margin: 0;
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.12rem;
+  color: #fff;
+  text-transform: uppercase;
+  font-weight: 900;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.animus .inventory-section h3 i {
+  color: var(--accent);
+  font-size: 0.9em;
+  filter: drop-shadow(0 0 5px var(--accent-glow));
+}
+
+.animus .inventory .item-list {
+  width: 100%;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.animus .inventory .item-row {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 16px;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  transition: all 0.2s ease;
+}
+
+.animus .inventory .item-row:hover {
+  background: rgba(157, 78, 221, 0.06);
+  border-color: rgba(157, 78, 221, 0.2);
+  transform: translateX(5px);
+}
+
+.animus .inventory .item-name {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.animus .inventory .item-img {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 6px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 2px;
+}
+
+.animus .inventory .name-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.animus .inventory .item-edit {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: #fff;
+}
+
+.animus .inventory .item-type-tag {
+  font-size: 0.65rem;
+  color: var(--accent);
+  text-transform: uppercase;
+  font-weight: 900;
+  letter-spacing: 1px;
+}
+
+.animus .inventory .item-qty {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 0.75rem;
+  color: #4cc9f0;
+  font-weight: 900;
+}
+
+.animus .inventory .item-controls {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.animus .inventory .item-control {
+  color: rgba(255, 255, 255, 0.4);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 6px;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.animus .inventory .item-control:hover {
+  color: #fff;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.animus .inventory .item-control.active {
+  color: var(--accent);
+  background: rgba(157, 78, 221, 0.15);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+.animus .inventory .item-control.active .fa-shield,
+.animus .inventory .item-control.active .fa-shirt {
+  color: #4cc9f0;
+}
+
+.animus .inventory .item-control[data-action="deleteItem"]:hover {
+  color: #f72585;
+  background: rgba(247, 37, 133, 0.1);
+}
+
+.animus .inventory .item-control[data-action="useItem"] {
+  color: #50c878;
+}
+
+.animus .inventory .item-control[data-action="useItem"]:hover {
+  background: rgba(80, 200, 120, 0.15);
+  box-shadow: 0 0 10px rgba(80, 200, 120, 0.2);
+}

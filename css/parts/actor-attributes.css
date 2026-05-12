@@ -1,0 +1,182 @@
+/* ========================================= */
+/*              ATTRIBUTES & SKILLS          */
+/* ========================================= */
+
+/* ABILITIES GRID SIDE */
+.animus .abilities-grid-column {
+  flex: 1;
+  overflow-y: auto;
+  max-height: 700px;
+}
+
+.animus .abilities-categories-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+}
+
+.animus .ability-category {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus .category-title {
+  text-align: center;
+  font-size: 0.8rem;
+  letter-spacing: 0.3rem;
+  color: var(--text-muted);
+  margin: 0;
+  padding-bottom: 5px;
+}
+
+/* Attribute Card */
+.animus .attribute-card {
+  padding: 15px !important;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.animus .attr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.animus .attr-name {
+  font-weight: 900;
+  font-size: 1.1rem;
+  color: var(--accent);
+}
+
+.animus .attr-dots {
+  display: flex;
+  gap: 5px;
+}
+
+.animus .attr-dots .dot {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.animus .attr-dots .dot.filled {
+  background: #fff;
+  border-color: #fff;
+  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
+}
+
+.animus .attr-dots .dot.bonus-filled {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .attr-bonus {
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: var(--accent);
+}
+
+.animus .attr-name.rollable {
+  cursor: pointer;
+  transition: all 0.2s;
+  border-bottom: 1px dashed transparent;
+}
+
+.animus .attr-name.rollable:hover {
+  color: #fff;
+  text-shadow: 0 0 10px var(--accent-glow);
+  border-bottom-color: var(--accent);
+}
+
+.animus .attr-bonus-roll {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.animus .attr-roll-btn {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  opacity: 0.4;
+}
+
+.animus .attribute-card:hover .attr-roll-btn {
+  opacity: 1;
+}
+
+.animus .attr-roll-btn:hover {
+  color: var(--accent);
+  transform: scale(1.2);
+}
+
+/* Skills List inside Card */
+.animus .skills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-top: 8px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.animus .skill-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.animus .skill-row.active {
+  opacity: 1;
+}
+
+.animus .skill-name {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+}
+
+.animus .skill-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.animus .skill-boxes {
+  display: flex;
+  gap: 4px;
+}
+
+.animus .skill-boxes .box {
+  width: 12px;
+  height: 12px;
+  border: 1.5px solid rgba(255, 255, 255, 0.1);
+  border-radius: 3px;
+  cursor: pointer;
+}
+
+.animus .skill-boxes .box.filled {
+  background: rgba(255, 255, 255, 0.3);
+  border-color: rgba(255, 255, 255, 0.4);
+}
+
+.animus .skill-mod {
+  font-size: 0.9rem;
+  width: 20px;
+  text-align: center;
+  color: var(--text-muted);
+}
+
+.animus .skill-roll-btn {
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  cursor: pointer;
+}

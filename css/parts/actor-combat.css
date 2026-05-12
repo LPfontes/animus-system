@@ -1,0 +1,243 @@
+/* ========================================= */
+/*              COMBAT TAB V3                */
+/* ========================================= */
+
+.animus .combat-section {
+  padding: 10px;
+}
+
+.animus .section-header-v3 {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  margin-bottom: 15px;
+  padding-bottom: 8px;
+}
+
+.animus .section-header-v3 h3 {
+  font-family: 'Outfit', sans-serif;
+  font-size: 1rem;
+  letter-spacing: 0.25rem;
+  color: var(--accent);
+  margin: 0;
+  text-transform: uppercase;
+  font-weight: 800;
+}
+
+.animus .weapons-modern-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.animus .list-header {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
+  padding: 0 20px;
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  margin-bottom: 5px;
+}
+
+.animus .weapon-item-row {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
+  align-items: center;
+  padding: 10px 10px;
+}
+
+.animus .dmg-bonus-tag {
+  font-size: 0.65rem;
+  color: #00ffcc;
+  background: rgba(0, 255, 204, 0.1);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+}
+
+.animus .combat-bottom-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.animus .simple-item-list {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.animus .simple-item-row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 15px;
+}
+
+/* Grade de Talentos e Rolagem */
+.animus .talents-grid-column {
+  display: flex;
+  flex-direction: column;
+  max-height: 550px;
+  overflow: hidden;
+}
+
+.animus .talents-scroll-list {
+  flex: 1;
+  overflow-y: auto;
+  padding-right: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Scrollbar Customizado para Listas */
+.animus .talents-scroll-list::-webkit-scrollbar {
+  width: 5px;
+}
+
+.animus .talents-scroll-list::-webkit-scrollbar-track {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+}
+
+.animus .talents-scroll-list::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+  box-shadow: 0 0 5px var(--accent-glow);
+}
+
+/* Actions Modern List */
+.animus .actions-modern-list {
+  display: grid;
+  grid-template-columns: repeat(4,1fr);
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.animus .action-item-row {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: all 0.2s ease;
+  position: relative;
+  cursor: pointer;
+}
+
+.animus .action-row-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 5px 5px;
+  width: 100%;
+  min-width: 0;
+}
+
+.animus .action-description {
+  max-height: 0;
+  max-width: 320px;
+  display: flex;
+  flex-wrap: wrap;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  font-size: 0.75rem;
+  color: rgba(255, 255, 255, 0.7);
+  padding: 0 12px;
+  line-height: 1.4;
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.animus .action-item-row.expanded {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(157, 78, 221, 0.3);
+}
+
+.animus .action-item-row.expanded .action-description {
+  max-height: 200px;
+  padding: 10px 12px 12px 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.animus .action-item-row:hover {
+  background: rgba(157, 78, 221, 0.1);
+  border-color: rgba(157, 78, 221, 0.4);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.animus .action-item-row.basic-action {
+  border-left: 3px solid var(--accent);
+}
+
+.animus .action-item-row.elemental-action {
+  display: flex;
+  width: fit-content;
+  justify-content: center;
+  align-items: center;
+  background: linear-gradient(90deg, rgba(157, 78, 221, 0.12) 0%, rgba(157, 78, 221, 0.03) 100%);
+  border-left-color: #4cc9f0;
+}
+
+.animus .roll-icon-btn {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 6px;
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  transition: all 0.2s;
+  cursor: pointer;
+}
+
+.animus .action-item-row:hover .roll-icon-btn {
+  background: var(--accent);
+  color: #fff;
+  box-shadow: 0 0 10px var(--accent-glow);
+  transform: scale(1.1);
+}
+
+.animus .action-item-row .item-tags {
+  display: flex;
+  gap: 8px;
+}
+
+.animus .action-item-row .tag {
+  font-size: 0.6rem;
+  font-weight: 900;
+  padding: 2px 6px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: var(--text-muted);
+}
+
+.animus .action-item-row .tag.cost {
+  background: rgba(157, 78, 221, 0.15);
+  color: var(--accent);
+  border-color: rgba(157, 78, 221, 0.3);
+}
+
+.animus .action-item-row .tag.elemental {
+  background: rgba(76, 201, 240, 0.15);
+  color: #4cc9f0;
+  border-color: rgba(76, 201, 240, 0.3);
+}
+
+.animus .action-item-row .tag.range {
+  background: rgba(255, 255, 255, 0.08);
+  color: #fff;
+}

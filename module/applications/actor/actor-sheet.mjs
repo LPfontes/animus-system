@@ -26,8 +26,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   static DEFAULT_OPTIONS = {
     classes: ["animus", "sheet", "actor"],
     position: {
-      width: 1000,
-      height: 950
+      width: 1200,
+      height: 1000
     },
     actions: {
       updateAbility: AnimusActorSheet.prototype._onUpdateAbility,
@@ -53,7 +53,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       useItem: AnimusActorSheet.prototype._onUseItem,
       rollBasicAction: AnimusActorSheet.prototype._onRollBasicAction,
       rollElemental: AnimusActorSheet.prototype._onRollElemental,
-      applyHeal: AnimusActorSheet.prototype._onApplyHeal
+      applyHeal: AnimusActorSheet.prototype._onApplyHeal,
+      toggleActionDescription: AnimusActorSheet.prototype._onToggleActionDescription
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -1042,6 +1043,19 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       await actor.update({ "system.status.hp.value": newHp });
       ui.notifications.info(`${actor.name} recuperou ${healAmount} PV (${newHp}/${hp.max}).`);
     }
+  }
+
+  /**
+   * Toggles the description of an action row
+   */
+  async _onToggleActionDescription(event, target) {
+    const row = target.closest(".action-item-row");
+    if (!row) return;
+    
+    // Se clicou no botão de rolagem, não expande (opcional, mas recomendado)
+    if (event.target.closest(".roll-icon-btn")) return;
+
+    row.classList.toggle("expanded");
   }
 }
 

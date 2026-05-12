@@ -1,0 +1,164 @@
+/* ========================================= */
+/*           ITEM PROPERTIES GRID            */
+/* ========================================= */
+
+.item-properties-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(110px, 1fr));
+  gap: 15px;
+  padding: 1rem;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  margin-bottom: 1.5rem;
+}
+
+.animus.item .sheet-header .item-properties-grid {
+  background: transparent;
+  border: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+}
+
+.prop-box {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.prop-box label {
+  font-size: 0.65rem;
+  text-transform: uppercase;
+  color: var(--accent);
+  font-weight: 800;
+  letter-spacing: 0.05em;
+}
+
+.prop-box input,
+.prop-box select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  color: #fff;
+  border-radius: 6px;
+  padding: 5px 8px;
+}
+
+.prop-box.highlight {
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 8px;
+  padding: 5px;
+  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+}
+
+.prop-box.highlight label {
+  color: #fff !important;
+  text-shadow: 0 0 5px var(--accent-glow);
+}
+
+.prop-box .value-display {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 1.2rem;
+  color: #fff;
+  text-align: center;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.prop-box-accent {
+  border-left: 2px solid var(--accent);
+  padding-left: 6px;
+}
+
+.prop-box-accent label {
+  color: #fff !important;
+  text-shadow: 0 0 4px var(--accent-glow);
+}
+
+.element-props-grid {
+  grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+}
+
+.value-display-v3 {
+  font-family: 'Outfit', sans-serif;
+  font-weight: 600;
+  color: #fff;
+  font-size: 0.9rem;
+  padding: 4px 0;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+}
+
+.view-mode .prop-box {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.view-mode.item-properties-grid {
+  background: rgba(0, 0, 0, 0.15);
+  border-style: dashed;
+}
+
+.attribute-editor-v3 {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.attribute-editor-v3 .attr-options {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4px;
+}
+
+.attribute-editor-v3 input {
+  font-size: 0.65rem !important;
+  padding: 2px 4px !important;
+  text-align: center;
+}
+
+.attribute-editor-v3 select {
+  font-size: 0.7rem;
+  padding: 2px;
+}
+
+/* --- Property Bonus Grid --- */
+.bonus-attr-grid {
+  grid-column: span 3;
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.attr-bonus-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.attr-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.attr-input-group label {
+  font-size: 0.7em;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.attr-input-group input {
+  text-align: center !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 1em !important;
+  color: #fff !important;
+  width: 100% !important;
+}

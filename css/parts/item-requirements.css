@@ -1,0 +1,159 @@
+/* ========================================= */
+/*            ITEM REQUIREMENTS              */
+/* ========================================= */
+
+.requirements-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 15px;
+  margin-top: 10px;
+}
+
+.requirements-technical-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  border-top: 1px solid var(--border);
+  padding-top: 15px;
+}
+
+.technical-section {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.technical-section.full-width {
+  grid-column: span 2;
+}
+
+.technical-section label {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.req-list {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.req-row {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+
+.req-row select,
+.req-row input {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid var(--border);
+  color: #fff;
+  border-radius: 4px;
+  padding: 2px 8px;
+  font-size: 0.8rem;
+}
+
+.req-row select {
+  flex: 2;
+}
+
+.req-row input {
+  flex: 1;
+  text-align: center;
+}
+
+.req-list-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.req-tag {
+  display: flex;
+  align-items: center;
+  background: rgba(157, 78, 221, 0.1);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.req-tag input {
+  background: transparent;
+  border: none;
+  color: #fff;
+  padding: 4px 8px;
+  font-size: 0.75rem;
+  width: 150px;
+}
+
+.req-label-v3 {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+.req-value-v3 {
+  font-size: 0.85rem;
+  color: #fff;
+  font-weight: 700;
+  text-shadow: 0 0 5px var(--accent-glow);
+}
+
+.req-tag.view-mode {
+  padding: 4px 12px;
+  background: rgba(157, 78, 221, 0.15);
+  border-radius: 20px;
+}
+
+.talent-name-hint {
+  font-size: 0.65rem;
+  color: var(--accent);
+  opacity: 0.8;
+  padding: 0 8px;
+  font-style: italic;
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  white-space: nowrap;
+}
+
+.innate-abilities-list {
+  display: flex;
+  gap: 10px;
+  flex-direction: column;
+}
+
+.add-btn {
+  align-self: flex-start;
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 8px;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 4px;
+}
+
+.add-btn:hover {
+  color: var(--accent);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.delete-btn {
+  color: var(--text-muted);
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.delete-btn:hover {
+  color: #ff5555;
+}

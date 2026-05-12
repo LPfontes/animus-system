@@ -1,0 +1,261 @@
+/* ========================================= */
+/*              TALENT MANAGER               */
+/* ========================================= */
+
+.animus.talent-manager .manager-container {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  height: 100%;
+  padding: 15px;
+}
+
+.animus.talent-manager .manager-header {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.animus.talent-manager .header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.animus.talent-manager .search-bar {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+  flex: 1;
+}
+
+.animus.talent-manager .input-wrapper {
+  position: relative;
+  flex: 1;
+  display: flex;
+  align-items: center;
+}
+
+.animus.talent-manager .input-wrapper i {
+  position: absolute;
+  left: 12px;
+  color: var(--accent);
+  pointer-events: none;
+}
+
+.animus.talent-manager .input-wrapper input {
+  width: 100%;
+  padding: 8px 12px 8px 35px;
+  background: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: white;
+  transition: all 0.2s;
+}
+
+.animus.talent-manager .input-wrapper input:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  outline: none;
+}
+
+.animus.talent-manager .available-filter {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  color: var(--text-muted);
+  cursor: pointer;
+  white-space: nowrap;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid transparent;
+  transition: all 0.2s;
+  user-select: none;
+}
+
+.animus.talent-manager .available-filter:hover {
+  background: rgba(157, 78, 221, 0.05);
+  color: #fff;
+}
+
+.animus.talent-manager .available-filter input:checked+span {
+  color: var(--accent);
+}
+
+.animus.talent-manager .requirements-lock {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(255, 77, 77, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(255, 77, 77, 0.15);
+  font-size: 0.75rem;
+  color: var(--fire);
+}
+
+.animus.talent-manager .requirements-lock i {
+  margin-right: 5px;
+}
+
+.animus.talent-manager .requirements-lock ul {
+  margin: 5px 0 0 15px;
+  padding: 0;
+  list-style: disc;
+}
+
+.animus.talent-manager .requirements-met {
+  margin-top: 10px;
+  padding: 10px;
+  background: rgba(46, 204, 113, 0.05);
+  border-radius: 8px;
+  border: 1px solid rgba(46, 204, 113, 0.15);
+  font-size: 0.75rem;
+  color: #2ecc71;
+}
+
+.animus.talent-manager .requirements-met i {
+  margin-right: 5px;
+}
+
+.animus.talent-manager .talent-entry.locked {
+  border-color: rgba(255, 77, 77, 0.2);
+}
+
+.animus.talent-manager .add-btn.disabled {
+  border-color: var(--border);
+  color: var(--text-muted);
+  background: rgba(255, 255, 255, 0.02);
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+.animus.talent-manager .add-btn.disabled:hover {
+  box-shadow: none;
+}
+
+.animus.talent-manager .manager-header h2 {
+  font-family: 'Outfit', sans-serif;
+  color: var(--accent);
+  margin: 0;
+  letter-spacing: 0.15rem;
+  font-size: 1.4rem;
+}
+
+.animus.talent-manager .category-filters {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.animus.talent-manager .category-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 700;
+  transition: all 0.2s;
+  cursor: pointer;
+  width: fit-content;
+}
+
+.animus.talent-manager .category-btn:hover,
+.animus.talent-manager .category-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.talent-manager .manager-list {
+  flex: 1;
+  overflow-y: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 15px !important;
+}
+
+.animus.talent-manager .talent-entry {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 15px;
+  padding: 12px;
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+}
+
+.animus.talent-manager .entry-main {
+  display: flex;
+  gap: 12px;
+  flex: 1;
+}
+
+.animus.talent-manager .talent-entry img {
+  width: 50px;
+  height: 50px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+}
+
+.animus.talent-manager .entry-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 5px;
+}
+
+.animus.talent-manager .talent-name {
+  font-weight: 800;
+  color: white;
+  font-size: 1rem;
+}
+
+.animus.talent-manager .talent-category {
+  font-size: 0.65rem;
+  background: rgba(157, 78, 221, 0.2);
+  color: var(--accent);
+  padding: 2px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  font-weight: 900;
+}
+
+.animus.talent-manager .talent-desc {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.animus.talent-manager .add-btn {
+  background: transparent;
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: all 0.2s;
+  white-space: nowrap;
+}
+
+.animus.talent-manager .add-btn:hover {
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus.talent-manager .add-btn.owned {
+  border-color: #2ecc71;
+  color: #2ecc71;
+  background: rgba(46, 204, 113, 0.1);
+  cursor: default;
+}

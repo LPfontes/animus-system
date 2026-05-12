@@ -1,0 +1,179 @@
+/* ========================================= */
+/*            ADVANCEMENT MODAL              */
+/* ========================================= */
+
+.advancement-app .advancement-panel {
+  padding: 20px;
+}
+
+.advancement-app .advancement-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 25px;
+  border-bottom: 1px solid var(--border);
+  padding-bottom: 15px;
+}
+
+.advancement-app .header-title {
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  color: var(--accent);
+  font-size: 1.1rem;
+}
+
+.advancement-app .points-pool {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 6px 15px;
+  border-radius: 30px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  border: 1px solid var(--border);
+}
+
+.advancement-app .points-pool.complete {
+  border-color: #00ff88;
+  color: #00ff88;
+}
+
+.advancement-app .advancement-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 30px;
+  margin-bottom: 25px;
+}
+
+.advancement-app .section-label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  display: block;
+  margin-bottom: 15px;
+  letter-spacing: 0.05em;
+}
+
+.advancement-app .dist-row {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 12px;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+}
+
+.advancement-app .stat-label {
+  width: 30px;
+  font-weight: 900;
+  color: var(--accent);
+}
+
+.advancement-app .input-wrapper {
+  display: flex;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.advancement-app .input-wrapper input {
+  width: 45px;
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-weight: 800;
+  font-size: 1rem;
+  color: #fff;
+}
+
+.advancement-app .adjust-btn {
+  width: 30px;
+  height: 30px;
+  border: none;
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  transition: all 0.2s;
+}
+
+.advancement-app .adjust-btn:hover:not(:disabled) {
+  background: var(--accent);
+}
+
+.advancement-app .adjust-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.advancement-app .stat-bonus {
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: #00ff88;
+  margin-left: auto;
+}
+
+.advancement-app .bonus-row {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.advancement-app .level-tag {
+  font-size: 0.7rem;
+  font-weight: 800;
+  background: var(--accent);
+  padding: 4px 8px;
+  border-radius: 4px;
+  min-width: 60px;
+  text-align: center;
+}
+
+.advancement-app .bonus-row select {
+  flex: 1;
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  color: #fff;
+  border-radius: 4px;
+  padding: 5px;
+  font-family: 'Outfit', sans-serif;
+}
+
+.advancement-app .advancement-footer {
+  border-top: 1px solid var(--border);
+  padding-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  align-items: center;
+}
+
+.advancement-app .footer-hint {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-style: italic;
+  text-align: center;
+}
+
+.advancement-app .save-btn {
+  width: 100%;
+  background: linear-gradient(135deg, var(--accent), var(--accent-secondary));
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 900;
+  letter-spacing: 0.1em;
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
+  transition: transform 0.2s;
+}
+
+.advancement-app .save-btn:hover {
+  transform: scale(1.02);
+}

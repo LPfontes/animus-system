@@ -1,4 +1,58 @@
 /* ========================================= */
+/*              ACTOR SHEET BASE             */
+/* ========================================= */
+
+@import "actor-attributes.css";
+@import "actor-combat.css";
+@import "actor-inventory.css";
+@import "actor-biography.css";
+@import "actor-elements.css";
+@import "actor-creator.css";
+
+.animus.sheet.actor {
+  min-width: 1000px;
+  min-height: 900px;
+  height: 900px;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+}
+
+.animus .window-content {
+  background: 
+    radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(77, 166, 255, 0.1) 0%, transparent 50%),
+    var(--bg-dark);
+  padding: 0;
+  overflow: hidden;
+}
+
+/* Premium Panel Base */
+.animus .glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  cursor: pointer;
+}
+
+.animus .glass-row {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animus .glass-row:hover {
+  background: rgba(157, 78, 221, 0.08);
+  border-color: rgba(157, 78, 221, 0.2);
+  transform: translateX(4px);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ========================================= */
 /*              NEW GRID LAYOUT              */
 /* ========================================= */
 
@@ -17,7 +71,6 @@
   gap: 15px;
   padding: 20px !important;
   align-items: end;
-  margin-bottom: 20px;
 }
 
 .animus .input-group {
@@ -188,20 +241,9 @@
 }
 
 @keyframes bonus-pulse {
-  0% {
-    opacity: 1;
-    transform: scale(1);
-  }
-
-  50% {
-    opacity: 0.4;
-    transform: scale(1.2);
-  }
-
-  100% {
-    opacity: 1;
-    transform: scale(1);
-  }
+  0% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(1.2); }
+  100% { opacity: 1; transform: scale(1); }
 }
 
 .animus .drop-zone.dragover .item-slot {
@@ -312,217 +354,6 @@
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Talent Column Styling */
-.animus .talents-grid-column {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  max-height: 400px;
-}
-
-.animus .grid-2 {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-}
-
-.animus .category-filters {
-  display: flex;
-  gap: 6px;
-  margin-bottom: 10px;
-  flex-wrap: wrap;
-}
-
-.animus .category-btn {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid var(--border);
-  color: var(--text-muted);
-  width: 30px;
-  height: 30px;
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 0.8rem;
-  cursor: pointer;
-  transition: all 0.2s;
-}
-
-.animus .category-btn:hover,
-.animus .category-btn.active {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
-}
-
-.animus .header-with-action {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.animus .header-with-action .category-title {
-  margin-bottom: 0;
-  padding: 0;
-}
-
-.animus .action-btn {
-  background: rgba(157, 78, 221, 0.08);
-  border: 1px solid rgba(157, 78, 221, 0.3);
-  color: var(--accent);
-  border-radius: 8px;
-  padding: 6px 14px;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.05rem;
-  cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  font-family: 'Outfit', sans-serif;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 8px;
-  backdrop-filter: blur(8px);
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-}
-
-.animus .action-btn:hover {
-  background: var(--accent);
-  color: white;
-  border-color: var(--accent);
-  box-shadow: 0 0 15px var(--accent-glow);
-  transform: translateY(-2px);
-}
-
-.animus .action-btn:active {
-  transform: translateY(0);
-}
-
-.animus .action-btn.small {
-  padding: 4px 10px;
-  font-size: 0.65rem;
-}
-
-.animus .action-btn i {
-  font-size: 0.9em;
-  opacity: 0.9;
-}
-
-.animus .talents-scroll-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  overflow-y: auto;
-  padding-right: 8px;
-}
-
-.animus .talent-card {
-  padding: 12px !important;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  border-left: 3px solid var(--accent);
-}
-
-.animus .talent-card.innate {
-  border-left-color: #00d2ff;
-  background: rgba(0, 210, 255, 0.05);
-}
-
-.animus .mini-icon {
-  font-size: 0.8em;
-  margin-right: 4px;
-  opacity: 0.8;
-}
-
-.animus .talent-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.animus .talent-name-wrapper {
-  display: flex;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.animus .talent-name {
-  font-weight: 900;
-  font-size: 0.95rem;
-  color: var(--accent);
-  text-transform: uppercase;
-}
-
-.animus .talent-category-tag {
-  font-size: 0.6rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  font-weight: 700;
-  letter-spacing: 0.05em;
-}
-
-.animus .talent-controls {
-  display: flex;
-  gap: 8px;
-  opacity: 0;
-  transition: opacity 0.2s ease;
-}
-
-.animus .talent-card:hover .talent-controls {
-  opacity: 1;
-}
-
-.animus .talent-control {
-  color: var(--text-muted);
-  font-size: 0.8rem;
-  cursor: pointer;
-}
-
-.animus .talent-control:hover {
-  color: #fff;
-}
-
-.animus .talent-body {
-  font-size: 0.85rem;
-  line-height: 1.4;
-  color: var(--text-muted);
-}
-
-.animus .talent-body ul {
-  margin: 5px 0;
-  padding-left: 18px;
-  list-style: disc;
-}
-
-.animus .talent-body li {
-  margin-bottom: 3px;
-}
-
-.animus .talent-body p {
-  margin: 4px 0;
-}
-
-.animus .text-mechanic {
-  color: var(--accent);
-  font-weight: 800;
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9em;
-  text-transform: uppercase;
-}
-
-.animus .empty-state {
-  text-align: center;
-  padding: 40px;
-  color: var(--text-muted);
-  font-style: italic;
-  font-size: 0.9rem;
-  border: 1px dashed rgba(255, 255, 255, 0.1);
-  border-radius: 12px;
-}
-
 .animus .portrait-frame img {
   width: 100%;
   height: 100%;
@@ -581,13 +412,6 @@
   letter-spacing: 0.05rem;
 }
 
-.animus .stat-label-mini {
-  font-size: 0.6rem;
-  font-weight: 900;
-  color: var(--text-main);
-  z-index: 6;
-}
-
 .animus .defense-mini-box {
   position: relative;
   height: 42px;
@@ -644,23 +468,6 @@
   height: 36px;
 }
 
-.animus .icon-circle {
-  position: absolute;
-  left: 0;
-  width: 42px;
-  height: 42px;
-  background: var(--panel-bg);
-  border: 1px solid var(--border);
-  border-radius: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.2rem;
-  z-index: 2;
-
-
-}
-
 .animus .bar-track {
   flex: 1;
   height: 26px;
@@ -689,18 +496,12 @@
 }
 
 .animus .bar-fill.hp {
-  background: linear-gradient(90deg,
-      var(--fire) 0%,
-      rgba(255, 159, 67, 0.8) 50%,
-      var(--fire) 100%);
+  background: linear-gradient(90deg, var(--fire) 0%, rgba(255, 159, 67, 0.8) 50%, var(--fire) 100%);
   box-shadow: 0 0 20px rgba(255, 77, 77, 0.5);
 }
 
 .animus .bar-fill.pe {
-  background: linear-gradient(90deg,
-      var(--air) 0%,
-      rgba(0, 210, 255, 0.8) 50%,
-      var(--air) 100%);
+  background: linear-gradient(90deg, var(--air) 0%, rgba(0, 210, 255, 0.8) 50%, var(--air) 100%);
   box-shadow: 0 0 20px rgba(0, 212, 255, 0.5);
 }
 
@@ -729,8 +530,6 @@
   pointer-events: auto;
   text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
   padding: 0;
-  ;
-
 }
 
 .animus .stat-values {
@@ -776,14 +575,6 @@
   background: rgba(157, 78, 221, 0.3);
 }
 
-.animus .pa-values-simple {
-  font-size: 0.8rem;
-  font-weight: 800;
-  color: var(--text-muted);
-  text-align: center;
-  margin-top: 4px;
-}
-
 .animus .pa-debt-display {
   display: flex;
   align-items: center;
@@ -817,471 +608,85 @@
   transform: scale(1.2);
 }
 
-.animus .pa-debt-control.add {
-  margin-top: 5px;
-  color: var(--accent);
-  opacity: 0.6;
-  font-size: 1.1rem;
-  align-self: center;
-}
-
-.animus .pa-debt-control.add:hover {
-  opacity: 1;
-  transform: scale(1.1);
-}
-
-/* ABILITIES GRID SIDE */
-.animus .abilities-grid-column {
-  flex: 1;
-  overflow-y: auto;
-  max-height: 700px;
-}
-
-.animus .abilities-categories-row {
+/* Common Components */
+.animus .grid-2 {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 15px;
+  grid-template-columns: 1fr 1fr;
 }
 
-.animus .ability-category {
+.animus .category-filters {
   display: flex;
-  flex-direction: column;
-  gap: 15px;
+  gap: 6px;
+  margin-bottom: 10px;
+  flex-wrap: wrap;
 }
 
-.animus .category-title {
-  text-align: center;
-  font-size: 0.8rem;
-  letter-spacing: 0.3rem;
+.animus .category-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
   color: var(--text-muted);
-  margin: 0;
-  padding-bottom: 5px;
-}
-
-/* Attribute Card */
-.animus .attribute-card {
-  padding: 15px !important;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.animus .attr-header {
+  width: 30px;
+  height: 30px;
+  border-radius: 8px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-}
-
-.animus .attr-name {
-  font-weight: 900;
-  font-size: 1.1rem;
-  color: var(--accent);
-}
-
-.animus .attr-dots {
-  display: flex;
-  gap: 5px;
-}
-
-.animus .attr-dots .dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 1.5px solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s ease;
+  justify-content: center;
+  font-size: 0.8rem;
   cursor: pointer;
+  transition: all 0.2s;
 }
 
-.animus .attr-dots .dot.filled {
-  background: #fff;
-  border-color: #fff;
-  box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
-}
-
-.animus .attr-dots .dot.bonus-filled {
+.animus .category-btn:hover, .animus .category-btn.active {
   background: var(--accent);
+  color: white;
   border-color: var(--accent);
   box-shadow: 0 0 10px var(--accent-glow);
 }
 
-.animus .attr-bonus {
-  font-weight: 900;
-  font-size: 1.2rem;
-  color: var(--accent);
-}
-
-.animus .attr-name.rollable {
-  cursor: pointer;
-  transition: all 0.2s;
-  border-bottom: 1px dashed transparent;
-}
-
-.animus .attr-name.rollable:hover {
-  color: #fff;
-  text-shadow: 0 0 10px var(--accent-glow);
-  border-bottom-color: var(--accent);
-}
-
-.animus .attr-bonus-roll {
+.animus .header-with-action {
   display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.animus .attr-roll-btn {
-  color: var(--text-muted);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s;
-  opacity: 0.4;
-}
-
-.animus .attribute-card:hover .attr-roll-btn {
-  opacity: 1;
-}
-
-.animus .attr-roll-btn:hover {
-  color: var(--accent);
-  transform: scale(1.2);
-}
-
-/* Skills List inside Card */
-.animus .skills-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  padding-top: 8px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
-}
-
-.animus .skill-row {
-  display: flex;
-  align-items: center;
   justify-content: space-between;
-  opacity: 0.6;
-  transition: opacity 0.2s ease;
-}
-
-.animus .skill-row.active {
-  opacity: 1;
-}
-
-.animus .skill-name {
-  font-size: 0.85rem;
-  color: var(--text-muted);
-}
-
-.animus .skill-controls {
-  display: flex;
   align-items: center;
-  gap: 8px;
 }
 
-.animus .skill-boxes {
-  display: flex;
-  gap: 4px;
-}
-
-.animus .skill-boxes .box {
-  width: 12px;
-  height: 12px;
-  border: 1.5px solid rgba(255, 255, 255, 0.1);
-  border-radius: 3px;
-  cursor: pointer;
-}
-
-.animus .skill-boxes .box.filled {
-  background: rgba(255, 255, 255, 0.3);
-  border-color: rgba(255, 255, 255, 0.4);
-}
-
-.animus.sheet.actor {
-  min-width: 1000px;
-  min-height: 900px;
-  height: 900px;
-  background: var(--bg-dark);
-  color: var(--text-main);
-  font-family: 'Inter', sans-serif;
-}
-
-.animus .window-content {
-  background: 
-    radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(77, 166, 255, 0.1) 0%, transparent 50%),
-    var(--bg-dark);
-  padding: 0;
-  overflow: hidden;
-}
-
-/* Premium Panel Base */
-.animus .glass-panel {
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
-  cursor: pointer;
-}
-
-.animus .skill-mod {
-  font-size: 0.9rem;
-  width: 20px;
-  text-align: center;
-  color: var(--text-muted);
-}
-
-.animus .skill-roll-btn {
-  color: var(--text-muted);
-  font-size: 0.85rem;
-  cursor: pointer;
-}
-
-/* ========================================= */
-/*              COMBAT TAB V3                */
-/* ========================================= */
-
-.animus .combat-section {
-  padding: 10px;
-}
-
-.animus .combat-tables {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 10px;
-  padding: 10px;
-}
-
-.animus .section-header-v3 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  margin-bottom: 15px;
-  padding-bottom: 8px;
-}
-
-.animus .section-header-v3 h3 {
-  font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.25rem;
-  color: var(--accent);
-  margin: 0;
-  text-transform: uppercase;
-  font-weight: 800;
-}
-
-.animus .weapons-modern-list {
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.animus .list-header {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
-  padding: 0 20px;
-  font-size: 0.65rem;
-  font-weight: 900;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  opacity: 0.7;
-  margin-bottom: 5px;
-}
-
-.animus .glass-row {
-  background: rgba(255, 255, 255, 0.02);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 12px;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-}
-
-.animus .glass-row:hover {
+.animus .action-btn {
   background: rgba(157, 78, 221, 0.08);
-  border-color: rgba(157, 78, 221, 0.2);
-  transform: translateX(4px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
-}
-
-.animus .weapon-item-row {
-  display: grid;
-  grid-template-columns: 2.5fr 1fr 1fr 1fr 1fr 1fr;
-  align-items: center;
-  padding: 12px 20px;
-}
-
-.animus .item-main-info {
-  display: flex;
-  align-items: center;
-  gap: 15px;
-}
-
-.animus .item-icon-small {
-  width: 34px;
-  height: 34px;
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  color: var(--accent);
   border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  object-fit: cover;
-}
-
-.animus .item-icon-mini {
-  width: 26px;
-  height: 26px;
-  border-radius: 6px;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.animus .item-name-clickable {
-  font-weight: 600;
-  font-size: 0.95rem;
-  color: #fff;
+  padding: 6px 14px;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
   cursor: pointer;
-  transition: color 0.2s ease;
-}
-
-.animus .item-name-clickable:hover {
-  color: var(--accent);
-}
-
-.animus .col-ac {
-  text-align: center;
-  font-weight: 700;
-  color: var(--text-muted);
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.9rem;
-}
-
-.animus .dmg-bonus-tag {
-  font-size: 0.65rem;
-  color: #00ffcc;
-  background: rgba(0, 255, 204, 0.1);
-  border: 1px solid rgba(0, 255, 204, 0.3);
-  padding: 1px 4px;
-  border-radius: 4px;
-  margin-left: 4px;
-  vertical-align: middle;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
-}
-
-.animus .combat-bottom-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 30px;
-}
-
-.animus .simple-item-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.animus .simple-item-row {
   display: flex;
   align-items: center;
-  gap: 12px;
-  padding: 10px 15px;
+  justify-content: center;
+  gap: 8px;
+  backdrop-filter: blur(8px);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
 }
 
-/* Grade de Talentos e Rolagem */
-.animus .talents-grid-column {
-  display: flex;
-  flex-direction: column;
-  height: 550px;
-  overflow: hidden;
-}
-
-.animus .talents-scroll-list {
-  flex: 1;
-  overflow-y: auto;
-  padding-right: 8px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-/* Scrollbar Customizado para Listas */
-.animus .talents-scroll-list::-webkit-scrollbar {
-  width: 5px;
-}
-
-.animus .talents-scroll-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-}
-
-.animus .talents-scroll-list::-webkit-scrollbar-thumb {
+.animus .action-btn:hover {
   background: var(--accent);
-  border-radius: 10px;
-  box-shadow: 0 0 5px var(--accent-glow);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-2px);
 }
 
-/* =========================================== */
-/*        ELEMENT DAMAGE TABLE PANEL           */
-/* =========================================== */
-
-.animus .element-damage-table-panel {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid rgba(157, 78, 221, 0.25);
-  border-radius: 12px;
-  overflow: hidden;
-  margin-bottom: 12px;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+.animus .action-btn.small {
+  padding: 4px 10px;
+  font-size: 0.8rem;
 }
 
-.animus .edt-header {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 10px 16px;
-  background: linear-gradient(90deg, rgba(157, 78, 221, 0.25), transparent);
-  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.72rem;
-  text-transform: uppercase;
-  letter-spacing: 1.5px;
-  color: var(--text-primary);
-}
-
-.animus .edt-header i {
-  color: var(--accent);
-  font-size: 0.85rem;
-  filter: drop-shadow(0 0 4px var(--accent-glow));
-}
-
-.animus .edt-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 2rem;
-}
-
-.animus .edt-table thead tr {
-  background: rgba(157, 78, 221, 0.08);
-  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
-}
-
-.animus .edt-table th {
-  padding: 7px 8px;
-  text-align: center;
-  font-weight: 700;
-  color: rgba(157, 78, 221, 0.9);
-  text-transform: uppercase;
-  font-size: 0.5em;
-  letter-spacing: 0.08em;
-}
-
-.animus .edt-table td {
-  padding: 6px 8px;
-  text-align: center;
-  border-top: 1px solid rgba(255, 255, 255, 0.04);
-  font-weight: 700;
-}
-
+/* Tab Containers */
 .tab.combat.active {
   display: flex;
   flex-direction: column;
-  gap: 20px;
   padding: 20px;
   height: 100%;
   overflow: hidden;
@@ -1296,959 +701,29 @@
   max-height: 750px;
 }
 
-.animus .edt-table tbody tr:nth-child(even) {
-  background: rgba(255, 255, 255, 0.02);
-}
-
-.animus .edt-table tbody tr:hover {
-  background: rgba(157, 78, 221, 0.08);
-}
-
-.animus .edt-table td.tier-label {
-  font-weight: 700;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
-  width: 36px;
-}
-
-/* Tier badge for player-facing tables */
-.animus .edt-table td.tier-label span.tier-badge {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 22px;
-  height: 22px;
-  background: var(--accent);
-  color: white;
-  border-radius: 50%;
-  font-size: 1.5rem;
-  font-weight: 900;
-  box-shadow: 0 0 8px var(--accent-glow);
-}
-
-.animus .edt-table td.pe-cost {
-  color: #00d4ff;
-  font-weight: 700;
-  font-size: 1.5rem;
-  white-space: nowrap;
-}
-
-.animus .edt-table .formula {
-  display: block;
-  font-size: 0.7rem;
-  color: rgba(255, 255, 255, 0.35);
-  font-weight: 400;
-  margin-top: 2px;
-  font-style: italic;
-}
-
-/* ---- Heal panel overrides ---- */
-.animus .heal-panel {
-  border-color: rgba(80, 200, 120, 0.25);
-}
-
-.animus .heal-header {
-  background: linear-gradient(90deg, rgba(80, 200, 120, 0.22), transparent);
-  border-bottom-color: rgba(80, 200, 120, 0.2);
-}
-
-.animus .heal-header i {
-  color: #50c878;
-  filter: drop-shadow(0 0 4px rgba(80, 200, 120, 0.6));
-}
-
-.animus .heal-panel .edt-table thead tr {
-  background: rgba(80, 200, 120, 0.08);
-  border-bottom-color: rgba(80, 200, 120, 0.2);
-}
-
-.animus .heal-panel .edt-table th {
-  color: rgba(80, 200, 120, 0.9);
-}
-
-.animus .heal-panel .edt-table tbody tr:hover {
-  background: rgba(80, 200, 120, 0.06);
-}
-
-/* ---- AC4 critical highlight ---- */
-.animus .edt-table td.ac4-crit {
-  background: rgba(212, 175, 55, 0.1);
-  color: #d4af37;
-  font-weight: 700;
-}
-
-/* =========================================== */
-/*      ELEMENT TABLE EDITOR (ITEM SHEET)      */
-/* =========================================== */
-
-.animus .element-damage-editor {
-  margin: 8px 0 14px;
-  padding: 2px;
-  overflow-x: auto;
-  border-radius: 10px;
-  border: 1px solid rgba(157, 78, 221, 0.2);
-  background: rgba(0, 0, 0, 0.2);
-}
-
-/* Heal editor border override */
-.animus .heal-editor {
-  border-color: rgba(80, 200, 120, 0.2);
-}
-
-.animus .element-damage-editor .edt-table {
-  font-size: 0.75rem;
-}
-
-.animus .element-damage-editor .edt-table td {
-  padding: 5px 4px;
-  vertical-align: middle;
-}
-
-/* Tier badge in editor */
-.animus .element-damage-editor td.tier-label {
-  width: 30px;
-  font-size: 0.7rem;
-  font-weight: 900;
-  color: var(--accent);
-}
-
-/* PE column */
-.animus .pe-input-col {
-  width: 44px;
-  text-align: center;
-}
-
-.animus .pe-input-col input {
-  width: 36px !important;
-  text-align: center;
-  border-radius: 6px !important;
-  background: rgba(0, 212, 255, 0.08) !important;
-  border-color: rgba(0, 212, 255, 0.3) !important;
-  color: #00d4ff !important;
-  font-weight: 700 !important;
-  padding: 2px 4px !important;
-  font-size: 0.75rem !important;
-}
-
-/* Base + Mult pill */
-.animus .base-mult-input {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-  justify-content: center;
-}
-
-.animus .base-mult-input input {
-  width: 30px !important;
-  text-align: center;
-  padding: 2px 3px !important;
-  font-size: 0.72rem !important;
-  border-radius: 5px !important;
-  background: rgba(255, 255, 255, 0.05) !important;
-  border-color: rgba(255, 255, 255, 0.12) !important;
-}
-
-.animus .base-mult-input input:first-child {
-  border-color: rgba(255, 140, 50, 0.4) !important;
-  color: #ffaa55 !important;
-}
-
-.animus .base-mult-input input:last-child {
-  border-color: rgba(157, 78, 221, 0.4) !important;
-  color: rgba(157, 78, 221, 0.9) !important;
-}
-
-/* Heal editor input override */
-.animus .heal-editor .base-mult-input input:first-child {
-  border-color: rgba(80, 200, 120, 0.4) !important;
-  color: #50c878 !important;
-}
-
-.animus .heal-editor .base-mult-input input:last-child {
-  border-color: rgba(80, 200, 120, 0.3) !important;
-  color: rgba(80, 200, 120, 0.8) !important;
-}
-
-/* Resolved total hint */
-.animus .resolved-hint {
-  display: inline-block;
-  margin-top: 3px;
-  font-size: 0.68rem;
-  font-weight: 900;
-  color: var(--accent);
-  text-shadow: 0 0 6px var(--accent-glow);
-  font-family: 'Outfit', sans-serif;
-}
-
-.animus .heal-editor .resolved-hint {
-  color: #50c878;
-  text-shadow: 0 0 6px rgba(80, 200, 120, 0.5);
-}
-
-/* Weapon Creator Modal */
-.animus.weapon-creator {
-  --creator-accent: #9d4edd;
-  --creator-bg: rgba(15, 12, 25, 0.95);
-}
-
-.animus .weapon-creator-container {
-  padding: 20px;
-  background: var(--creator-bg);
-  color: #fff;
-}
-
-.animus .creator-header {
-  margin-bottom: 25px;
-  padding-bottom: 15px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.animus .header-main {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.animus .weapon-img {
-  width: 64px;
-  height: 64px;
-  padding: 10px;
-  background: rgba(157, 78, 221, 0.1);
-  border: 2px solid var(--creator-accent);
-  border-radius: 12px;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-
-.animus .weapon-img:hover {
-  background: rgba(157, 78, 221, 0.2);
-  transform: scale(1.05);
-}
-
-.animus .name-group {
-  flex: 1;
-}
-
-.animus .name-group label {
-  display: block;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.1em;
-  color: var(--creator-accent);
-  margin-bottom: 5px;
-}
-
-.animus .name-group input {
-  width: 100%;
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid rgba(255, 255, 255, 0.2);
-  color: #fff;
-  font-size: 1.5rem;
-  font-family: 'Outfit', sans-serif;
-  font-weight: 900;
-  padding: 5px 0;
-}
-
-.animus .name-group input:focus {
-  outline: none;
-  border-color: var(--creator-accent);
-}
-
-.animus .creator-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.2fr;
-  gap: 30px;
-  margin-bottom: 20px;
-}
-
-.animus .section-title {
-  font-size: 0.8rem;
-  font-weight: 900;
-  margin-bottom: 15px;
-  color: rgba(255, 255, 255, 0.8);
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-.animus .section-title i {
-  color: var(--creator-accent);
-}
-
-.animus .form-group {
-  margin-bottom: 12px;
-}
-
-.animus .form-group label {
-  display: block;
-  font-size: 0.75rem;
-  color: rgba(255, 255, 255, 0.5);
-  margin-bottom: 4px;
-}
-
-.animus .damage-matrix {
-  background: rgba(0, 0, 0, 0.3);
-  border-radius: 8px;
-  padding: 10px;
-}
-
-.animus .matrix-header {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  font-size: 0.6rem;
-  font-weight: 900;
-  color: var(--creator-accent);
-  text-align: center;
-  margin-bottom: 8px;
-}
-
-.animus .matrix-row {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  gap: 10px;
-  margin-bottom: 5px;
-  align-items: center;
-}
-
-.animus .ac-label {
-  font-weight: 900;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.animus .matrix-row input {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  text-align: center;
-  border-radius: 4px;
-  padding: 4px;
-}
-
-.animus .properties-input input {
-  width: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 10px;
-  border-radius: 6px;
-}
-
-.animus .creator-footer {
-  margin-top: 30px;
-  display: flex;
-  justify-content: center;
-}
-
-.animus .create-btn {
-  background: var(--creator-accent);
-  color: #fff;
-  border: none;
-  padding: 12px 40px;
-  border-radius: 30px;
-  font-weight: 900;
-  font-family: 'Outfit', sans-serif;
-  letter-spacing: 0.1em;
-  cursor: pointer;
-  box-shadow: 0 4px 15px rgba(157, 78, 221, 0.3);
-  transition: all 0.3s ease;
-}
-
-.animus .create-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(157, 78, 221, 0.5);
-  filter: brightness(1.1);
-}
-
-.animus .properties-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 15px;
-  gap: 20px;
-}
-
-.animus .search-box {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  padding: 5px 15px;
-  flex: 1;
-  max-width: 300px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(157, 78, 221, 0.3);
-}
-
-.animus .search-box i {
-  color: var(--accent);
-  font-size: 0.9rem;
-}
-
-.animus .search-box input {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 0.9rem;
-  width: 100%;
-}
-
-.animus .search-box input:focus {
-  outline: none;
-  box-shadow: none;
-}
-
-.animus .property-dropdown-group {
-  margin-bottom: 20px;
-}
-
-.animus .property-dropdown-group select {
-  width: 100%;
-  padding: 8px;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(157, 78, 221, 0.2);
-  border-radius: 6px;
-  color: white;
-  font-family: 'Outfit', sans-serif;
-  cursor: pointer;
-  transition: all 0.2s ease;
-}
-
-.animus .property-dropdown-group select:focus {
-  outline: none;
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
-}
-
-.animus .property-desc-preview {
-  margin-top: 8px;
-  font-size: 0.75rem;
-  font-style: italic;
-  color: rgba(255, 255, 255, 0.7);
-  padding: 8px 12px;
-  background: rgba(157, 78, 221, 0.05);
-  border-left: 2px solid var(--accent);
-  border-radius: 0 4px 4px 0;
-  display: none;
-  line-height: 1.4;
-}
-
-.animus .property-desc-preview.active {
-  display: block;
-}
-
-.animus .triple-select {
-  display: flex;
-  gap: 10px;
-}
-
-.animus .triple-select select {
-  flex: 1;
-}
-
-.animus .property-group {
-  margin-bottom: 25px;
-}
-
-.animus .section-subtitle {
-  font-family: 'Outfit', sans-serif;
-  font-weight: 800;
-  font-size: 0.75rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  margin-bottom: 8px;
-}
-
-.animus .chip-icon {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  object-fit: cover;
-}
-
-.animus .properties-selector-grid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-  padding: 12px;
-  max-height: 250px;
-  overflow-y: auto;
-  background: rgba(0, 0, 0, 0.25);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 255, 255, 0.08);
-}
-
-.animus .property-chip {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 6px 12px;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  user-select: none;
-  font-size: 0.85rem;
-  font-weight: 500;
-  border: 1px solid rgba(255, 255, 255, 0.1);
-}
-
-.animus .property-chip:hover {
-  background: rgba(157, 78, 221, 0.15);
-  border-color: rgba(157, 78, 221, 0.3);
-}
-
-.animus .property-chip input[type="checkbox"] {
-  width: 14px;
-  height: 14px;
-  margin: 0;
-  cursor: pointer;
-}
-
-.animus .section-header-with-limit {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-top: 15px;
-  margin-bottom: 8px;
-}
-
-.animus .limit-counter {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.8rem;
-  font-weight: 900;
-  color: #4cc9f0;
-  background: rgba(0, 0, 0, 0.3);
-  padding: 2px 8px;
-  border-radius: 4px;
-  border: 1px solid rgba(76, 201, 240, 0.3);
-}
-
-.animus .limit-counter.at-limit {
-  color: #f72585;
-  border-color: rgba(247, 37, 133, 0.5);
-  box-shadow: 0 0 10px rgba(247, 37, 133, 0.2);
-}
-
-.animus .property-chip.disabled {
-  opacity: 0.3;
-  filter: grayscale(1);
-  cursor: not-allowed;
-  pointer-events: none;
-}
-
-.animus .property-chip:has(input:checked) {
-  background: rgba(157, 78, 221, 0.3);
-  border-color: var(--accent);
-  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
-}
-
-/* =========================================== */
-/*               INVENTORY TAB                 */
-/* =========================================== */
-.animus .inventory-sidebar {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  padding: 20px;
-  gap: 15px;
-}
-.animus .inventory-section {
-  margin-bottom: 30px;
-  background: rgba(20, 20, 25, 0.4);
-  padding: 15px;
-  border-radius: 16px;
-  border: 1px solid rgba(255, 255, 255, 0.03);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-}
-
-.animus .inventory-section .section-header {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 12px;
-  margin-bottom: 18px;
-  border-bottom: 1px solid rgba(157, 78, 221, 0.2);
-  position: relative;
-  gap: 15px;
-}
-
-.animus .inventory-section .section-header::after {
-  content: '';
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 40px;
-  height: 2px;
-  background: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
-}
-
-.animus .inventory-section h3 {
-  margin: 0;
-  font-family: 'Outfit', sans-serif;
-  font-size: 1rem;
-  letter-spacing: 0.12rem;
-  color: #fff;
-  text-transform: uppercase;
-  font-weight: 900;
-  display: flex;
-  align-items: center;
-  gap: 12px;
-}
-
-.animus .inventory-section h3 i {
-  color: var(--accent);
-  font-size: 0.9em;
-  filter: drop-shadow(0 0 5px var(--accent-glow));
-}
-
-.animus .header-buttons {
-  display: flex;
-  gap: 8px;
-}
-
-.animus .inventory .item-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-}
-
-.animus .inventory .item-row {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 10px 16px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  border-radius: 10px;
-  transition: all 0.2s ease;
-}
-
-.animus .inventory .item-row:hover {
-  background: rgba(157, 78, 221, 0.06);
-  border-color: rgba(157, 78, 221, 0.2);
-  transform: translateX(5px);
-}
-
-.animus .inventory .item-name {
-  display: flex;
-  align-items: center;
-  gap: 12px;
-  flex: 1;
-}
-
-.animus .inventory .item-img {
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 6px;
-  background: rgba(0, 0, 0, 0.2);
-  padding: 2px;
-}
-
-.animus .inventory .name-wrapper {
-  display: flex;
-  flex-direction: column;
-}
-
-.animus .inventory .item-edit {
-  font-weight: 700;
-  font-size: 0.95rem;
-  color: #fff;
-}
-
-.animus .header-content {
-  display: flex;
-  gap: 20px;
-  align-items: center;
-}
-
-.animus .inventory .item-type-tag {
-  font-size: 0.65rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-weight: 900;
-  letter-spacing: 1px;
-}
-
-.animus .inventory .item-qty {
-  font-family: 'JetBrains Mono', monospace;
-  font-size: 0.75rem;
-  color: #4cc9f0;
-  font-weight: 900;
-}
-
-.animus .inventory .item-controls {
-  display: flex;
-  gap: 12px;
-  align-items: center;
-}
-
-.animus .inventory .item-control {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: 0.9rem;
-  cursor: pointer;
-  transition: all 0.2s ease;
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border-radius: 6px;
-  background: rgba(255, 255, 255, 0.03);
-}
-
-.animus .inventory .item-control:hover {
-  color: #fff;
-  background: rgba(255, 255, 255, 0.1);
-}
-
-.animus .inventory .item-control.active {
-  color: var(--accent);
-  background: rgba(157, 78, 221, 0.15);
-  border: 1px solid rgba(157, 78, 221, 0.3);
-  box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
-}
-
-.animus .inventory .item-control.active .fa-shield,
-.animus .inventory .item-control.active .fa-shirt {
-  color: #4cc9f0;
-}
-
-.animus .inventory .item-control[data-action="deleteItem"]:hover {
-  color: #f72585;
-  background: rgba(247, 37, 133, 0.1);
-}
-
-.animus .inventory .item-control[data-action="useItem"] {
-  color: #50c878;
-}
-
-.animus .inventory .item-control[data-action="useItem"]:hover {
-  background: rgba(80, 200, 120, 0.15);
-  box-shadow: 0 0 10px rgba(80, 200, 120, 0.2);
-}
-
-/* =========================================== */
-/*               BIOGRAPHY TAB                 */
-/* =========================================== */
-
-.animus .tab.biography.active {
-  padding: 20px;
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-  height: 100%;
-}
-
-.animus .biography-layout {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-
-.animus .bio-top-grid {
-  display: grid;
-  grid-template-columns: 1fr 1.5fr;
-  gap: 20px;
-}
-
-.animus .bio-column {
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-}
-
-.animus .bio-section {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.animus .bio-section.full-height {
-  flex: 1;
-}
-
-.animus .bio-section .section-title {
-  font-family: "Outfit", sans-serif;
-  font-size: 0.85rem;
-  letter-spacing: 0.15rem;
-  color: var(--accent);
-  text-transform: uppercase;
-  font-weight: 800;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  padding-bottom: 8px;
-}
-
-.animus .bio-section .section-title i {
-  font-size: 0.9rem;
-  opacity: 0.8;
-}
-
-.animus .bio-section textarea {
-  background: rgba(0, 0, 0, 0.2);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: #fff;
-  padding: 10px;
-  font-size: 0.9rem;
-  resize: vertical;
-  font-family: "Outfit", sans-serif;
-  transition: all 0.2s ease;
-}
-
-.animus .bio-section textarea:focus {
-  border-color: var(--accent);
-  background: rgba(157, 78, 221, 0.05);
-  box-shadow: 0 0 10px var(--accent-glow);
-  outline: none;
-}
-
-.animus .bio-section .editor-container {
-  min-height: 100px;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-.animus .bio-section .editor {
-  flex: 1;
-  background: rgba(0, 0, 0, 0.15);
-  border-radius: 8px;
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  padding: 5px;
-}
-
-.animus .biography-full .editor-container {
-  min-height: 300px;
-}
-
-.animus .header-buttons {
-  display: flex;
-  gap: 8px;
-  align-items: center;
-}
-
-/* Actions Modern List */
-.animus .actions-modern-list {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  margin-top: 15px;
-}
-
-.animus .action-item-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 10px 18px;
-  border-radius: 14px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.animus .action-item-row:hover {
-  background: rgba(157, 78, 221, 0.08);
-  border-color: rgba(157, 78, 221, 0.3);
-  transform: translateX(6px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
-}
-
-.animus .action-item-row.basic-action {
-  border-left: 3px solid var(--accent);
-}
-
-.animus .action-item-row.elemental-action {
-  background: linear-gradient(90deg, rgba(157, 78, 221, 0.12) 0%, rgba(157, 78, 221, 0.03) 100%);
-  border-left-color: #4cc9f0; /* Um ciano para destacar o elemental */
-}
-
+/* Item Handling Shared */
 .animus .item-main-info {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-.animus .roll-icon-btn {
-  width: 32px;
-  height: 32px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.05);
-  border-radius: 8px;
-  color: var(--text-muted);
-  transition: all 0.2s;
-  cursor: pointer;
-}
-
-.animus .action-item-row:hover .roll-icon-btn {
-  background: var(--accent);
-  color: #fff;
-  box-shadow: 0 0 10px var(--accent-glow);
-  transform: scale(1.1);
-}
-
 .animus .item-icon-small {
-  width: 28px;
-  height: 28px;
-  object-fit: contain;
-  filter: drop-shadow(0 0 5px rgba(0,0,0,0.5));
-  opacity: 0.8;
-  transition: opacity 0.2s;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  object-fit: cover;
 }
 
-.animus .action-item-row:hover .item-icon-small {
-  opacity: 1;
-}
-
-.animus .item-name {
-  font-weight: 800;
+.animus .item-name-clickable {
+  font-weight: 600;
   font-size: 0.95rem;
   color: #fff;
-  letter-spacing: 0.02em;
+  cursor: pointer;
+  transition: color 0.2s ease;
 }
 
-.animus .action-item-row .item-tags {
-  display: flex;
-  gap: 8px;
-}
-
-.animus .action-item-row .tag {
-  font-size: 0.65rem;
-  font-weight: 900;
-  padding: 4px 10px;
-  border-radius: 6px;
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: var(--text-muted);
-}
-
-.animus .action-item-row .tag.cost {
-  background: rgba(157, 78, 221, 0.15);
+.animus .item-name-clickable:hover {
   color: var(--accent);
-  border-color: rgba(157, 78, 221, 0.3);
-}
-
-.animus .action-item-row .tag.elemental {
-  background: rgba(76, 201, 240, 0.15);
-  color: #4cc9f0;
-  border-color: rgba(76, 201, 240, 0.3);
-}
-
-.animus .action-item-row .tag.range {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
 }
