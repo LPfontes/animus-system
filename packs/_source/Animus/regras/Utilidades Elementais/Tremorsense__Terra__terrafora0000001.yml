@@ -1,0 +1,28 @@
+_id: terrafora0000001
+name: Tremorsense (Terra)
+type: action
+img: icons/magic/earth/earth-crack-brown.webp
+system:
+  description: >-
+    Efeito Secundário de Terra (Fora de Combate). Permite sentir vibrações no
+    solo a até 18 metros, detectando criaturas em movimento ou veios de minério.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!terrafora0000001'

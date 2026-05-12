@@ -1,0 +1,27 @@
+_id: 04b847b74d44ca66
+name: Escudo de Granito
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/terra3.png
+system:
+  description: '1x/cena: ao ser reduzido a 0 PV, gaste 5 PE — você chega a 1 PV.'
+  tier: reinforced
+  element: terra
+  category: armor
+  price: 1200
+folder: fldterra00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!04b847b74d44ca66'

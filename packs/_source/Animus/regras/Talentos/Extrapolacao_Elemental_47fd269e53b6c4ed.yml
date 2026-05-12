@@ -1,0 +1,23 @@
+_id: 47fd269e53b6c4ed
+name: Extrapolação Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/40.png
+system:
+  description: Maximiza o <span class="text-mechanic">dano</span> resultante do seu ataque elemental.
+  trigger: ""
+  requirements:
+    description: Mestre em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+  cost: 5
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+_key: "!items!47fd269e53b6c4ed"

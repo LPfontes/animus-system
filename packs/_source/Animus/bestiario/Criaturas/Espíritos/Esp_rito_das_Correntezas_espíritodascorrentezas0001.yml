@@ -1,0 +1,106 @@
+_id: espíritodascorrentezas0001
+name: Espírito das Correntezas
+type: npc
+img: systems/animus/assets/system-icons/types/espírito.svg
+folder: fldbestespiri000
+system:
+  nd: 4
+  classification: raro
+  innateIdentity: espírito
+  type: Espírito
+  quote: ''
+  attributes:
+    pot:
+      value: 0
+    hab:
+      value: 2
+    cog:
+      value: 2
+    per:
+      value: 2
+    pre:
+      value: 3
+    ani:
+      value: 3
+  status:
+    hp:
+      value: 80
+      max: 80
+    pe:
+      value: 50
+      max: 50
+    pa:
+      value: 4
+      max: 4
+  attack:
+    label: Correntes
+    formula: 3d6
+    attribute: ani
+    baseBonus: 3
+  damageTable:
+    damageType: Correntes
+    attribute: ani
+    ac1: 8
+    ac2: 12
+    ac3: 16
+    ac4: 20
+    ac5: 24
+    ac6: 32
+  skills:
+    - key: medicina
+      rank: 4
+    - key: percepcao
+      rank: 2
+    - key: persuasao
+      rank: 1
+  abilities:
+    - name: Cura das Águas
+      rarity: místico
+      description: >-
+        <p>1x/cena: todos em 9m recebem 2d6+ANI PV. Remove Sangramento,
+        Envenenado e Infecção.</p>
+      formula: 2d6 + 3
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Água Corrosiva
+      rarity: raro
+      description: >-
+        <p>Reação, 3 PE: quando atacada, envolve o atacante em água densa.
+        Atacante testa HAB CD 11 ou perde 1 PA no próximo turno e sofre -1d em
+        ataques corporais por 1 rodada.</p>
+      check:
+        attribute: hab
+        difficulty: '11'
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Barreira de Maré
+      rarity: raro
+      description: >-
+        <p>2 PA, 4 PE: barreira de água em linha de 6m. Inimigos que tentarem
+        cruzar testam POT CD 12 ou são empurrados 3m e perdem o turno de
+        movimento.</p>
+      check:
+        attribute: pot
+        difficulty: '12'
+      specialActions:
+        - Empurrar
+      img: systems/animus/assets/system-icons/talents/raro.svg
+  turnPatterns:
+    - label: Fluxo e Refluxo
+      description: Correntes (3) + Cura das Águas (1)
+      totalPA: 4
+  availableActions: ''
+  ecology: >-
+    <p>Um espírito protetor que habita rios e nascentes. Sua natureza é
+    ambivalente: cura os que respeitam a água e afoga os que a profanam.</p>
+  weaknesses: >-
+    <p><b>Metal:</b> armas e projéteis de metal causam +2 de dano por acerto.
+    <b>Fora d'água:</b> após 2+ rodadas fora da água, sofre –1d em todos os
+    testes.</p>
+  loot: ''
+  narratorNotes: >-
+    <p>Raramente hostil de início. <b>Negociação:</b> pode ser acalmada com
+    oferenda de ervas medicinais (PRE CD 8) ou promessa solene de limpar o rio
+    mais próximo.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!espíritodascorrentezas0001'

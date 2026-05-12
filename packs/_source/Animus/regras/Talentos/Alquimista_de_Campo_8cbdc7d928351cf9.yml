@@ -1,0 +1,38 @@
+_id: 8cbdc7d928351cf9
+name: Alquimista de Campo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/14.png
+system:
+  description: Em 30 minutos cria Bomba de Fumaça, Acido ou Bálsamo. <br>2×/descanso.
+  trigger: ''
+  requirements:
+    description: Profissional em Ofício; nível 4+.
+    talents: {}
+    attributes: []
+    skills:
+      - key: oficio
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!8cbdc7d928351cf9'

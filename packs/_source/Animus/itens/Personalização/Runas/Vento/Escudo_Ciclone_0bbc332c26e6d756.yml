@@ -1,0 +1,27 @@
+_id: 0bbc332c26e6d756
+name: Escudo Ciclone
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (5).png
+system:
+  description: '5 PE + 1 ação: empurra inimigos em 3m por 1d6+3 metros.'
+  tier: reinforced
+  element: vento
+  category: shield
+  price: 1200
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!0bbc332c26e6d756'

@@ -1,0 +1,41 @@
+_id: e0ecf87e0ae1147b
+name: Ferreiro de Vanguarda
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/50.png
+system:
+  description: >-
+    Sempre que descansar, pode fazer manutenção básica dos equipamentos de até 3
+    personagens, recuperando todos os bônus de <span
+    class="text-resource">Proteção</span> de armaduras e escudos. <br>Quando um
+    equipamento quebra, pode auxiliar um ferreiro diminuindo o custo do reparo à
+    metade. <br>Você ganha 'Prestidigitação: Ferreiro' (Amador).
+  trigger: descanso
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!e0ecf87e0ae1147b'

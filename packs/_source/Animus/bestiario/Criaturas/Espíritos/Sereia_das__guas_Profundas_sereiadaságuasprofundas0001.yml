@@ -1,0 +1,120 @@
+_id: sereiadaságuasprofundas0001
+name: Sereia das Águas Profundas
+type: npc
+img: systems/animus/assets/system-icons/types/espírito.svg
+folder: fldbestespiri000
+system:
+  nd: 6
+  classification: místico
+  innateIdentity: espírito
+  type: Espírito
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 2
+    cog:
+      value: 2
+    per:
+      value: 3
+    pre:
+      value: 4
+    ani:
+      value: 3
+  status:
+    hp:
+      value: 175
+      max: 175
+    pe:
+      value: 55
+      max: 55
+    pa:
+      value: 5
+      max: 5
+  attack:
+    label: Canto Sedutor
+    formula: 4d6
+    attribute: pre
+    baseBonus: 4
+  damageTable:
+    damageType: Canto Sedutor
+    attribute: pre
+    ac1: 12
+    ac2: 18
+    ac3: 24
+    ac4: 30
+    ac5: 36
+    ac6: 48
+  skills:
+    - key: persuasao
+      rank: 4
+    - key: percepcao
+      rank: 2
+    - key: natacao
+      rank: 4
+  abilities:
+    - name: Canto Compulsório
+      rarity: místico
+      description: >-
+        <p>Passiva: todo personagem que entrar no combate (ou se aproximar a 20m
+        fora dele) testa PRE CD 14 ou gasta todo seu movimento se aproximando da
+        água. Enfeitiçados têm Desvantagem em ataques contra a Sereia.</p>
+      check:
+        attribute: pre
+        difficulty: '14'
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Domínio Aquático
+      rarity: místico
+      description: >-
+        <p>Em contato com água: ataques de Elemento Água custam 0 PE e são Nível
+        2 automaticamente. Move-se na água sem custo de PA.</p>
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Toque do Abismo
+      rarity: raro
+      description: >-
+        <p>2 PA, 5 PE: drena a vontade — alvo testa PRE CD 14 ou fica
+        Enfeitiçado por 2 rodadas (não pode atacar a Sereia, apenas se defender
+        passivamente).</p>
+      check:
+        attribute: pre
+        difficulty: '14'
+      specialActions:
+        - Enfeitiçar
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Barreira de Maré
+      rarity: raro
+      description: >-
+        <p>Reação, 4 PE: quando atingida, cria parede de água. Atacante testa
+        HAB CD 12 ou é empurrado 3m e perde o ataque.</p>
+      check:
+        attribute: hab
+        difficulty: '12'
+      specialActions:
+        - Empurrar
+      img: systems/animus/assets/system-icons/talents/raro.svg
+  turnPatterns:
+    - label: Canto Mortal
+      description: Canto Sedutor (4) + Movimentação (1)
+      totalPA: 5
+  availableActions: ''
+  ecology: >-
+    <p>Uma entidade aquática mística cuja beleza esconde uma natureza
+    predatória. Seu canto vibra na frequência da alma, atraindo os incautos para
+    as profundezas.</p>
+  weaknesses: >-
+    <p><b>Fora d'água:</b> após 3+ rodadas fora da água, perde Domínio Aquático
+    e sofre –1d em todos os ataques. <b>Metal:</b> armas e projéteis de metal
+    causam +2 de dano por acerto.</p>
+  loot: >-
+    <p><b>Escama da Sereia:</b> Runa de Encantamento — arma pode usar PRE como
+    atributo de dano 1×/combate. Valor: 150 Đ. <b>Lágrima da Sereia:</b> 3 doses
+    de antídoto permanente contra qualquer veneno aquático. Valor: 200 Đ.</p>
+  narratorNotes: >-
+    <p><b>Negociação:</b> aceita oferta de 'companhia' (promessa de retornar ou
+    objeto pessoal valioso) em troca de ajuda ou passagem livre. A promessa é um
+    gancho narrativo forte — ela virá cobrar o preço.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!sereiadaságuasprofundas0001'

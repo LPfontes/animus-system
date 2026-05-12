@@ -1,0 +1,41 @@
+_id: 722ad8aa6d509e40
+name: Proatividade com Escudos
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/40.png
+system:
+  description: >-
+    Você não recebe penalidades ao usar escudos pesados. <br>Aumenta o
+    multiplicador de <span class="text-attribute">POT</span> em 1 quando usar
+    qualquer escudo.
+  trigger: passiva
+  requirements:
+    description: 1 ponto em POTÊNCIA.
+    talents: {}
+    attributes:
+      - key: pot
+        value: 1
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!722ad8aa6d509e40'

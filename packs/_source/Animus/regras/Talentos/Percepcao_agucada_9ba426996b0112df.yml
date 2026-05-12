@@ -1,0 +1,23 @@
+_id: 9ba426996b0112df
+name: Percepção aguçada
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/37.png
+system:
+  description: Nunca surpreendido. <br><span class="text-mechanic">Vantagem</span> em emboscada/armadilha. <br>Sem penalidade no escuro parcial.
+  trigger: ""
+  requirements:
+    description: Amador em Percepção.
+    talents: {}
+    attributes: []
+    skills:
+      - key: percepcao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!9ba426996b0112df"

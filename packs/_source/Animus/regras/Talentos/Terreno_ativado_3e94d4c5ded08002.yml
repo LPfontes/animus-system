@@ -1,0 +1,42 @@
+_id: 3e94d4c5ded08002
+name: Terreno ativado
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/36.png
+system:
+  description: >-
+    Você infunde energia elemental no terreno ao redor (raio 3m). <br>Criaturas
+    que saírem da área sofrem a condição inata do seu elemento (Resistência
+    <span class="text-mechanic">CD</span> 7+<span
+    class="text-attribute">ANI</span>).
+  trigger: Criaturas que saírem da area
+  requirements:
+    description: Profissional em Elemento; nível 4+.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!3e94d4c5ded08002'

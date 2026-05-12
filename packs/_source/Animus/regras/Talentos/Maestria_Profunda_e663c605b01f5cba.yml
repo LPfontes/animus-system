@@ -1,0 +1,39 @@
+_id: e663c605b01f5cba
+name: Maestria Profunda
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/2.png
+system:
+  description: >-
+    Aumenta o Grau de Sucesso (Margem de <span
+    class="text-mechanic">acerto</span>) de uma Perícia-Chave em +1.
+  trigger: ''
+  requirements:
+    description: Profissional em Perícia-Chave; Foco em Perícia.
+    talents:
+      Foco em Perícia: b0224ad16d714bf5
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!e663c605b01f5cba'

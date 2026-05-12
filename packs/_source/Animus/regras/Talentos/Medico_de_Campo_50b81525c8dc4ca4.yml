@@ -1,0 +1,23 @@
+_id: 50b81525c8dc4ca4
+name: Médico de Campo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/40.png
+system:
+  description: Quando você está em um grupo, pode dar o benefício de curar o dobro dos <span class="text-resource">PV</span> durante um descanso curto ou longo.
+  trigger: Descanso curto ou longo
+  requirements:
+    description: Amador em Medicina.
+    talents: {}
+    attributes: []
+    skills:
+      - key: medicina
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!50b81525c8dc4ca4"

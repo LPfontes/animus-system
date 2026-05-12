@@ -1,0 +1,27 @@
+_id: 1ac461d2ade10d2b
+name: Liga Leve
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/metal (2).png
+system:
+  description: Arma passa a ser Leve (custo de PA -1, se aplicável).
+  tier: basic
+  element: metal
+  category: weapon
+  price: 600
+folder: fldmetal00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!1ac461d2ade10d2b'

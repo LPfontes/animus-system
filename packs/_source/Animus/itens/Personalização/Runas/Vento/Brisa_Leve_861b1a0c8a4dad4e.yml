@@ -1,0 +1,27 @@
+_id: 861b1a0c8a4dad4e
+name: Brisa Leve
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (1).png
+system:
+  description: 'Alcance +3m; à distância: +6m de alcance efetivo.'
+  tier: basic
+  element: vento
+  category: weapon
+  price: 600
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!861b1a0c8a4dad4e'

@@ -1,0 +1,45 @@
+_id: 208bcc66f2f7951a
+name: Golpe Carregado
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/21.png
+system:
+  description: >-
+    Declare antes da rolagem: gaste 1 <span class="text-resource">PA</span>
+    adicional e 2 <span class="text-resource">PE</span>. <br>Se o ataque acertar
+    3+ acertos, o multiplicador de atributo do <span
+    class="text-mechanic">dano</span> aumenta em +1× e aplica a condição inata
+    do elemento (sem custo extra de <span class="text-resource">PA</span>).
+  trigger: ''
+  requirements:
+    description: Amador em Luta; Amador em Elemento. (Exclusivo de Luta)
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 1
+      - key: elemento
+        rank: 1
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!208bcc66f2f7951a'

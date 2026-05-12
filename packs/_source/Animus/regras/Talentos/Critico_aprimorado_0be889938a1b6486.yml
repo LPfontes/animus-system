@@ -1,0 +1,23 @@
+_id: 0be889938a1b6486
+name: Crítico aprimorado
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/18.png
+system:
+  description: A margem de <span class="text-mechanic">acerto</span> para <span class="text-mechanic">Crítico</span> (4 acertos) é reduzida para <span class="text-mechanic">acerto</span> em 11+ (de 12+).
+  trigger: ""
+  requirements:
+    description: Mestre em Perícia-Chave; Maestria Marcial.
+    talents:
+      Mestre em Perícia: f9dc143a651aa752
+      Maestria Marcial: 83a721ac1600af78
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!0be889938a1b6486"

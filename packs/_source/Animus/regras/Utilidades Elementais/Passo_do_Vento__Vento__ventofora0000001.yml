@@ -1,0 +1,28 @@
+_id: ventofora0000001
+name: Passo do Vento (Vento)
+type: action
+img: icons/magic/air/wind-swirl-gray-blue.webp
+system:
+  description: >-
+    Efeito Secundário de Vento (Fora de Combate). Permite salto duplo, queda
+    lenta ou sussurrar mensagens de forma direcionada a até 18 metros.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!ventofora0000001'

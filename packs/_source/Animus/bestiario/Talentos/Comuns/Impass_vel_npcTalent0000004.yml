@@ -1,0 +1,51 @@
+_id: npcTalent0000004
+name: Impassível
+type: talent
+img: systems/animus/assets/system-icons/talents/mental.svg
+folder: fldbestcomun0000
+system:
+  description: >-
+    <p>Imune a medo, charme e condições psicológicas. Falha automática em testes
+    de PRE/COG voluntários.</p>
+  cost: 2
+  requirements: []
+  category: mental
+  bonuses:
+    hp: 0
+    pe: 0
+    pa: 0
+    damage: 0
+    attributes:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    resistances:
+      physical: 0
+      elemental: 0
+      mental: 2
+  check:
+    attribute: ''
+    difficulty: ''
+  specialActions: []
+  formula: ''
+flags:
+  animus:
+    isNPCTalent: true
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+_key: '!items!npcTalent0000004'

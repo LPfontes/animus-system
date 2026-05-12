@@ -1,0 +1,40 @@
+_id: 7e1cb1dc5527e842
+name: Duelo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/21.png
+system:
+  description: >-
+    Enquanto estiver em combate corpo a corpo com apenas 1 oponente (sem outros
+    inimigos adjacentes), você ganha +1d em ataques contra esse alvo.
+  trigger: Combate com apenas 1 oponente
+  requirements:
+    description: Amador em Luta; nível 4+.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7e1cb1dc5527e842'

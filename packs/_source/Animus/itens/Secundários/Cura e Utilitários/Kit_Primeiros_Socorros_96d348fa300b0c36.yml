@@ -1,0 +1,19 @@
+_id: 96d348fa300b0c36
+name: Kit Primeiros Socorros
+type: secondary
+img: systems/animus/assets/system-icons/items/Kit Primeiros Socorros.png
+system:
+  consumable: true
+  application:
+    type: condition
+    formula: ""
+    resource: pv
+    condition: "estavel"
+  subCategory: cura
+  description: >-
+    Estabiliza personagem a 0 <span class="text-resource">PV</span> sem <span
+    class="text-mechanic">teste</span>
+  weight: 0
+  price: 15 Đ
+folder: af1210fca9de3586
+_key: '!items!96d348fa300b0c36'

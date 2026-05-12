@@ -1,0 +1,41 @@
+_id: 36db61203e1ddd41
+name: Rastreador
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/49.png
+system:
+  description: >-
+    +1d em testes para rastrear criaturas. <br>Com 10 minutos de Análise, pode
+    estimar tamanho, número, espécie e direção de criaturas pelos rastros
+    deixados.
+  trigger: ''
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!36db61203e1ddd41'

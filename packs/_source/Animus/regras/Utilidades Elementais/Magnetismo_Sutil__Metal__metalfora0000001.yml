@@ -1,0 +1,29 @@
+_id: metalfora0000001
+name: Magnetismo Sutil (Metal)
+type: action
+img: icons/skills/melee/weapons-crossed-swords-silver.webp
+system:
+  description: >-
+    Efeito Secundário de Metal (Fora de Combate). Usado para detectar armas
+    metálicas a até 9 metros, polir objetos de metal ou travar/destravar
+    fechaduras simples.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!metalfora0000001'

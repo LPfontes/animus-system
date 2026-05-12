@@ -1,0 +1,29 @@
+_id: fogofora00000001
+name: Estorricar (Fogo)
+type: action
+img: systems/animus/assets/system-icons/elements/fogo.svg
+system:
+  description: >-
+    Efeito Secundário de Fogo (Fora de Combate). Usado para secar roupas,
+    cauterizar feridas (estanca sangramento), cozinhar ou fazer sinais de
+    fumaça.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!fogofora00000001'

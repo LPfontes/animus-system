@@ -1,0 +1,38 @@
+_id: c3a31eba8f496c20
+name: Protetor
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/20.png
+system:
+  description: >-
+    Quando um aliado adjacente for atacado, joga-se à frente. <br>O aliado recua
+    1 espaço (1,5m) e você assume a posição dele, tornando-se o alvo do ataque.
+  trigger: reação
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!c3a31eba8f496c20'

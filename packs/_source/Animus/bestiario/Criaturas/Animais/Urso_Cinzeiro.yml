@@ -1,0 +1,72 @@
+_id: urso-cinzeiro0001
+name: "Urso-Cinzeiro"
+type: npc
+img: systems/animus/assets/system-icons/types/animal.svg
+folder: fldbestanimai000
+system:
+  nd: 4
+  classification: "raro"
+  innateIdentity: "animal"
+  type: "Animal"
+  quote: ""
+  attributes:
+    pot: { value: 2 }
+    hab: { value: 1 }
+    cog: { value: 0 }
+    per: { value: 1 }
+    pre: { value: 0 }
+    ani: { value: 0 }
+  status:
+    hp: { value: 110, max: 110 }
+    pe: { value: 20, max: 20 }
+    pa: { value: 5, max: 5 }
+  attack:
+    label: "Garras"
+    formula: "3d6"
+    attribute: "pot"
+    baseBonus: 2
+  damageTable:
+    damageType: "Garras"
+    attribute: "pot"
+    ac1: 8
+    ac2: 12
+    ac3: 16
+    ac4: 20
+    ac5: 24
+    ac6: 32
+  skills: [{"key":"atletismo","rank":2},{"key":"luta","rank":1},{"key":"resistencia","rank":1},{"key":"percepcao","rank":1}]
+  abilities: [
+      {
+        "name": "Musculatura Densa",
+        "rarity": "comum",
+        "description": "<p>Ataques físicos causam +2 de dano fixo em todos os acertos. Redução de Dano 1 contra ataques não-elementais.</p>",
+        "bonuses": {
+          "damage": 2,
+          "resistances": {
+            "physical": 1
+          }
+        },
+        "img": "systems/animus/assets/icons/skills/talentos/combate/28.png"
+      },
+      {
+        "name": "Investida Esmagadora",
+        "rarity": "raro",
+        "description": "<p>Com 3+ acertos em um ataque, o alvo testa POT CD 11 ou fica Derrubado + perde 1 PA no próximo turno.</p>",
+        "check": {
+          "attribute": "pot",
+          "difficulty": "11"
+        },
+        "specialActions": [
+          "Derrubar"
+        ],
+        "img": "systems/animus/assets/icons/skills/talentos/combate/10.png"
+      }
+    ]
+  turnPatterns: [{"label":"Carga Brutal","description":"Garras (2) + Investida Esmagadora (2) + Movimentação (1)","totalPA":5}]
+  availableActions: ""
+  ecology: "<p>Um gigante solitário que habita as florestas queimadas. Sua musculatura é densa como carvalho e sua fúria é tão devastadora quanto um incêndio florestal.</p>"
+  weaknesses: "<p><b>Lento em terreno alagado:</b> +1 PA de custo em todo movimento em charcos.</p>"
+  loot: ""
+  narratorNotes: "<p><b>PV < 40%:</b> entra em frenesi (+1d em ataques, perde capacidade de recuar). Prioriza derrubar o maior combatente primeiro.</p>"
+flags: {}
+_key: '!actors!urso-cinzeiro0001'

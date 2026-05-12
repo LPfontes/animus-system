@@ -1,0 +1,27 @@
+_id: 35e81ccf20088074
+name: Trovejante
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/trovao (3).png
+system:
+  description: +4 dano elétrico em todos os acertos.
+  tier: reinforced
+  element: trovao
+  category: weapon
+  price: 1200
+folder: fldtrovao0000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!35e81ccf20088074'

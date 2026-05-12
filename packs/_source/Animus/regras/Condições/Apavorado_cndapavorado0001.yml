@@ -1,0 +1,26 @@
+_id: cndapavorado0001
+name: Apavorado
+type: condition
+img: icons/svg/eye.svg
+system:
+  description: ''
+  penalty: Dupla
+  cause: Falha em teste de PRE contra efeito de medo
+  removal: Fim do combate, ou aliado usa 1 PA + PRE CD 10
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndapavorado0001'

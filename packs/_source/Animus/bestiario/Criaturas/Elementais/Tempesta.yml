@@ -1,0 +1,84 @@
+_id: tempesta0001
+name: "Tempesta"
+type: npc
+img: systems/animus/assets/system-icons/types/elemental.svg
+folder: fldbestelemen000
+system:
+  nd: 6
+  classification: "raro"
+  innateIdentity: "elemental"
+  type: "Elemental"
+  quote: ""
+  attributes:
+    pot: { value: 0 }
+    hab: { value: 3 }
+    cog: { value: 0 }
+    per: { value: 1 }
+    pre: { value: 0 }
+    ani: { value: 3 }
+  status:
+    hp: { value: 130, max: 130 }
+    pe: { value: 40, max: 40 }
+    pa: { value: 5, max: 5 }
+  attack:
+    label: "Impacto de Trovão"
+    formula: "4d6"
+    attribute: "hab"
+    baseBonus: 2
+  damageTable:
+    damageType: "Impacto de Trovão"
+    attribute: "hab"
+    ac1: 12
+    ac2: 18
+    ac3: 24
+    ac4: 30
+    ac5: 36
+    ac6: 48
+  skills: [{"key":"acrobacia","rank":1}]
+  abilities: [
+      {
+        "name": "Essência Elemental - Trovão",
+        "rarity": "comum",
+        "description": "<p>+2 ANI efetivo. Imune a dano de Trovão. Seus ataques de Trovão causam Atordoamento por 1 turno (PER CD 12 para resistir).</p>",
+        "bonuses": {
+          "attributes": {
+            "ani": 2
+          }
+        },
+        "check": {
+          "attribute": "per",
+          "difficulty": "12"
+        },
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Explosão Elemental",
+        "rarity": "raro",
+        "description": "<p>3 PA, 6 PE: descarga em área de 4m. Alvo testa Resistência CD 13 ou sofre dano total + Atordoado por 1 turno. Metade em caso de sucesso.</p>",
+        "check": {
+          "attribute": "pre",
+          "difficulty": "13"
+        },
+        "specialActions": [
+          "Descarga Elétrica"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/raro.svg"
+      },
+      {
+        "name": "Sobrecarga Metálica",
+        "rarity": "comum",
+        "description": "<p>Criaturas com armadura metálica sofrem +2 de dano por acerto de Trovão. Por rodada: item metálico não-mágico tem 20% de chance de inutilizar.</p>",
+        "bonuses": {
+          "damage": 2
+        },
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Choque de Reação","description":"Impacto de Trovão (2) + Explosão Elemental (3)","totalPA":5}]
+  availableActions: ""
+  ecology: "<p>Uma manifestação caótica de eletricidade e neblina. Surge onde a energia elétrica ambiental atinge níveis críticos, destruindo equipamentos metálicos por sua mera presença.</p>"
+  weaknesses: "<p><b>Terra:</b> elemento oposto causa +50% de dano e desativa Essência por 1 rodada. <b>Aterramento:</b> gaiola de Faraday improvisada (metal + terra elemental) força o Tempesta a sair da área ou sofrer Aprisionamento (CD ANI 13).</p>"
+  loot: ""
+  narratorNotes: "<p>Nunca fica estático — usa Explosão Elemental como abertura e depois reposiciona constantemente. É uma criatura de puro movimento.</p>"
+flags: {}
+_key: '!actors!tempesta0001'

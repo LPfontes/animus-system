@@ -1,0 +1,42 @@
+_id: bd6fe6086a3504fd
+name: Contra-ataque
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/17.png
+system:
+  description: >-
+    1×/<span class="text-mechanic">rodada</span>: quando usar Defesa Reativa com
+    sucesso ou quando um ataque contra você errar por 3+ pontos de diferença,
+    pode imediatamente realizar um ataque de oportunidade com +1d.
+  trigger: >-
+    Quando usar Defesa Reativa com sucesso ou quando um ataque contra você errar
+    por 3+ pontos de diferença
+  requirements:
+    description: Mestre da Esquiva; nível 8+.
+    talents:
+      Mestre da Esquiva: 39ef8c832d86213c
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!bd6fe6086a3504fd'

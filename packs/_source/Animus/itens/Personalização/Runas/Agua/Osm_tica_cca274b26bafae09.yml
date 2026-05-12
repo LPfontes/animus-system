@@ -1,0 +1,27 @@
+_id: cca274b26bafae09
+name: Osmótica
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/agua6.png
+system:
+  description: Drena PE do alvo igual ao número de acertos causados.
+  tier: basic
+  element: agua
+  category: weapon
+  price: 600
+folder: fldagua000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cca274b26bafae09'

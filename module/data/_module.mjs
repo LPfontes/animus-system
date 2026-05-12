@@ -1,4 +1,5 @@
 import AnimusCharacterData from "./actor/character.mjs";
+import AnimusNPCData from "./actor/npc.mjs";
 import AnimusWeaponData from "./item/weapon.mjs";
 import AnimusArmorData from "./item/armor.mjs";
 import AnimusTalentData from "./item/talent.mjs";
@@ -13,7 +14,8 @@ import AnimusConditionData from "./item/condition.mjs";
 import AnimusRuneData from "./item/rune.mjs";
 
 export const actor = {
-  character: AnimusCharacterData
+  character: AnimusCharacterData,
+  npc: AnimusNPCData
 };
 
 export const item = {

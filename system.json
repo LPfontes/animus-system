@@ -20,70 +20,37 @@
     "css/parts/actor.css",
     "css/parts/abilities.css",
     "css/parts/items.css",
+    "css/parts/npc.css",
+    "css/parts/monster-creator.css",
     "css/parts/chat.css",
     "css/animus.css"
   ],
   "packs": [
     {
-      "name": "talentos",
-      "label": "Talentos",
-      "path": "packs/talentos",
-      "type": "Item",
-      "system": "animus"
-    },
-    {
       "name": "itens",
-      "label": "Itens",
+      "label": "Arsenal e Itens",
       "path": "packs/itens",
       "type": "Item",
       "system": "animus"
     },
     {
-      "name": "acoes",
-      "label": "Ações",
-      "path": "packs/acoes",
+      "name": "regras",
+      "label": "Regras e Personagem",
+      "path": "packs/regras",
       "type": "Item",
       "system": "animus"
     },
     {
-      "name": "propriedades",
-      "label": "Propriedades",
-      "path": "packs/propriedades",
-      "type": "Item",
+      "name": "bestiario",
+      "label": "[Bestiário] Criaturas",
+      "path": "packs/bestiario",
+      "type": "Actor",
       "system": "animus"
     },
     {
-      "name": "ascendencias",
-      "label": "Ascendências",
-      "path": "packs/ascendencias",
-      "type": "Item",
-      "system": "animus"
-    },
-    {
-      "name": "elementos",
-      "label": "Elementos",
-      "path": "packs/elementos",
-      "type": "Item",
-      "system": "animus"
-    },
-    {
-      "name": "condicoes",
-      "label": "Condições",
-      "path": "packs/condicoes",
-      "type": "Item",
-      "system": "animus"
-    },
-    {
-      "name": "utilidades-elementais",
-      "label": "Utilidades Elementais",
-      "path": "packs/utilidades-elementais",
-      "type": "Item",
-      "system": "animus"
-    },
-    {
-      "name": "runas",
-      "label": "Runas",
-      "path": "packs/runas",
+      "name": "talentos-criaturas",
+      "label": "[Bestiário] Talentos de Criaturas",
+      "path": "packs/talentos-criaturas",
       "type": "Item",
       "system": "animus"
     }

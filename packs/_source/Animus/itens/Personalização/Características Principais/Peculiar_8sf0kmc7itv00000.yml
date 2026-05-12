@@ -1,0 +1,35 @@
+_id: 8sf0kmc7itv00000
+name: Peculiar
+type: property
+img: icons/svg/gear.svg
+system:
+  description: 'Adicione 1×COGNIÇÃO nos multiplicadores de dano.'
+  price: '100 Đ'
+  subCategory: '2'
+  bonus:
+    damage: 0
+    mult: 0
+    defense: 0
+    defenseMult: 0
+    reach: 0
+    attributeOverride: ''
+    attrMult:
+      pot: 0
+      hab: 0
+      cog: 1
+      per: 0
+      pre: 0
+      ani: 0
+    ac:
+      ac1: 0
+      ac2: 0
+      ac3: 0
+      ac4: 0
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: false
+folder: caracprincipai01
+_key: '!items!8sf0kmc7itv00000'

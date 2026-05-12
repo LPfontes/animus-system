@@ -1,0 +1,29 @@
+_id: 7f5df36e86225145
+name: Casulo de Madeira
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (2).png
+system:
+  description: >-
+    4 PE + 1 ação: madeira viva 1 rodada — +3 Proteção e imunidade a
+    Sangramento.
+  tier: reinforced
+  element: madeira
+  category: armor
+  price: 1200
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7f5df36e86225145'

@@ -1,0 +1,42 @@
+_id: 7eb55b3196c5d4f6
+name: Provocar
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/19.png
+system:
+  description: >-
+    Realize um <span class="text-mechanic">teste</span> de Persuasão contra
+    <span class="text-attribute">PER</span> do alvo. <br>Se ele falhar, fica com
+    <span class="text-mechanic">desvantagem</span> ao atacar qualquer outro alvo
+    que não você.
+  trigger: ''
+  requirements:
+    description: Amador em Enganação.
+    talents: {}
+    attributes: []
+    skills:
+      - key: enganacao
+        rank: 1
+  cost: 3
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7eb55b3196c5d4f6'

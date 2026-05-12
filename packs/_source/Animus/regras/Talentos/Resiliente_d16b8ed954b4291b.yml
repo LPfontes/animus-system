@@ -1,0 +1,40 @@
+_id: d16b8ed954b4291b
+name: Resiliente
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/14.png
+system:
+  description: >-
+    Você ganha +1 <span class="text-resource">PV</span> por nível de personagem
+    a partir do momento em que o talento é adquirido (não retroativo).
+  trigger: passiva
+  requirements:
+    description: 2 pontos em POTÊNCIA.
+    talents: {}
+    attributes:
+      - key: pot
+        value: 2
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!d16b8ed954b4291b'

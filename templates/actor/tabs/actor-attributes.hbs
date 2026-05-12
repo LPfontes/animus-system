@@ -3,16 +3,21 @@
 
   {{!-- Botão de Evolução (Apenas se houver pendências) --}}
   {{#if pendingAdvancement}}
-  <div class="advancement-launcher glass-panel" style="margin-bottom: 20px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent);">
+  <div class="advancement-launcher glass-panel"
+    style="margin-bottom: 20px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent);">
     <div class="launcher-label">
-      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i> EVOLUÇÃO DISPONÍVEL</span>
-      <p style="margin: 0; font-size: 0.7rem; color: var(--text-muted);">Distribua seus pontos de nível e bônus de atributo.</p>
+      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i>
+        EVOLUÇÃO DISPONÍVEL</span>
+      <p style="margin: 0; font-size: 0.7rem; color: var(--text-muted);">Distribua seus pontos de nível e bônus de
+        atributo.</p>
     </div>
     <div class="launcher-actions" style="display: flex; align-items: center; gap: 15px;">
-      <span class="points-badge {{#if (eq pointsRemaining 0)}}complete{{/if}}" style="font-size: 0.75rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 12px; border-radius: 20px;">
+      <span class="points-badge {{#if (eq pointsRemaining 0)}}complete{{/if}}"
+        style="font-size: 0.75rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 12px; border-radius: 20px;">
         Pontos: {{pointsRemaining}}
       </span>
-      <button type="button" class="btn-open-advancement" data-action="openAdvancement" style="background: var(--accent); color: #fff; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 900; cursor: pointer; transition: transform 0.2s;">
+      <button type="button" class="btn-open-advancement" data-action="openAdvancement"
+        style="background: var(--accent); color: #fff; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 900; cursor: pointer; transition: transform 0.2s;">
         ABRIR PAINEL
       </button>
     </div>
@@ -168,11 +173,14 @@
     {{!-- Coluna Direita (Retrato): Grade de Talentos --}}
     <div class="talents-grid-column">
       <div class="header-with-action">
-        <h3 class="category-title">TALENTOS</h3>
-        <div class="status-item {{#if (eq talentCount 2)}}complete{{/if}}"
-          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount 2)}}var(--fire){{else}}var(--accent){{/if}};">
-          <i class="fas fa-brain"></i> {{talentCount}} / 2
+        <div class="header-content">
+          <h3 class="category-title">TALENTOS</h3>
+          <div class="status-item {{#if (eq talentCount 2)}}complete{{/if}}"
+            style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount 2)}}var(--fire){{else}}var(--accent){{/if}};">
+            <i class="fas fa-brain"></i> {{talentCount}} / 2
+          </div>
         </div>
+
         <button type="button" class="action-btn small" data-action="openTalentManager" title="Gerenciar Talentos">
           <i class="fas fa-cog"></i> Gerenciar
         </button>
@@ -258,14 +266,19 @@
         {{#each category.attributes as |attr|}}
         <div class="attribute-card glass-panel">
           <div class="attr-header">
-            <span class="attr-name">{{localize attr.label}}</span>
+            <a class="attr-name rollable" data-action="rollAttribute" data-attribute="{{attr.key}}">{{localize attr.label}}</a>
             <div class="attr-dots">
               {{#each (list 1 2 3)}}
               <a class="dot {{#if (gt attr.value (sub this 1))}}filled{{/if}}" data-action="updateAbility"
                 data-ability="attributes.{{attr.key}}" data-value="{{this}}"></a>
               {{/each}}
             </div>
-            <span class="attr-bonus">+{{attr.value}}</span>
+            <div class="attr-bonus-roll">
+              <span class="attr-bonus">+{{attr.value}}</span>
+              <a class="attr-roll-btn" data-action="rollAttribute" data-attribute="{{attr.key}}" title="Rolar Teste de {{localize attr.label}}">
+                <i class="fas fa-dice-d20"></i>
+              </a>
+            </div>
           </div>
 
           <div class="skills-list">

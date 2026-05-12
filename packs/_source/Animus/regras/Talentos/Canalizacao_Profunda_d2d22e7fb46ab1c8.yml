@@ -1,0 +1,25 @@
+_id: d2d22e7fb46ab1c8
+name: Canalização Profunda
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/43.png
+system:
+  description: Na Rolagem de Perícia para redução de <span class="text-resource">PE</span>, os resultados '1' e '2' contam como '3' para fins de redução.
+  trigger: ""
+  requirements:
+    description: Profissional em Controle Elemental.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+      - key: controle
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+_key: "!items!d2d22e7fb46ab1c8"

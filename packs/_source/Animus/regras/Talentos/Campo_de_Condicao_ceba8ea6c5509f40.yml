@@ -1,0 +1,23 @@
+_id: ceba8ea6c5509f40
+name: Campo de Condição
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/48.png
+system:
+  description: "Quando você aplica sua condição inata, ela se irradia: todas as criaturas a 3m do alvo fazem Resistência <span class=\"text-mechanic\">CD</span> 7+<span class=\"text-attribute\">ANI</span> ou sofrem a condição inata por 1 <span class=\"text-mechanic\">rodada</span>."
+  trigger: ""
+  requirements:
+    description: Mestre em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+_key: "!items!ceba8ea6c5509f40"

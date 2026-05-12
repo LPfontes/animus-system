@@ -6,10 +6,11 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
     this.actor = options.actor;
     this.packId = options.packId || "animus.itens";
     this.searchQuery = "";
-    this.activeTab = "weapon"; // "weapon" ou "secondary"
+    this.activeTab = options.activeTab || "weapon"; 
     this.categoryFilter = "all";
     this.damageTypeFilter = "all";
     this.expandedItems = new Set();
+    this.callback = options.callback;
   }
 
   static DEFAULT_OPTIONS = {
@@ -31,6 +32,11 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
     }
   };
 
+  /** @override */
+  get title() {
+    return this.options.window?.title || this.constructor.DEFAULT_OPTIONS.title;
+  }
+
   static PARTS = {
     body: {
       template: "systems/animus/templates/apps/compendium-browser.hbs"
@@ -51,6 +57,10 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
       items = items.filter(i => ["armor", "shield"].includes(i.type));
     } else if (this.activeTab === "secondary") {
       items = items.filter(i => i.type === "secondary");
+    } else if (this.activeTab === "ascendancy") {
+      items = items.filter(i => i.type === "ascendancy");
+    } else if (this.activeTab === "element") {
+      items = items.filter(i => i.type === "element");
     }
 
     // 2. Filtro de busca
@@ -88,6 +98,18 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
           itemData.displayCategory = game.i18n.localize(armorTypes[sys.type]);
         } else {
           itemData.displayCategory = game.i18n.localize(`ITEM.Type${i.type.capitalize()}`);
+        }
+
+        // Bônus de Atributo para Ascendência/Elemento
+        if (["ascendancy", "element"].includes(i.type)) {
+          const bonus = sys.bonus?.value || 0;
+          const attrs = sys.bonus?.attributes || [];
+          const attrLabels = attrs.map(a => a.toUpperCase()).join(", ");
+          if (bonus) itemData.displayBonus = `+${bonus} (${attrLabels})`;
+          
+          if (i.type === "element") {
+            itemData.isElement = true;
+          }
         }
       }
 
@@ -146,9 +168,16 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
 
   static _onToggleExpand(event, target) {
     const id = target.dataset.id;
-    if (this.expandedItems.has(id)) this.expandedItems.delete(id);
-    else this.expandedItems.add(id);
-    this.render({ parts: ['body'] });
+    const itemElement = target.closest('.browser-item');
+    
+    if (this.expandedItems.has(id)) {
+      this.expandedItems.delete(id);
+      itemElement?.classList.remove('expanded');
+    } else {
+      this.expandedItems.add(id);
+      itemElement?.classList.add('expanded');
+    }
+    // Removido this.render() para evitar resetar o scroll da lista
   }
 
   static _onSetTab(event, target) {
@@ -184,7 +213,11 @@ export class AnimusCompendiumBrowser extends HandlebarsApplicationMixin(Applicat
     const itemData = item.toObject();
     
     if (this.actor) {
-      await this.actor.createEmbeddedDocuments("Item", [itemData]);
+      if (this.callback) {
+        await this.callback(item);
+      } else {
+        await this.actor.createEmbeddedDocuments("Item", [itemData]);
+      }
       ui.notifications.info(`${item.name} adicionado à ficha.`);
     }
   }

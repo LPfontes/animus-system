@@ -1,0 +1,27 @@
+_id: 86fe3ce8e9d2c68f
+name: Flash
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/trovao (6).png
+system:
+  description: 'CD 8+ANI: todos que virem ficam Desprevenidos até o próximo turno.'
+  tier: reinforced
+  element: trovao
+  category: weapon
+  price: 1200
+folder: fldtrovao0000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!86fe3ce8e9d2c68f'

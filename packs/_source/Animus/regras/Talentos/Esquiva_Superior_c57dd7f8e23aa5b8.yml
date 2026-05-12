@@ -1,0 +1,41 @@
+_id: c57dd7f8e23aa5b8
+name: Esquiva Superior
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/5.png
+system:
+  description: >-
+    Igual à Esquiva Básica, porém reduz acertos em 2. <br>Pode ser usada
+    2×/<span class="text-mechanic">rodada</span>.
+  trigger: reação
+  requirements:
+    description: Esquiva Básica; Profissional em acrobacia.
+    talents:
+      Esquiva Básica: 148ad8bf75da4b2c
+    attributes: []
+    skills:
+      - key: acrobacia
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!c57dd7f8e23aa5b8'

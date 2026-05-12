@@ -1,0 +1,43 @@
+_id: afab44a2c531ae4c
+name: Sentinela
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/23.png
+system:
+  description: >-
+    Você possui um sono leve, mas ainda assim reparador. <br>Quando você dorme,
+    qualquer movimentação de perigo lhe acorda independente de testes de <span
+    class="text-attribute">PER</span>. <br>Você nunca pode ser emboscado
+    enquanto descansa e é imune ao efeito '<span
+    class="text-condition">Desprevenido</span>'.
+  trigger: dormir
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!afab44a2c531ae4c'

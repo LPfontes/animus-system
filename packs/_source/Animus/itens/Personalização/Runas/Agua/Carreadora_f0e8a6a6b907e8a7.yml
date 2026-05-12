@@ -1,0 +1,27 @@
+_id: f0e8a6a6b907e8a7
+name: Carreadora
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/agua3.png
+system:
+  description: Dano dobrado contra Proteção metálica; se Prot=0, destrói o item.
+  tier: reinforced
+  element: agua
+  category: weapon
+  price: 1200
+folder: fldagua000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!f0e8a6a6b907e8a7'

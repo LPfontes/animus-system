@@ -1,0 +1,29 @@
+_id: fogocombate00001
+name: Aura de Calor (Fogo)
+type: action
+img: icons/magic/fire/barrier-fire-shield-red.webp
+system:
+  description: >-
+    Efeito Secundário de Fogo (Em Combate). Causa 1 de dano de fogo em alvos
+    adjacentes que realizarem ataques corpo a corpo contra você ou terminarem o
+    turno ao seu lado.
+  cost: 0
+  pa: 1
+  type: combat
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!fogocombate00001'

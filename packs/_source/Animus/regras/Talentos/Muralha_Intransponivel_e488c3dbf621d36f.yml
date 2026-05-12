@@ -1,0 +1,24 @@
+_id: e488c3dbf621d36f
+name: Muralha Intransponível
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/30.png
+system:
+  description: Quando estiver usando um escudo pesado ou maior, você pode entrar em cobertura total para você e qualquer aliado atrás de você. <br>Manobras de empurrar ou habilidades que obriguem movimentação são anuladas.
+  trigger: ""
+  requirements:
+    description: Mestre em Resistência; Proatividade com Escudos.
+    talents:
+      Proatividade com Escudos: 190bc9b9eaede9b7
+    attributes: []
+    skills:
+      - key: resistencia
+        rank: 3
+  cost: 0
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!e488c3dbf621d36f"

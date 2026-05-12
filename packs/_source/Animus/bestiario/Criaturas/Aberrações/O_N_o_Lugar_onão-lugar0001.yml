@@ -1,0 +1,114 @@
+_id: onão-lugar0001
+name: O Não-Lugar
+type: npc
+img: systems/animus/assets/system-icons/types/aberração.svg
+folder: fldbestaberr0000
+system:
+  nd: 8
+  classification: místico
+  innateIdentity: aberração
+  type: Aberração
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 2
+    cog:
+      value: 2
+    per:
+      value: 4
+    pre:
+      value: 1
+    ani:
+      value: 3
+  status:
+    hp:
+      value: 235
+      max: 235
+    pe:
+      value: 60
+      max: 60
+    pa:
+      value: 6
+      max: 6
+  attack:
+    label: Distorção
+    formula: 5d6
+    attribute: per
+    baseBonus: 4
+  damageTable:
+    damageType: Distorção
+    attribute: per
+    ac1: 16
+    ac2: 24
+    ac3: 32
+    ac4: 40
+    ac5: 48
+    ac6: 64
+  skills:
+    - key: percepcao
+      rank: 4
+    - key: intuicao
+      rank: 4
+    - key: conhecimento_arcano
+      rank: 2
+    - key: aura
+      rank: 2
+  abilities:
+    - name: Escudo de Essência
+      rarity: comum
+      description: >-
+        <p>RD 3 contra tudo. Só reduzida por 4+ acertos consecutivos no mesmo
+        ponto — ataques dispersos não chegam ao núcleo.</p>
+      bonuses:
+        resistances:
+          physical: 3
+          mental: 3
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Distorção de Posição
+      rarity: místico
+      description: >-
+        <p>Passiva: por rodada, pode teleportar para qualquer ponto em 12m como
+        ação livre. Ataques de oportunidade têm Desvantagem dobrada.</p>
+      specialActions:
+        - Teleporte
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Domínio Mental
+      rarity: místico
+      description: >-
+        <p>2 PA, 8 PE: alvo testa COG CD 15 ou fica Dominado por 1 rodada — age
+        contra o próprio grupo.</p>
+      check:
+        attribute: cog
+        difficulty: '15'
+      specialActions:
+        - Dominar
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Dobra Espacial
+      rarity: místico
+      description: >-
+        <p>1x/combate, 4 PA, 10 PE: o grupo inteiro testa HAB CD 14 ou é
+        teleportado para posição aleatória em 20m. Pode separar
+        completamente.</p>
+      check:
+        attribute: hab
+        difficulty: '14'
+      specialActions:
+        - Dobra Espacial
+      img: systems/animus/assets/system-icons/talents/místico.svg
+  turnPatterns:
+    - label: Colapso Espacial
+      description: Distorção (2) + Dobra Espacial (2) + Mov (1) + Mov (1)
+      totalPA: 6
+  availableActions: ''
+  ecology: >-
+    <p>Uma distorção pura do espaço-tempo. Onde você olha, ele parece estar;
+    onde você não olha, ele definitivamente está.</p>
+  weaknesses: ''
+  loot: ''
+  narratorNotes: ''
+flags: {}
+items: []
+effects: []
+_key: '!actors!onão-lugar0001'

@@ -1,0 +1,44 @@
+_id: cc07a961ee53f8d5
+name: Herbalista
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/44.png
+system:
+  description: >-
+    Em ambientes naturais, pode identificar e colher ervas medicinais sem <span
+    class="text-mechanic">teste</span>. <br>Com 30 minutos e um Kit BAsico de
+    Medicina, cria antídotos para venenos comuns e remédios que curam 1d6 <span
+    class="text-resource">PV</span> uma vez por descanso longo.
+  trigger: ''
+  requirements:
+    description: Amador em Medicina ou Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+      - key: medicina
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cc07a961ee53f8d5'

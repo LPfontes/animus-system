@@ -1,0 +1,147 @@
+_id: 105e5fc19a60ccf9
+name: Vento
+type: element
+img: systems/animus/assets/system-icons/elements/vento.svg
+system:
+  description: >-
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
+    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
+    PE</td><td>3+1×ANI</td><td>4+2×ANI</td><td>6+2×ANI</td><td>7+3×ANI</td></tr><tr><td>6
+    PE</td><td>5+2×ANI</td><td>7+2×ANI</td><td>8+3×ANI</td><td>9+4×ANI</td></tr><tr><td>9
+    PE</td><td>7+2×ANI</td><td>9+3×ANI</td><td>11+4×ANI</td><td>13+5×ANI</td></tr></table>
+    <h3>Tabela de Cura</h3><table border='1'><tr><th>Nível PE</th><th>1
+    acerto</th><th>2 acertos</th><th>3 acertos</th><th>4 acertos
+    (crít.)</th></tr><tr><td>3
+    PE</td><td>3+1×ANI</td><td>4+1×ANI</td><td>5+2×ANI</td><td>7+3×ANI</td></tr><tr><td>6
+    PE</td><td>5+2×ANI</td><td>7+2×ANI</td><td>9+3×ANI</td><td>11+4×ANI</td></tr><tr><td>9
+    PE</td><td>7+2×ANI</td><td>9+3×ANI</td><td>12+4×ANI</td><td>15+5×ANI</td></tr></table>
+  strength: Controle + Cura PV/Prot.
+  weakness: Dano baixo
+  bonus:
+    value: 1
+    attributes:
+      - hab
+      - per
+    selectedAttribute: ''
+  range: 36m
+  rhythm: Caótico e móvel
+  secondaryEffects:
+    outOfCombat: Passo do Vento (salto duplo, queda lenta, sussurrar 18m)
+    inCombat: Rajada Protetora — -1 acerto em projéteis
+  philosophy: |-
+    <p><b>Vento: O Moldador do Campo</b></p> <ul>
+      <li><b>Dano de corte:</b> +ANI ao dano do efeito quando o vento se torna lâmina.</li>
+      <li><b>Reposicionamento de inimigos:</b> arremessados para fora da área, aterrissam onde os conjuradores escolherem. Dano de colisão pequeno (até +ANI) se a superfície for cortante ou dura.</li>
+      <li><b>Reposicionamento de aliados:</b> até 9m sem custo de PA, sem teste.</li>
+      <li><b>Alcance dobrado:</b> do ponto de contato dos elementos. Em Triplas, pode triplicar (mantenha coerência narrativa).</li>
+      <li><b>Linha entre conjuradores:</b> efeito de área vira linha conectando os dois, atingindo tudo no caminho.</li>
+      <li><b>Remover condições:</b> remove condições menores (Cansado, Atordoado, Sangramento) de aliados na área gratuitamente.</li>
+      <li><b>Dispersão:</b> limpa obscurecimentos livremente, sem teste.</li>
+    </ul>
+  innateCharacteristic: >-
+    <p><b>Rajada:</b> 3+ acertos empurram o alvo 3m (CD 7+ANI para resistir). 4
+    acertos: alvo também Derrubado (CD 9+ANI). <b>Bônus:</b> ao usar qualquer
+    ataque de Vento, o conjurador pode se mover 1,5m como ação livre.</p>
+  damageTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 3
+        mult: 1
+      ac2:
+        base: 4
+        mult: 2
+      ac3:
+        base: 6
+        mult: 2
+      ac4:
+        base: 7
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 5
+        mult: 2
+      ac2:
+        base: 7
+        mult: 2
+      ac3:
+        base: 8
+        mult: 3
+      ac4:
+        base: 9
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 7
+        mult: 2
+      ac2:
+        base: 9
+        mult: 3
+      ac3:
+        base: 11
+        mult: 4
+      ac4:
+        base: 13
+        mult: 5
+  healTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 3
+        mult: 1
+      ac2:
+        base: 4
+        mult: 1
+      ac3:
+        base: 5
+        mult: 2
+      ac4:
+        base: 7
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 5
+        mult: 2
+      ac2:
+        base: 7
+        mult: 2
+      ac3:
+        base: 9
+        mult: 3
+      ac4:
+        base: 11
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 7
+        mult: 2
+      ac2:
+        base: 9
+        mult: 3
+      ac3:
+        base: 12
+        mult: 4
+      ac4:
+        base: 15
+        mult: 5
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: elementoshub0001
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!105e5fc19a60ccf9'

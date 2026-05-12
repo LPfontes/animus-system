@@ -1,0 +1,26 @@
+_id: cndcansado000001
+name: Cansado
+type: condition
+img: icons/svg/clockwork.svg
+system:
+  description: ''
+  penalty: Simples
+  cause: Perder 50% dos PV
+  removal: Descanso curto em lugar seguro
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndcansado000001'

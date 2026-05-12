@@ -1,0 +1,27 @@
+_id: 93bc0b0205efae0b
+name: Escudo Vivo
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (5).png
+system:
+  description: 'Ao final de cada combate: recupera 1d6 Proteção sem reparo.'
+  tier: basic
+  element: madeira
+  category: shield
+  price: 600
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!93bc0b0205efae0b'

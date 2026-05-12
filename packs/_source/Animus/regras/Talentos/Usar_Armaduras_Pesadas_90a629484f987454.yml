@@ -1,0 +1,38 @@
+_id: 90a629484f987454
+name: Usar Armaduras Pesadas
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/30.png
+system:
+  description: >-
+    Você não recebe penalidades ao usar armaduras pesadas. <br>acertos críticos
+    contra você se tornam acertos fortes.
+  trigger: passiva
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!90a629484f987454'

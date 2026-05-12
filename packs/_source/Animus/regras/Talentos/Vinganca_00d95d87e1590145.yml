@@ -1,0 +1,24 @@
+_id: 00d95d87e1590145
+name: Vingança
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/32.png
+system:
+  description: Quando atacado, realiza um contra- ataque com 2 acertos no oponente.
+  trigger: reação
+  requirements:
+    description: Profissional em Luta; Baluarte Menor.
+    talents:
+      Baluarte Menor: 12b8b560454e7ad2
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+  cost: 3
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!00d95d87e1590145"

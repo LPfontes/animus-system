@@ -1,0 +1,28 @@
+_id: trovaocombate001
+name: Descarga (Trovão)
+type: action
+img: icons/magic/lightning/bolt-blue.webp
+system:
+  description: >-
+    Efeito Secundário de Trovão (Em Combate). O aliado mais próximo ganha +1 em
+    seu próximo teste.
+  cost: 0
+  pa: 1
+  type: combat
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!trovaocombate001'

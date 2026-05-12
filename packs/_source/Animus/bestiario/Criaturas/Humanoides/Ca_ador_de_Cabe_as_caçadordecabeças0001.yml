@@ -1,0 +1,102 @@
+_id: caçadordecabeças0001
+name: Caçador de Cabeças
+type: npc
+img: systems/animus/assets/system-icons/types/humanoide.svg
+folder: fldbesthumano000
+system:
+  nd: 5
+  classification: raro
+  innateIdentity: humanoide
+  type: Humanoide
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 3
+    cog:
+      value: 1
+    per:
+      value: 1
+    pre:
+      value: 1
+    ani:
+      value: 0
+  status:
+    hp:
+      value: 110
+      max: 110
+    pe:
+      value: 33
+      max: 33
+    pa:
+      value: 5
+      max: 5
+  attack:
+    label: Punhal
+    formula: 4d6
+    attribute: hab
+    baseBonus: 3
+  damageTable:
+    damageType: Punhal
+    attribute: hab
+    ac1: 10
+    ac2: 15
+    ac3: 20
+    ac4: 25
+    ac5: 30
+    ac6: 40
+  skills:
+    - key: furtividade
+      rank: 2
+    - key: percepcao
+      rank: 2
+    - key: atletismo
+      rank: 1
+  abilities:
+    - name: Agilidade Predatória
+      rarity: comum
+      description: >-
+        <p>+1 HAB efetivo. Nunca fica Desprevenido enquanto consciente. +1d em
+        iniciativa.</p>
+      bonuses:
+        attributes:
+          hab: 1
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Ataque Furtivo
+      rarity: comum
+      description: >-
+        <p>Se oculto ou flanqueando: +1d de dano no primeiro ataque do turno.
+        Após atacar de oculto, testa Furtividade para manter posição (CD = 8 +
+        número de oponentes que o viram).</p>
+      bonuses:
+        damage: 2
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Alvo Identificado
+      rarity: raro
+      description: >-
+        <p>Pré-combate: escolhe 1 alvo. Contra ele: +1d e CD de condições +2.
+        Contra outros: -1d (não os estudou).</p>
+      specialActions:
+        - Marcar Alvo
+      img: systems/animus/assets/system-icons/talents/raro.svg
+  turnPatterns:
+    - label: Execução Furtiva
+      description: Punhal (2) + Punhal (2) + Movimentação (1)
+      totalPA: 5
+  availableActions: ''
+  ecology: >-
+    <p>Um caçador profissional altamente especializado. Estuda suas vítimas
+    meticulosamente antes do combate para explorar cada falha em sua defesa.</p>
+  weaknesses: >-
+    <p><b>Combate corpo a corpo:</b> Luta mal em combate corpo a corpo (–1d).
+    Prioriza distância de 15m do alvo.</p>
+  loot: ''
+  narratorNotes: >-
+    <p><b>Negociação:</b> Pode ser negociado se o pagante do contrato for
+    identificado e uma oferta melhor for feita (PRE CD 14 + prova de pagamento).
+    </p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!caçadordecabeças0001'

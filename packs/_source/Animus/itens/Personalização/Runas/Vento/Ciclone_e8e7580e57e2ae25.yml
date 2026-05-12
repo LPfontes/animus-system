@@ -1,0 +1,27 @@
+_id: e8e7580e57e2ae25
+name: Ciclone
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (2).png
+system:
+  description: Ao atacar, ganhe 2 PA de movimento gratuitos naquele turno.
+  tier: reinforced
+  element: vento
+  category: weapon
+  price: 1200
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!e8e7580e57e2ae25'

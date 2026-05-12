@@ -1,0 +1,66 @@
+_id: raivoso0001
+name: "Raivoso"
+type: npc
+img: systems/animus/assets/system-icons/types/animal.svg
+folder: fldbestanimai000
+system:
+  nd: 1
+  classification: "comum"
+  innateIdentity: "animal"
+  type: "Animal"
+  quote: ""
+  attributes:
+    pot: { value: 1 }
+    hab: { value: 1 }
+    cog: { value: 0 }
+    per: { value: 0 }
+    pre: { value: 0 }
+    ani: { value: 0 }
+  status:
+    hp: { value: 26, max: 26 }
+    pe: { value: 10, max: 10 }
+    pa: { value: 3, max: 3 }
+  attack:
+    label: "Mordida"
+    formula: "2d6"
+    attribute: "pot"
+    baseBonus: 1
+  damageTable:
+    damageType: "Mordida"
+    attribute: "pot"
+    ac1: 2
+    ac2: 3
+    ac3: 4
+    ac4: 5
+    ac5: 6
+    ac6: 8
+  skills: [{"key":"atletismo","rank":1},{"key":"percepcao","rank":1}]
+  abilities: [
+      {
+        "name": "Presas Afiadas",
+        "rarity": "comum",
+        "description": "<p>Com 3+ acertos, aplica Sangramento (1 PV/turno por 2 turnos). O alvo testa Resistência CD 7 para encerrar antecipadamente.</p>",
+        "check": {
+          "attribute": "pot",
+          "difficulty": "7"
+        },
+        "specialActions": [
+          "Sangramento"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Matilha",
+        "rarity": "comum",
+        "description": "<p>Se dois ou mais Raivosos atacam o mesmo alvo nessa rodada, cada um ganha +1d na rolagem de ataque.</p>",
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Bote de Caça","description":"Mordida (2) + Movimentação (1)","totalPA":3}]
+  availableActions: "<p><b>Mordida:</b> Ataque corpo a corpo, 2 PA. Causa 2d6+1 de dano. Pode aplicar Sangramento.</p>"
+  ecology: "<p>Um predador territorial que vaga em matilhas. Sua agressividade é alimentada por uma fome constante e um instinto de dominância primitivo.</p>"
+  weaknesses: "<p><b>Fogo os afasta:</b> tocha acesa direcionada exige PRE CD 7 ou recuam na próxima ação. <b>Ruído alto:</b> (ex: explosão) causa Atordoamento por 1 turno (PER CD 6 para evitar).</p>"
+  loot: "<p><b>Pele de Raivoso:</b> Pode ser vendida por 5 moedas. <b>Dentes Afiados:</b> Componente para flechas.</p>"
+  narratorNotes: "<p><b>Uivo de alerta:</b> ao recuar, o líder ulula — se ouvido por outros Raivosos em 50m, chegam em 2 rodadas. Aparecem em grupos de 2–4. Um distrai a frente enquanto os outros flanqueiam. Recuam se dois da matilha forem derrubados.</p>"
+flags: {}
+_key: '!actors!raivoso0001'

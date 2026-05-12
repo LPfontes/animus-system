@@ -1,0 +1,43 @@
+_id: 6f862b9412e6d5f4
+name: Armadilheiro
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/13.png
+system:
+  description: >-
+    Você sabe fazer armadilhas fixas de forma rápida. <br>Gasta 4 <span
+    class="text-mechanic">ações</span> para 'plantar' uma armadilha. <br>Para
+    detectar: <span class="text-attribute">PER</span> ou Sobrevivência <span
+    class="text-mechanic">CD</span> 9+<span class="text-attribute">PER</span> do
+    armadilheiro.
+  trigger: Plantar armadilha
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 2
+  action: 4
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!6f862b9412e6d5f4'

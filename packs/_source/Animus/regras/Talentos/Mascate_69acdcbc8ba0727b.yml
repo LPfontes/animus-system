@@ -1,0 +1,44 @@
+_id: 69acdcbc8ba0727b
+name: Mascate
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/8.png
+system:
+  description: >-
+    Compra itens comuns com 10% de desconto. <br>Vende itens com 10% de
+    acréscimo sobre o valor base. <br>Pode identificar falsificações e
+    supervalorizações with um <span class="text-mechanic">teste</span> de
+    Intuição.
+  trigger: ''
+  requirements:
+    description: Amador em Persuasão ou Enganação.
+    talents: {}
+    attributes: []
+    skills:
+      - key: persuasao
+        rank: 1
+      - key: enganacao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!69acdcbc8ba0727b'

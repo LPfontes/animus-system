@@ -1,0 +1,122 @@
+_id: guardiãodafloresta0001
+name: Guardião da Floresta
+type: npc
+img: systems/animus/assets/system-icons/types/espírito.svg
+folder: fldbestespiri000
+system:
+  nd: 5
+  classification: místico
+  innateIdentity: espírito
+  type: Espírito
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 3
+    cog:
+      value: 1
+    per:
+      value: 3
+    pre:
+      value: 2
+    ani:
+      value: 3
+  status:
+    hp:
+      value: 150
+      max: 150
+    pe:
+      value: 55
+      max: 55
+    pa:
+      value: 5
+      max: 5
+  attack:
+    label: Bastão
+    formula: 4d6
+    attribute: hab
+    baseBonus: 3
+  damageTable:
+    damageType: Bastão
+    attribute: hab
+    ac1: 10
+    ac2: 15
+    ac3: 20
+    ac4: 25
+    ac5: 30
+    ac6: 40
+  skills:
+    - key: sobrevivencia
+      rank: 4
+    - key: furtividade
+      rank: 4
+    - key: percepcao
+      rank: 2
+    - key: luta
+      rank: 1
+  abilities:
+    - name: Rastro Invertido
+      rarity: místico
+      description: >-
+        <p>Não pode ser rastreado por meios convencionais. Rastrear exige COG CD
+        14 e 1d4 horas — falha resulta em 1d6 horas perdidos na floresta.</p>
+      check:
+        attribute: cog
+        difficulty: '14'
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Ilusão de Trilha
+      rarity: raro
+      description: >-
+        <p>1 PA, 3 PE: alvo testa PER CD 13 ou se move na direção errada,
+        desperdiçando todo o movimento. Falha por 3+: separa completamente do
+        grupo.</p>
+      check:
+        attribute: per
+        difficulty: '13'
+      specialActions:
+        - Desorientar
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Chamado da Mata
+      rarity: místico
+      description: >-
+        <p>2 PA, 0 PE: convoca 1d4 animais silvestres (ND 1) da floresta. Agem
+        na próxima rodada. Máximo 2x/combate.</p>
+      specialActions:
+        - Convocar Animais
+      formula: 1d4
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Pele de Casca
+      rarity: comum
+      description: >-
+        <p>Em floresta: Vantagem em Furtividade. Quando estático, PER CD 15 para
+        detectar visualmente. Absorve 2 de qualquer dano de corte.</p>
+      bonuses:
+        resistances:
+          physical: 2
+      img: systems/animus/assets/system-icons/talents/comum.svg
+  turnPatterns:
+    - label: Guarda da Mata
+      description: Bastão (2) + Ilusão de Trilha (1) + Movimentação (1) + Movimentação (1)
+      totalPA: 5
+  availableActions: ''
+  ecology: >-
+    <p>Um místico protetor da mata antiga. Sua pele é composta por cascas de
+    árvores milenares e sua presença pode desorientar até o mais experiente dos
+    caçadores.</p>
+  weaknesses: >-
+    <p><b>Fogo direto:</b> +2 de dano por acerto. <b>Território:</b> fora da
+    floresta, perde Rastro Invertido e Pele de Casca.</p>
+  loot: >-
+    <p><b>Raiz do Guardião da Floresta:</b> Runa de Madeira — Vantagem em
+    ataques contra criaturas em ambiente natural. Valor: 100 Đ. <b>Gorro do
+    Guardião:</b> Vantagem em Sobrevivência e pedido de passagem segura de
+    animais 1×/descanso longo. Valor: 350 Đ.</p>
+  narratorNotes: >-
+    <p>Nunca ataca diretamente de início. Usa Ilusão de Trilha para separar o
+    grupo. <b>Negociação:</b> PRE CD 10 com promessa de não caçar no território
+    — o Guardião recua e torna-se um aliado passivo.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!guardiãodafloresta0001'

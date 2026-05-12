@@ -1,0 +1,42 @@
+_id: 96ec5c9a1377e341
+name: Mestre das Sombras
+type: talent
+img: systems/animus/assets/icons/skills/talentos/ladino/29.png
+system:
+  description: >-
+    Ao atacar de surpresa, você tem o direito de fazer um <span
+    class="text-mechanic">teste</span> de furtividade automaticamente, sem
+    gastar <span class="text-mechanic">ações</span> ou <span
+    class="text-resource">PE</span>.
+  trigger: Ataque surpresa
+  requirements:
+    description: Mestre em Furtividade.
+    talents: {}
+    attributes: []
+    skills:
+      - key: furtividade
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: 5
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!96ec5c9a1377e341'

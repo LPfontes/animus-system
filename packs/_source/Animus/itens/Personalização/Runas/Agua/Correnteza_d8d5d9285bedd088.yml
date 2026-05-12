@@ -1,0 +1,27 @@
+_id: d8d5d9285bedd088
+name: Correnteza
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/agua4.png
+system:
+  description: Cada acerto aumenta a CD de acertos do alvo em +1 (acumula).
+  tier: basic
+  element: agua
+  category: weapon
+  price: 600
+folder: fldagua000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!d8d5d9285bedd088'

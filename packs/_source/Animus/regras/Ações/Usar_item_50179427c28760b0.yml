@@ -1,0 +1,24 @@
+_id: 50179427c28760b0
+name: Usar item
+type: action
+img: systems/animus/assets/system-icons/action/targeting.svg
+system:
+  description: Consome ou ativa um item do seu inventário.
+  cost: 1
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: acoeshub00000001
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!50179427c28760b0'

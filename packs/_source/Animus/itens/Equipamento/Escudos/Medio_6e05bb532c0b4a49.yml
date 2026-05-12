@@ -1,0 +1,16 @@
+_id: 6e05bb532c0b4a49
+name: Médio
+type: shield
+img: systems/animus/assets/system-icons/armor/escudo/medio.png
+system:
+  type: media
+  base: 7
+  multPOT: 1
+  multHAB: 0
+  description: >-
+    PVs Base: 7<br>Restrição: Exige que uma mão esteja dedicada ao
+    Escudo<br>Lógica: 7 + (1 x POT) + (0 x HAB)
+  weight: 0
+  price: 50 Đ
+folder: 24b591bd1a14d94b
+_key: '!items!6e05bb532c0b4a49'

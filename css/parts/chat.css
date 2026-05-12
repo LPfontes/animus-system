@@ -145,6 +145,7 @@
     letter-spacing: 0.1em;
     margin-top: 4px;
 }
+
 .chat-actions {
     margin-top: 10px;
     display: flex;
@@ -184,32 +185,45 @@
 /* =========================================== */
 
 .animus-chat-card {
-  background: rgba(15, 12, 25, 0.4);
-  border: 1px solid rgba(157, 78, 221, 0.2);
-  border-radius: 8px;
-  padding: 12px;
-  margin: 5px 0;
-  font-family: 'Outfit', sans-serif;
+    background: rgba(15, 12, 25, 0.4);
+    border: 1px solid rgba(157, 78, 221, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin: 5px 0;
+    font-family: 'Outfit', sans-serif;
 }
 
 .animus-chat-card h3 {
-  color: var(--accent);
-  font-weight: 800;
-  margin-top: 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 5px;
-  font-size: 1rem;
+    color: var(--accent);
+    font-weight: 800;
+    margin-top: 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0px;
+    font-size: 1rem;
+    margin-bottom: 0px;
 }
 
 .animus-chat-card p {
-  margin: 5px 0;
-  font-size: 0.9rem;
+    margin: 5px 0;
+    font-size: 0.9rem;
 }
 
 .animus-chat-card .text-condition {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 1px 6px;
-  border-radius: 4px;
-  color: #ffaa55;
-  font-weight: 700;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    color: #ffaa55;
+    font-weight: 700;
+}
+
+.animus-chat-card .chat-header {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    align-items: center;
+}
+
+.animus-chat-card img {
+    width: 25px;
+    height: 25px;
 }

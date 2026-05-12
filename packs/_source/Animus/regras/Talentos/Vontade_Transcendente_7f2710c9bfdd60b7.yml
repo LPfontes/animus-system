@@ -1,0 +1,45 @@
+_id: 7f2710c9bfdd60b7
+name: Vontade Transcendente
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/40.png
+system:
+  description: >-
+    Quando você está sustentando seu elemento, o custo para fazê-lo diminui em
+    5. <br>Também, se chegar a 0 <span class="text-resource">PV</span>, pode
+    manter a sustentação do elemento até o fim da <span
+    class="text-mechanic">cena</span>.
+  trigger: ''
+  requirements:
+    description: Mestre em Controle Elemental; Elemento áutônomo.
+    talents:
+      Elemento áutônomo: 39a1e2a5180aa82e
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+      - key: controle
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7f2710c9bfdd60b7'

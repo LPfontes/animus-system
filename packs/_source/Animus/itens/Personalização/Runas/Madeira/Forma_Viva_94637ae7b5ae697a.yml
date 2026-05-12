@@ -1,0 +1,27 @@
+_id: 94637ae7b5ae697a
+name: Forma Viva
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (3).png
+system:
+  description: Arma se torna Leve e regenera Proteção sozinha (1/turno).
+  tier: reinforced
+  element: madeira
+  category: weapon
+  price: 1200
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!94637ae7b5ae697a'

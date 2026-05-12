@@ -1,8 +1,0 @@
-_id: 4584d8536851deaf
-name: Atacar (arma leve)
-type: action
-img: systems/animus/assets/system-icons/weapon/sword-clash.svg
-system:
-  description: Realiza um ataque com uma arma leve.
-  cost: 1
-_key: '!items!4584d8536851deaf'

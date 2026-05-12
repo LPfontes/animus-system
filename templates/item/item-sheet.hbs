@@ -93,13 +93,13 @@
 
       {{#unless (eq item.type "element")}}
       <div class="item-properties-grid {{#unless isEditing}}view-mode{{/unless}}">
-          {{#if (or (eq item.type "weapon") (eq item.type "armor") (eq item.type "item"))}}
+          {{#if (or (eq item.type "weapon") (eq item.type "armor") (eq item.type "item") (eq item.type "secondary"))}}
           <div class="prop-box">
             <label>{{localize "ANIMUS.Weight"}}</label>
             {{#if isEditing}}
-            <input type="number" name="system.weight" value="{{system.weight}}" />
+            <input type="text" name="system.weight" value="{{system.weight}}" placeholder="Ex: 0.5kg, 1..." />
             {{else}}
-            <span class="value-display-v3">{{system.weight}} kg</span>
+            <span class="value-display-v3">{{system.weight}}{{#if (isNumber system.weight)}} kg{{/if}}</span>
             {{/if}}
           </div>
           <div class="prop-box">
@@ -113,7 +113,7 @@
           <div class="prop-box">
             <label>{{localize "ANIMUS.Price"}}</label>
             {{#if isEditing}}
-            <input type="number" name="system.price" value="{{system.price}}" />
+            <input type="text" name="system.price" value="{{system.price}}" />
             {{else}}
             <span class="value-display-v3">{{system.price}} <i class="fas fa-coins"></i></span>
             {{/if}}
@@ -130,6 +130,10 @@
           {{else}}
           <span class="value-display-v3">{{localize (lookup config.weaponTypes system.type)}}</span>
           {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Action"}} (PA)</label>
+          <span class="value-display-v3" style="color: var(--accent); font-weight: 800;">{{system.cost}}</span>
         </div>
         <div class="prop-box">
           <label>{{localize "ANIMUS.Attribute"}}</label>
@@ -204,7 +208,7 @@
         </div>
         {{/if}}
 
-        {{#if (eq item.type "item")}}
+        {{#if (or (eq item.type "item") (eq item.type "secondary"))}}
         <div class="prop-box">
           <label>{{localize "ANIMUS.Quantity"}}</label>
           {{#if isEditing}}
@@ -214,12 +218,14 @@
           {{/if}}
         </div>
         <div class="prop-box">
-          <label>{{localize "ANIMUS.Type"}}</label>
+          <label>Subcategoria</label>
           {{#if isEditing}}
-          <input type="text" name="system.itemType" value="{{system.itemType}}"
-            placeholder="Consumível, Ferramenta..." />
+          <select name="system.subCategory">
+            <option value="">Nenhuma</option>
+            {{selectOptions config.gearCategories selected=system.subCategory localize=true}}
+          </select>
           {{else}}
-          <span class="value-display-v3">{{system.itemType}}</span>
+          <span class="value-display-v3">{{localize (lookup config.gearCategories system.subCategory)}}</span>
           {{/if}}
         </div>
         {{/if}}
@@ -267,7 +273,7 @@
 
         {{#if (eq item.type "property")}}
         <div class="prop-box">
-          <label>{{localize "ANIMUS.BonusDamage"}}</label>
+          <label>Dano Bônus</label>
           {{#if isEditing}}
           <input type="number" name="system.bonus.damage" value="{{system.bonus.damage}}" />
           {{else}}
@@ -275,12 +281,39 @@
           {{/if}}
         </div>
         <div class="prop-box">
-          <label>{{localize "ANIMUS.BonusMult"}}</label>
+          <label>Bônus Mult. Base</label>
           {{#if isEditing}}
           <input type="number" name="system.bonus.mult" value="{{system.bonus.mult}}" />
           {{else}}
-          <span class="value-display-v3">{{system.bonus.mult}}</span>
+          <span class="value-display-v3">+{{system.bonus.mult}}</span>
           {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>Sobrescrever Attr.</label>
+          {{#if isEditing}}
+          <select name="system.bonus.attributeOverride">
+            <option value="">(Nenhum)</option>
+            {{selectOptions config.attributesEnum selected=system.bonus.attributeOverride}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{#if system.bonus.attributeOverride}}{{upper system.bonus.attributeOverride}}{{else}}—{{/if}}</span>
+          {{/if}}
+        </div>
+
+        <div class="full-width-section bonus-attr-grid">
+          <label class="section-subtitle">Bônus por Atributo (+1xATTR)</label>
+          <div class="attr-bonus-inputs">
+            {{#each config.attributes as |attr key|}}
+            <div class="attr-input-group">
+              <label>{{attr.label}}</label>
+              {{#if ../isEditing}}
+              <input type="number" name="system.bonus.attrMult.{{key}}" value="{{lookup ../system.bonus.attrMult key}}" min="0" />
+              {{else}}
+              <span class="value-display-v3">{{#if (lookup ../system.bonus.attrMult key)}}+{{lookup ../system.bonus.attrMult key}}x{{else}}0{{/if}}</span>
+              {{/if}}
+            </div>
+            {{/each}}
+          </div>
         </div>
         {{/if}}
 
@@ -354,6 +387,36 @@
         <div class="prop-box">
           <label>Preço</label>
           <span class="value-display-v3">{{item.system.price}} Đ</span>
+        </div>
+        {{/if}}
+
+        {{#if (eq item.type "action")}}
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Action"}} (PA)</label>
+          {{#if isEditing}}
+          <input type="number" name="system.cost" value="{{system.cost}}" />
+          {{else}}
+          <span class="value-display-v3">{{system.cost}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Range"}}</label>
+          {{#if isEditing}}
+          <input type="text" name="system.range" value="{{system.range}}" placeholder="Ex: 9m, Curto..." />
+          {{else}}
+          <span class="value-display-v3">{{system.range}}</span>
+          {{/if}}
+        </div>
+        <div class="prop-box">
+          <label>{{localize "ANIMUS.Type"}}</label>
+          {{#if isEditing}}
+          <select name="system.type">
+            <option value="">(Selecione...)</option>
+            {{selectOptions config.actionTypes selected=system.type localize=true}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{localize (lookup config.actionTypes system.type)}}</span>
+          {{/if}}
         </div>
         {{/if}}
       </div>
@@ -441,22 +504,37 @@
 
     <div class="properties-list-v3">
       {{#each system.properties as |propId i|}}
-      <div class="property-tag-v3">
-        {{#if ../isEditing}}
-        <input type="text" name="system.properties.{{i}}" value="{{propId}}" placeholder="ID da Propriedade..." />
-        <a class="delete-btn" data-action="arrayDelete" data-field="properties" data-index="{{i}}">
-          <i class="fas fa-times"></i>
-        </a>
-        {{else}}
-        <span class="prop-label">{{#if (lookup ../propertyNames propId)}}{{lookup ../propertyNames
-          propId}}{{else}}{{propId}}{{/if}}</span>
-        {{/if}}
-      </div>
+        <div class="property-tag-v3" {{#unless ../isEditing}}data-tooltip="{{lookup ../propertyDescriptions propId}}" data-tooltip-direction="UP"{{/unless}}>
+          {{#if ../isEditing}}
+          <input type="text" name="system.properties.{{i}}" value="{{propId}}" placeholder="ID da Propriedade..." />
+          <a class="delete-btn" data-action="arrayDelete" data-field="properties" data-index="{{i}}">
+            <i class="fas fa-times"></i>
+          </a>
+          {{else}}
+          <i class="fas fa-info-circle"></i>
+          <span class="prop-label">{{#if (lookup ../propertyNames propId)}}{{lookup ../propertyNames propId}}{{else}}{{propId}}{{/if}}</span>
+          {{/if}}
+        </div>
       {{/each}}
       {{#unless system.properties.length}}
       <p class="empty-hint">Nenhuma propriedade adicionada.</p>
       {{/unless}}
     </div>
+
+    {{#unless isEditing}}
+    {{#if system.properties.length}}
+    <div class="properties-descriptions-block">
+      {{#each system.properties as |propId|}}
+      {{#if (lookup ../propertyNames propId)}}
+      <div class="prop-desc-item">
+        <strong>{{lookup ../propertyNames propId}}:</strong>
+        <span>{{lookup ../propertyDescriptions propId}}</span>
+      </div>
+      {{/if}}
+      {{/each}}
+    </div>
+    {{/if}}
+    {{/unless}}
 
     <datalist id="weapon-properties-list">
       {{#each config.weaponProperties}}
@@ -503,8 +581,8 @@
 
     {{/if}}
 
-    {{!-- Seção de Requisitos (Comum a Talentos e Armas) --}}
-    {{#if (or (eq item.type "weapon") (eq item.type "talent"))}}
+    {{!-- Seção de Requisitos (Comum a Talentos, Armas e Ações) --}}
+    {{#if (or (eq item.type "weapon") (eq item.type "talent") (eq item.type "action"))}}
     <div class="section-header-v3">
       <i class="fas fa-scroll"></i>
       <span>{{localize "ANIMUS.Requirements"}}</span>

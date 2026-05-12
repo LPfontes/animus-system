@@ -1,0 +1,27 @@
+_id: 0b9ac2474cb53f29
+name: Cauterizadora
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/fogo2.png
+system:
+  description: 'Acerto: cura recebida pelo alvo reduzida à metade até próximo descanso.'
+  tier: basic
+  element: fogo
+  category: weapon
+  price: 600
+folder: fldfogo000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!0b9ac2474cb53f29'

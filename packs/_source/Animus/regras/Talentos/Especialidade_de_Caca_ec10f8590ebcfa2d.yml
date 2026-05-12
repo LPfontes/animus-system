@@ -1,0 +1,23 @@
+_id: ec10f8590ebcfa2d
+name: Especialidade de Caça
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/16.png
+system:
+  description: "Escolha um tipo de inimigo entre: Espírito, animal, monstro, morto-vivo, aberração ou humanoide. <br>Contra esse inimigo você ganha +2 de <span class=\"text-mechanic\">dano</span> em qualquer tipo de <span class=\"text-mechanic\">dano</span> que causar. <br>[Escolha esse talento mais vezes para vários tipos]."
+  trigger: passiva
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!ec10f8590ebcfa2d"

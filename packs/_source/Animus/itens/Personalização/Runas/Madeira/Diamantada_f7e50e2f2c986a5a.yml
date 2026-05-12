@@ -1,0 +1,27 @@
+_id: f7e50e2f2c986a5a
+name: Diamantada
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (3).png
+system:
+  description: Ignora toda Redução de Dano.
+  tier: reinforced
+  element: madeira
+  category: weapon
+  price: 1200
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!f7e50e2f2c986a5a'

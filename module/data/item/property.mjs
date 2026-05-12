@@ -19,6 +19,20 @@ export default class AnimusPropertyData extends AnimusItemData {
         defense: new fields.NumberField({ initial: 0, integer: true }),
         defenseMult: new fields.NumberField({ initial: 0, integer: true }),
         reach: new fields.NumberField({ initial: 0, min: 0, step: 1.5 }),
+        
+        // Sobrescrita de Atributo (ex: Trocar POT por HAB)
+        attributeOverride: new fields.StringField({ initial: "", blank: true }),
+        
+        // Bônus de Multiplicador baseado em Atributos (ex: +1xHAB no mult)
+        attrMult: new fields.SchemaField({
+          pot: new fields.NumberField({ initial: 0, integer: true }),
+          hab: new fields.NumberField({ initial: 0, integer: true }),
+          cog: new fields.NumberField({ initial: 0, integer: true }),
+          per: new fields.NumberField({ initial: 0, integer: true }),
+          pre: new fields.NumberField({ initial: 0, integer: true }),
+          ani: new fields.NumberField({ initial: 0, integer: true })
+        }),
+
         ac: new fields.SchemaField({
           ac1: new fields.NumberField({ initial: 0, integer: true }),
           ac2: new fields.NumberField({ initial: 0, integer: true }),

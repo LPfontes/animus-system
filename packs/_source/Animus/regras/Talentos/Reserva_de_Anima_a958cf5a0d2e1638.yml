@@ -1,0 +1,40 @@
+_id: a958cf5a0d2e1638
+name: Reserva de Anima
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/24.png
+system:
+  description: >-
+    Aumenta o valor de Pontos de <span class="text-resource">Energia</span> por
+    nível em 1.
+  trigger: ''
+  requirements:
+    description: 1 Ponto em ANIMA.
+    talents: {}
+    attributes:
+      - key: ani
+        value: 1
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!a958cf5a0d2e1638'

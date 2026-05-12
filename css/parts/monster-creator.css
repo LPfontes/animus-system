@@ -1,0 +1,180 @@
+.animus.monster-creator {
+  --accent: #00f2ff;
+  --bg-dark: rgba(10, 15, 25, 0.98);
+  
+  background: var(--bg-dark);
+  color: #e0e0e0;
+  font-family: 'Outfit', sans-serif;
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+}
+
+.animus.monster-creator .window-content {
+  padding: 0;
+  overflow: hidden;
+}
+
+.animus.monster-creator .creator-content {
+  padding: 20px;
+}
+
+/* Steps Progress */
+.animus.monster-creator .steps-progress {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  padding-bottom: 15px;
+}
+
+.animus.monster-creator .step {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #666;
+  position: relative;
+}
+
+.animus.monster-creator .step.active {
+  color: var(--accent);
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
+}
+
+.animus.monster-creator .step.active::after {
+  content: '';
+  position: absolute;
+  bottom: -16px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+/* Form Styles */
+.animus.monster-creator .form-group-stack {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.animus.monster-creator label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #aaa;
+  margin-bottom: 5px;
+}
+
+.animus.monster-creator input, 
+.animus.monster-creator select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 10px;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+}
+
+.animus.monster-creator input:focus, 
+.animus.monster-creator select:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 8px rgba(0, 242, 255, 0.3);
+}
+
+/* Projections Box */
+.animus.monster-creator .projections {
+  margin-top: 25px;
+  padding: 15px;
+  background: rgba(0, 242, 255, 0.03);
+  border-left: 3px solid var(--accent);
+}
+
+.animus.monster-creator .projections h4 {
+  margin: 0 0 10px 0;
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.animus.monster-creator .stats-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.animus.monster-creator .stat {
+  font-size: 0.85rem;
+}
+
+.animus.monster-creator .stat .label {
+  color: #888;
+}
+
+.animus.monster-creator .stat .val {
+  color: #fff;
+  font-weight: 700;
+}
+
+/* Attributes Grid */
+.animus.monster-creator .attributes-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-top: 20px;
+}
+
+.animus.monster-creator .attr-input {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+}
+
+.animus.monster-creator .attr-input input {
+  width: 60px;
+  text-align: center;
+  font-size: 1.2rem;
+  font-weight: 800;
+}
+
+/* Footer Buttons */
+.animus.monster-creator .creator-footer {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+  gap: 15px;
+}
+
+.animus.monster-creator button {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+}
+
+.animus.monster-creator .prev-btn {
+  background: rgba(255, 255, 255, 0.1);
+  color: #fff;
+}
+
+.animus.monster-creator .next-btn {
+  background: var(--accent);
+  color: #000;
+}
+
+.animus.monster-creator .create-btn {
+  background: #2e7d32;
+  color: #fff;
+  box-shadow: 0 0 15px rgba(46, 125, 50, 0.4);
+}
+
+.animus.monster-creator button:hover {
+  filter: brightness(1.2);
+  transform: translateY(-2px);
+}

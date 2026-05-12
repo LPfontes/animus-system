@@ -1,0 +1,23 @@
+_id: f9d2b0ad5048d38a
+name: Argumento Irrefutável
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/13.png
+system:
+  description: Quando você está em negociação, pode gastar 2 <span class="text-resource">PE</span> para sua próxima rolagem gastar metade da paciência do NPC (se for 1, torne esse valor 0).
+  trigger: Em negociação
+  requirements:
+    description: Amador em Persuasão.
+    talents: {}
+    attributes: []
+    skills:
+      - key: persuasao
+        rank: 1
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!f9d2b0ad5048d38a"

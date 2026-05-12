@@ -1,0 +1,35 @@
+_id: npcTalentM000012
+name: "Rastro Invertido"
+type: talent
+img: systems/animus/assets/system-icons/talents/utilitario.svg
+folder: fldbestmistic000
+system:
+  description: "<p>Não pode ser rastreado em bioma nativo por meios convencionais (Exige teste de CD extrema).</p>"
+  cost: 4
+  requirements: []
+  category: utilitario
+  bonuses:
+    hp: 0
+    pe: 0
+    pa: 0
+    damage: 0
+    attributes:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    resistances:
+      physical: 0
+      elemental: 0
+      mental: 0
+  check:
+    attribute: ""
+    difficulty: ""
+  specialActions: []
+  formula: ""
+flags:
+  animus:
+    isNPCTalent: true
+_key: '!items!npcTalentM000012'

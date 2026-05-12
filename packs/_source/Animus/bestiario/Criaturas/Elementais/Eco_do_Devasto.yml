@@ -1,0 +1,80 @@
+_id: ecododevasto0001
+name: "Eco do Devasto"
+type: npc
+img: systems/animus/assets/system-icons/types/elemental.svg
+folder: fldbestelemen000
+system:
+  nd: 6
+  classification: "raro"
+  innateIdentity: "elemental"
+  type: "Elemental"
+  quote: ""
+  attributes:
+    pot: { value: 1 }
+    hab: { value: 2 }
+    cog: { value: 1 }
+    per: { value: 2 }
+    pre: { value: 2 }
+    ani: { value: 3 }
+  status:
+    hp: { value: 105, max: 105 }
+    pe: { value: 38, max: 38 }
+    pa: { value: 5, max: 5 }
+  attack:
+    label: "Fragmentos"
+    formula: "4d6"
+    attribute: "ani"
+    baseBonus: 2
+  damageTable:
+    damageType: "Fragmentos"
+    attribute: "ani"
+    ac1: 12
+    ac2: 18
+    ac3: 24
+    ac4: 30
+    ac5: 36
+    ac6: 48
+  skills: [{"key":"controle_elemental","rank":2},{"key":"intuicao","rank":2},{"key":"aura","rank":2}]
+  abilities: [
+      {
+        "name": "Anima Latente",
+        "rarity": "comum",
+        "description": "<p>+8 PE máximos. Regenera 4 PE por rodada.</p>",
+        "bonuses": {
+          "pe": 8
+        },
+        "specialActions": [
+          "Regenerar PE"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Sopro Elemental",
+        "rarity": "raro",
+        "description": "<p>2 PA, 5 PE: cone de 6m de dano elemental (aleatório). Alvo testa Resistência CD 12 ou sofre condição elemental do tipo.</p>",
+        "check": {
+          "attribute": "pre",
+          "difficulty": "12"
+        },
+        "img": "systems/animus/assets/system-icons/talents/raro.svg"
+      },
+      {
+        "name": "Aura Instável",
+        "rarity": "raro",
+        "description": "<p>Passiva: personagens a menos de 3m testam PER CD 10 no início do turno ou sofrem 1d6 de dano elemental aleatório.</p>",
+        "check": {
+          "attribute": "per",
+          "difficulty": "10"
+        },
+        "formula": "1d6",
+        "img": "systems/animus/assets/system-icons/talents/raro.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Pulso de Destruição","description":"Fragmentos (2) + Sopro Elemental (3)","totalPA":5}]
+  availableActions: ""
+  ecology: "<p>Um resíduo de energia elemental deixado por grandes catástrofes. Sua forma é instável e destrutiva, reagindo violentamente a qualquer presença estranha.</p>"
+  weaknesses: "<p><b>Elemento oposto:</b> causa +50% de dano e desativa Aura Instável por 1 rodada. <b>Círculo de Sal:</b> pode ser aprisionado temporariamente em círculo de sal com runa elemental oposta.</p>"
+  loot: ""
+  narratorNotes: "<p>Prioriza personagens com baixo PE ou alta concentração de Anima (elementalistas). Ele é um predador de energia, buscando sempre a fonte mais instável.</p>"
+flags: {}
+_key: '!actors!ecododevasto0001'

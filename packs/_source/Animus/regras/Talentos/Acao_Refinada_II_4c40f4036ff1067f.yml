@@ -1,0 +1,23 @@
+_id: 4c40f4036ff1067f
+name: Ação Refinada II
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/18.png
+system:
+  description: Você diminui o custo da <span class="text-mechanic">ação</span> escolhida em '<span class="text-mechanic">ação</span> Refinada' em mais 1 (mínimo 1).
+  trigger: ""
+  requirements:
+    description: Mestre em Perícia-Chave; ação Refinada I.
+    talents:
+      Mestre em Perícia: f9dc143a651aa752
+      Ação Refinada I: 59ce7528a4d975f4
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!4c40f4036ff1067f"

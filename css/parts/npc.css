@@ -1,0 +1,698 @@
+/* NPC Sheet Modern V5 */
+
+.animus.npc-sheet {
+  --rarity-comum: #a0a0a0;
+  --rarity-raro: #7b1fa2;
+  --rarity-mistico: #ff8f00;
+  --rarity-lendario: #c62828;
+
+  background: linear-gradient(135deg, rgba(10, 15, 25, 0.95), rgba(30, 40, 60, 0.95));
+  color: #e0e0e0;
+  font-family: 'Outfit', sans-serif;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Header */
+.animus.npc-sheet .sheet-header {
+  padding: 20px;
+  background: rgba(255, 255, 255, 0.03);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animus.npc-sheet .header-main {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.animus.npc-sheet .portrait-container {
+  width: 120px;
+  height: 120px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--accent);
+  box-shadow: 0 0 15px rgba(0, 242, 255, 0.2);
+}
+
+.animus.npc-sheet .portrait-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.animus.npc-sheet .identity-info {
+  flex: 1;
+}
+
+.animus.npc-sheet .name-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.animus.npc-sheet .charname {
+  margin: 0;
+  font-family: 'Cinzel', serif;
+  font-size: 2.2rem;
+  letter-spacing: 1px;
+  color: #fff;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+.animus.npc-sheet .charname input {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--accent);
+  color: #fff;
+  font-size: 1.8rem;
+  width: 100%;
+}
+
+.animus.npc-sheet .sub-header {
+  margin-top: 5px;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+.animus.npc-sheet .nd-tag {
+  color: var(--accent);
+}
+
+.animus.npc-sheet .classification-tag.comum {
+  color: var(--rarity-comum);
+}
+
+.animus.npc-sheet .classification-tag.raro {
+  color: var(--rarity-raro);
+}
+
+.animus.npc-sheet .classification-tag.mistico {
+  color: var(--rarity-mistico);
+}
+
+.animus.npc-sheet .flavor-quote {
+  font-style: italic;
+  color: #aaa;
+  margin: 10px 0 0 0;
+  font-size: 1rem;
+}
+
+/* Status Bar */
+.animus.npc-sheet .status-bar-v5 {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+  padding: 15px 20px;
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.animus.npc-sheet .stat-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+  transition: all 0.3s ease;
+}
+
+.animus.npc-sheet .stat-box label {
+  display: block;
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  color: #888;
+  margin-bottom: 5px;
+}
+
+.animus.npc-sheet .stat-box .value-display {
+  font-size: 1.4rem;
+  font-weight: 800;
+}
+
+.animus.npc-sheet .stat-box.hp {
+  border-left: 4px solid #c62828;
+}
+
+.animus.npc-sheet .stat-box.pe {
+  border-left: 4px solid #1565c0;
+}
+
+.animus.npc-sheet .stat-box.pa {
+  border-left: 4px solid #f9a825;
+}
+
+.animus.npc-sheet .stat-box.attack {
+  border-left: 4px solid var(--accent);
+  cursor: pointer;
+}
+
+.animus.npc-sheet .stat-box.attack:hover {
+  background: rgba(0, 242, 255, 0.1);
+  transform: translateY(-2px);
+}
+
+.animus.npc-sheet .value-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 5px;
+}
+
+.animus.npc-sheet .value-row input {
+  width: 50px;
+  background: transparent;
+  border: none;
+  color: #fff;
+  font-size: 1.4rem;
+  font-weight: 800;
+  text-align: center;
+}
+
+/* Sections */
+.animus.npc-sheet .sheet-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0 20px 20px 20px;
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) rgba(0, 0, 0, 0.2);
+}
+
+.animus.npc-sheet .sheet-body::-webkit-scrollbar {
+  width: 6px;
+}
+
+.animus.npc-sheet .sheet-body::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.1);
+}
+
+.animus.npc-sheet .sheet-body::-webkit-scrollbar-thumb {
+  background: var(--accent);
+  border-radius: 10px;
+}
+
+.animus.npc-sheet .section-header-v5 {
+  background: linear-gradient(90deg, rgba(0, 242, 255, 0.15), transparent);
+  border-left: 3px solid var(--accent);
+  padding: 8px 15px;
+  margin: 20px 0 10px 0;
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.animus.npc-sheet .section-header-v5.gm-only {
+  background: linear-gradient(90deg, rgba(198, 40, 40, 0.15), transparent);
+  border-left-color: #c62828;
+}
+
+/* Attributes NPC */
+.animus.npc-sheet .attributes-grid-npc {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.animus.npc-sheet .attr-npc-box {
+  background: rgba(255, 255, 255, 0.05);
+  padding: 8px;
+  border-radius: 6px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.animus.npc-sheet .attr-npc-box .attr-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: #888;
+}
+
+.animus.npc-sheet .attr-npc-box .attr-value {
+  font-size: 1.2rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.animus.npc-sheet .attr-npc-box.rollable {
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.animus.npc-sheet .attr-npc-box.rollable:hover {
+  background: rgba(0, 242, 255, 0.1);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.1);
+  transform: translateY(-1px);
+}
+
+/* Skills NPC */
+.animus.npc-sheet .skills-list-npc {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.animus.npc-sheet .skill-npc-row {
+  background: rgba(0, 242, 255, 0.05);
+  border: 1px solid rgba(0, 242, 255, 0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.animus.npc-sheet .skill-npc-row .skill-rank {
+  font-style: italic;
+  color: #888;
+  margin-left: 5px;
+}
+
+/* Damage Table NPC */
+.animus.npc-sheet .damage-table-npc {
+  padding: 15px;
+}
+
+.animus.npc-sheet .dt-header {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.animus.npc-sheet .dt-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 5px;
+}
+
+.animus.npc-sheet .dt-cell {
+  background: rgba(0, 0, 0, 0.3);
+  padding: 8px 4px;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.animus.npc-sheet .dt-cell label {
+  display: block;
+  font-size: 0.6rem;
+  color: #888;
+  margin-bottom: 2px;
+}
+
+.animus.npc-sheet .dt-cell .val {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: #fff;
+}
+
+/* Abilities */
+.animus.npc-sheet .ability-npc-item {
+  margin-bottom: 12px;
+  padding: 0;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 4px solid transparent;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.animus.npc-sheet .ability-npc-item:not(.collapsed) {
+  background: rgba(255, 255, 255, 0.05);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(255, 255, 255, 0.05);
+  transform: scale(1.005);
+}
+
+.animus.npc-sheet .ability-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 15px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+  transition: background 0.2s ease;
+}
+
+.animus.npc-sheet .ability-header:hover {
+  background: rgba(255, 255, 255, 0.05);
+}
+
+.animus.npc-sheet .ability-npc-item.collapsed .ability-body {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 15px;
+  margin: 0;
+  pointer-events: none;
+}
+
+.animus.npc-sheet .ability-body {
+  padding: 0 15px 15px 15px;
+  max-height: 2000px;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+.animus.npc-sheet .header-left {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex: 1;
+}
+
+.animus.npc-sheet .collapse-icon {
+  font-size: 0.8rem;
+  color: var(--accent);
+  transition: transform 0.3s ease;
+}
+
+.animus.npc-sheet .ability-npc-item:not(.collapsed) .collapse-icon,
+.animus.npc-sheet .turn-card:not(.collapsed) .collapse-icon {
+  transform: rotate(90deg);
+}
+
+.animus.npc-sheet .ability-name {
+  font-family: 'Cinzel', serif;
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #fff;
+}
+
+.animus.npc-sheet .name-meta {
+  display: flex;
+  flex-direction: column;
+}
+
+.animus.npc-sheet .ability-meta {
+  font-size: 0.85rem;
+  color: #aaa;
+}
+
+.animus.npc-sheet .ability-controls {
+  display: flex;
+  gap: 8px;
+}
+
+.animus.npc-sheet .control.roll:hover {
+  color: var(--accent);
+  text-shadow: 0 0 8px rgba(0, 242, 255, 0.4);
+}
+
+.animus.npc-sheet .ability-body {
+  font-size: 0.95rem;
+  line-height: 1.4;
+  color: #ccc;
+}
+
+/* Glass Panels */
+.animus.npc-sheet .glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 10px;
+  padding: 15px;
+}
+
+/* Controls */
+.animus.npc-sheet .control {
+  cursor: pointer;
+  color: #888;
+  transition: color 0.2s;
+}
+
+.animus.npc-sheet .control:hover {
+  color: #fff;
+}
+
+.animus.npc-sheet .control.add {
+  color: var(--accent);
+}
+
+.animus.npc-sheet .control.delete {
+  color: #c62828;
+}
+
+.animus.npc-sheet .skill-counter,
+.animus.npc-sheet .talent-points-counter {
+  font-size: 0.8rem;
+  font-family: 'Outfit', sans-serif;
+  color: #aaa;
+  font-weight: 500;
+}
+
+.animus.npc-sheet .talent-points-counter.over-budget {
+  color: #ff5252;
+  text-shadow: 0 0 5px rgba(255, 82, 82, 0.5);
+}
+
+.animus.npc-sheet .talent-badge {
+  background: rgba(255, 143, 0, 0.2);
+  color: #ff8f00;
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border: 1px solid rgba(255, 143, 0, 0.3);
+  margin-left: 5px;
+}
+
+.animus.npc-sheet .header-stats {
+  border-left: 1px solid rgba(255, 255, 255, 0.1);
+  padding-left: 20px;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.animus.npc-sheet .header-stats .stat-box.resistances {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+  text-align: left;
+}
+
+.animus.npc-sheet .res-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 5px;
+}
+
+.animus.npc-sheet .res-item {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+}
+
+.animus.npc-sheet .res-item i {
+  color: var(--accent);
+  width: 18px;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.animus.npc-sheet .res-item span {
+  text-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+}
+
+.animus.npc-sheet .ability-actions-footer {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.animus.npc-sheet .action-btn {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: #fff;
+  padding: 4px 10px;
+  border-radius: 4px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.75rem;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: all 0.2s ease;
+}
+
+.animus.npc-sheet .action-btn i {
+  font-size: 0.7rem;
+}
+
+.animus.npc-sheet .action-btn.check {
+  background: rgba(var(--accent-rgb), 0.1);
+  border-color: rgba(var(--accent-rgb), 0.3);
+  color: var(--accent);
+}
+
+.animus.npc-sheet .action-btn.special {
+  background: rgba(255, 143, 0, 0.1);
+  border-color: rgba(255, 143, 0, 0.3);
+  color: #ffb74d;
+}
+
+.animus.npc-sheet .action-btn.formula {
+  background: rgba(46, 125, 50, 0.1);
+  border-color: rgba(46, 125, 50, 0.3);
+  color: #81c784;
+}
+
+.animus.npc-sheet .action-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-1px);
+}
+
+.animus.npc-sheet .action-btn.check:hover {
+  background: rgba(var(--accent-rgb), 0.2);
+  border-color: var(--accent);
+}
+
+.animus.npc-sheet .action-btn.special:hover {
+  background: rgba(255, 143, 0, 0.2);
+  border-color: #ffa726;
+}
+
+/* Forms */
+.animus.npc-sheet .bonus-edit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  background: rgba(0, 0, 0, 0.2);
+  padding: 5px;
+  border-radius: 4px;
+  margin-top: 5px;
+}
+
+.animus.npc-sheet .bonus-group label {
+  display: block;
+  font-size: 0.7rem;
+  color: #aaa;
+  text-transform: uppercase;
+  margin-bottom: 2px;
+}
+
+.animus.npc-sheet .bonus-group .inputs {
+  display: flex;
+  gap: 3px;
+}
+
+.animus.npc-sheet .bonus-group input {
+  width: 35px;
+  font-size: 0.75rem;
+  text-align: center;
+}
+
+.animus.npc-sheet input,
+.animus.npc-sheet select {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 4px;
+}
+
+.animus.npc-sheet .nd-input {
+  width: 40px;
+}
+
+.animus.npc-sheet .costs {
+  display: flex;
+  gap: 5px;
+}
+
+.animus.npc-sheet .costs input {
+  width: 35px;
+  text-align: center;
+}
+
+.animus.npc-sheet .costs .talent-cost {
+  border-color: #ff8f00;
+}
+
+/* Turn Patterns */
+.animus.npc-sheet .turn-card {
+  margin-bottom: 12px;
+  padding: 0;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border-left: 3px solid var(--accent);
+  overflow: hidden;
+}
+
+.animus.npc-sheet .turn-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 15px;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.02);
+}
+
+.animus.npc-sheet .turn-card.collapsed .turn-body {
+  max-height: 0;
+  opacity: 0;
+  padding: 0 15px;
+}
+
+.animus.npc-sheet .turn-body {
+  padding: 10px 15px;
+  max-height: 1000px;
+  opacity: 1;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  overflow: hidden;
+}
+
+/* Ecology & Notes */
+.animus.npc-sheet .ecology-editor,
+.animus.npc-sheet .weakness-editor,
+.animus.npc-sheet .notes-editor {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #ccc;
+  min-height: 100px;
+}
+
+.animus.npc-sheet .ecology-editor p,
+.animus.npc-sheet .weakness-editor p,
+.animus.npc-sheet .notes-editor p {
+  margin-bottom: 12px;
+}
+
+.animus.npc-sheet .ecology-editor i,
+.animus.npc-sheet .weakness-editor i,
+.animus.npc-sheet .notes-editor i {
+  color: var(--accent);
+}
+
+.animus.npc-sheet .weakness-editor {
+  border-left: 3px solid #ff5252;
+}
+
+/* Grid Adjustments */
+.animus.npc-sheet .grid-2 {
+  gap: 20px;
+}
+
+.animus.npc-sheet .turn-patterns-section {
+  margin-top: 20px;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  padding-top: 20px;
+}
+
+.animus.npc-sheet .name-input {
+  flex: 1;
+}
+
+.animus.npc-sheet .ability-meta-edit {
+  margin-bottom: 5px;
+}
+
+.animus.npc-sheet .ability-meta-edit input {
+  width: 100%;
+  font-size: 0.8rem;
+}

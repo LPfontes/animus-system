@@ -1,0 +1,27 @@
+_id: 211ab3b0b0ed9f50
+name: Têmpera
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/metal (2).png
+system:
+  description: 'Ao rolar 6 e 5: gaste 2 PE para transformar o 5 em 6 (Crítico Natural).'
+  tier: basic
+  element: metal
+  category: weapon
+  price: 600
+folder: fldmetal00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!211ab3b0b0ed9f50'

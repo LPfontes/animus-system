@@ -1,0 +1,27 @@
+_id: 8f3d5e1d6bf29cac
+name: Regeneração Vegetal
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (1).png
+system:
+  description: 'Descanso curto em ambiente natural: recupera 1 PV extra.'
+  tier: basic
+  element: madeira
+  category: armor
+  price: 600
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!8f3d5e1d6bf29cac'

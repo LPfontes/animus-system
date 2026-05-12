@@ -1,0 +1,41 @@
+_id: 09dcf679753537f5
+name: Acrobata
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/38.png
+system:
+  description: >-
+    Pode se mover em superfícies estreitas (vigas, cordas, bordas) sem <span
+    class="text-mechanic">teste</span> de acrobacia. <br>Recebe +1d em acrobacia
+    para escapar de <span class="text-condition">agarrado</span>.
+  trigger: ''
+  requirements:
+    description: Amador em acrobacia.
+    talents: {}
+    attributes: []
+    skills:
+      - key: acrobacia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: 4
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!09dcf679753537f5'

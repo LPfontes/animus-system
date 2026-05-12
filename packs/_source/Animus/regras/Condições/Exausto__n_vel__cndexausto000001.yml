@@ -1,0 +1,27 @@
+_id: cndexausto000001
+name: Exausto (nível)
+type: condition
+img: icons/svg/lightning.svg
+system:
+  description: ''
+  penalty: '−1 em todos os atributos por nível. Nível 3+: −1 PA por turno.'
+  cause: Esforço extremo, falta de descanso.
+  removal: Descanso longo remove 1 nível.
+  duration: Acumula
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndexausto000001'

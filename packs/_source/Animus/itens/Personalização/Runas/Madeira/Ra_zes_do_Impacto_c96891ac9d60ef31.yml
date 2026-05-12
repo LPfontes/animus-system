@@ -1,0 +1,27 @@
+_id: c96891ac9d60ef31
+name: Raízes do Impacto
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (6).png
+system:
+  description: 'Bloqueio 3+ acertos: atacante fica Imobilizado 1 rodada. 1x/cena.'
+  tier: reinforced
+  element: madeira
+  category: shield
+  price: 1200
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!c96891ac9d60ef31'

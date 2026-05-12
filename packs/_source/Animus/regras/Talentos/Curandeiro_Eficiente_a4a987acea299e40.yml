@@ -1,0 +1,41 @@
+_id: a4a987acea299e40
+name: Curandeiro Eficiente
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/8.png
+system:
+  description: >-
+    Ao usar um kit de primeiros socorros, você cura o valor do dado inteiro ao
+    invés da metade.
+  trigger: ''
+  requirements:
+    description: Profissional em Medicina; Médico de Campo.
+    talents:
+      Médico de Campo: 5eb6fbc9e0c48d93
+    attributes: []
+    skills:
+      - key: medicina
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!a4a987acea299e40'

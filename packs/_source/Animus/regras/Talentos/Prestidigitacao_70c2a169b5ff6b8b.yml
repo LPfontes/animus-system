@@ -1,0 +1,24 @@
+_id: 70c2a169b5ff6b8b
+name: Prestidigitação
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/30.png
+system:
+  description: +1d em testes de Prestidigitação para esconder objetos pequenos, falsificar documentos simples ou realizar truques de manipulação. <br>Pode esconder objetos pequenos mesmo sob inspeção casual.
+  trigger: ""
+  requirements:
+    description: Amador em Prestidigitação.
+    talents:
+      Prestidigitação: e7e2a31a65753cbc
+    attributes: []
+    skills:
+      - key: prestidigitacao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!70c2a169b5ff6b8b"

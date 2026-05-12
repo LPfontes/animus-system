@@ -1,0 +1,96 @@
+<div class="creator-content">
+  {{!-- Progress Bar --}}
+  <div class="steps-progress">
+    <div class="step {{#if (eq step 1)}}active{{/if}}" data-step="1">1. Identidade</div>
+    <div class="step {{#if (eq step 2)}}active{{/if}}" data-step="2">2. Atributos</div>
+    <div class="step {{#if (eq step 3)}}active{{/if}}" data-step="3">3. Revisão</div>
+  </div>
+
+  <div class="step-container">
+    {{#if (eq step 1)}}
+    <div class="form-group-stack">
+      <label>Nome do Espécime</label>
+      <input type="text" name="name" value="{{data.name}}" placeholder="Ex: Urso Sombrio" />
+
+      <div class="grid grid-2">
+        <div class="field">
+          <label>Nível de Desafio (ND)</label>
+          <input type="number" name="nd" value="{{data.nd}}" min="1" max="20" data-action="updateBase" />
+        </div>
+        <div class="field">
+          <label>Classificação</label>
+          <select name="classification" data-action="updateBase">
+            <option value="comum" {{#if (eq data.classification "comum" )}}selected{{/if}}>Comum</option>
+            <option value="raro" {{#if (eq data.classification "raro" )}}selected{{/if}}>Raro</option>
+            <option value="místico" {{#if (eq data.classification "místico" )}}selected{{/if}}>Místico</option>
+          </select>
+        </div>
+      </div>
+
+      <label>Identidade Inata (Tipo)</label>
+      <select name="type" data-action="updateBase">
+        <option value="humanoide" {{#if (eq data.type "humanoide" )}}selected{{/if}}>Humanoide</option>
+        <option value="aberração" {{#if (eq data.type "aberração" )}}selected{{/if}}>Aberração</option>
+        <option value="animal" {{#if (eq data.type "animal" )}}selected{{/if}}>Animal</option>
+        <option value="elemental" {{#if (eq data.type "elemental" )}}selected{{/if}}>Elemental</option>
+        <option value="espírito" {{#if (eq data.type "espírito" )}}selected{{/if}}>Espírito</option>
+        <option value="morto-vivo" {{#if (eq data.type "morto-vivo" )}}selected{{/if}}>Morto-Vivo</option>
+      </select>
+    </div>
+
+    <div class="projections glass-panel">
+      <h4><i class="fas fa-chart-line"></i> Projeções Estimadas (ND {{data.nd}})</h4>
+      <div class="stats-grid">
+        <div class="stat"><span class="label">PV:</span> <span class="val">{{suggestions.hp}}</span></div>
+        <div class="stat"><span class="label">PE:</span> <span class="val">{{suggestions.pe}}</span></div>
+        <div class="stat"><span class="label">PA:</span> <span class="val">{{suggestions.pa}}</span></div>
+        <div class="stat"><span class="label">Ataque:</span> <span class="val">{{suggestions.dice}} + {{suggestions.atkBonus}}</span></div>
+        <div class="stat"><span class="label">Talentos:</span> <span class="val">{{suggestions.talentPoints}} pts</span></div>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq step 2)}}
+    <div class="attributes-setup">
+      <p class="instruction">Distribua os bônus fixos de atributos do NPC.</p>
+      <div class="attributes-grid">
+        {{#each data.attributes as |val key|}}
+        <div class="attr-input">
+          <label>{{upper key}}</label>
+          <input type="number" name="attributes.{{key}}" value="{{val}}" />
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq step 3)}}
+    <div class="summary-view glass-panel">
+      <h3>Resumo do Protocolo</h3>
+      <div class="summary-line"><strong>Nome:</strong> {{data.name}}</div>
+      <div class="summary-line"><strong>ND:</strong> {{data.nd}} ({{upper data.classification}})</div>
+      <div class="summary-line"><strong>Tipo:</strong> {{upper data.type}}</div>
+      <hr>
+      <div class="summary-stats">
+        <p>Este monstro será criado com o escalonamento automático de ND {{data.nd}} aplicado.</p>
+        <ul>
+          <li>Vida calculada com bônus de tipo.</li>
+          <li>Orçamento de Talentos disponível na ficha após a criação.</li>
+        </ul>
+      </div>
+    </div>
+    {{/if}}
+  </div>
+
+  <div class="creator-footer">
+    {{#if (gt step 1)}}
+    <button type="button" class="prev-btn" data-action="prevStep"><i class="fas fa-arrow-left"></i> Voltar</button>
+    {{/if}}
+
+    {{#if (lt step 3)}}
+    <button type="button" class="next-btn" data-action="nextStep">Continuar <i class="fas fa-arrow-right"></i></button>
+    {{else}}
+    <button type="button" class="create-btn" data-action="createMonster"><i class="fas fa-check"></i> FINALIZAR PROTOCOLO</button>
+    {{/if}}
+  </div>
+</div>

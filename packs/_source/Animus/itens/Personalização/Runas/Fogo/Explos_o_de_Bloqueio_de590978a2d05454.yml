@@ -1,0 +1,27 @@
+_id: de590978a2d05454
+name: Explosão de Bloqueio
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/fogo5.png
+system:
+  description: '1x/combate: bloqueio -> gaste 4 PE -> 1d6+ANI fogo em 3m.'
+  tier: reinforced
+  element: fogo
+  category: shield
+  price: 1200
+folder: fldfogo000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!de590978a2d05454'

@@ -1,0 +1,26 @@
+_id: cbac8ff89f2bf6a2
+name: Dança de Lâminas
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/36.png
+system:
+  description: "O ataque com a arma secundária aplica o multiplicador de atributo COMPLETO (em vez de metade). <br>Custo: 1 <span class=\"text-resource\">PA</span> + 1 <span class=\"text-resource\">PE</span>."
+  trigger: ""
+  requirements:
+    description: Profissional em Luta ou Pontaria; Combater com Duas armas; nível 4+.
+    talents:
+      Combater com Duas armas: 8539982c6908d344
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 2
+      - key: luta
+        rank: 2
+  cost: 1
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!cbac8ff89f2bf6a2"

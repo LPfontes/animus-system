@@ -1,0 +1,27 @@
+_id: null
+name: Terreno Difícil
+type: condition
+img: icons/svg/mountain.svg
+system:
+  description: ''
+  penalty: Dobro do custo de movimento na área. Acrobacia CD 7+ANI para ignorar.
+  cause: Efeito inato da Terra ou ambiente acidentado.
+  removal: Sair da área ou fim do efeito.
+  duration: Variável
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!'

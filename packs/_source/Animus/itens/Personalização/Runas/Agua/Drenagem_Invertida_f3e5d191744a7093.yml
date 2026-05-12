@@ -1,0 +1,27 @@
+_id: f3e5d191744a7093
+name: Drenagem Invertida
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/agua5.png
+system:
+  description: '1x/cena: ao receber 3+ acertos, recupere PE igual ao número de acertos.'
+  tier: reinforced
+  element: agua
+  category: armor
+  price: 1200
+folder: fldagua000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!f3e5d191744a7093'

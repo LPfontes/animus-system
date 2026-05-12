@@ -1,0 +1,24 @@
+_id: c51ae6095690f61c
+name: Médico Econômico
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/32.png
+system:
+  description: Você pode usar um kit de primeiros socorros o dobro de vezes (10 vezes em vez de 5).
+  trigger: ""
+  requirements:
+    description: Profissional em Medicina; Médico de Campo.
+    talents:
+      Médico de Campo: 5eb6fbc9e0c48d93
+    attributes: []
+    skills:
+      - key: medicina
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!c51ae6095690f61c"

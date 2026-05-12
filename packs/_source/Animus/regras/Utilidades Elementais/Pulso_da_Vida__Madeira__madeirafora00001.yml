@@ -1,0 +1,28 @@
+_id: madeirafora00001
+name: Pulso da Vida (Madeira)
+type: action
+img: icons/magic/nature/leaf-glow-green.webp
+system:
+  description: >-
+    Efeito Secundário de Madeira (Fora de Combate). Usado para fazer sementes
+    brotarem, identificar plantas ou criar cipós de até 3 metros para escalada.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!madeirafora00001'

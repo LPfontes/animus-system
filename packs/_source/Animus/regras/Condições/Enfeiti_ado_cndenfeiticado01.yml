@@ -1,0 +1,28 @@
+_id: cndenfeiticado01
+name: Enfeitiçado
+type: condition
+img: icons/svg/mote.svg
+system:
+  description: ''
+  penalty: >-
+    Não pode atacar voluntariamente o feiticeiro. Desvantagem em testes contra
+    ele.
+  cause: Magia de encanto ou habilidade de sedução/sugestão.
+  removal: CD PRE (valor variável) por rodada; sofrer dano rompe o feitiço.
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndenfeiticado01'

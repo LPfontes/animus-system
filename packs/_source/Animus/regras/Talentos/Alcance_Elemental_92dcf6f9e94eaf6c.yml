@@ -1,0 +1,41 @@
+_id: 92dcf6f9e94eaf6c
+name: Alcance Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/23.png
+system:
+  description: >-
+    Alcance médio 18m (+5 <span class="text-resource">PE</span>) e longo 36m (+8
+    <span class="text-resource">PE</span>). <br>Exige linha de visão.
+  trigger: ''
+  requirements:
+    description: ANI 2 + Projétil Elem.
+    talents:
+      Projétil Elemental: 5309934e37fbad54
+    attributes:
+      - key: ani
+        value: 2
+    skills: []
+  cost: 5
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!92dcf6f9e94eaf6c'

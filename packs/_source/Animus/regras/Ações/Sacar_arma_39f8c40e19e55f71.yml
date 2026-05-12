@@ -1,0 +1,24 @@
+_id: 39f8c40e19e55f71
+name: Sacar arma
+type: action
+img: systems/animus/assets/system-icons/action/switch-weapon.svg
+system:
+  description: Saca ou guarda uma arma pronta para uso.
+  cost: 1
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: acoeshub00000001
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!39f8c40e19e55f71'

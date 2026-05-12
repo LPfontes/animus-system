@@ -1,0 +1,35 @@
+_id: npcTalentR000003
+name: "Sopro Elemental"
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/1.png
+folder: fldbestraros0000
+system:
+  description: "<p>2-3 PA + PE: Cone ou área de dano elemental com CD Resistência para reduzir à metade.</p>"
+  cost: 4
+  requirements: []
+  category: elemental
+  bonuses:
+    hp: 0
+    pe: 0
+    pa: 0
+    damage: 0
+    attributes:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    resistances:
+      physical: 0
+      elemental: 0
+      mental: 0
+  check:
+    attribute: ""
+    difficulty: ""
+  specialActions: []
+  formula: "3d6 + 5"
+flags:
+  animus:
+    isNPCTalent: true
+_key: '!items!npcTalentR000003'

@@ -1,0 +1,27 @@
+_id: 875c2015f388d07c
+name: Velocidade
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (3).png
+system:
+  description: +1 PA gratuito após atacar (somente movimento).
+  tier: basic
+  element: vento
+  category: weapon
+  price: 600
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!875c2015f388d07c'

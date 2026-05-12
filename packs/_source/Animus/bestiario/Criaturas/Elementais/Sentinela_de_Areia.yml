@@ -1,0 +1,81 @@
+_id: sentineladeareia0001
+name: "Sentinela de Areia"
+type: npc
+img: systems/animus/assets/system-icons/types/elemental.svg
+folder: fldbestelemen000
+system:
+  nd: 3
+  classification: "comum"
+  innateIdentity: "elemental"
+  type: "Elemental"
+  quote: ""
+  attributes:
+    pot: { value: 2 }
+    hab: { value: 0 }
+    cog: { value: 0 }
+    per: { value: 0 }
+    pre: { value: 0 }
+    ani: { value: 2 }
+  status:
+    hp: { value: 65, max: 65 }
+    pe: { value: 20, max: 20 }
+    pa: { value: 3, max: 3 }
+  attack:
+    label: "Punho de Pedra"
+    formula: "3d6"
+    attribute: "pot"
+    baseBonus: 1
+  damageTable:
+    damageType: "Punho de Pedra"
+    attribute: "pot"
+    ac1: 6
+    ac2: 9
+    ac3: 12
+    ac4: 15
+    ac5: 18
+    ac6: 24
+  skills: [{"key":"atletismo","rank":1},{"key":"resistencia","rank":1}]
+  abilities: [
+      {
+        "name": "Pele de Pedra",
+        "rarity": "comum",
+        "description": "<p>RD 2 contra ataques físicos. RD 3 contra ataques perfurantes (a pedra desvia a ponta).</p>",
+        "bonuses": {
+          "resistances": {
+            "physical": 2
+          }
+        },
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Slam de Terra",
+        "rarity": "comum",
+        "description": "<p>2 PA, 3 PE: soco que faz o chão tremer em 3m. Alvos na área testam HAB CD 10 ou ficam Derrubados.</p>",
+        "check": {
+          "attribute": "hab",
+          "difficulty": "10"
+        },
+        "specialActions": [
+          "Derrubar"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Fundir-se ao Chão",
+        "rarity": "comum",
+        "description": "<p>Em terreno de rocha ou terra: 1 PA para se enterrar parcialmente — Camuflado (PER CD 12), imóvel. Emerge como ação livre no próximo turno.</p>",
+        "check": {
+          "attribute": "per",
+          "difficulty": "12"
+        },
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Defesa de Rocha","description":"Punho de Pedra (2) + Movimentação (1)","totalPA":3}]
+  availableActions: ""
+  ecology: "<p>Um guardião silencioso feito de camadas de pedra e areia compactada. Reage apenas quando o território que protege é violado.</p>"
+  weaknesses: "<p><b>Água:</b> +50% de dano de Água (amolece a argila entre as camadas de pedra). <b>Fogo:</b> seca a argila (+1 de dano extra por acerto), mas endurece a pedra por 1 rodada (+1 RD).</p>"
+  loot: ""
+  narratorNotes: "<p>Não persegue por mais de 30m do local que defende. Sua programação de guarda é absoluta e previsível.</p>"
+flags: {}
+_key: '!actors!sentineladeareia0001'

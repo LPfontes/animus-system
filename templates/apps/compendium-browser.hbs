@@ -5,6 +5,7 @@
       <input type="text" name="search" placeholder="Buscar no compêndio..." class="search-input" value="{{searchQuery}}" />
     </div>
     
+    {{#if (or (eq activeTab 'weapon') (eq activeTab 'equipment') (eq activeTab 'secondary'))}}
     <div class="browser-nav tabs">
       <button type="button" class="tab-btn {{#if (eq activeTab 'weapon')}}active{{/if}}" data-action="setTab" data-tab="weapon">
         <i class="fas fa-swords"></i> Armas
@@ -16,6 +17,7 @@
         <i class="fas fa-backpack"></i> Secundários
       </button>
     </div>
+    {{/if}}
 
     {{#if (eq activeTab 'weapon')}}
     <div class="filters">
@@ -145,6 +147,9 @@
               {{#if (eq this.type 'weapon')}}
                 <span class="tag dmg"><i class="fas fa-burst"></i> {{this.displayDamage}}</span>
               {{else}}
+                {{#if this.displayBonus}}
+                  <span class="tag bonus"><i class="fas fa-star"></i> {{this.displayBonus}}</span>
+                {{/if}}
                 {{#if this.system.base}}
                   <span class="tag prot"><i class="fas fa-shield"></i> {{this.system.base}}</span>
                 {{/if}}
@@ -159,7 +164,6 @@
           </div>
         </div>
 
-        {{#if expanded}}
         <div class="item-details accordion-content">
           <div class="details-grid">
             {{#if (eq this.type 'weapon')}}
@@ -174,6 +178,22 @@
             </div>
             {{/if}}
             
+            {{#if isElement}}
+            <div class="detail-box element-meta">
+              <label>Características Elementais</label>
+              <div class="meta-row" style="display: flex; gap: 15px; margin-bottom: 5px; font-size: 0.8rem;">
+                <span><i class="fas fa-arrows-alt-h"></i> <strong>Alcance:</strong> {{system.range}}</span>
+                <span><i class="fas fa-clock"></i> <strong>Ritmo:</strong> {{system.rhythm}}</span>
+              </div>
+              <div class="meta-row" style="margin-bottom: 3px; font-size: 0.8rem;">
+                <span style="color: #00ff88;"><i class="fas fa-check-circle"></i> <strong>Força:</strong> {{system.strength}}</span>
+              </div>
+              <div class="meta-row" style="font-size: 0.8rem;">
+                <span style="color: #ff4444;"><i class="fas fa-exclamation-triangle"></i> <strong>Fraqueza:</strong> {{system.weakness}}</span>
+              </div>
+            </div>
+            {{/if}}
+            
             <div class="detail-box description">
               <label>Descrição / Efeitos</label>
               <div class="text-content">
@@ -182,7 +202,6 @@
             </div>
           </div>
         </div>
-        {{/if}}
       </div>
       {{/each}}
 

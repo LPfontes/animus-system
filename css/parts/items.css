@@ -778,3 +778,80 @@
   border-left: 1px solid rgba(255, 255, 255, 0.1);
   white-space: nowrap;
 }
+
+/* --- Property Bonus Grid --- */
+.bonus-attr-grid {
+  grid-column: span 3;
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 10px;
+}
+
+.attr-bonus-inputs {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+  margin-top: 5px;
+}
+
+.attr-input-group {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 5px;
+  border-radius: 4px;
+}
+
+.attr-input-group label {
+  font-size: 0.7em;
+  color: var(--accent);
+  font-weight: bold;
+}
+
+.attr-input-group input {
+  text-align: center !important;
+  background: transparent !important;
+  border: none !important;
+  font-size: 1em !important;
+  color: #fff !important;
+  width: 100% !important;
+}
+
+/* Tooltip Icon */
+.property-tag-v3 i {
+  font-size: 0.7rem;
+  margin-left: 8px;
+  color: var(--accent);
+  opacity: 0.7;
+}
+
+/* --- Block Descriptions --- */
+.properties-descriptions-block {
+  margin: 10px 0;
+  padding: 12px;
+  background: rgba(0, 0, 0, 0.25);
+  border-radius: 8px;
+  border-left: 3px solid var(--accent);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.prop-desc-item {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-main);
+}
+
+.prop-desc-item strong {
+  color: var(--accent);
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.5px;
+}
+
+.prop-desc-item span {
+  color: var(--text-muted);
+}

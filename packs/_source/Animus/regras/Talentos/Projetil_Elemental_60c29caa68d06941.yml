@@ -1,0 +1,23 @@
+_id: 60c29caa68d06941
+name: Projétil Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/22.png
+system:
+  description: Ataques elementais a 9m (+3 <span class="text-resource">PE</span>). <br>Projétil visível do elemento.
+  trigger: ""
+  requirements:
+    description: ANI 1
+    talents: {}
+    attributes:
+      - key: ani
+        value: 1
+    skills: []
+  cost: 3
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+_key: "!items!60c29caa68d06941"

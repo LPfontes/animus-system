@@ -1,0 +1,45 @@
+_id: fcfd1b2878fa98b3
+name: Arquiteto de Batalha
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/8.png
+system:
+  description: >-
+    Quando usa Estrategista de Campo, pode escolher dois efeitos ao invés de um.
+    <br>além disso, 1×/<span class="text-mechanic">cena</span> pode gastar 3
+    <span class="text-resource">PE</span> para dar 1 <span
+    class="text-resource">PA</span> extra a um aliado como <span
+    class="text-mechanic">reação</span> à <span
+    class="text-mechanic">ação</span> dele.
+  trigger: Como reação
+  requirements:
+    description: Mestre em Sobrevivência; Estrategista de Campo.
+    talents:
+      Estrategista de Campo: e4610735f54ea3e7
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!fcfd1b2878fa98b3'

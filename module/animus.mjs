@@ -3,7 +3,9 @@ import { actor, item } from "./data/_module.mjs";
 import { AnimusActor } from "./documents/actor.mjs";
 import { AnimusItem } from "./documents/item.mjs";
 import { AnimusActorSheet } from "./applications/actor/actor-sheet.mjs";
+import { AnimusNPCSheet } from "./applications/actor/npc-sheet.mjs";
 import { AnimusItemSheet } from "./applications/item/item-sheet.mjs";
+import { AnimusMonsterCreator } from "./applications/actor/monster-creator.mjs";
 
 Hooks.once("init", function() {
   console.log("Animus | Inicializando Sistema Animus RPG (V12+)");
@@ -23,6 +25,12 @@ Hooks.once("init", function() {
     types: ["character"],
     makeDefault: true,
     label: "ANIMUS.SheetCharacter"
+  });
+
+  Actors.registerSheet("animus", AnimusNPCSheet, { 
+    types: ["npc"],
+    makeDefault: true,
+    label: "ANIMUS.SheetNPC"
   });
 
   Items.unregisterSheet("core", ItemSheet);
@@ -76,6 +84,10 @@ Hooks.once("init", function() {
   Handlebars.registerHelper('not', function(v) {
     return !v;
   });
+
+  Handlebars.registerHelper('isNumber', function(v) {
+    return !isNaN(parseFloat(v)) && isFinite(v);
+  });
 });
 
 async function preloadHandlebarsTemplates() {
@@ -89,6 +101,7 @@ async function preloadHandlebarsTemplates() {
 
     // Main sheets
     "systems/animus/templates/actor/actor-sheet.hbs",
+    "systems/animus/templates/actor/npc-sheet.hbs",
     "systems/animus/templates/item/item-sheet.hbs",
     "systems/animus/templates/apps/compendium-browser.hbs",
     "systems/animus/templates/apps/talent-manager.hbs"
@@ -118,6 +131,9 @@ Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
     "system.status.pa.value": newPA,
     "system.status.pa.debt": 0
   });
+
+  // Resetar rastreio de ações repetidas no turno
+  await actor.setFlag("animus", "turnActions", []);
 
   if (debt > 0) {
     ui.notifications.info(`${actor.name} iniciou o turno com ${newPA} PA (${debt} descontado por reações).`);
@@ -174,5 +190,31 @@ Hooks.on("renderChatMessageHTML", (message, html, data) => {
         ui.notifications.info(`Aplicado ${damage} de dano a ${actor.name}. (Prot: -${absorbed}, PV: -${remaining})`);
       }
     });
+  }
+});
+
+/* -------------------------------------------- */
+/*  Sidebar Buttons                             */
+/* -------------------------------------------- */
+
+Hooks.on("renderActorDirectory", (app, html, data) => {
+  if (!game.user.isGM) return;
+  
+  const footer = html[0].querySelector(".directory-footer") || html[0];
+  const button = document.createElement("button");
+  button.type = "button";
+  button.classList.add("monster-creator-btn");
+  button.innerHTML = '<i class="fas fa-dna"></i> Criador de Monstros';
+  
+  button.addEventListener("click", () => {
+    new AnimusMonsterCreator().render(true);
+  });
+  
+  // Inserir antes dos botões padrão se for no footer, ou no final se não achar
+  const createEntity = footer.querySelector(".create-document") || footer.querySelector(".create-folder");
+  if (createEntity) {
+    createEntity.parentElement.insertBefore(button, createEntity);
+  } else {
+    footer.appendChild(button);
   }
 });

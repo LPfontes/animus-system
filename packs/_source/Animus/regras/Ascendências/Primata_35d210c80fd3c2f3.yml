@@ -1,0 +1,45 @@
+_id: 35d210c80fd3c2f3
+name: Primata
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/primata.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Força Primal:</strong> +1d em
+    testes de Luta<br>Membros superiores fortes e
+    adaptáveis.</li><li><strong>Mãos Hábeis:</strong> +1d em testes de
+    Prestidigitação<br>Gestos e movimentos complexos realizados com
+    facilidade.</li><li><strong>Socialidade Inata:</strong> +1d em testes de
+    Persuasão<br>Capacidade natural de lidar com situações sociais.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - pre
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Força Primal
+      description: Membros superiores fortes e adaptáveis.
+      mechanicalEffect: +1d em testes de Luta
+    - name: Mãos Hábeis
+      description: Gestos e movimentos complexos realizados com facilidade.
+      mechanicalEffect: +1d em testes de Prestidigitação
+    - name: Socialidade Inata
+      description: Capacidade natural de lidar com situações sociais.
+      mechanicalEffect: +1d em testes de Persuasão
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!35d210c80fd3c2f3'

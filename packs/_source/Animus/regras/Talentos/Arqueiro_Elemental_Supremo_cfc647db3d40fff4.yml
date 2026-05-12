@@ -1,0 +1,47 @@
+_id: cfc647db3d40fff4
+name: Arqueiro Elemental Supremo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/arqueria/10.png
+system:
+  description: >-
+    Seus disparos com infusão elemental têm alcance +15m e ignoram cobertura
+    parcial. <br>A condição inata se aplica com 2 acertos (em vez do mínimo
+    normal). <br>Com <span class="text-mechanic">Crítico</span> Natural, o
+    projétil atravessa o alvo e pode atingir um segundo alvo na mesma linha
+    (<span class="text-mechanic">dano</span> = metade, sem condição).
+  trigger: ''
+  requirements:
+    description: >-
+      Mestre em Pontaria; Profissional em Elemento; nível 8+. (Exclusivo de
+      Pontaria)
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+      - key: pontaria
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cfc647db3d40fff4'

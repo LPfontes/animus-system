@@ -1,0 +1,22 @@
+_id: b4842a2b78fc38cb
+name: Espada Curta
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Espada_Curta.png
+system:
+  category: branca
+  damageType: cortante
+  type: cortante_leve
+  description: 'Tipo: Cortante Leve<br>'
+  damage:
+    ac1: '2'
+    ac2: 3 + 1xPOT
+    ac3: 4 + 2xPOT
+    ac4: 5 + 3xPOT
+  weight: 0
+  price: 5 Đ
+  check:
+    attribute: pot
+    skill: luta
+    dc: 0
+folder: bd51c3d03d930431
+_key: '!items!b4842a2b78fc38cb'

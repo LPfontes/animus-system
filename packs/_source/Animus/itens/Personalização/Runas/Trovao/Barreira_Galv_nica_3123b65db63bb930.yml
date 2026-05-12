@@ -1,0 +1,27 @@
+_id: 3123b65db63bb930
+name: Barreira Galvânica
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/trovao (1).png
+system:
+  description: '1x/cena: bloqueio 3+ acertos, gaste 3 PE — atacante Atordoado.'
+  tier: reinforced
+  element: trovao
+  category: shield
+  price: 1200
+folder: fldtrovao0000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!3123b65db63bb930'

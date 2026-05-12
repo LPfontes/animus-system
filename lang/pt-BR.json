@@ -63,6 +63,9 @@
   "ANIMUS.TalentGatilho": "Gatilho",
   "ANIMUS.Trigger": "Gatilho",
   "ANIMUS.Effect": "Efeito",
+  "ANIMUS.TalentCategoryCombate": "Combate",
+  "ANIMUS.TalentCategoryElemento": "Elemento",
+  "ANIMUS.TalentCategoryPericia": "Perícia",
   "ANIMUS.Properties": "Propriedades",
   "ANIMUS.PropertyMecanica": "Mecânica",
   "ANIMUS.PropertyFogo": "Fogo",
@@ -87,6 +90,8 @@
   "ANIMUS.ActionAtaque": "Ataque",
   "ANIMUS.ActionDefesa": "Defesa",
   "ANIMUS.ActionUtilitaria": "Utilitária",
+  "ANIMUS.Requirements": "Requisitos",
+  "ANIMUS.Quantity": "Quantidade",
   "ANIMUS.PECost": "Custo (PE)",
   "ANIMUS.WeaponType.cortante_leve": "Cortante Leve",
   "ANIMUS.WeaponType.cortante_medio": "Cortante Médio",
@@ -150,5 +155,12 @@
   "ANIMUS.ArmorNone": "Nenhuma",
   "ANIMUS.ArmorLeve": "Leve",
   "ANIMUS.ArmorMedia": "Média",
-  "ANIMUS.ArmorPesada": "Pesada"
+  "ANIMUS.ArmorPesada": "Pesada",
+  "ITEM.TypeAscendancy": "Ascendência",
+  "ITEM.TypeElement": "Elemento",
+  "ANIMUS.GearCura": "Cura",
+  "ANIMUS.GearTatico": "Tático",
+  "ANIMUS.GearViagem": "Viagem",
+  "ANIMUS.GearEspecial": "Especial",
+  "ANIMUS.GearIluminacao": "Iluminação"
 }

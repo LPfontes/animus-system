@@ -1,0 +1,53 @@
+_id: 282a57013c190a0a
+name: Forma Elemental Marcial
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/7.png
+system:
+  description: >-
+    Por 3 <span class="text-mechanic">rodadas</span>, todos os seus ataques
+    físicos causam automaticamente a condição inata do seu elemento sem custo
+    extra de <span class="text-resource">PA</span> ou <span
+    class="text-resource">PE</span>. <br>A <span class="text-mechanic">CD</span>
+    de resistência sobe em +3. <br>ao fim das 3 <span
+    class="text-mechanic">rodadas</span>, você fica <span
+    class="text-condition">Atordoado</span> por 1 <span
+    class="text-mechanic">rodada</span> (perde 1 <span
+    class="text-mechanic">ação</span>).
+  trigger: ''
+  requirements:
+    description: >-
+      Mestre em Luta ou Pontaria; Profissional em Elemento; nível 8+.(1 ação, 5
+      PE)
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+      - key: pontaria
+        rank: 3
+      - key: luta
+        rank: 3
+  cost: 5
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!282a57013c190a0a'

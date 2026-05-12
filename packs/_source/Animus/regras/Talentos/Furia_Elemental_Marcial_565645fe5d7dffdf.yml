@@ -1,0 +1,24 @@
+_id: 565645fe5d7dffdf
+name: Fúria Elemental Marcial
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/41.png
+system:
+  description: Enquanto estiver em Fúria, todos os seus ataques físicos causam <span class="text-mechanic">dano</span> elemental adicional igual a <span class="text-attribute">POT</span>, com o tipo de <span class="text-mechanic">dano</span> do seu elemento.
+  trigger: ""
+  requirements:
+    description: Fúria; Amador em Elemento; nível 4+.
+    talents:
+      Fúria: 1de286f61e582176
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!565645fe5d7dffdf"

@@ -1,0 +1,26 @@
+_id: cndbebadograve01
+name: Bêbado (grave)
+type: condition
+img: icons/svg/explosion.svg
+system:
+  description: ''
+  penalty: Dupla
+  cause: 5+ doses ou destilado forte
+  removal: Passa em 3 horas, ou Elixir de Clareza
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndbebadograve01'

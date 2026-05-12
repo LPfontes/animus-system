@@ -1,0 +1,43 @@
+_id: 3788c8736e7b50fd
+name: Golpe Desarmador
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/10.png
+system:
+  description: >-
+    Quando você obtiver 3+ acertos em um ataque, pode gastar 2 <span
+    class="text-resource">PE</span> para forçar o oponente a soltar a arma (cai
+    no chão adjacente). <br>O alvo faz <span class="text-mechanic">teste</span>
+    de Resistência <span class="text-mechanic">CD</span> 7+<span
+    class="text-attribute">HAB</span> para manter a arma.
+  trigger: ''
+  requirements:
+    description: Profissional em Luta; nível 4+.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!3788c8736e7b50fd'

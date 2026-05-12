@@ -12,7 +12,34 @@ export default class AnimusTalentData extends AnimusItemData {
       action: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       trigger: new fields.StringField({ initial: "" }),
       specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
-      subCategory: new fields.StringField({ initial: "" })
+      subCategory: new fields.StringField({ initial: "" }),
+      
+      // Bônus Mecânicos
+      bonuses: new fields.SchemaField({
+        hp: new fields.NumberField({ initial: 0, integer: true }),
+        pe: new fields.NumberField({ initial: 0, integer: true }),
+        pa: new fields.NumberField({ initial: 0, integer: true }),
+        damage: new fields.NumberField({ initial: 0, integer: true }),
+        attributes: new fields.SchemaField({
+          pot: new fields.NumberField({ initial: 0, integer: true }),
+          hab: new fields.NumberField({ initial: 0, integer: true }),
+          cog: new fields.NumberField({ initial: 0, integer: true }),
+          per: new fields.NumberField({ initial: 0, integer: true }),
+          pre: new fields.NumberField({ initial: 0, integer: true }),
+          ani: new fields.NumberField({ initial: 0, integer: true })
+        }),
+        resistances: new fields.SchemaField({
+          physical: new fields.NumberField({ initial: 0, integer: true }),
+          elemental: new fields.NumberField({ initial: 0, integer: true }),
+          mental: new fields.NumberField({ initial: 0, integer: true })
+        })
+      }),
+
+      // Definição de Testes
+      check: new fields.SchemaField({
+        attribute: new fields.StringField({ initial: "" }),
+        difficulty: new fields.StringField({ initial: "" }) // Pode ser um número ou fórmula baseada em ND
+      })
     };
   }
 }

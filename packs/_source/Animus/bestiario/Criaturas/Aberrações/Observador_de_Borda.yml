@@ -1,0 +1,71 @@
+_id: observadordeborda0001
+name: "Observador de Borda"
+type: npc
+img: systems/animus/assets/system-icons/types/aberração.svg
+folder: fldbestaberr0000
+system:
+  nd: 2
+  classification: "comum"
+  innateIdentity: "aberração"
+  type: "Aberração"
+  quote: ""
+  attributes:
+    pot: { value: 0 }
+    hab: { value: 1 }
+    cog: { value: 1 }
+    per: { value: 2 }
+    pre: { value: 0 }
+    ani: { value: 1 }
+  status:
+    hp: { value: 37, max: 37 }
+    pe: { value: 16, max: 16 }
+    pa: { value: 3, max: 3 }
+  attack:
+    label: "Tentáculo"
+    formula: "2d6"
+    attribute: "per"
+    baseBonus: 1
+  damageTable:
+    damageType: "Tentáculo"
+    attribute: "per"
+    ac1: 4
+    ac2: 6
+    ac3: 8
+    ac4: 10
+    ac5: 12
+    ac6: 16
+  skills: [{"key":"percepcao","rank":1},{"key":"intuicao","rank":1}]
+  abilities: [
+      {
+        "name": "Sentidos Acuados",
+        "rarity": "comum",
+        "description": "<p>+1 PER efetivo. +1d em Percepção. Nunca surpreendido por ataques fora do campo visual. Detecta criaturas invisíveis em 6m.</p>",
+        "bonuses": {
+          "attributes": {
+            "per": 1
+          }
+        },
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      },
+      {
+        "name": "Olhar Paralisante",
+        "rarity": "comum",
+        "description": "<p>2 PA, 4 PE: raio do olho central — alvo testa COG CD 10 ou fica Paralisado por 1 turno. CD reduzida em 2 se o alvo não olhar diretamente.</p>",
+        "check": {
+          "attribute": "cog",
+          "difficulty": "10"
+        },
+        "specialActions": [
+          "Paralisar"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/comum.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Observação Hostil","description":"Tentáculo (2) + Movimentação (1)","totalPA":3}]
+  availableActions: ""
+  ecology: "<p>Um observador silencioso de outras realidades. Transmite tudo o que vê para algo maior além da compreensão humana, priorizando a fuga sobre o combate direto.</p>"
+  weaknesses: ""
+  loot: ""
+  narratorNotes: ""
+flags: {}
+_key: '!actors!observadordeborda0001'

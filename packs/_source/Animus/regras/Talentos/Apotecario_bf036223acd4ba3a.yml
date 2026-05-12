@@ -1,0 +1,25 @@
+_id: bf036223acd4ba3a
+name: Apotecário
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/22.png
+system:
+  description: Você sabe utilizar ervas e elementos naturais para criar medicinas e toxinas.
+  trigger: ""
+  requirements:
+    description: Amador em Medicina; Amador em Natureza.
+    talents: {}
+    attributes: []
+    skills:
+      - key: medicina
+        rank: 1
+      - key: natureza
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!bf036223acd4ba3a"

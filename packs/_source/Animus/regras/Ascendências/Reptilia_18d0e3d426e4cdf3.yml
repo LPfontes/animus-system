@@ -1,0 +1,51 @@
+_id: 18d0e3d426e4cdf3
+name: Reptilia
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/reptilia.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Ataque Venenoso:</strong> 2
+    cargas por sessão; <span class="text-mechanic">CD</span> 7+<span
+    class="text-attribute">POT</span>; Escolha entre Mortal, Debilitante ou
+    atordoante.<br>Inocula veneno preparado através das
+    presas.</li><li><strong>Letargia do Sangue Frio:</strong> Perde 1 <span
+    class="text-mechanic">PA</span> por turno em ambientes frios<br><span
+    class="text-mechanic">Reações</span> lentas em baixas
+    temperaturas.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - per
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Ataque Venenoso
+      description: Inocula veneno preparado através das presas.
+      mechanicalEffect: >-
+        2 cargas por sessão; <span class="text-mechanic">CD</span> 7+<span
+        class="text-attribute">POT</span>; Escolha entre Mortal, Debilitante ou
+        atordoante.
+    - name: Letargia do Sangue Frio
+      description: >-
+        <span class="text-mechanic">Reações</span> lentas em baixas
+        temperaturas.
+      mechanicalEffect: >-
+        Perde 1 <span class="text-mechanic">PA</span> por turno em ambientes
+        frios
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!18d0e3d426e4cdf3'

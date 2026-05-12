@@ -1,0 +1,27 @@
+_id: 97c6203f4e8ec0cb
+name: Ameaçadora
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/metal (1).png
+system:
+  description: +2 dano base em todos os acertos.
+  tier: basic
+  element: metal
+  category: weapon
+  price: 600
+folder: fldmetal00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!97c6203f4e8ec0cb'

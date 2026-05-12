@@ -1,0 +1,42 @@
+_id: 299df1129f440834
+name: Terreno Favorito
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/2.png
+system:
+  description: >-
+    Escolha entre os ambientes: urbano, floresta, deserto, campo, subterrâneo e
+    aquático. <br>No seu terreno favorito, sempre que rolar um '1' no dado, você
+    pode re-rolar esse dado uma única vez. <br>(Limitado a um dado por rolagem.
+    )
+  trigger: passiva
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!299df1129f440834'

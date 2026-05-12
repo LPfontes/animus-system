@@ -3,6 +3,7 @@ export class AnimusItem extends Item {
   prepareDerivedData() {
     super.prepareDerivedData();
     this._prepareBonusAttributes();
+    this._prepareWeaponData();
   }
 
   /**
@@ -51,6 +52,32 @@ export class AnimusItem extends Item {
   }
 
   /**
+   * Calcula o custo de uso (PA) da arma baseado em seu tipo.
+   */
+  _prepareWeaponData() {
+    if (this.type !== "weapon") return;
+
+    const config = CONFIG.ANIMUS;
+    let type = this.system.type;
+
+    // Se o tipo for um índice numérico (legado), converter para string
+    if (typeof type === "number" || !isNaN(parseInt(type)) && config.weaponTypesByIndex[type]) {
+      type = config.weaponTypesByIndex[type];
+    }
+
+    // Forçar a atualização do custo no sistema
+    const costs = config.weaponActionCosts || {};
+    const finalCost = costs[type] || 1;
+    
+    // Se o sistema for um DataModel, tentamos atualizar o valor
+    if (this.system.updateSource) {
+      this.system.updateSource({ cost: finalCost });
+    } else {
+      this.system.cost = finalCost;
+    }
+  }
+
+  /**
    * Executa a lógica de uso do item
    */
   async use() {
@@ -58,6 +85,28 @@ export class AnimusItem extends Item {
     const actor = this.actor;
     
     if ( !actor ) return;
+
+    // 0. Verificar e Consumir Recursos (PA/PE)
+    const basePaCost = (this.type === "action" ? this.system.cost : (this.type === "talent" ? this.system.action : 0)) || 0;
+    const peCost = (this.type === "action" ? this.system.peCost : (this.type === "talent" ? this.system.cost : 0)) || 0;
+
+    // Lógica de Repetição (Apenas para ações que gastam PA)
+    let paCost = basePaCost;
+    if (paCost > 0) {
+      const repeatCost = actor.getActionRepeatCost(this.name);
+      paCost += repeatCost;
+      
+      const consumedPA = await actor.consumeResource("pa", paCost);
+      if (!consumedPA) return;
+
+      // Registrar ação no turno
+      await actor.recordTurnAction(this.name);
+    }
+
+    if (peCost > 0) {
+      const consumedPE = await actor.consumeResource("pe", peCost);
+      if (!consumedPE) return;
+    }
 
     if ( !usage || usage.type === "none" ) {
       return ui.notifications.warn(`O item ${this.name} não possui uma ação de uso definida.`);

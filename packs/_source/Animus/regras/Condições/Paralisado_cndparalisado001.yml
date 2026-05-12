@@ -1,0 +1,27 @@
+_id: cndparalisado001
+name: Paralisado
+type: condition
+img: icons/svg/statue.svg
+system:
+  description: ''
+  penalty: Perde 1 PA por turno por 2 rodadas (efeito avançado do Trovão).
+  cause: Efeito avançado do Trovão, veneno forte.
+  removal: POT CD 10.
+  duration: 2 rodadas
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndparalisado001'

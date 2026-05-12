@@ -13,7 +13,8 @@ export default class AnimusRuneData extends AnimusItemData {
     };
   }
 
-  get price() {
-    return this.tier === "reinforced" ? 1200 : 600;
+  prepareDerivedData() {
+    super.prepareDerivedData();
+    this.price = this.tier === "reinforced" ? "1200" : "600";
   }
 }

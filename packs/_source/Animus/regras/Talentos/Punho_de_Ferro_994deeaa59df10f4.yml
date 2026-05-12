@@ -1,0 +1,43 @@
+_id: 994deeaa59df10f4
+name: Punho de Ferro
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/44.png
+system:
+  description: >-
+    Seus golpes com punhos ou armas naturais aumentam. <br>[Se era comparado a
+    uma arma leve, passa a ser uma arma média; caso já seja uma média, aumenta o
+    <span class="text-mechanic">dano</span> em +1 em todas categorias].
+    <br>[Após pegar esse talento, sua arma natural ou punhos pode pegar os
+    efeitos de Maestria Marcial].
+  trigger: passiva
+  requirements:
+    description: Amador em Luta.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!994deeaa59df10f4'

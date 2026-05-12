@@ -56,7 +56,13 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     const mainSelect = this.element.querySelector(".main-prop-select");
     if (mainSelect) {
       mainSelect.addEventListener("change", (ev) => {
-        this.mainPropertyId = ev.target.value;
+        const id = ev.target.value;
+        if (id && this.selectedPropertyIds.has(id)) {
+          ui.notifications.warn("Esta característica já está selecionada nas Complementares.");
+          ev.target.value = this.mainPropertyId || "";
+          return;
+        }
+        this.mainPropertyId = id;
         this._updatePropertyPreview(ev.target);
       });
     }
@@ -136,7 +142,9 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     const id = select.value;
     if (!id) return;
 
-    if (this.selectedPropertyIds.has(id)) {
+    if (id === this.mainPropertyId) {
+      ui.notifications.warn("Esta característica já está selecionada como Principal.");
+    } else if (this.selectedPropertyIds.has(id)) {
       ui.notifications.warn("Esta característica já foi selecionada.");
     } else if (this.selectedPropertyIds.size >= 3) {
       ui.notifications.warn("Você atingiu o limite de 3 características na Tabela 2.");
@@ -306,7 +314,7 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
   /** @override */
   async _prepareContext(options) {
     // Buscar propriedades do compêndio
-    const pack = game.packs.get("animus.propriedades");
+    const pack = game.packs.get("animus.itens");
     const properties = {
       Principais: [],
       Complementares: [],
@@ -317,7 +325,17 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     if (pack) {
       const docs = await pack.getDocuments();
       for (const d of docs) {
-        const subCat = d.system.subCategory || "";
+        // FILTRO CRÍTICO: Apenas itens do tipo 'property'
+        if (d.type !== "property") continue;
+
+        // Mapear subcategoria numérica para string (0: Mecânicas, 1: Fogo, 2: Principais, 3: Complementares)
+        const subCatMap = {
+          "0": "Mecânicas",
+          "1": "Fogo",
+          "2": "Principais",
+          "3": "Complementares"
+        };
+        const subCat = subCatMap[String(d.system.subCategory)] || "Complementares";
         const prop = {
           id: d.id,
           name: d.name,
@@ -326,11 +344,11 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
           desc: d.system.description?.replace(/<[^>]*>?/gm, '')
         };
 
-        if (properties[subCat]) {
+        // Se a subcategoria for uma das que esperamos (Principais, Complementares, Mecânicas, Fogo)
+        if (properties.hasOwnProperty(subCat)) {
           properties[subCat].push(prop);
         } else {
-          // Fallback para Básicas se algo sobrar (não deve acontecer agora)
-          if (!properties.Complementares) properties.Complementares = [];
+          // Se for uma propriedade mas sem subcategoria válida, vai para Complementares
           properties.Complementares.push(prop);
         }
       }

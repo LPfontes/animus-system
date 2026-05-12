@@ -1,0 +1,60 @@
+_id: 7b220d58044ee882
+name: Roedor
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/roedor.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Presas:</strong> Ataque com 2
+    <span class="text-mechanic">PA</span>; use estatísticas de arma perfurante
+    média.<br>Dentes naturais usados em
+    combate.</li><li><strong>Sorrateiro:</strong> <span
+    class="text-mechanic">Vantagem</span> em testes de Furtividade<br>Silencioso
+    por natureza.</li><li><strong>Fuga Evasiva:</strong> <span
+    class="text-mechanic">Reação</span>: mova-se 1,5m em direção segura ao
+    receber <span class="text-mechanic">dano</span>.<br>Capacidade de se
+    deslocar rapidamente ao sofrer <span
+    class="text-mechanic">dano</span>.</li><li><strong>Mãos Leves:</strong>
+    <span class="text-mechanic">Vantagem</span> em testes de
+    Prestidigitação<br>Movimentos manuais imperceptíveis.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - hab
+      - cog
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Presas
+      description: Dentes naturais usados em combate.
+      mechanicalEffect: >-
+        Ataque com 2 <span class="text-mechanic">PA</span>; use estatísticas de
+        arma perfurante média.
+    - name: Sorrateiro
+      description: Silencioso por natureza.
+      mechanicalEffect: <span class="text-mechanic">Vantagem</span> em testes de Furtividade
+    - name: Fuga Evasiva
+      description: >-
+        Capacidade de se deslocar rapidamente ao sofrer <span
+        class="text-mechanic">dano</span>.
+      mechanicalEffect: >-
+        <span class="text-mechanic">Reação</span>: mova-se 1,5m em direção
+        segura ao receber <span class="text-mechanic">dano</span>.
+    - name: Mãos Leves
+      description: Movimentos manuais imperceptíveis.
+      mechanicalEffect: <span class="text-mechanic">Vantagem</span> em testes de Prestidigitação
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7b220d58044ee882'

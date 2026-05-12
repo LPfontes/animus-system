@@ -1,0 +1,28 @@
+_id: cndintimidado001
+name: Intimidado
+type: condition
+img: icons/svg/terror.svg
+system:
+  description: ''
+  penalty: Desvantagem em PRE contra o intimidador. –1 em ataques contra ele.
+  cause: Intimidação bem sucedida ou efeito de medo.
+  removal: >-
+    Sair do campo visual do intimidador; ou vencer um teste de PRE oposto (CD
+    10).
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndintimidado001'

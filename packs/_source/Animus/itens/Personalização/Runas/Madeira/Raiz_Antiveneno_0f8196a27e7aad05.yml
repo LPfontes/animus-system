@@ -1,0 +1,27 @@
+_id: 0f8196a27e7aad05
+name: Raiz Antiveneno
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (4).png
+system:
+  description: Duração de venenos reduzida em 1 rodada (mínimo 1).
+  tier: basic
+  element: madeira
+  category: armor
+  price: 600
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!0f8196a27e7aad05'

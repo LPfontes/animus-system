@@ -72,8 +72,9 @@
 .animus .compendium-browser.animus-v2 {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  padding: 0;
+  height: 600px;
+  width: 800px;
+  padding: 10px;
   overflow: hidden;
   background: var(--panel-bg);
 }
@@ -110,7 +111,22 @@
   transition: all 0.2s ease;
   font-size: 0.8rem;
 }
+/* Monster Creator Sidebar Button */
+.directory.actor-directory .monster-creator-btn {
+  background: linear-gradient(90deg, #1a237e, #0d47a1);
+  color: #fff;
+  border: 1px solid rgba(0, 242, 255, 0.3);
+  margin: 5px;
+  font-weight: bold;
+  text-shadow: 0 0 5px rgba(0, 242, 255, 0.5);
+  transition: all 0.2s ease;
+}
 
+.directory.actor-directory .monster-creator-btn:hover {
+  background: linear-gradient(90deg, #283593, #1565c0);
+  box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
+  transform: scale(1.02);
+}
 .compendium-browser .filter-label {
   font-size: 0.7rem;
   font-weight: 800;
@@ -340,15 +356,27 @@
 }
 
 .animus .item-details {
+  display: none;
   padding: 0 15px 15px 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
   background: rgba(0, 0, 0, 0.2);
   animation: slideDown 0.3s ease-out;
 }
 
+.animus .browser-item.expanded .item-details {
+  display: block;
+}
+
 @keyframes slideDown {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .animus .details-grid {
@@ -1012,4 +1040,91 @@
 .animus.bonus-selector .confirm-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 8px 20px var(--accent-glow);
+}
+
+/* =========================================== */
+/*              ROLL DIALOG APP                */
+/* =========================================== */
+
+.roll-dialog-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 10px;
+}
+
+.roll-dialog-content .grid-2 {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 15px;
+}
+
+.roll-dialog-content .form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-bottom: 5px;
+  text-align: center;
+}
+
+.roll-dialog-content label {
+  font-family: "Outfit", sans-serif;
+  font-size: 0.75rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+}
+
+.roll-dialog-content select,
+.roll-dialog-content input[type="number"] {
+  background: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  color: #fff;
+  padding: 8px 12px;
+  font-family: "Outfit", sans-serif;
+  transition: all 0.2s ease;
+}
+
+.roll-dialog-content select:focus,
+.roll-dialog-content input[type="number"]:focus {
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+  outline: none;
+}
+
+.roll-dialog-content .creator-footer {
+  margin-top: 10px !important;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 15px !important;
+}
+
+.roll-dialog-content .create-btn {
+  width: 100%;
+  background: var(--accent);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 10px;
+  font-weight: 900;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+.roll-dialog-content .create-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px var(--accent-glow);
+  filter: brightness(1.1);
+}
+
+.roll-dialog-content .create-btn i {
+  font-size: 1.1rem;
 }

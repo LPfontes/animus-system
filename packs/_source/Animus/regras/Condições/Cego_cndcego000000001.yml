@@ -1,0 +1,28 @@
+_id: cndcego000000001
+name: Cego
+type: condition
+img: icons/svg/blindfold.svg
+system:
+  description: ''
+  penalty: >-
+    Falha automática em testes visuais. Ataques à distância falham
+    automaticamente.
+  cause: Flash, cegueira mágica, dano ocular severo.
+  removal: Cura elemental; passa em minutos se o efeito for temporário.
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndcego000000001'

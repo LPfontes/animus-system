@@ -1,0 +1,27 @@
+_id: ce105c1ba464a322
+name: Incendiária
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/fogo3.png
+system:
+  description: 'Acerto: fogo líquido — 2 dano/turno até ser apagado.'
+  tier: reinforced
+  element: fogo
+  category: weapon
+  price: 1200
+folder: fldfogo000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!ce105c1ba464a322'

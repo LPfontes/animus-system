@@ -41,7 +41,9 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       owner: this.document.isOwner,
       editable: this.isEditable,
       isEditing: this.isEditing,
-      talentNames: {}
+      talentNames: {},
+      propertyNames: {},
+      propertyDescriptions: {}
     };
 
     // Resolve nomes de talentos para os IDs nos requisitos
@@ -55,14 +57,16 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       }
     }
 
-    // Resolve nomes de propriedades para as armas
+    // Resolve nomes e descrições de propriedades para as armas
     const properties = this.document.system.properties || [];
-    context.propertyNames = {};
     if (properties.length) {
       for (const id of properties) {
         if (!id) continue;
         const property = await this.#getPropertyFromPacks(id);
-        if (property) context.propertyNames[id] = property.name;
+        if (property) {
+          context.propertyNames[id] = property.name;
+          context.propertyDescriptions[id] = property.system?.description || "";
+        }
       }
     }
 
@@ -82,7 +86,7 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   async #getPropertyFromPacks(id) {
     const packs = game.packs.filter(p => p.metadata.type === "Item");
     for (const pack of packs) {
-      const index = await pack.getIndex();
+      const index = await pack.getIndex({ fields: ["system.description"] });
       const entry = index.get(id);
       if (entry) return entry;
     }

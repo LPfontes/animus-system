@@ -1,0 +1,16 @@
+_id: acdb74aa5ee4b9c1
+name: Leve
+type: shield
+img: systems/animus/assets/system-icons/armor/escudo/leve.png
+system:
+  type: leve
+  base: 4
+  multPOT: 0
+  multHAB: 1
+  description: >-
+    PVs Base: 4<br>Restrição: Não ocupa o espaço da mão que estiver
+    usando<br>Lógica: 4 + (0 x POT) + (1 x HAB)
+  weight: 0
+  price: 20 Đ
+folder: 24b591bd1a14d94b
+_key: '!items!acdb74aa5ee4b9c1'

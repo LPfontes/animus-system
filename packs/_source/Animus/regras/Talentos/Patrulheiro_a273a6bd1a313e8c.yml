@@ -1,0 +1,43 @@
+_id: a273a6bd1a313e8c
+name: Patrulheiro
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/18.png
+system:
+  description: >-
+    Enquanto estiver consciente, você não sofre a condição de <span
+    class="text-mechanic">rodada</span> surpresa e sabe quantos oponentes ou
+    ameaças há na <span class="text-mechanic">cena</span>, mesmo que não possa
+    vê-los diretamente.
+  trigger: ''
+  requirements:
+    description: Profissional em Sobrevivência; Sentinela.
+    talents:
+      Sentinela: bef4c14100d95325
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!a273a6bd1a313e8c'

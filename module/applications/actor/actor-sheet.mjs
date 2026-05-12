@@ -47,8 +47,10 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       openWeaponCreator: AnimusActorSheet.prototype._onOpenWeaponCreator,
       openWeaponBrowser: AnimusActorSheet.prototype._onOpenWeaponBrowser,
       rollWeapon: AnimusActorSheet.prototype._onRollWeapon,
+      rollAttribute: AnimusActorSheet.prototype._onRollAttribute,
       toggleEquip: AnimusActorSheet.prototype._onToggleEquip,
-      useItem: AnimusActorSheet.prototype._onUseItem
+      useItem: AnimusActorSheet.prototype._onUseItem,
+      rollBasicAction: AnimusActorSheet.prototype._onRollBasicAction
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -112,6 +114,13 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       itemData.id = i.id;
       itemData.img = i.img;
       itemData.isEquipped = i.system.equipped;
+      
+      // Garantir que dados do sistema sejam mesclados corretamente
+      itemData.system = {
+        ...itemData.system,
+        cost: i.system.cost ?? 1,
+        range: i.system.range
+      };
 
       if (i.type === "weapon") {
         itemData.calculatedDamage = i.system.damageTable;
@@ -272,6 +281,9 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     // Slots de Ascendência e Elemento clicáveis
     html.querySelectorAll('.item-slot').forEach(slot => {
       slot.addEventListener('click', (ev) => {
+        // Se clicar em um controle (delete, bonus-edit), não abre o browser
+        if (ev.target.closest('.slot-control')) return;
+
         const zone = ev.target.closest('.drop-zone');
         if (zone) {
           const type = zone.dataset.type;
@@ -450,6 +462,30 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /**
+   * Rola um atributo
+   * @param {PointerEvent} event
+   * @param {HTMLElement} target
+   */
+  async _onRollAttribute(event, target) {
+    const attrKey = target.dataset.attribute;
+    const attr = this.actor.system.attributes[attrKey];
+    const label = CONFIG.ANIMUS.attributes[attrKey].i18n;
+
+    // Detectar Vantagem/Desvantagem
+    let advantage = null;
+    if (event.shiftKey) advantage = "advantage";
+    if (event.altKey || event.ctrlKey) advantage = "disadvantage";
+
+    await AnimusRoll.rollTest({
+      poolSize: 2,
+      attributeValue: attr.value || 0,
+      label: `Teste de ${game.i18n.localize(label)}`,
+      advantage: advantage,
+      speaker: this.actor
+    });
+  }
+
+  /**
    * Rola um ataque com uma arma
    * @param {PointerEvent} event
    * @param {HTMLElement} target
@@ -458,6 +494,18 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemId = target.dataset.itemId || target.closest("[data-item-id]")?.dataset.itemId;
     const weapon = this.actor.items.get(itemId);
     if (!weapon) return;
+
+    // Verificar custo de PA + Repetição
+    const baseCost = weapon.system.cost || 1;
+    const repeatCost = this.actor.getActionRepeatCost("Atacar");
+    const paCost = baseCost + repeatCost;
+
+    if (this.actor.system.status.pa.value < paCost) {
+      const msg = repeatCost > 0 
+        ? `Você não possui PA suficiente para repetir a ação Atacar (Custo total: ${paCost} PA).`
+        : `Você não possui PA suficiente para atacar com ${weapon.name} (Custo: ${paCost} PA).`;
+      return ui.notifications.warn(msg);
+    }
 
     // Se estiver segurando Shift ou Alt, fazemos a rolagem rápida sem abrir o modal
     if (event.shiftKey || event.altKey || event.ctrlKey) {
@@ -482,6 +530,17 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    * @private
    */
   async _executeWeaponRoll(weapon, options = {}) {
+    // Consumir PA + Repetição
+    const baseCost = weapon.system.cost || 1;
+    const repeatCost = this.actor.getActionRepeatCost("Atacar");
+    const paCost = baseCost + repeatCost;
+
+    const consumed = await this.actor.consumeResource("pa", paCost);
+    if (!consumed) return;
+
+    // Registrar ação
+    await this.actor.recordTurnAction("Atacar");
+
     const attrKey = (weapon.system.attribute || "pot").toLowerCase();
     const skillKey = attrKey === "hab" ? "pontaria" : "luta";
     
@@ -527,8 +586,25 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
    */
   async _onOpenBrowser(event, target) {
     const type = target.dataset.type;
+    let packId = "animus.itens";
+    let title = "Arsenal Animus";
+    let activeTab = "weapon";
+
+    if (type === "ascendancy") {
+      packId = "animus.regras";
+      title = "Seleção de Ascendência";
+      activeTab = "ascendancy";
+    } else if (type === "element") {
+      packId = "animus.regras";
+      title = "Seleção Elemental";
+      activeTab = "element";
+    }
+
     const browser = new AnimusCompendiumBrowser({
-      type: type,
+      actor: this.actor,
+      packId: packId,
+      activeTab: activeTab,
+      window: { title: title },
       callback: async (item) => {
         // Se for ascendência ou elemento, substituir o existente
         if (item.type === "ascendancy" || item.type === "element") {
@@ -759,5 +835,40 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Chamar a lógica de uso do item (definida na classe AnimusItem)
     return item.use();
+  }
+  
+  /**
+   * Roll a basic action (non-item)
+   */
+  async _onRollBasicAction(event, target) {
+    const name = target.dataset.name;
+    const action = CONFIG.ANIMUS.basicActions.find(a => a.name === name);
+    if (!action) return;
+
+    // Consumir PA + Repetição
+    const repeatCost = this.actor.getActionRepeatCost(action.name);
+    const paCost = (action.cost || 0) + repeatCost;
+
+    const consumed = await this.actor.consumeResource("pa", paCost);
+    if (!consumed) return;
+
+    // Registrar ação
+    await this.actor.recordTurnAction(action.name);
+
+    return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor: this.actor }),
+      content: `
+        <div class="animus-chat-card">
+          <div class="chat-header">
+            <img src="${action.img}" class="chat-icon" />
+            <h3>${action.name}</h3>
+          </div>
+          <div class="chat-body">
+            <p><strong>Custo:</strong> ${action.cost} PA</p>
+            <p>${action.description}</p>
+          </div>
+        </div>
+      `
+    });
   }
 }

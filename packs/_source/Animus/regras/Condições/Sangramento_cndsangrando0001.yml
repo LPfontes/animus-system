@@ -1,0 +1,27 @@
+_id: cndsangrando0001
+name: Sangramento
+type: condition
+img: systems/animus/assets/system-icons/blood/heart-drop.svg
+system:
+  description: ''
+  penalty: 2 PV de dano por turno. Acumula até 3× (6 PV/turno máx.).
+  cause: Ferimento cortante.
+  removal: Medicina CD 8 ou Pressão (1 ação).
+  duration: 2 turnos/pilha
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndsangrando0001'

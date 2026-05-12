@@ -1,0 +1,27 @@
+_id: ef9aa3d44dde45ca
+name: Muralha de Pedra
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/terra4.png
+system:
+  description: +2 Proteção base (adicionado ao cálculo de POT).
+  tier: basic
+  element: terra
+  category: armor
+  price: 600
+folder: fldterra00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!ef9aa3d44dde45ca'

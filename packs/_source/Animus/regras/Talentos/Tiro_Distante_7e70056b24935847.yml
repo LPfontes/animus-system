@@ -1,0 +1,41 @@
+_id: 7e70056b24935847
+name: Tiro Distante
+type: talent
+img: systems/animus/assets/icons/skills/talentos/arqueria/21.png
+system:
+  description: >-
+    Aumenta a distância de tiro em uma categoria (curto médio, médio longo,
+    longo distante). <br>Pode ser utilizado para armas de arremesso.
+  trigger: ''
+  requirements:
+    description: Profissional em Pontaria; Maestria Marcial.
+    talents:
+      Maestria Marcial: 83a721ac1600af78
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7e70056b24935847'

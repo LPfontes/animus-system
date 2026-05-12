@@ -2,8 +2,18 @@
   
   {{!-- Seção de Armas --}}
   <div class="inventory-section">
-    <div class="section-header">
-      <h3><i class="fas fa-swords"></i> Armas</h3>
+    <div class="section-header header-with-action">
+      <div class="header-content">
+        <h3><i class="fas fa-swords"></i> Armas</h3>
+      </div>
+      <div class="header-buttons">
+        <button type="button" class="action-btn small" data-action="openWeaponBrowser" title="Adicionar Arma do Compêndio">
+          <i class="fas fa-search"></i> Compêndio
+        </button>
+        <button type="button" class="action-btn small" data-action="openWeaponCreator" data-type="weapon">
+          <i class="fas fa-plus"></i> Criar
+        </button>
+      </div>
     </div>
     <ul class="item-list">
       {{#each weapons as |item|}}

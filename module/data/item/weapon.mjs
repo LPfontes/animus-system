@@ -30,6 +30,7 @@ export default class AnimusWeaponData extends AnimusItemData {
       damageType: new fields.StringField({ initial: "cortante", choices: Object.keys(ANIMUS.damageTypes) }),
       category: new fields.StringField({ initial: "branca", choices: Object.keys(ANIMUS.weaponCategories) }),
       type: new fields.StringField({ initial: "cortante_leve", choices: Object.keys(ANIMUS.weaponTypes) }),
+      cost: new fields.NumberField({ initial: 1, integer: true, min: 0 }),
       range: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3 }),
       properties: new fields.ArrayField(new fields.StringField(), { initial: [] }),
       specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
@@ -47,17 +48,63 @@ export default class AnimusWeaponData extends AnimusItemData {
     const actor = this.parent?.actor;
     if (!actor) return null;
 
-    // Suporte para transição: se attribute for número, converte para string
-    const attrKey = typeof this.attribute === "number" 
+    const properties = this.propertyItems;
+    
+    // 1. Determinar o Atributo Base (checar overrides de propriedades)
+    let attrKey = typeof this.attribute === "number" 
       ? (ANIMUS.attributesByIndex[this.attribute] || "pot")
       : this.attribute;
     
-    const attrValue = actor.system.attributes[attrKey]?.value || 0;
-    const table = {};
+    for (const prop of properties) {
+      if (!prop?.system?.bonus) continue;
+      const override = prop.system.bonus.attributeOverride;
+      if (override) {
+        attrKey = override;
+        break; // Prioriza o primeiro override encontrado
+      }
+    }
 
+    const attrValue = actor.system.attributes[attrKey]?.value || 0;
+    
+    // 2. Coletar Bônus de Propriedades
+    const attrMultBonuses = {}; 
+    let flatMultBonus = 0;
+    let flatDamageBonus = 0;
+
+    for (const prop of properties) {
+      const b = prop?.system?.bonus;
+      if (!b) continue;
+
+      flatMultBonus += (b.mult || 0);
+      flatDamageBonus += (b.damage || 0);
+
+      // Bônus específicos de atributos (ex: +1xPER no mult)
+      if (b.attrMult) {
+        for (const [a, val] of Object.entries(b.attrMult)) {
+          if (val) {
+            attrMultBonuses[a] = (attrMultBonuses[a] || 0) + val;
+          }
+        }
+      }
+    }
+
+    const table = {};
     for (let i = 1; i <= 4; i++) {
       const ac = this.damage[`ac${i}`];
-      table[`ac${i}`] = ac.base + (ac.mult * attrValue);
+      
+      // Cálculo: [Base + DanoFixo] + [(Mult + MultFixo) * AttrBase] + [Somatório(BônusAttr * Attr)]
+      let damageValue = ac.base + flatDamageBonus;
+      
+      // Contribuição do Atributo Base (incluindo bônus fixo no multiplicador)
+      damageValue += (ac.mult + flatMultBonus) * attrValue;
+      
+      // Contribuições de outros Atributos (ex: +1xPER de Estratégica)
+      for (const [a, factor] of Object.entries(attrMultBonuses)) {
+        const val = actor.system.attributes[a]?.value || 0;
+        damageValue += factor * val;
+      }
+
+      table[`ac${i}`] = damageValue;
     }
 
     return table;
@@ -68,7 +115,7 @@ export default class AnimusWeaponData extends AnimusItemData {
    */
   get propertyItems() {
     return this.properties.map(id => {
-      return game.items.get(id) || game.packs.get("animus.propriedades")?.index.get(id);
+      return game.items.get(id) || game.packs.get("animus.itens")?.index.get(id);
     }).filter(p => p);
   }
 
@@ -93,6 +140,26 @@ export default class AnimusWeaponData extends AnimusItemData {
         source.check.skill = ANIMUS.skillsByIndex[source.check.skill] || "";
       }
     }
+
+    // Migração de tabela de dano (String -> Objeto)
+    if (source.damage) {
+      for (let i = 1; i <= 4; i++) {
+        const key = `ac${i}`;
+        const val = source.damage[key];
+        
+        if (typeof val === "string") {
+          // Regex para pegar base e multiplicador (ex: "3 + 1xPOT" ou "2")
+          const match = val.match(/(\d+)(?:\s*\+\s*(\d+)x[A-Z]+)?/);
+          if (match) {
+            source.damage[key] = {
+              base: parseInt(match[1]) || 0,
+              mult: parseInt(match[2]) || 0
+            };
+          }
+        }
+      }
+    }
+
     return super.migrateData(source);
   }
 }

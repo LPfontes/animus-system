@@ -1,0 +1,24 @@
+_id: fc4fb4376ca00497
+name: Mover 9 metros
+type: action
+img: systems/animus/assets/system-icons/action/sprint.svg
+system:
+  description: Desloca-se até 9 metros pelo campo de batalha.
+  cost: 1
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: acoeshub00000001
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!fc4fb4376ca00497'

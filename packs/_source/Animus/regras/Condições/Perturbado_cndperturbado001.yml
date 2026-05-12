@@ -1,0 +1,26 @@
+_id: cndperturbado001
+name: Perturbado
+type: condition
+img: icons/svg/brain.svg
+system:
+  description: ''
+  penalty: Desvantagem em todos os testes de COG. Não pode usar Compra de Sucesso.
+  cause: Trauma psíquico, magia mental, confusão severa.
+  removal: Descanso longo + estabilidade emocional.
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndperturbado001'

@@ -1,0 +1,27 @@
+_id: 5517ad06930d4949
+name: Fragmentada
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/terra4.png
+system:
+  description: Arma vira pedras — ignora coberturas; dano vira Terra.
+  tier: reinforced
+  element: terra
+  category: weapon
+  price: 1200
+folder: fldterra00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!5517ad06930d4949'

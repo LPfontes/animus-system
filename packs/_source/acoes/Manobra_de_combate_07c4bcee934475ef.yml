@@ -1,8 +1,0 @@
-_id: 07c4bcee934475ef
-name: Manobra de combate
-type: action
-img: systems/animus/assets/system-icons/action/grab.svg
-system:
-  description: Realiza uma manobra como agarrar, empurrar ou derrubar um adversário.
-  cost: 2
-_key: '!items!07c4bcee934475ef'

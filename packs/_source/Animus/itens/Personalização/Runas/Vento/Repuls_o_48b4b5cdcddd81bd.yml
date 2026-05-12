@@ -1,0 +1,27 @@
+_id: 48b4b5cdcddd81bd
+name: Repulsão
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (1).png
+system:
+  description: 'CD 8+ANI (Resistência): empurra o alvo 4,5m.'
+  tier: basic
+  element: vento
+  category: weapon
+  price: 600
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!48b4b5cdcddd81bd'

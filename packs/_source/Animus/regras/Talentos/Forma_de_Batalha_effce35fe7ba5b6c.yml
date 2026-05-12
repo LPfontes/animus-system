@@ -1,0 +1,41 @@
+_id: effce35fe7ba5b6c
+name: Forma de Batalha
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/39.png
+system:
+  description: >-
+    No primeiro turno de qualquer combate, seus ataques elementais e de luta
+    custam -1 <span class="text-resource">PA</span> (mínimo 1).
+  trigger: ''
+  requirements:
+    description: Foco Elemental; nível 4+.
+    talents:
+      Foco Elemental: 28b40ad140233c6e
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!effce35fe7ba5b6c'

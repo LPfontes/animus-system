@@ -1,0 +1,26 @@
+_id: cndfebrealta0001
+name: Febre Alta
+type: condition
+img: icons/svg/thermometer.svg
+system:
+  description: ''
+  penalty: Desvantagem em todos os testes de POT. POT –1 para fins de dano.
+  cause: Doença, infecção, exposição prolongada ao calor ou frio.
+  removal: Medicina CD 9 + 8h de descanso quente.
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndfebrealta0001'

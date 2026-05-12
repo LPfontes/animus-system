@@ -1,0 +1,27 @@
+_id: 1439bff86c531027
+name: Drenante
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/agua6.png
+system:
+  description: Recupera Proteção igual ao número de acertos causados.
+  tier: reinforced
+  element: agua
+  category: weapon
+  price: 1200
+folder: fldagua000000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!1439bff86c531027'

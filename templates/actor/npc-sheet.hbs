@@ -1,0 +1,444 @@
+<form class="{{cssClass}} animus npc-sheet {{#if isEditing}}is-editing{{else}}view-mode{{/if}}" autocomplete="off">
+
+  {{!-- Header: Identidade --}}
+  <header class="sheet-header">
+    <div class="header-main">
+      <div class="portrait-container">
+        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+      </div>
+      <div class="identity-info">
+        <div class="name-row">
+          <h1 class="charname">
+            {{#if isEditing}}
+            <input name="name" type="text" value="{{actor.name}}" placeholder="Nome" />
+            {{else}}
+            <span>{{actor.name}}</span>
+            {{/if}}
+          </h1>
+          <div class="header-controls">
+            <a class="toggle-mode-btn" data-action="toggleMode">
+              <i class="fas {{#if isEditing}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
+            </a>
+          </div>
+        </div>
+
+        <div class="sub-header">
+          <div class="classification-tags">
+            {{#if isEditing}}
+            ND <input type="number" name="system.nd" value="{{system.nd}}" class="nd-input" />
+            · <select name="system.classification">
+              <option value="comum" {{#if (eq system.classification "comum" )}}selected{{/if}}>Comum</option>
+              <option value="raro" {{#if (eq system.classification "raro" )}}selected{{/if}}>Raro</option>
+              <option value="mistico" {{#if (eq system.classification "mistico" )}}selected{{/if}}>Místico</option>
+            </select>
+            · <input type="text" name="system.type" value="{{system.type}}" placeholder="Tipo" />
+            {{else}}
+            <span class="nd-tag">ND {{system.nd}}</span>
+            <span class="sep">·</span>
+            <span class="classification-tag {{system.classification}}">{{upper system.classification}}</span>
+            <span class="sep">·</span>
+            <span class="type-tag">{{system.type}}</span>
+            {{/if}}
+          </div>
+        </div>
+
+        <div class="quote-area">
+          {{#if isEditing}}
+          <input type="text" name="system.quote" value="{{system.quote}}" placeholder="Citação / Flavor Text" />
+          {{else if system.quote}}
+          <p class="flavor-quote">"{{system.quote}}"</p>
+          {{/if}}
+        </div>
+      </div>
+
+      <div class="header-stats">
+        <div class="stat-box resistances">
+          <label>Resistências</label>
+          <div class="res-row">
+            <div class="res-item" title="Física">
+              <i class="fas fa-shield-alt"></i>
+              <span>{{system.status.resistances.physical}}</span>
+            </div>
+            <div class="res-item" title="Elemental">
+              <i class="fas fa-fire"></i>
+              <span>{{system.status.resistances.elemental}}</span>
+            </div>
+            <div class="res-item" title="Mental">
+              <i class="fas fa-brain"></i>
+              <span>{{system.status.resistances.mental}}</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  {{!-- Status Bar --}}
+  <div class="status-bar-v5">
+    <div class="stat-box hp">
+      <label>PV</label>
+      <div class="value-row">
+        <input type="number" name="system.status.hp.value" value="{{system.status.hp.value}}" />
+        <span class="sep">/</span>
+        <input type="number" name="system.status.hp.max" value="{{system.status.hp.max}}" />
+      </div>
+    </div>
+    <div class="stat-box pe">
+      <label>PE</label>
+      <div class="value-row">
+        <input type="number" name="system.status.pe.value" value="{{system.status.pe.value}}" />
+        <span class="sep">/</span>
+        <input type="number" name="system.status.pe.max" value="{{system.status.pe.max}}" />
+      </div>
+    </div>
+    <div class="stat-box pa">
+      <label>PA/Rodada</label>
+      <div class="value-display">{{system.status.pa.perRound}}</div>
+    </div>
+    <div class="stat-box attack" data-action="rollAttack">
+      <label>Ataque</label>
+      <div class="value-display">
+        {{system.attack.formula}}
+        {{#with (add system.attributes.[system.attack.attribute].value system.attack.baseBonus) as |total|}}
+        {{#if (gt total -1)}}+{{/if}}{{total}}
+        {{/with}}
+        <i class="fas fa-dice-d20"></i>
+      </div>
+    </div>
+  </div>
+
+  <section class="sheet-body">
+    <div class="grid grid-2">
+      {{!-- Coluna Esquerda: Atributos e Perícias --}}
+      <div class="stats-column">
+        <div class="section-header-v5">
+          <i class="fas fa-stat"></i> Atributos
+        </div>
+        <div class="attributes-grid-npc">
+          {{#each system.attributes as |attr key|}}
+          <div class="attr-npc-box {{#unless ../isEditing}}rollable{{/unless}}" {{#unless
+            ../isEditing}}data-action="rollAttribute" data-attr="{{key}}" {{/unless}}>
+            <span class="attr-label">{{upper key}}</span>
+            {{#if ../isEditing}}
+            <input type="number" name="system.attributes.{{key}}.value" value="{{attr.value}}" />
+            {{else}}
+            <span class="attr-value">{{#if (gt attr.value -1)}}+{{/if}}{{attr.value}}</span>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="section-header-v5">
+          <i class="fas fa-book"></i> Perícias
+          {{#if isEditing}}
+          <a class="control add" data-action="addSkill"><i class="fas fa-plus"></i></a>
+          {{/if}}
+          <div class="skill-counter">
+            {{skills.length}} / {{system.skillTotal}}
+          </div>
+        </div>
+        <div class="skills-list-npc">
+          {{#each skills as |skill i|}}
+          <div class="skill-npc-row {{#if ../isEditing}}edit-mode{{/if}}">
+            {{#if ../isEditing}}
+            <select name="system.skills.{{i}}.key">
+              {{selectOptions ../config.skills selected=skill.key labelAttr="label" localize=true}}
+            </select>
+            <select name="system.skills.{{i}}.rank">
+              <option value="1" {{#if (eq skill.rank 1)}}selected{{/if}}>Amador</option>
+              <option value="2" {{#if (eq skill.rank 2)}}selected{{/if}}>Profissional</option>
+              <option value="3" {{#if (eq skill.rank 3)}}selected{{/if}}>Mestre</option>
+            </select>
+            <a class="control delete" data-action="deleteSkill" data-index="{{i}}"><i class="fas fa-trash"></i></a>
+            {{else}}
+            <span class="skill-name">{{localize skill.label}}</span>
+            <span class="skill-rank">({{skill.rankLabel}})</span>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="section-header-v5">
+          <i class="fas fa-swords"></i> Ações Disponíveis
+        </div>
+        <div class="actions-editor glass-panel">
+          {{#if isEditing}}
+          {{editor system.availableActions target="system.availableActions" button=true owner=owner editable=true}}
+          {{else}}
+          {{{system.availableActions}}}
+          {{/if}}
+        </div>
+
+        <div class="section-header-v5">
+          <i class="fas fa-scroll"></i> Padrões de Turno
+          {{#if isEditing}}
+          <a class="control add" data-action="addTurnPattern"><i class="fas fa-plus"></i></a>
+          {{/if}}
+        </div>
+        <div class="turn-patterns-npc">
+          {{#each system.turnPatterns as |p i|}}
+          <div class="turn-card glass-panel {{#if p.collapsed}}collapsed{{/if}}" data-index="{{i}}">
+            <div class="turn-card-header" data-action="toggleCollapse">
+              <div class="header-left">
+                <i class="fas fa-chevron-right collapse-icon"></i>
+                {{#if ../isEditing}}
+                <input type="text" name="system.turnPatterns.{{i}}.label" value="{{p.label}}"
+                  placeholder="Turno A..." />
+                {{else}}
+                <span class="turn-label">{{p.label}}</span>
+                {{/if}}
+              </div>
+              <div class="header-right">
+                {{#if ../isEditing}}
+                <input type="number" name="system.turnPatterns.{{i}}.totalPA" value="{{p.totalPA}}" placeholder="PA"
+                  style="width: 50px;" />
+                <a class="control delete" data-action="deleteTurnPattern" data-index="{{i}}"><i
+                    class="fas fa-trash"></i></a>
+                {{else}}
+                <span class="turn-pa">{{p.totalPA}} PA</span>
+                {{/if}}
+              </div>
+            </div>
+            <div class="turn-body">
+              {{#if ../isEditing}}
+              <textarea name="system.turnPatterns.{{i}}.description"
+                placeholder="Descreva as ações do turno...">{{p.description}}</textarea>
+              {{else}}
+              <p class="turn-desc">{{p.description}}</p>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+
+      {{!-- Coluna Direita: Combate e Habilidades --}}
+      <div class="damage-column">
+        <div class="section-header-v5">
+          <i class="fas fa-swords"></i> Tabela de Dano
+        </div>
+        <div class="damage-table-npc glass-panel">
+          <div class="dt-header">
+            {{#if isEditing}}
+            <input type="text" name="system.damageTable.damageType" value="{{system.damageTable.damageType}}"
+              placeholder="Tipo" />
+            <select name="system.damageTable.attribute">
+              {{selectOptions config.attributes selected=system.damageTable.attribute localize=true}}
+            </select>
+            {{else}}
+            <span>{{system.damageTable.damageType}} ({{upper system.damageTable.attribute}} {{#if (gt
+              system.attributes.[system.damageTable.attribute].value
+              -1)}}+{{/if}}{{system.attributes.[system.damageTable.attribute].value}})</span>
+            {{/if}}
+          </div>
+          <div class="dt-grid">
+            {{#each (list "ac1" "ac2" "ac3" "ac4" "ac5" "ac6") as |ac|}}
+            <div class="dt-cell">
+              <label>{{upper ac}}{{#if (eq ac "ac6")}} (D.6){{/if}}</label>
+              {{#if ../isEditing}}
+              <input type="number" name="system.damageTable.{{ac}}" value="{{lookup ../system.damageTable ac}}" />
+              {{else}}
+              <span class="val">{{lookup ../system.damageTable ac}}</span>
+              {{/if}}
+            </div>
+            {{/each}}
+          </div>
+        </div>
+
+        <div class="section-header-v5">
+          <i class="fas fa-bolt"></i> Habilidades Especiais
+          {{#if isEditing}}
+          <a class="control add" data-action="addAbility"><i class="fas fa-plus"></i></a>
+          {{/if}}
+          <div
+            class="talent-points-counter {{#if (gt system.talentPointsSpent system.talentPointsTotal)}}over-budget{{/if}}">
+            Pontos: {{system.talentPointsSpent}} / {{system.talentPointsTotal}}
+          </div>
+        </div>
+        <div class="abilities-list-npc">
+          {{#each system.abilities as |ability i|}}
+          <div class="ability-npc-item {{#if ability.collapsed}}collapsed{{/if}}"
+            style="border-left: 3px solid {{lookup ../rarityColors ability.rarity}}" data-index="{{i}}">
+            <div class="ability-header" data-action="toggleCollapse">
+              <div class="header-left">
+                <i class="fas fa-chevron-right collapse-icon"></i>
+                {{#if ../isEditing}}
+                <input type="text" name="system.abilities.{{i}}.name" value="{{ability.name}}" class="name-input" />
+                <select name="system.abilities.{{i}}.rarity">
+                  <option value="comum" {{#if (eq ability.rarity "comum" )}}selected{{/if}}>Comum</option>
+                  <option value="raro" {{#if (eq ability.rarity "raro" )}}selected{{/if}}>Raro</option>
+                  <option value="mistico" {{#if (eq ability.rarity "mistico" )}}selected{{/if}}>Místico</option>
+                  <option value="lendario" {{#if (eq ability.rarity "lendario" )}}selected{{/if}}>Lendário</option>
+                </select>
+                <div class="costs">
+                  <input type="number" name="system.abilities.{{i}}.paCost" value="{{ability.paCost}}" placeholder="PA"
+                    title="Custo de PA" />
+                  <input type="number" name="system.abilities.{{i}}.peCost" value="{{ability.peCost}}" placeholder="PE"
+                    title="Custo de PE" />
+                  <input type="number" name="system.abilities.{{i}}.talentCost" value="{{ability.talentCost}}"
+                    placeholder="P" title="Custo em Pontos de Talento" class="talent-cost" />
+                </div>
+                <a class="control delete" data-action="deleteAbility" data-index="{{i}}"><i
+                    class="fas fa-trash"></i></a>
+                {{else}}
+                <div class="name-meta">
+                  <span class="ability-name">{{ability.name}}</span>
+                  <span class="ability-meta">
+                    {{#if ability.frequency}}[{{ability.frequency}}]{{/if}}
+                    {{#if ability.paCost}} · {{ability.paCost}} PA{{/if}}
+                    {{#if (gt ability.talentCost 0)}} <span class="talent-badge">{{ability.talentCost}} P</span>{{/if}}
+                  </span>
+                </div>
+                <div class="ability-controls">
+                  <a class="control roll" data-action="rollAbility" data-index="{{i}}" title="Rolar no Chat">
+                    <i class="fas fa-comment-alt"></i>
+                  </a>
+                </div>
+                {{/if}}
+              </div>
+            </div>
+            {{#if ../isEditing}}
+            <div class="ability-meta-edit">
+              <input type="text" name="system.abilities.{{i}}.frequency" value="{{ability.frequency}}"
+                placeholder="Frequência (ex: 1×/cena, Reação)" />
+
+              <div class="bonus-edit-grid">
+                <div class="bonus-group">
+                  <label>Recursos/Atrib.</label>
+                  <div class="inputs">
+                    <input type="number" name="system.abilities.{{i}}.bonuses.hp" value="{{ability.bonuses.hp}}"
+                      placeholder="PV" title="+PV" />
+                    <input type="number" name="system.abilities.{{i}}.bonuses.pe" value="{{ability.bonuses.pe}}"
+                      placeholder="PE" title="+PE" />
+                    <input type="number" name="system.abilities.{{i}}.bonuses.pa" value="{{ability.bonuses.pa}}"
+                      placeholder="PA" title="+PA" />
+                    <input type="number" name="system.abilities.{{i}}.bonuses.damage"
+                      value="{{ability.bonuses.damage}}" placeholder="Dano" title="+Dano" />
+                  </div>
+                </div>
+                <div class="bonus-group">
+                  <label>Resistências</label>
+                  <div class="inputs">
+                    <input type="number" name="system.abilities.{{i}}.bonuses.resistances.physical"
+                      value="{{ability.bonuses.resistances.physical}}" placeholder="Fís" title="Res. Física" />
+                    <input type="number" name="system.abilities.{{i}}.bonuses.resistances.elemental"
+                      value="{{ability.bonuses.resistances.elemental}}" placeholder="Ele" title="Res. Elemental" />
+                    <input type="number" name="system.abilities.{{i}}.bonuses.resistances.mental"
+                      value="{{ability.bonuses.resistances.mental}}" placeholder="Men" title="Res. Mental" />
+                  </div>
+                </div>
+                <div class="bonus-group">
+                  <label>Teste Provocado</label>
+                  <div class="inputs">
+                    <select name="system.abilities.{{i}}.check.attribute">
+                      <option value="">Nenhum</option>
+                      {{#each ../attributes as |attr key|}}
+                      <option value="{{key}}" {{#if (eq ability.check.attribute key)}}selected{{/if}}>{{attr.label}}
+                      </option>
+                      {{/each}}
+                    </select>
+                    <input type="text" name="system.abilities.{{i}}.check.difficulty"
+                      value="{{ability.check.difficulty}}" placeholder="CD" title="Dificuldade (Ex: 12, ND+10)"
+                      style="width: 60px;" />
+                  </div>
+                </div>
+              </div>
+
+              <div class="bonus-group" style="margin-top: 5px;">
+                <label>Ações Especiais (separadas por vírgula)</label>
+                <input type="text" name="system.abilities.{{i}}.specialActions" value="{{ability.specialActions}}"
+                  placeholder="Ex: Derrubar, Afastar, Sangramento" />
+              </div>
+
+              <div class="bonus-group" style="margin-top: 5px;">
+                <label>Fórmula (Dano/Cura/Efeito)</label>
+                <input type="text" name="system.abilities.{{i}}.formula" value="{{ability.formula}}"
+                  placeholder="Ex: 2d6 + 5" />
+              </div>
+            </div>
+            {{/if}}
+            <div class="ability-body">
+              {{#if ../isEditing}}
+              {{editor ability.description target=(concat "system.abilities." i ".description") button=true
+              owner=../owner editable=true}}
+              {{else}}
+              {{{ability.description}}}
+
+              {{#if (or ability.check.attribute ability.specialActions.length ability.formula)}}
+              <div class="ability-actions-footer">
+                {{#if ability.check.attribute}}
+                <button type="button" class="action-btn check" data-action="rollAbilityTest" data-index="{{i}}">
+                  <i class="fas fa-dice-d20"></i> Teste {{upper ability.check.attribute}} {{#if
+                  ability.check.difficulty}}(CD {{ability.check.difficulty}}){{/if}}
+                </button>
+                {{/if}}
+
+                {{#if ability.formula}}
+                <button type="button" class="action-btn formula" data-action="rollAbilityFormula" data-index="{{i}}">
+                  <i class="fas fa-dice"></i> Rolar {{ability.formula}}
+                </button>
+                {{/if}}
+
+                {{#each ability.specialActions as |specAction|}}
+                <button type="button" class="action-btn special" data-action="triggerSpecialAction"
+                  data-ability-index="{{../i}}" data-action-label="{{specAction}}">
+                  <i class="fas fa-star"></i> {{specAction}}
+                </button>
+                {{/each}}
+              </div>
+              {{/if}}
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+
+        <div class="lore-section">
+          <div class="section-header-v5">
+            <i class="fas fa-leaf"></i> Ecologia
+          </div>
+          <div class="ecology-editor glass-panel">
+            {{#if isEditing}}
+            {{editor system.ecology target="system.ecology" button=true owner=owner editable=true}}
+            {{else}}
+            {{{system.ecology}}}
+            {{/if}}
+          </div>
+
+          <div class="section-header-v5">
+            <i class="fas fa-fissure"></i> Fraquezas
+          </div>
+          <div class="weakness-editor glass-panel">
+            {{#if isEditing}}
+            {{editor system.weaknesses target="system.weaknesses" button=true owner=owner editable=true}}
+            {{else}}
+            {{{system.weaknesses}}}
+            {{/if}}
+          </div>
+
+          <div class="section-header-v5">
+            <i class="fas fa-treasure-chest"></i> Despojos
+          </div>
+          <div class="loot-editor glass-panel">
+            {{#if isEditing}}
+            {{editor system.loot target="system.loot" button=true owner=owner editable=true}}
+            {{else}}
+            {{{system.loot}}}
+            {{/if}}
+          </div>
+
+          <div class="section-header-v5">
+            <i class="fas fa-user-shield"></i> Notas do Narrador
+          </div>
+          <div class="notes-editor glass-panel">
+            {{#if isEditing}}
+            {{editor system.narratorNotes target="system.narratorNotes" button=true owner=owner editable=true}}
+            {{else}}
+            {{{system.narratorNotes}}}
+            {{/if}}
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</form>

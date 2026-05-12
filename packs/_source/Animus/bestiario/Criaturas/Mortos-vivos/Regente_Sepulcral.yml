@@ -1,0 +1,78 @@
+_id: regentesepulcral0001
+name: "Regente Sepulcral"
+type: npc
+img: systems/animus/assets/system-icons/types/morto-vivo.svg
+folder: fldbestmortos000
+system:
+  nd: 8
+  classification: "místico"
+  innateIdentity: "morto-vivo"
+  type: "Morto-vivo"
+  quote: ""
+  attributes:
+    pot: { value: 3 }
+    hab: { value: 2 }
+    cog: { value: 2 }
+    per: { value: 2 }
+    pre: { value: 4 }
+    ani: { value: 3 }
+  status:
+    hp: { value: 215, max: 215 }
+    pe: { value: 55, max: 55 }
+    pa: { value: 6, max: 6 }
+  attack:
+    label: "Toque da Tumba"
+    formula: "5d6"
+    attribute: "pre"
+    baseBonus: 4
+  damageTable:
+    damageType: "Toque da Tumba"
+    attribute: "pre"
+    ac1: 16
+    ac2: 24
+    ac3: 32
+    ac4: 40
+    ac5: 48
+    ac6: 64
+  skills: [{"key":"luta","rank":4},{"key":"resistencia","rank":4},{"key":"aura","rank":2}]
+  abilities: [
+      {
+        "name": "Resistência Ancestral",
+        "rarity": "místico",
+        "description": "<p>Passiva: Enquanto a Coroa de Osso estiver intacta, o Regente tem Redução de Dano 4 contra todas as fontes e não pode ser reduzido a 0 PV.</p>",
+        "bonuses": {
+          "resistances": {
+            "physical": 4,
+            "mental": 4
+          }
+        },
+        "img": "systems/animus/assets/system-icons/talents/místico.svg"
+      },
+      {
+        "name": "Regeneração Óssea",
+        "rarity": "raro",
+        "description": "<p>Regenera 10 PV no início de cada um de seus turnos, a menos que tenha sofrido dano de fogo ou luz na rodada anterior.</p>",
+        "specialActions": [
+          "Regenerar PV"
+        ],
+        "img": "systems/animus/assets/system-icons/talents/raro.svg"
+      },
+      {
+        "name": "Comando dos Mortos",
+        "rarity": "místico",
+        "description": "<p>2 PA, 6 PE: Ergue 1d4 Erguidos dos arredores. Eles agem imediatamente após o Regente.</p>",
+        "specialActions": [
+          "Erguer Mortos"
+        ],
+        "formula": "1d4",
+        "img": "systems/animus/assets/system-icons/talents/místico.svg"
+      }
+    ]
+  turnPatterns: [{"label":"Assalto Majestoso","description":"Toque da Tumba (2) + Comando dos Mortos (2) + Mov (1) + Mov (1)","totalPA":6}]
+  availableActions: ""
+  ecology: "<p>Um soberano de eras esquecidas, cuja vontade de governar transcendeu a decomposição da carne. Ele não comanda por medo, mas por um vínculo metafísico com os restos mortais de seus súditos.</p>"
+  weaknesses: "<p><b>Condição de morte:</b> a Coroa de Osso deve ser destruída primeiro (Dureza 14, PV 30). <b>Fogo e luz elemental:</b> +3 de dano por acerto. <b>Sem a coroa:</b> perde Resistência Ancestral e Regeneração — torna-se mortal.</p>"
+  loot: "<p><b>Fragmento da Coroa de Osso:</b> Runa Necrótica — arma aplica Maldição em vez de Sangramento (CD PRE = 10 + nível). Valor: 300 Đ. <b>Osso Ancestral:</b> Armadura com osso sepulcral concede imunidade a medo/charme, mas portador perde 1 PRE permanente ao vesti-la. Valor: 120 Đ/kg. <b>Coroa de Osso Completa:</b> Artefato único. Uso por 7+ dias inicia transformação em Regente Sepulcral. Valor: 2.000 Đ.</p>"
+  narratorNotes: "<p>O Regente prioriza proteger sua coroa acima de tudo. Ele usará seus subordinados como escudos vivos. Se a coroa for roubada em vez de destruída, ele fará qualquer acordo para recuperá-la.</p>"
+flags: {}
+_key: '!actors!regentesepulcral0001'

@@ -1,0 +1,21 @@
+_id: e340be43c81ad309
+name: Pensamento Rápido
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/9.png
+system:
+  description: Ao fazer um <span class="text-mechanic">teste</span> de <span class="text-attribute">COG</span>, pode gastar 4 <span class="text-resource">PE</span> para mudar o valor de um dos dados para o valor '5'.
+  trigger: ""
+  requirements:
+    description: Nível 5+.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+_key: "!items!e340be43c81ad309"

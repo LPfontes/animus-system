@@ -1,0 +1,129 @@
+_id: da42c8d2ca972d16
+name: Terra
+type: element
+img: systems/animus/assets/system-icons/elements/terra.svg
+system:
+  description: >-
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
+    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
+    PE</td><td>2+2×ANI</td><td>3+2×ANI</td><td>4+3×ANI</td><td>5+3×ANI</td></tr><tr><td>6
+    PE</td><td>4+2×ANI</td><td>6+3×ANI</td><td>7+3×ANI</td><td>8+4×ANI</td></tr><tr><td>9
+    PE</td><td>7+2×ANI</td><td>9+3×ANI</td><td>11+4×ANI</td><td>12+5×ANI</td></tr></table><h3>Tabela
+    de Cura</h3><table border='1'><tr><th>Nível PE</th><th>1 acerto</th><th>2
+    acertos</th><th>3 acertos</th><th>4 acertos (crít.)</th></tr><tr><td>3
+    PE</td><td>2+1×ANI</td><td>4+2×ANI</td><td>5+2×ANI</td><td>7+3×ANI</td></tr><tr><td>6
+    PE</td><td>4+2×ANI</td><td>6+2×ANI</td><td>8+3×ANI</td><td>11+4×ANI</td></tr><tr><td>9
+    PE</td><td>6+2×ANI</td><td>9+3×ANI</td><td>12+4×ANI</td><td>15+5×ANI</td></tr></table>
+  strength: Tanque + cura Proteção
+  weakness: Dano baixo
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - cog
+    selectedAttribute: ''
+  range: 9m
+  rhythm: Deliberado
+  damageTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 2
+        mult: 2
+      ac2:
+        base: 3
+        mult: 2
+      ac3:
+        base: 4
+        mult: 3
+      ac4:
+        base: 5
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 4
+        mult: 2
+      ac2:
+        base: 6
+        mult: 3
+      ac3:
+        base: 7
+        mult: 3
+      ac4:
+        base: 8
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 7
+        mult: 2
+      ac2:
+        base: 9
+        mult: 3
+      ac3:
+        base: 11
+        mult: 4
+      ac4:
+        base: 12
+        mult: 5
+  healTable:
+    '1':
+      pe: 3
+      ac1:
+        base: 2
+        mult: 1
+      ac2:
+        base: 4
+        mult: 2
+      ac3:
+        base: 5
+        mult: 2
+      ac4:
+        base: 7
+        mult: 3
+    '2':
+      pe: 6
+      ac1:
+        base: 4
+        mult: 2
+      ac2:
+        base: 6
+        mult: 2
+      ac3:
+        base: 8
+        mult: 3
+      ac4:
+        base: 11
+        mult: 4
+    '3':
+      pe: 9
+      ac1:
+        base: 6
+        mult: 2
+      ac2:
+        base: 9
+        mult: 3
+      ac3:
+        base: 12
+        mult: 4
+      ac4:
+        base: 15
+        mult: 5
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: elementoshub0001
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!da42c8d2ca972d16'

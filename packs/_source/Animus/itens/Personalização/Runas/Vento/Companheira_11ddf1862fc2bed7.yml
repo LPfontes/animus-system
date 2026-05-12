@@ -1,0 +1,27 @@
+_id: 11ddf1862fc2bed7
+name: Companheira
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (3).png
+system:
+  description: Arma de arremesso que retorna automaticamente.
+  tier: basic
+  element: vento
+  category: weapon
+  price: 600
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!11ddf1862fc2bed7'

@@ -1,0 +1,45 @@
+_id: d438165750a7e8ab
+name: Estrategista de Campo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/22.png
+system:
+  description: >-
+    No início de um combate (antes do primeiro turno), gaste 4 <span
+    class="text-resource">PE</span> para analisar o campo de batalha.
+    <br>Escolha: (a) Redistribuição de iniciativa  reordene a iniciativa de até
+    2 aliados; (b) Posicionamento tático  todos os aliados movem gratuitamente
+    3m antes do combate; (c) Análise de terreno  você e seus aliados ignoram
+    terreno difícil nessa <span class="text-mechanic">cena</span>.
+  trigger: ''
+  requirements:
+    description: Profissional em Sobrevivência; Análise Rápida.
+    talents:
+      Análise Rápida: fb4e20f68c9b88c2
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 2
+  cost: 4
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!d438165750a7e8ab'

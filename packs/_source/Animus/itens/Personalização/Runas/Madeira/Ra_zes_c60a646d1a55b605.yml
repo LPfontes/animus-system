@@ -1,0 +1,27 @@
+_id: c60a646d1a55b605
+name: Raízes
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/madeira (5).png
+system:
+  description: 'Acerto: +1 PA em ações de movimento até fim do turno.'
+  tier: basic
+  element: madeira
+  category: weapon
+  price: 600
+folder: fldmadeira000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!c60a646d1a55b605'

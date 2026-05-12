@@ -1,0 +1,26 @@
+_id: cndconfuso000001
+name: Confuso
+type: condition
+img: icons/svg/daze.svg
+system:
+  description: ''
+  penalty: Simples
+  cause: 'Habilidade específica (ex: Névoa de Memória)'
+  removal: Fim da duração; ou COG CD 10 por rodada
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndconfuso000001'

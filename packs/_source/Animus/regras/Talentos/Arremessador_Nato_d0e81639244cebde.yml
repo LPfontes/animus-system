@@ -1,0 +1,40 @@
+_id: d0e81639244cebde
+name: Arremessador Nato
+type: talent
+img: systems/animus/assets/icons/skills/talentos/arqueria/18.png
+system:
+  description: >-
+    Dobra a distância de arremesso de armas leves (6m 12m). <br>Sacar uma arma
+    de arremesso não custa nenhuma <span class="text-mechanic">ação</span>.
+  trigger: passiva
+  requirements:
+    description: 1 ponto em HABILIDADE.
+    talents: {}
+    attributes:
+      - key: hab
+        value: 1
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!d0e81639244cebde'

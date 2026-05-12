@@ -1,0 +1,44 @@
+_id: 815c1c2b3fe6436c
+name: Investigador
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/26.png
+system:
+  description: >-
+    Com 10 minutos de Análise em uma <span class="text-mechanic">cena</span>,
+    local ou objeto, ganha +1d em <span class="text-attribute">PER</span> para
+    encontrar pistas ocultas. <br>Pode fazer uma segunda rolagem se a primeira
+    falhar (1×/<span class="text-mechanic">cena</span>).
+  trigger: ''
+  requirements:
+    description: Amador em Percepção; Cognição 1+; nível 4+.
+    talents: {}
+    attributes:
+      - key: cog
+        value: 1
+    skills:
+      - key: percepcao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!815c1c2b3fe6436c'

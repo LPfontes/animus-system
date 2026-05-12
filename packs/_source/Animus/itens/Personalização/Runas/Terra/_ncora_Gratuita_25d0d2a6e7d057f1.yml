@@ -1,0 +1,27 @@
+_id: 25d0d2a6e7d057f1
+name: Âncora Gratuita
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/terra3.png
+system:
+  description: 'Em postura defensiva: +1 em testes de Resistência nessa rodada.'
+  tier: basic
+  element: terra
+  category: armor
+  price: 600
+folder: fldterra00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!25d0d2a6e7d057f1'

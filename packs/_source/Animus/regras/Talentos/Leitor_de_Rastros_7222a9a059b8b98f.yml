@@ -1,0 +1,40 @@
+_id: 7222a9a059b8b98f
+name: Leitor de Rastros
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/41.png
+system:
+  description: >-
+    10 minutos de Análise revelam: quantas criaturas, tamanho, direção, quando
+    passaram. <br>automático, sem <span class="text-mechanic">teste</span>.
+  trigger: ''
+  requirements:
+    description: Amador em Investigação.
+    talents: {}
+    attributes: []
+    skills:
+      - key: investigacao
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!7222a9a059b8b98f'

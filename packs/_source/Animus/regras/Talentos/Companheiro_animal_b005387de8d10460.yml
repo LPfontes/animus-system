@@ -1,0 +1,42 @@
+_id: b005387de8d10460
+name: Companheiro animal
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/25.png
+system:
+  description: >-
+    Você ganha um companheiro animal. <br>Escolha um animal domesticável; ele
+    pode realizar testes e auxiliar o mestre em algumas atividades. <br>Escolha
+    uma perícia para receber <span class="text-mechanic">vantagem</span> quando
+    estiver na <span class="text-attribute">PRE</span> de seu companheiro.
+  trigger: ''
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!b005387de8d10460'

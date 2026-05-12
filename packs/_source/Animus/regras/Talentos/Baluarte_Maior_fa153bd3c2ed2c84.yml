@@ -1,0 +1,42 @@
+_id: fa153bd3c2ed2c84
+name: Baluarte Maior
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/19.png
+system:
+  description: >-
+    Igual ao Baluarte, porém gasta 5 <span class="text-resource">PE</span> para
+    diminuir todos os danos recebidos até a sua próxima <span
+    class="text-mechanic">rodada</span>.
+  trigger: ''
+  requirements:
+    description: Profissional em Resistência; Baluarte Menor.
+    talents:
+      Baluarte Menor: 12b8b560454e7ad2
+    attributes: []
+    skills:
+      - key: resistencia
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!fa153bd3c2ed2c84'

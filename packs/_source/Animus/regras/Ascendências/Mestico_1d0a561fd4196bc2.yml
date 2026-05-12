@@ -1,0 +1,39 @@
+_id: 1d0a561fd4196bc2
+folder: ascendenciashub1
+name: Mestiço
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/mestico.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Versatilidade Genética:</strong>
+    Escolha 1 habilidade maior e 2 habilidades de perícia de outras
+    Ascendências.<br>Descendente de múltiplas linhagens.</li><li><strong>Herança
+    Composta:</strong> Aprende uma 4ª habilidade no Nível 3 e uma 5ª habilidade
+    no Nível 6.<br>Evolução constante das habilidades
+    raciais.</li><li><strong>Convergência:</strong> 1x por arco: ativa todas as
+    passivas de uma Ascendência por 1 cena; Fica Exausto por 1h após o
+    uso.<br>Acesso temporário ao poder total de uma linhagem.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - hab
+      - cog
+      - per
+      - pre
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Versatilidade Genética
+      description: Descendente de múltiplas linhagens.
+      mechanicalEffect: >-
+        Escolha 1 habilidade maior e 2 habilidades de perícia de outras
+        Ascendências.
+    - name: Herança Composta
+      description: Evolução constante das habilidades raciais.
+      mechanicalEffect: Aprende uma 4ª habilidade no Nível 3 e uma 5ª habilidade no Nível 6.
+    - name: Convergência
+      description: Acesso temporário ao poder total de uma linhagem.
+      mechanicalEffect: >-
+        1x por arco: ativa todas as passivas de uma Ascendência por 1 cena; Fica
+        Exausto por 1h após o uso.
+_key: '!items!1d0a561fd4196bc2'

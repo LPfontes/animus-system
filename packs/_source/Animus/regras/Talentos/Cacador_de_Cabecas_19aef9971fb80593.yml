@@ -1,0 +1,24 @@
+_id: 19aef9971fb80593
+name: Caçador de Cabeças
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/35.png
+system:
+  description: Para o tipo de criatura escolhido em Especialidade de Caça, também aumenta o multiplicador de atributo do <span class="text-mechanic">dano</span> em ×1 para todas as categorias de <span class="text-mechanic">dano</span>.
+  trigger: ""
+  requirements:
+    description: Profissional em Sobrevivência; Especialidade de Caça.
+    talents:
+      Especialidade de Caça: 924c4c7879b26969
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+_key: "!items!19aef9971fb80593"

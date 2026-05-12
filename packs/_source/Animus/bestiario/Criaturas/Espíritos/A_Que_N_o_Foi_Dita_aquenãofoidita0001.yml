@@ -1,0 +1,125 @@
+_id: aquenãofoidita0001
+name: A Que Não Foi Dita
+type: npc
+img: systems/animus/assets/system-icons/types/espírito.svg
+folder: fldbestespiri000
+system:
+  nd: 7
+  classification: místico
+  innateIdentity: espírito
+  type: Espírito
+  quote: ''
+  attributes:
+    pot:
+      value: 0
+    hab:
+      value: 2
+    cog:
+      value: 2
+    per:
+      value: 3
+    pre:
+      value: 3
+    ani:
+      value: 4
+  status:
+    hp:
+      value: 170
+      max: 170
+    pe:
+      value: 60
+      max: 60
+    pa:
+      value: 6
+      max: 6
+  attack:
+    label: Palavras Proibidas
+    formula: 5d6
+    attribute: ani
+    baseBonus: 4
+  damageTable:
+    damageType: Palavras Proibidas
+    attribute: ani
+    ac1: 14
+    ac2: 21
+    ac3: 28
+    ac4: 35
+    ac5: 42
+    ac6: 56
+  skills:
+    - key: intuicao
+      rank: 4
+    - key: enganacao
+      rank: 2
+    - key: aura
+      rank: 2
+  abilities:
+    - name: Mente de Predador
+      rarity: comum
+      description: >-
+        <p>Nunca enganada por ilusões. Lê a Anima dos presentes: sabe HP, PE e a
+        maior vulnerabilidade de cada um (Narrador revela 1 segredo por oponente
+        por combate).</p>
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Domínio Mental
+      rarity: místico
+      description: >-
+        <p>2 PA, 6 PE: alvo testa PRE CD 15 ou fica Dominado por 1 rodada (age
+        contra o próprio grupo, 1 ação, sem ataques letais a aliados).</p>
+      check:
+        attribute: pre
+        difficulty: '15'
+      specialActions:
+        - Dominar
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Barreira de Essência
+      rarity: raro
+      description: >-
+        <p>1 PA, 5 PE: escudo que absorve o próximo ataque elemental
+        completamente e devolve 2 PE ao atacante.</p>
+      specialActions:
+        - Escudo Elemental
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Profecia da Derrota
+      rarity: místico
+      description: >-
+        <p>1x/combate, 0 PA, 0 PE: declara o "destino" de um personagem. Por 3
+        rodadas, todo ataque que falhar causa -1 PA acumulativo (máx. -2). CD
+        PRE 14 para resistir.</p>
+      check:
+        attribute: pre
+        difficulty: '14'
+      specialActions:
+        - Profetizar
+      img: systems/animus/assets/system-icons/talents/místico.svg
+  turnPatterns:
+    - label: Dominação
+      description: Domínio Mental (2) + Profetizar (0) + Mov (1)
+      totalPA: 3
+    - label: Assalto Mental
+      description: Palavras Proibidas (2) + Palavras Proibidas (2) + Mov (1)
+      totalPA: 5
+  availableActions: >-
+    <p><b>Palavras Proibidas:</b> 2 PA. Ataque mental (18m), 5d6 de dano de
+    Anima. Ignora 2 de Proteção.</p>
+  ecology: >-
+    <p>Diz-se que ela não fala, mas que suas palavras vibram diretamente na
+    alma. Aqueles que sobrevivem relatam um silêncio ensurdecedor que revela as
+    fraquezas mais ocultas.</p>
+  weaknesses: >-
+    <p><b>Espelho de Anima:</b> um espelho existe no local — destruí-lo (Dureza
+    10, PV 10) cancela Barreira de Essência e Profecia da Derrota. <b>Verdades
+    não-ditas:</b> contar uma verdade genuína que ela não conhece a Atordoa por
+    1 rodada (PER CD 13 para resistir).</p>
+  loot: >-
+    <p><b>Cristal de Memória:</b> Runa Mental — arma pode usar PRE como atributo
+    de ataque 1×/combate. Valor: 180 Đ. <b>Véu da Oráculo:</b> Armadura leve com
+    +1 PER permanente e Vantagem contra ilusões. Valor: 250 Đ.</p>
+  narratorNotes: >-
+    <p>Nunca ataca corpo a corpo — mantém distância mínima de 9m. Ela deve ser
+    jogada como uma presença psicológica que ataca a mente e o destino dos
+    jogadores.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!aquenãofoidita0001'

@@ -131,6 +131,19 @@ ANIMUS.weaponTypesByIndex = {
   8: "fogo_leve", 9: "fogo_media"
 };
 
+ANIMUS.weaponActionCosts = {
+  cortante_leve: 1,
+  cortante_medio: 2,
+  contusa_leve: 1,
+  contusa_medio: 2,
+  perfurante_leve: 1,
+  perfurante_medio: 2,
+  distancia_leve: 1,
+  distancia_media: 2,
+  fogo_leve: 1,
+  fogo_media: 2
+};
+
 ANIMUS.damageTypesByIndex = {
   0: "cortante", 1: "perfurante", 2: "contuso", 3: "fogo", 4: "energia",
   5: "venenoso", 6: "eletrico", 7: "gelo", 8: "luz", 9: "trevas"
@@ -211,6 +224,15 @@ ANIMUS.weaponProperties = [
   "Versátil",
   "Brutal",
   "Ágil"
+];
+
+ANIMUS.basicActions = [
+  { name: "Mover", cost: 1, img: "systems/animus/assets/system-icons/action/sprint.svg", description: "Desloca-se até 9 metros pelo campo de batalha." },
+  { name: "Atacar", cost: 1, img: "systems/animus/assets/system-icons/weapon/sword-clash.svg", description: "Realiza um ataque com uma arma pronta (Leve = 1 PA, Média = 2 PA)." },
+  { name: "Sacar Arma", cost: 1, img: "systems/animus/assets/system-icons/action/switch-weapon.svg", description: "Saca ou guarda uma arma pronta para uso." },
+  { name: "Usar Item", cost: 1, img: "systems/animus/assets/system-icons/action/targeting.svg", description: "Consome ou ativa um item do seu inventário." },
+  { name: "Manobra", cost: 1, img: "systems/animus/assets/system-icons/action/grab.svg", description: "Realiza uma manobra de combate (Empurrar, Agarrar, etc)." },
+  { name: "Reação Defensiva", cost: 0, img: "systems/animus/assets/system-icons/action/broken-shield.svg", description: "Gasta PA do próximo turno para aumentar sua Proteção contra um ataque." }
 ];
 
 /* -------------------------------------------- */

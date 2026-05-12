@@ -1,0 +1,27 @@
+_id: adb1cba67e848bde
+name: Blindagem Brutal
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/metal (3).png
+system:
+  description: 'Ao receber 4 acertos: -3 dano. 1x/rodada.'
+  tier: reinforced
+  element: metal
+  category: armor
+  price: 1200
+folder: fldmetal00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!adb1cba67e848bde'

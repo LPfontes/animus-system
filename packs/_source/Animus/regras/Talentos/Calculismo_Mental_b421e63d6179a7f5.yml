@@ -1,0 +1,43 @@
+_id: b421e63d6179a7f5
+name: Calculismo Mental
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/13.png
+system:
+  description: >-
+    Você pode usar sua <span class="text-attribute">COG</span> no lugar de <span
+    class="text-attribute">PER</span> em qualquer <span
+    class="text-mechanic">teste</span> de <span
+    class="text-attribute">PER</span> ou <span
+    class="text-attribute">PER</span>.
+  trigger: ''
+  requirements:
+    description: 2 pontos em COGNIÇÃO.
+    talents: {}
+    attributes:
+      - key: cog
+        value: 2
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!b421e63d6179a7f5'

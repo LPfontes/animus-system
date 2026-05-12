@@ -1,0 +1,27 @@
+_id: cndagarrado00001
+name: Agarrado
+type: condition
+img: systems/animus/assets/system-icons/action/grab.svg
+system:
+  description: ''
+  penalty: Não pode se mover. −1d em ataques que não sejam contra o agarrador.
+  cause: Mordida Interna, talento Gravitacional, Manobra de Combate.
+  removal: Luta oposta.
+  duration: Até escapar
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndagarrado00001'

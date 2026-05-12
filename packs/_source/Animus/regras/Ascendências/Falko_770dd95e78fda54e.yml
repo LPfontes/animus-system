@@ -1,0 +1,55 @@
+_id: 770dd95e78fda54e
+name: Falko
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/falko.svg
+system:
+  description: >-
+    <h3>Habilidades Inatas</h3><ul><li><strong>Voo:</strong> Gaste 1 <span
+    class="text-mechanic">PA</span> para decolar; move-se com dobro da
+    velocidade; limite de <span class="text-attribute">HAB</span> <span
+    class="text-mechanic">rodadas</span>.<br>Permite voar enquanto não usa
+    armaduras médias ou pesadas.</li><li><strong>Visão afiada:</strong> +1d em
+    testes de Percepção<br>Olhos projetados para ver a longas
+    distâncias.</li><li><strong>Ossos Ocos:</strong> <span
+    class="text-mechanic">Desvantagem</span> em Resistência contra impacto; +2
+    de <span class="text-mechanic">dano</span> de fontes de concussão<br>Mais
+    leve, porém mais frágil a impactos.</li></ul>
+  bonus:
+    value: 1
+    attributes:
+      - hab
+      - pre
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Voo
+      description: Permite voar enquanto não usa armaduras médias ou pesadas.
+      mechanicalEffect: >-
+        Gaste 1 <span class="text-mechanic">PA</span> para decolar; move-se com
+        dobro da velocidade; limite de <span class="text-attribute">HAB</span>
+        <span class="text-mechanic">rodadas</span>.
+    - name: Visão afiada
+      description: Olhos projetados para ver a longas distâncias.
+      mechanicalEffect: +1d em testes de Percepção
+    - name: Ossos Ocos
+      description: Mais leve, porém mais frágil a impactos.
+      mechanicalEffect: >-
+        <span class="text-mechanic">Desvantagem</span> em Resistência contra
+        impacto; +2 de <span class="text-mechanic">dano</span> de fontes de
+        concussão
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!770dd95e78fda54e'

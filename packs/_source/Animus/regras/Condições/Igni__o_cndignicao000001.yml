@@ -1,0 +1,27 @@
+_id: cndignicao000001
+name: Ignição
+type: condition
+img: systems/animus/assets/system-icons/fire/flame.svg
+system:
+  description: ''
+  penalty: 2 de dano de fogo/turno. Enquanto ativa, o alvo não pode receber cura.
+  cause: Fogo, Magia de Fogo.
+  removal: Ação (CD 8 Resistência ou rolar no chão).
+  duration: 2 rodadas
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndignicao000001'

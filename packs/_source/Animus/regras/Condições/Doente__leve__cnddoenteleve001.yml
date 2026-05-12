@@ -1,0 +1,26 @@
+_id: cnddoenteleve001
+name: Doente (leve)
+type: condition
+img: icons/svg/biohazard.svg
+system:
+  description: ''
+  penalty: Simples
+  cause: Exposição a ambiente insalubre, veneno fraco
+  removal: Descanso longo + 24h
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cnddoenteleve001'

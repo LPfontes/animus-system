@@ -1,0 +1,27 @@
+_id: 90366e0e33d34f18
+name: Vendaval
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/vento (4).png
+system:
+  description: +2 dano de vento em todos os acertos.
+  tier: reinforced
+  element: vento
+  category: weapon
+  price: 1200
+folder: fldvento00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!90366e0e33d34f18'

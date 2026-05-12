@@ -1,0 +1,27 @@
+_id: 3b39a4fd171125f4
+name: Inabalável
+type: rune
+img: systems/animus/assets/system-icons/weapon/runas/terra2.png
+system:
+  description: 'Imune a empurrão/deslocamento com 1-2 acertos. 3+: metade da distância.'
+  tier: basic
+  element: terra
+  category: armor
+  price: 600
+folder: fldterra00000000
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!3b39a4fd171125f4'

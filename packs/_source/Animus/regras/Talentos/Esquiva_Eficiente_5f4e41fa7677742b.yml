@@ -1,0 +1,42 @@
+_id: 5f4e41fa7677742b
+name: Esquiva Eficiente
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/15.png
+system:
+  description: >-
+    O primeiro ataque contra você em cada <span
+    class="text-mechanic">rodada</span> tem a dificuldade de acertos aumentada
+    em 1. <br>Ataques subsequentes na mesma <span
+    class="text-mechanic">rodada</span> não são afetados.
+  trigger: ''
+  requirements:
+    description: 1 ponto em HABILIDADE.
+    talents: {}
+    attributes:
+      - key: hab
+        value: 1
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!5f4e41fa7677742b'

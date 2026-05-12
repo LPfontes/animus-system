@@ -1,0 +1,42 @@
+_id: 47d77d74010facef
+name: Area Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/7.png
+system:
+  description: >-
+    Ataques em área (linha, cone ou explosão). <br>+1 <span
+    class="text-resource">PE</span> (3m) / +3 <span
+    class="text-resource">PE</span> (6m).
+  trigger: ''
+  requirements:
+    description: ANI 2 + Projétil Elem.
+    talents:
+      Projétil Elemental: 5309934e37fbad54
+    attributes:
+      - key: ani
+        value: 2
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!47d77d74010facef'

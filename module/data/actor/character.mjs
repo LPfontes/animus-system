@@ -49,6 +49,12 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
         element: new fields.StringField({ initial: "" }),
         level: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
         biography: new fields.HTMLField({ initial: "" }),
+        appearance: new fields.HTMLField({ initial: "" }),
+        notes: new fields.HTMLField({ initial: "" }),
+        personality: new fields.StringField({ initial: "" }),
+        ideals: new fields.StringField({ initial: "" }),
+        bonds: new fields.StringField({ initial: "" }),
+        flaws: new fields.StringField({ initial: "" }),
         selectedFreeAttribute: new fields.StringField({ initial: "" }),
         actionCostPenalty: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
         advancement: new fields.SchemaField({

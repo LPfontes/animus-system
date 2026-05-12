@@ -1,0 +1,29 @@
+_id: trovaofora000001
+name: Reflexo Elétrico (Trovão)
+type: action
+img: systems/animus/assets/system-icons/elements/trovao.svg
+system:
+  description: >-
+    Efeito Secundário de Trovão (Fora de Combate). Permite acordar um aliado
+    instantaneamente ou ganhar +1d em testes de Iniciativa se puder se preparar
+    eletricamente.
+  cost: 0
+  pa: 0
+  type: utility
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!trovaofora000001'

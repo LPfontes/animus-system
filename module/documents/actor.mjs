@@ -149,4 +149,51 @@ export class AnimusActor extends Actor {
     await this.update(updates);
     ui.notifications.info(`${this.name} realizou um descanso longo. Todos os recursos foram restaurados.`);
   }
+
+  /**
+   * Consome um recurso do ator (HP, PE ou PA)
+   * @param {string} type - 'hp', 'pe' ou 'pa'
+   * @param {number} amount - quantidade a ser subtraída
+   * @returns {Promise<boolean>} - true se o recurso foi consumido, false se não havia o suficiente
+   */
+  async consumeResource(type, amount) {
+    if (amount <= 0) return true;
+    
+    const current = foundry.utils.getProperty(this.system.status, `${type}.value`) || 0;
+    if (current < amount) {
+      const label = type === "pa" ? "PA" : type.toUpperCase();
+      ui.notifications.warn(`Você não possui ${label} suficiente (${current}/${amount}).`);
+      return false;
+    }
+    
+    await this.update({ [`system.status.${type}.value`]: current - amount });
+    return true;
+  }
+
+  /**
+   * Calcula o custo adicional por repetição de ação no turno.
+   * @param {string} actionId - Identificador da ação (nome ou ID)
+   * @returns {number} - Custo adicional (0 ou 1)
+   */
+  getActionRepeatCost(actionId) {
+    // Apenas em combate
+    if (!game.combat?.active) return 0;
+    
+    const turnActions = this.getFlag("animus", "turnActions") || [];
+    return turnActions.includes(actionId) ? 1 : 0;
+  }
+
+  /**
+   * Registra o uso de uma ação no turno atual.
+   * @param {string} actionId - Identificador da ação
+   */
+  async recordTurnAction(actionId) {
+    if (!game.combat?.active) return;
+    
+    const turnActions = this.getFlag("animus", "turnActions") || [];
+    if (!turnActions.includes(actionId)) {
+      const newActions = [...turnActions, actionId];
+      await this.setFlag("animus", "turnActions", newActions);
+    }
+  }
 }
