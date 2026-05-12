@@ -1,0 +1,19 @@
+_id: cndderrubado001
+name: Derrubado
+type: condition
+img: icons/svg/falling.svg
+system:
+  description: 'O alvo caiu ou foi jogado ao chão.'
+  penalty: '-1d em ataques; Ataques contra você recebem +1d (Vantagem).'
+  cause: Manobra Empurrar, Rasteira, Explosão.
+  removal: Gasta 2 PA para levantar.
+  duration: Até levantar
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndderrubado001'

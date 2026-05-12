@@ -17,8 +17,11 @@ system:
       - pot
       - per
     selectedAttribute: ''
-  range: 9m
-  rhythm: Alta intensidade
+  range: 12m
+  rhythm: Rígido
+  secondaryEffects:
+    outOfCombat: 'Magnetismo Sutil (detectar armas 9m, polir, travar fechaduras).'
+    inCombat: 'Fragmento — 1d6+ANI a 9m.'
   damageTable:
     '1':
       pe: 3

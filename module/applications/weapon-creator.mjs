@@ -15,8 +15,8 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     tag: "div",
     classes: ["animus", "weapon-creator"],
     position: {
-      width: 550,
-      height: "auto"
+      width: 600,
+      height: 800
     },
     window: {
       title: "FORJA DE ARMAMENTOS",
@@ -24,7 +24,7 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     },
     actions: {
       applyPreset: AnimusWeaponCreator.prototype._onApplyPreset,
-      close: function() { this.close(); },
+      close: function () { this.close(); },
       submit: AnimusWeaponCreator.prototype._onSubmit
     },
     form: {
@@ -64,6 +64,8 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
         }
         this.mainPropertyId = id;
         this._updatePropertyPreview(ev.target);
+        this._updateTotalPriceUI();
+        this._updateDamagePreview();
       });
     }
 
@@ -85,7 +87,14 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
       }
     });
 
+    this.element.addEventListener("input", (ev) => {
+      if (ev.target.name?.startsWith("system.damage.")) {
+        this._updateDamagePreview();
+      }
+    });
+
     this._renderSelectedProperties();
+    this._updateDamagePreview();
   }
 
   /**
@@ -121,6 +130,9 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
       counter.textContent = `${count}/3`;
       counter.classList.toggle("at-limit", count >= 3);
     }
+
+    this._updateTotalPriceUI();
+    this._updateDamagePreview();
   }
 
   /**
@@ -191,7 +203,7 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     if (type === "Complementares") {
       const allT2 = Array.from(this.element.querySelectorAll('select[data-type="Complementares"]'));
       const otherValues = allT2.filter(s => s !== select).map(s => s.value).filter(v => v !== "");
-      
+
       if (value !== "" && otherValues.includes(value)) {
         ui.notifications.warn("Você não pode selecionar a mesma característica modular mais de uma vez.");
         select.value = "";
@@ -229,7 +241,7 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     for (const id of this.selectedPropertyIds) {
       const prop = this._getPropertyById(id);
       if (!prop) continue;
-      
+
       // Se for mecânica mas a arma não é mecânica
       if (this.context.properties.Mecânicas.some(p => p.id === id) && !isMechanical) toRemove.push(id);
       // Se for de fogo mas a arma não é de fogo
@@ -247,37 +259,41 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
    */
   _applyWeaponPreset(typeKey) {
     const weaponPresets = {
-      cortante_leve: { attr: "pot", dmg: { ac1: [2, 0], ac2: [3, 1], ac3: [4, 2], ac4: [5, 3] }, range: 0, props: [] },
-      cortante_medio: { attr: "pot", dmg: { ac1: [3, 0], ac2: [4, 2], ac3: [6, 3], ac4: [8, 3] }, range: 0, props: [] },
-      contusa_leve: { attr: "pot", dmg: { ac1: [1, 1], ac2: [2, 2], ac3: [3, 3], ac4: [4, 4] }, range: 0, props: [] },
-      contusa_medio: { attr: "pot", dmg: { ac1: [2, 1], ac2: [3, 2], ac3: [5, 3], ac4: [6, 5] }, range: 0, props: [] },
-      perfurante_leve: { attr: "pot", dmg: { ac1: [1, 0], ac2: [2, 1], ac3: [3, 2], ac4: [5, 5] }, range: 0, props: [] },
-      perfurante_medio: { attr: "pot", dmg: { ac1: [2, 0], ac2: [3, 1], ac3: [4, 3], ac4: [7, 6] }, range: 0, props: [] },
+      cortante_leve: { attr: "pot", dmg: { ac1: [2, 0], ac2: [3, 1], ac3: [4, 2], ac4: [5, 3] }, range: 0, props: [], price: 5 },
+      cortante_medio: { attr: "pot", dmg: { ac1: [3, 0], ac2: [4, 2], ac3: [6, 3], ac4: [8, 3] }, range: 0, props: [], price: 15 },
+      contusa_leve: { attr: "pot", dmg: { ac1: [1, 1], ac2: [2, 2], ac3: [3, 3], ac4: [4, 4] }, range: 0, props: [], price: 0 },
+      contusa_medio: { attr: "pot", dmg: { ac1: [2, 1], ac2: [3, 2], ac3: [5, 3], ac4: [6, 5] }, range: 0, props: [], price: 15 },
+      perfurante_leve: { attr: "pot", dmg: { ac1: [1, 0], ac2: [2, 1], ac3: [3, 2], ac4: [5, 5] }, range: 0, props: [], price: 8 },
+      perfurante_medio: { attr: "pot", dmg: { ac1: [2, 0], ac2: [3, 1], ac3: [4, 3], ac4: [7, 6] }, range: 0, props: [], price: 10 },
       distancia_leve: { // Distância Leve (Arcos/Bestas)
-        attr: "hab", dmg: { ac1: [1, 1], ac2: [1, 2], ac3: [2, 3], ac4: [3, 4] }, range: 1, props: []
+        attr: "hab", dmg: { ac1: [1, 1], ac2: [1, 2], ac3: [2, 3], ac4: [3, 4] }, range: 1, props: [], price: 15
       },
       distancia_media: { // Distância Médio (Arcos/Bestas)
-        attr: "hab", dmg: { ac1: [1, 2], ac2: [2, 3], ac3: [3, 4], ac4: [5, 5] }, range: 2, props: []
+        attr: "hab", dmg: { ac1: [1, 2], ac2: [2, 3], ac3: [3, 4], ac4: [5, 5] }, range: 2, props: [], price: 35
       },
       fogo_leve: { // Fogo Leve (Pistola) - Base + 2
-        attr: "hab", dmg: { ac1: [3, 1], ac2: [3, 2], ac3: [4, 3], ac4: [5, 4] }, range: 1, 
-        props: ["5b5063ac4c0fb15f"] // Antecarga
+        attr: "hab", dmg: { ac1: [3, 1], ac2: [3, 2], ac3: [4, 3], ac4: [5, 4] }, range: 1,
+        props: ["5b5063ac4c0fb15f"], // Antecarga
+        price: 200
       },
       fogo_media: { // Fogo Médio (Mosquete) - Base + 4
         attr: "hab", dmg: { ac1: [5, 2], ac2: [6, 3], ac3: [7, 4], ac4: [9, 5] }, range: 2,
-        props: ["5b5063ac4c0fb15f"] // Antecarga
+        props: ["5b5063ac4c0fb15f"], // Antecarga
+        price: 500
       }
     };
 
     const preset = weaponPresets[typeKey];
     if (!preset) return;
 
+    this.basePrice = preset.price || 0;
+
     const form = this.element.querySelector("form");
     if (!form) return;
 
     // Atualizar Atributo
     form.querySelector('select[name="system.attribute"]').value = preset.attr;
-    
+
     // Atualizar Alcance
     form.querySelector('select[name="system.range"]').value = preset.range;
 
@@ -290,7 +306,7 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     // Limpar seleções anteriores
     this.selectedPropertyIds.clear();
     this.mainPropertyId = "";
-    
+
     if (preset.props) {
       preset.props.forEach(propId => {
         // Verificar se é principal ou complementar
@@ -309,6 +325,8 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
       this._updatePropertyPreview(mainSelect);
     }
     this._renderSelectedProperties();
+    this._updateTotalPriceUI();
+    this._updateDamagePreview();
   }
 
   /** @override */
@@ -341,7 +359,9 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
           name: d.name,
           img: d.img,
           type: d.system.type,
-          desc: d.system.description?.replace(/<[^>]*>?/gm, '')
+          desc: d.system.description?.replace(/<[^>]*>?/gm, ''),
+          price: parseInt(d.system.price?.replace(/[^0-9]/g, '') || 0),
+          bonus: d.system.bonus || {}
         };
 
         // Se a subcategoria for uma das que esperamos (Principais, Complementares, Mecânicas, Fogo)
@@ -377,22 +397,22 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
    */
   async _onSubmit(event) {
     event.preventDefault();
-    
+
     const form = this.element.querySelector("form");
-    const formData = new FormDataExtended(form).object;
+    const formData = new foundry.applications.ux.FormDataExtended(form).object;
     const data = foundry.utils.expandObject(formData);
-    
+
     // Mapeamento automático de Tipo de Arma -> Tipo de Dano (usando chaves string)
     const typeToDamage = {
-      cortante_leve: "cortante", 
+      cortante_leve: "cortante",
       cortante_medio: "cortante",
-      contusa_leve: "contuso", 
+      contusa_leve: "contuso",
       contusa_medio: "contuso",
-      perfurante_leve: "perfurante", 
+      perfurante_leve: "perfurante",
       perfurante_medio: "perfurante",
-      distancia_leve: "distancia", 
+      distancia_leve: "distancia",
       distancia_media: "distancia",
-      fogo_leve: "fogo", 
+      fogo_leve: "fogo",
       fogo_media: "fogo"
     };
     data.system.damageType = typeToDamage[data.system.type] || "cortante";
@@ -406,7 +426,8 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
         properties: [
           ...(this.mainPropertyId ? [this.mainPropertyId] : []),
           ...Array.from(this.selectedPropertyIds)
-        ]
+        ],
+        price: `${this._calculateTotalPrice()} Đ`
       }
     };
 
@@ -414,5 +435,74 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     await this.actor.createEmbeddedDocuments("Item", [itemData]);
     ui.notifications.info(`A arma "${itemData.name}" foi forjada com sucesso!`);
     this.close();
+  }
+
+  /**
+   * Calcula o valor total numérico
+   */
+  _calculateTotalPrice() {
+    let total = this.basePrice || 0;
+    if (this.mainPropertyId) {
+      const prop = this._getPropertyById(this.mainPropertyId);
+      if (prop) total += prop.price || 0;
+    }
+    for (const id of this.selectedPropertyIds) {
+      const prop = this._getPropertyById(id);
+      if (prop) total += prop.price || 0;
+    }
+    return total;
+  }
+
+  /**
+   * Atualiza a exibição do preço total
+   */
+  _updateTotalPriceUI() {
+    if (!this.element) return;
+    const totalEl = this.element.querySelector(".total-price-value");
+    if (!totalEl) return;
+    totalEl.textContent = `${this._calculateTotalPrice()} Đ`;
+  }
+
+  /**
+   * Atualiza os valores de dano final na interface
+   */
+  _updateDamagePreview() {
+    if (!this.element) return;
+
+    // 1. Coletar bônus de todas as propriedades selecionadas
+    let damageBonus = 0;
+
+    // Principal
+    if (this.mainPropertyId) {
+      const prop = this._getPropertyById(this.mainPropertyId);
+      if (prop?.bonus?.damage) damageBonus += prop.bonus.damage;
+    }
+
+    // Complementares
+    for (const id of this.selectedPropertyIds) {
+      const prop = this._getPropertyById(id);
+      if (prop?.bonus?.damage) damageBonus += prop.bonus.damage;
+    }
+
+    // 2. Atualizar spans de total
+    const form = this.element.querySelector("form");
+    if (!form) return;
+
+    for (let i = 1; i <= 4; i++) {
+      const baseInput = form.querySelector(`input[name="system.damage.ac${i}.base"]`);
+      const totalSpan = this.element.querySelector(`.ac-total[data-ac="ac${i}"]`);
+      if (baseInput && totalSpan) {
+        const base = parseInt(baseInput.value) || 0;
+        totalSpan.textContent = base + damageBonus;
+      }
+    }
+
+    // 3. Atualizar indicador de bônus ativo
+    const bonusIndicator = this.element.querySelector(".bonus-value");
+    if (bonusIndicator) {
+      bonusIndicator.textContent = `+${damageBonus} DANO ATIVO`;
+      bonusIndicator.style.opacity = damageBonus > 0 ? "1" : "0.3";
+      bonusIndicator.style.background = damageBonus > 0 ? "rgba(0, 255, 204, 0.2)" : "rgba(255, 255, 255, 0.05)";
+    }
   }
 }

@@ -4,22 +4,14 @@ type: condition
 img: systems/animus/assets/system-icons/fire/flame.svg
 system:
   description: ''
-  penalty: 2 de dano de fogo/turno. Enquanto ativa, o alvo não pode receber cura.
+  penalty: 2 PV/turno, Desvantagem física.
   cause: Fogo, Magia de Fogo.
-  removal: Ação (CD 8 Resistência ou rolar no chão).
+  removal: Gasta 1 PA + Água (HAB CD 8).
   duration: 2 rodadas
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

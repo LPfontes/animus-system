@@ -112,7 +112,7 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
     // 3. Consolidar Totais com Limites (Hard Caps) e Bônus Temporários
     const caps = ANIMUS.LEVEL_CAPS[level] || ANIMUS.LEVEL_CAPS[1];
     for (let key in attributes) {
-      attributes[key].total = Math.min(caps.attrCap, Math.max(-2, attributes[key].total + (attributes[key].bonus || 0)));
+      attributes[key].total = Math.min(3, Math.max(-2, attributes[key].total + (attributes[key].bonus || 0)));
     }
 
     // 4. Calcular Proteção e Penalidades (Armadura, Escudo, Propriedades)
@@ -131,14 +131,40 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
         paPenalty += item.system.paPenalty || 0;
         actionCostPenalty += (item.system.actionPenalty || 0);
 
-        // Desvantagem em Furtividade para Armaduras Pesadas
         if (item.type === "armor" && item.system.type === "pesada") {
           if (this.skills.furtividade) this.skills.furtividade.disadvantage = true;
         }
       }
-      // Propriedades
-      else if (item.type === "property" && item.system.bonus?.defense) {
-        totalProt += item.system.bonus.defense;
+      
+      // Armas e suas Propriedades
+      else if (item.type === "weapon") {
+        const weaponProps = item.system.propertyItems || [];
+        for (const prop of weaponProps) {
+          const b = prop?.system?.bonus;
+          if (!b) continue;
+
+          // Bônus Dinâmico (Ex: 1xHAB)
+          if (b.defenseMult && b.attributeMult) {
+            const attrVal = attributes[b.attributeMult]?.total || 0;
+            totalProt += (b.defenseMult * attrVal);
+          } 
+          // Bônus Fixo
+          else if (b.defense) {
+            totalProt += b.defense;
+          }
+        }
+      }
+
+      // Propriedades Soltas (Modulares equipadas)
+      else if (item.type === "property") {
+        const b = item.system.bonus;
+        if (!b) continue;
+        if (b.defenseMult && b.attributeMult) {
+          const attrVal = attributes[b.attributeMult]?.total || 0;
+          totalProt += (b.defenseMult * attrVal);
+        } else if (b.defense) {
+          totalProt += b.defense;
+        }
       }
     }
     status.prot.max = totalProt;
@@ -175,15 +201,26 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
     const spentAttrPoints = Object.values(attributes).reduce((acc, a) => acc + Math.max(0, a.value || 0), 0);
     this.attrPoints = {
       total: totalAttrPoints,
+      spent: spentAttrPoints,
       available: Math.max(0, totalAttrPoints - spentAttrPoints)
     };
 
-    // Pontos de Perícia (Base 4 + Pontos distribuídos)
-    const totalSkillPoints = 4 + (details.advancement?.distributedPoints?.ap || 0);
+    // Pontos de Perícia (Base 4 + 1 por nível + Pontos distribuídos)
+    const totalSkillPoints = 4 + autoBonus + (details.advancement?.distributedPoints?.ap || 0);
     const spentSkillPoints = Object.values(this.skills).reduce((acc, s) => acc + (s.value || 0), 0);
     this.skillPoints = {
       total: totalSkillPoints,
+      spent: spentSkillPoints,
       available: Math.max(0, totalSkillPoints - spentSkillPoints)
+    };
+
+    // Pontos de Talento (2 por nível)
+    const talentLimit = level * 2;
+    const talentCount = items.filter(i => i.type === "talent").length;
+    this.talentPoints = {
+      total: talentLimit,
+      count: talentCount,
+      available: Math.max(0, talentLimit - talentCount)
     };
 
     // Iniciativa

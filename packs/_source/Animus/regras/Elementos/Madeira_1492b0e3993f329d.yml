@@ -22,8 +22,11 @@ system:
       - pot
       - per
     selectedAttribute: ''
-  range: 18m
-  rhythm: Moderado
+  range: 9m
+  rhythm: Crescente
+  secondaryEffects:
+    outOfCombat: 'Pulso da Vida (brotar sementes, identificar plantas, cipós 3m).'
+    inCombat: 'Esporos — Desvantagem em Percepção.'
   damageTable:
     '1':
       pe: 3

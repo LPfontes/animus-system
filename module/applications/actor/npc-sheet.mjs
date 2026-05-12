@@ -1,6 +1,7 @@
 const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 import { AnimusRoll } from "../../dice.mjs";
+import { AnimusMonsterCreator } from "./monster-creator.mjs";
 
 export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   constructor(options = {}) {
@@ -17,6 +18,7 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     position: { width: 800, height: 900 },
     actions: {
       toggleMode: AnimusNPCSheet.prototype._onToggleMode,
+      openMonsterCreator: AnimusNPCSheet.prototype._onOpenMonsterCreator,
       rollAttack: AnimusNPCSheet.prototype._onRollAttack,
       rollAttribute: AnimusNPCSheet.prototype._onRollAttribute,
       rollAbility: AnimusNPCSheet.prototype._onRollAbility,
@@ -74,6 +76,10 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   _onToggleMode(event, target) {
     this.isEditing = !this.isEditing;
     this.render();
+  }
+
+  _onOpenMonsterCreator(event, target) {
+    new AnimusMonsterCreator().render(true);
   }
 
   async _onRollAttribute(event, target) {
@@ -138,9 +144,55 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
           <div class="chat-body">
             ${ability.description}
           </div>
+          ${this._getChatCardExtraContent(ability)}
         </div>
       `
     });
+  }
+
+  /**
+   * Gera o conteúdo extra (botões de teste e efeitos) para o cartão de chat
+   */
+  _getChatCardExtraContent(ability) {
+    let extraHtml = "";
+
+    // 1. Botão de Teste (Check)
+    if (ability.check?.attribute) {
+      const attr = ability.check.attribute.toUpperCase();
+      const dc = ability.check.difficulty || "10";
+      extraHtml += `
+        <div class="chat-section">
+          <button class="chat-button roll-resistance" data-attr="${ability.check.attribute}" data-dc="${dc}">
+            <i class="fas fa-dice-d20"></i> Teste de ${attr} (CD ${dc})
+          </button>
+        </div>`;
+    }
+
+    // 2. Botão de Efeitos/Aplicação
+    // Nota: Como habilidades de NPC são simplificadas, verificamos specialActions e formula
+    if (ability.formula || (ability.specialActions && ability.specialActions.length > 0)) {
+      extraHtml += `<div class="chat-section effects">`;
+      
+      if (ability.formula) {
+        extraHtml += `
+          <button class="chat-button apply-damage" data-formula="${ability.formula}">
+            <i class="fas fa-tint"></i> Rolar Efeito (${ability.formula})
+          </button>`;
+      }
+
+      if (ability.specialActions) {
+        ability.specialActions.forEach(action => {
+          extraHtml += `
+            <button class="chat-button apply-effect" data-condition="${action}">
+              <i class="fas fa-bolt"></i> Aplicar: ${action}
+            </button>`;
+        });
+      }
+
+      extraHtml += `</div>`;
+    }
+
+    return extraHtml ? `<div class="chat-footer-v3">${extraHtml}</div>` : "";
   }
 
   async _onRollAbilityTest(event, target) {

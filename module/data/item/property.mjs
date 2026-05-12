@@ -18,6 +18,7 @@ export default class AnimusPropertyData extends AnimusItemData {
         mult: new fields.NumberField({ initial: 0, integer: true }),
         defense: new fields.NumberField({ initial: 0, integer: true }),
         defenseMult: new fields.NumberField({ initial: 0, integer: true }),
+        attributeMult: new fields.StringField({ initial: "", blank: true }),
         reach: new fields.NumberField({ initial: 0, min: 0, step: 1.5 }),
         
         // Sobrescrita de Atributo (ex: Trocar POT por HAB)

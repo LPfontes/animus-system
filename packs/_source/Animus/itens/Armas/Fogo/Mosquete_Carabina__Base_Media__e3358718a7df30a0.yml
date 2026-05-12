@@ -3,15 +3,27 @@ name: Mosquete/Carabina (Base Média)
 type: weapon
 img: systems/animus/assets/system-icons/weapon/lee-enfield.svg
 system:
-  category: fogo
+  category: weapon
   damageType: fogo
   type: fogo_media
-  description: 'Tipo: Arma de Fogo<br>'
+  description: 'Tipo: Arma de Fogo<br>Duas Mãos; Antecarga; Base Média'
   damage:
-    ac1: 1 + 2xHAB + 4
-    ac2: 2 + 3xHAB + 4
-    ac3: 3 + 4xHAB + 4
-    ac4: 5 + 5xHAB + 4
+    ac1:
+      base: 5
+      mult: 2
+    ac2:
+      base: 6
+      mult: 3
+    ac3:
+      base: 7
+      mult: 4
+    ac4:
+      base: 9
+      mult: 5
+  properties:
+    - xj9v9acu6m000000
+    - kda7wi5rtd000000
+    - v1hk2hjcjs000000
   weight: 0
   price: 500 Đ
   check:
@@ -20,3 +32,4 @@ system:
     dc: 0
 folder: 12a3c819990821c3
 _key: '!items!e3358718a7df30a0'
+

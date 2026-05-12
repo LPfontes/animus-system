@@ -3,24 +3,15 @@ name: Atordoado
 type: condition
 img: icons/svg/daze.svg
 system:
-  description: ''
-  penalty: >-
-    Perde 1 ação no turno. Pode acumular até 2x (máx: perde 2 ações). 0 ações =
-    incapacitado.
-  cause: Golpe Atordoante, trovão, flash
-  removal: Automático no próximo turno
+  description: 'O alvo está tonto e com os sentidos embaralhados.'
+  penalty: 'Perde 1 ação (1 PA) no seu próximo turno.'
+  cause: Golpe Atordoante, trovão, flash.
+  removal: Automático no início do seu próximo turno.
+  duration: 1 rodada
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

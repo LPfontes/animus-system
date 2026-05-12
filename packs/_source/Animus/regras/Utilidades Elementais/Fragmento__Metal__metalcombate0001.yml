@@ -1,0 +1,18 @@
+_id: metalcombate0001
+name: Fragmento (Metal)
+type: action
+img: icons/magic/water/projectile-ice-snowball.webp
+system:
+  description: 'Fragmento — Causa 1d6+ANI de dano em um alvo a até 9m.'
+  cost: 0
+  pa: 1
+  type: 0
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!metalcombate0001'

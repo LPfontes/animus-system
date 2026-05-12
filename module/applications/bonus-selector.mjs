@@ -15,7 +15,7 @@ export class AnimusBonusSelector extends HandlebarsApplicationMixin(ApplicationV
       tag: "form",
       classes: ["animus", "bonus-selector"],
       position: {
-        width: 400,
+        width: 800,
         height: "auto"
       },
       window: {
@@ -37,11 +37,11 @@ export class AnimusBonusSelector extends HandlebarsApplicationMixin(ApplicationV
   async _prepareContext(options) {
     const bonus = this.item.system.bonus;
     const availableAttributes = bonus.attributes || [];
-    
+
     // Map attributes to labels using system config and localization
     const options_list = availableAttributes.map(attr => ({
       key: attr,
-      label: game.i18n.localize(CONFIG.ANIMUS.attributes[attr]) || attr.toUpperCase(),
+      label: game.i18n.localize(CONFIG.ANIMUS.attributes[attr]?.label || attr) || attr.toUpperCase(),
       selected: bonus.selectedAttribute === attr
     }));
 

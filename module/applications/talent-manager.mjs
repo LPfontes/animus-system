@@ -208,6 +208,13 @@ export class AnimusTalentManager extends HandlebarsApplicationMixin(ApplicationV
       return;
     }
 
+    // Verificar Limite de Talentos
+    const talentPoints = this.actor.system.talentPoints;
+    if (talentPoints.available <= 0) {
+      ui.notifications.warn(`Limite de talentos atingido (${talentPoints.total}). Evolua de nível para desbloquear mais.`);
+      return;
+    }
+
     // Verificar Requisitos
     const check = await this.checkRequirements(item);
     if (!check.met) {

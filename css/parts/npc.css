@@ -52,6 +52,36 @@
   align-items: center;
 }
 
+.animus.npc-sheet .header-controls {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.animus.npc-sheet .monster-creator-btn {
+  color: var(--accent);
+  font-size: 1.2rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+}
+
+.animus.npc-sheet .monster-creator-btn:hover {
+  opacity: 1;
+  transform: scale(1.1);
+  text-shadow: 0 0 10px var(--accent);
+}
+
+.animus.npc-sheet .toggle-mode-btn {
+  font-size: 1.2rem;
+  color: #888;
+  transition: all 0.2s ease;
+}
+
+.animus.npc-sheet .toggle-mode-btn:hover {
+  color: #fff;
+}
+
 .animus.npc-sheet .charname {
   margin: 0;
   font-family: 'Cinzel', serif;

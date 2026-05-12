@@ -8,7 +8,7 @@ system:
     seu próximo teste.
   cost: 0
   pa: 1
-  type: combat
+  type: 0
 folder: utilidadeshub001
 effects: []
 _stats:

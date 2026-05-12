@@ -1,0 +1,34 @@
+_id: nx9v1yhxik000000
+name: Besta pesada
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Besta_pesada.png
+system:
+  category: projetil
+  damageType: distancia
+  type: distancia_media
+  description: 'Tabela Oficial Animus'
+  damage:
+    ac1:
+      base: 2
+      mult: 0
+    ac2:
+      base: 3
+      mult: 1
+    ac3:
+      base: 4
+      mult: 3
+    ac4:
+      base: 7
+      mult: 6
+  properties:
+    - hcn431hqket00000
+    - xj9v9acu6m000000
+  weight: 0
+  price: 30 Đ
+  check:
+    attribute: hab
+    skill: pontaria
+    dc: 0
+folder: e1470d5c3ce776cd
+_key: '!items!nx9v1yhxik000000'
+

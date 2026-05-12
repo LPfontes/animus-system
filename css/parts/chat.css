@@ -221,9 +221,115 @@
     flex-direction: row;
     gap: 10px;
     align-items: center;
+    padding-bottom: 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.animus-chat-card .chat-tags {
+    display: flex;
+    gap: 5px;
+    margin-left: auto;
+}
+
+.animus-chat-card .tag {
+    font-size: 0.65rem;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 1px 6px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+.animus-chat-card .tag.cost {
+    background: rgba(0, 212, 255, 0.15);
+    color: #00d4ff;
+    border: 1px solid rgba(0, 212, 255, 0.3);
 }
 
 .animus-chat-card img {
     width: 25px;
     height: 25px;
 }
+/* FOOTER E BOTÕES INTERATIVOS */
+.chat-footer-v3 {
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.chat-section {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.chat-button {
+    background: rgba(157, 78, 221, 0.15);
+    border: 1px solid rgba(157, 78, 221, 0.4);
+    border-radius: 6px;
+    color: #fff;
+    padding: 6px 12px;
+    font-size: 0.8rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    justify-content: center;
+    font-family: 'Outfit', sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    width: 100%;
+}
+
+.chat-button:hover {
+    background: rgba(157, 78, 221, 0.3);
+    border-color: rgba(157, 78, 221, 0.6);
+    box-shadow: 0 0 10px rgba(157, 78, 221, 0.2);
+    transform: translateY(-1px);
+}
+
+.chat-button i {
+    font-size: 0.85rem;
+    color: var(--accent);
+}
+
+.chat-button.roll-resistance {
+    background: rgba(0, 212, 255, 0.1);
+    border-color: rgba(0, 212, 255, 0.3);
+}
+
+.chat-button.roll-resistance:hover {
+    background: rgba(0, 212, 255, 0.2);
+    border-color: rgba(0, 212, 255, 0.5);
+}
+
+.chat-button.apply-damage {
+    background: rgba(198, 40, 40, 0.15);
+    border-color: rgba(198, 40, 40, 0.4);
+}
+
+.chat-button.apply-damage:hover {
+    background: rgba(198, 40, 40, 0.3);
+    border-color: rgba(198, 40, 40, 0.6);
+}
+
+.chat-effect-tag {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: rgba(255, 255, 255, 0.05);
+    padding: 4px 10px;
+    border-radius: 4px;
+    font-size: 0.75rem;
+    color: #ffaa55;
+    font-weight: 700;
+    border: 1px solid rgba(255, 170, 85, 0.2);
+    width: fit-content;
+}
+

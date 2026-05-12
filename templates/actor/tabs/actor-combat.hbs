@@ -111,7 +111,8 @@
         </div>
 
         <div class="talents-scroll-list">
-          {{!-- Habilidades Inatas da Ascendência --}}
+          {{!-- Habilidades Inatas da Ascendência (respeitam o filtro) --}}
+          {{#if showInnate}}
           {{#each ascendancy.system.innateAbilities as |ability|}}
           <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})">
             <div class="talent-header">
@@ -123,6 +124,7 @@
             </div>
           </div>
           {{/each}}
+          {{/if}}
 
           {{!-- Talentos Filtrados --}}
           {{#each talents as |talent|}}
@@ -213,10 +215,18 @@
               <span class="item-name-clickable" data-action="editItem">{{weapon.name}}</span>
             </div>
             <div class="col-ac pa-value" style="color: var(--accent); font-weight: 800;">{{weapon.system.cost}}</div>
-            <div class="col-ac">{{weapon.calculatedDamage.ac1}}</div>
-            <div class="col-ac">{{weapon.calculatedDamage.ac2}}</div>
-            <div class="col-ac">{{weapon.calculatedDamage.ac3}}</div>
-            <div class="col-ac">{{weapon.calculatedDamage.ac4}}</div>
+            <div class="col-ac">
+              {{weapon.system.damageTable.ac1}}
+            </div>
+            <div class="col-ac">
+              {{weapon.system.damageTable.ac2}}
+            </div>
+            <div class="col-ac">
+              {{weapon.system.damageTable.ac3}}
+            </div>
+            <div class="col-ac">
+              {{weapon.system.damageTable.ac4}}
+            </div>
           </div>
           {{/each}}
         </div>
@@ -233,6 +243,21 @@
       <div class="actions-modern-list">
         {{!-- Ações Básicas (Sempre Visíveis) --}}
         {{#each config.basicActions as |action|}}
+        {{#if (eq action.name "Uso Elemental")}}
+        <div class="action-item-row glass-row basic-action elemental-action" data-action="rollElemental" data-name="{{action.name}}">
+          <div class="item-main-info">
+            <div class="roll-icon-btn">
+              <i class="fas fa-play"></i>
+            </div>
+            <i class="fas fa-star item-icon-small" style="color: var(--accent); font-size: 1.4em; width:28px; text-align:center;"></i>
+            <span class="item-name">{{action.name}}</span>
+          </div>
+          <div class="item-tags">
+            <span class="tag cost">{{action.cost}} PA</span>
+            <span class="tag" style="background: color-mix(in srgb, var(--accent) 20%, transparent);">Elemental</span>
+          </div>
+        </div>
+        {{else}}
         <div class="action-item-row glass-row basic-action" data-action="rollBasicAction" data-name="{{action.name}}">
           <div class="item-main-info">
             <div class="roll-icon-btn">
@@ -245,6 +270,7 @@
             <span class="tag cost">{{action.cost}} PA</span>
           </div>
         </div>
+        {{/if}}
         {{/each}}
 
         {{!-- Ações Customizadas/Adquiridas --}}

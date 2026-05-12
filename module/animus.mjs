@@ -145,53 +145,198 @@ Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
 /* -------------------------------------------- */
 
 Hooks.on("renderChatMessageHTML", (message, html, data) => {
-  // Adicionar classe de estilo do sistema
-  html.classList.add("animus");
+  // Garantir que temos o elemento raiz
+  const root = html instanceof HTMLElement ? html : html[0];
+  if (!root) return;
 
-  const btn = html.querySelector('.apply-damage-btn');
+  // Adicionar classe de estilo do sistema
+  root.classList.add("animus");
+
+  // --- Botão: Aplicar Dano / Cura (gerado pelo AnimusRoll.rollTest) ---
+  const btn = root.querySelector('.apply-damage-btn');
   if (btn) {
     btn.addEventListener('click', async (ev) => {
       ev.preventDefault();
-      const damage = parseInt(btn.dataset.damage);
-      const targeted = Array.from(game.user.targets);
-      const selected = canvas.tokens.controlled;
-      
-      // Priorizar alvos marcados (retículo), senão usar tokens selecionados
-      const finalTargets = targeted.length > 0 ? targeted : selected;
-
-      if (finalTargets.length === 0) {
-        return ui.notifications.warn("Selecione ou marque um alvo (T) para aplicar o dano.");
+      const amount = parseInt(btn.dataset.damage);
+      if (btn.dataset.action === "applyHeal") {
+        _applyHealToTokens(amount);
+      } else {
+        _applyDamageToTokens(amount);
       }
+    });
+  }
 
-      for (let token of finalTargets) {
+  // --- Botão: Aplicar Dano (Fórmula Direta) ---
+  const dmgBtn = root.querySelector('.apply-damage');
+  if (dmgBtn) {
+    dmgBtn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      const formula = dmgBtn.dataset.formula;
+      const selected = canvas.tokens.controlled;
+      if (selected.length === 0) return ui.notifications.warn("Selecione um token para aplicar o dano.");
+
+      const roll = await new Roll(formula || "0").evaluate();
+      await roll.toMessage({ 
+        speaker: ChatMessage.getSpeaker(),
+        flavor: `Rolar Efeito: ${formula}` 
+      });
+      
+      _applyDamageToTokens(roll.total);
+    });
+  }
+
+  // --- Botão: Teste de Resistência (Novo) ---
+  const resBtn = root.querySelector('.roll-resistance');
+  if (resBtn) {
+    resBtn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      const attr = resBtn.dataset.attr;
+      const dc = parseInt(resBtn.dataset.dc);
+      
+      const selected = canvas.tokens.controlled;
+      if (selected.length === 0) return ui.notifications.warn("Selecione um token para realizar o teste.");
+
+      for (let token of selected) {
         const actor = token.actor;
         if (!actor) continue;
-
-        const hp = actor.system.status.hp;
-        const prot = actor.system.status.prot;
-
-        let remaining = damage;
-        let currentProt = prot.value;
-        let currentHP = hp.value;
-
-        // 1. Descontar da Proteção primeiro
-        let newProt = Math.max(0, currentProt - remaining);
-        let absorbed = currentProt - newProt;
-        remaining -= absorbed;
-
-        // 2. Descontar da Vida o que sobrar
-        let newHP = Math.max(0, currentHP - remaining);
+        const attrVal = actor.system.attributes[attr]?.value || 0;
         
-        await actor.update({
-          "system.status.prot.value": newProt,
-          "system.status.hp.value": newHP
+        // Importar AnimusRoll dinamicamente se necessário, ou usar o global
+        const { AnimusRoll } = await import("./dice.mjs");
+        await AnimusRoll.rollTest({
+          poolSize: 2, // Padrão para testes reativos
+          attributeValue: attrVal,
+          label: `Resistência: ${attr.toUpperCase()}`,
+          speaker: actor,
+          difficulty: dc
         });
+      }
+    });
+  }
 
-        ui.notifications.info(`Aplicado ${damage} de dano a ${actor.name}. (Prot: -${absorbed}, PV: -${remaining})`);
+  // --- Botão: Aplicar Efeito Dinâmico (Novo) ---
+  const effBtn = root.querySelector('.apply-effect');
+  if (effBtn) {
+    effBtn.addEventListener('click', async (ev) => {
+      ev.preventDefault();
+      const { type, formula, condition } = effBtn.dataset;
+      
+      const selected = canvas.tokens.controlled;
+      if (selected.length === 0) return ui.notifications.warn("Selecione um token para aplicar o efeito.");
+
+      if (type === "damage" || type === "heal") {
+        const roll = await new Roll(formula || "0").evaluate();
+        await roll.toMessage({ flavor: `Aplicando ${type === 'damage' ? 'Dano' : 'Cura'}` });
+        
+        if (type === "damage") _applyDamageToTokens(roll.total);
+        else _applyHealToTokens(roll.total);
+      } else if (condition) {
+        for (let token of selected) {
+          // Mapeamento de nomes em PT-BR para IDs nativos do Foundry
+          const CONDITION_MAP = {
+            "derrubar": "prone",
+            "derrubado": "prone",
+            "caido": "prone",
+            "cego": "blind",
+            "cegueira": "blind",
+            "atordoado": "stun",
+            "atordoar": "stun",
+            "paralisado": "paralysis",
+            "paralisia": "paralysis",
+            "agarrado": "grappled",
+            "apavorado": "fear",
+            "medo": "fear",
+            "invisivel": "invisible",
+            "morto": "dead",
+            "inconsciente": "unconscious",
+            "envenenado": "poison",
+            "queimando": "burning",
+            "ignicao": "burning",
+            "em ignicao": "burning",
+            "sangrando": "bleeding",
+            "sangramento": "bleeding",
+            "imobilizado": "restrained",
+            "desprevenido": "unprepared",
+            "exausto": "exhaustion",
+            "saturado": "saturated",
+            "perturbado": "mental"
+          };
+
+          const cleanName = condition.toLowerCase().trim().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
+          const effectId = CONDITION_MAP[cleanName] || cleanName;
+          
+          try {
+            const hasEffect = token.actor.effects.some(e => e.getFlag("core", "statusId") === effectId);
+            if (!hasEffect) {
+              await token.actor.toggleStatusEffect(effectId, { active: true });
+              ui.notifications.info(`Efeito "${condition}" aplicado a ${token.name}.`);
+            } else {
+              ui.notifications.warn(`${token.name} já possui o efeito "${condition}".`);
+            }
+          } catch (err) {
+            console.error(`Animus | Falha ao aplicar efeito: ${effectId}`, err);
+            ui.notifications.warn(`Não foi possível aplicar "${condition}" automaticamente. Aplique manualmente.`);
+          }
+        }
       }
     });
   }
 });
+
+/**
+ * Helper para aplicar dano aos tokens selecionados ou alvos
+ */
+async function _applyDamageToTokens(damage) {
+  const targeted = Array.from(game.user.targets);
+  const selected = canvas.tokens.controlled;
+  const finalTargets = targeted.length > 0 ? targeted : selected;
+
+  if (finalTargets.length === 0) return ui.notifications.warn("Selecione ou marque um alvo (T).");
+
+  for (let token of finalTargets) {
+    const actor = token.actor;
+    if (!actor) continue;
+
+    const hp = actor.system.status.hp;
+    const prot = actor.system.status.prot;
+
+    let remaining = damage;
+    let currentProt = prot.value;
+    let currentHP = hp.value;
+
+    let newProt = Math.max(0, currentProt - remaining);
+    let absorbed = currentProt - newProt;
+    remaining -= absorbed;
+
+    let newHP = Math.max(0, currentHP - remaining);
+    
+    await actor.update({
+      "system.status.prot.value": newProt,
+      "system.status.hp.value": newHP
+    });
+
+    ui.notifications.info(`Dano: ${actor.name} perdeu ${damage} (Prot: -${absorbed}, PV: -${remaining})`);
+  }
+}
+
+/**
+ * Helper para aplicar cura aos tokens selecionados
+ */
+async function _applyHealToTokens(heal) {
+  const selected = canvas.tokens.controlled;
+  if (selected.length === 0) return ui.notifications.warn("Selecione um token para curar.");
+
+  for (let token of selected) {
+    const actor = token.actor;
+    if (!actor) continue;
+
+    const hp = actor.system.status.hp;
+    const newHP = Math.min(hp.max, hp.value + heal);
+    
+    await actor.update({ "system.status.hp.value": newHP });
+    ui.notifications.info(`${actor.name} recuperou ${heal} PV.`);
+  }
+}
 
 /* -------------------------------------------- */
 /*  Sidebar Buttons                             */
@@ -200,7 +345,11 @@ Hooks.on("renderChatMessageHTML", (message, html, data) => {
 Hooks.on("renderActorDirectory", (app, html, data) => {
   if (!game.user.isGM) return;
   
-  const footer = html[0].querySelector(".directory-footer") || html[0];
+  // Garantir que temos o elemento raiz (lidar com jQuery ou HTMLElement)
+  const root = html instanceof HTMLElement ? html : html[0];
+  if (!root) return;
+
+  const footer = root.querySelector(".directory-footer") || root;
   const button = document.createElement("button");
   button.type = "button";
   button.classList.add("monster-creator-btn");
@@ -216,5 +365,21 @@ Hooks.on("renderActorDirectory", (app, html, data) => {
     createEntity.parentElement.insertBefore(button, createEntity);
   } else {
     footer.appendChild(button);
+  }
+});
+
+Hooks.once("ready", async function() {
+  const pack = game.packs.get("animus.itens");
+  if (pack) {
+    await pack.getIndex({
+      fields: [
+        "system.bonus",
+        "system.price",
+        "system.subCategory",
+        "system.type",
+        "system.description"
+      ]
+    });
+    console.log("Animus | Índice do Compêndio atualizado com campos do sistema.");
   }
 });

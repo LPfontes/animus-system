@@ -111,6 +111,7 @@
   transition: all 0.2s ease;
   font-size: 0.8rem;
 }
+
 /* Monster Creator Sidebar Button */
 .directory.actor-directory .monster-creator-btn {
   background: linear-gradient(90deg, #1a237e, #0d47a1);
@@ -127,6 +128,7 @@
   box-shadow: 0 0 10px rgba(0, 242, 255, 0.4);
   transform: scale(1.02);
 }
+
 .compendium-browser .filter-label {
   font-size: 0.7rem;
   font-weight: 800;
@@ -327,8 +329,6 @@
 }
 
 .animus .add-btn {
-  width: 35px;
-  height: 35px;
   border-radius: 50%;
   background: var(--accent);
   border: none;
@@ -1001,16 +1001,18 @@
 }
 
 .animus.bonus-selector .option-card:hover {
-  background: rgba(157, 78, 221, 0.1);
+  background: rgba(157, 78, 221, 0.15);
   border-color: var(--accent);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
 }
 
-.animus.bonus-selector .option-card.active {
-  background: rgba(157, 78, 221, 0.2);
+.animus.bonus-selector .option-card.active,
+.animus.bonus-selector .option-card:has(input:checked) {
+  background: rgba(157, 78, 221, 0.25);
   border-color: var(--accent);
   box-shadow: 0 0 15px var(--accent-glow);
+  transform: translateY(-1px);
 }
 
 .animus.bonus-selector .option-card input {

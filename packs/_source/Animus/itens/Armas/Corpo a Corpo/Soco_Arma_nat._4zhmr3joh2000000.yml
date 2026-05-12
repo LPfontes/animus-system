@@ -1,0 +1,33 @@
+_id: 4zhmr3joh2000000
+name: Soco / Arma nat.
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Soco_Arma_nat..png
+system:
+  category: weapon
+  damageType: contuso
+  type: contusa_leve
+  description: 'Tabela Oficial Animus'
+  damage:
+    ac1:
+      base: 1
+      mult: 1
+    ac2:
+      base: 2
+      mult: 2
+    ac3:
+      base: 3
+      mult: 3
+    ac4:
+      base: 4
+      mult: 4
+  properties:
+    - []
+  weight: 0
+  price: 0 Đ
+  check:
+    attribute: pot
+    skill: luta
+    dc: 0
+folder: bd51c3d03d930431
+_key: '!items!4zhmr3joh2000000'
+

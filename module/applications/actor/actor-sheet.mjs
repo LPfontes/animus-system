@@ -50,7 +50,9 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       rollAttribute: AnimusActorSheet.prototype._onRollAttribute,
       toggleEquip: AnimusActorSheet.prototype._onToggleEquip,
       useItem: AnimusActorSheet.prototype._onUseItem,
-      rollBasicAction: AnimusActorSheet.prototype._onRollBasicAction
+      rollBasicAction: AnimusActorSheet.prototype._onRollBasicAction,
+      rollElemental: AnimusActorSheet.prototype._onRollElemental,
+      applyHeal: AnimusActorSheet.prototype._onApplyHeal
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -110,20 +112,10 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     };
 
     for (let i of items) {
-      const itemData = i.toObject();
-      itemData.id = i.id;
-      itemData.img = i.img;
-      itemData.isEquipped = i.system.equipped;
+      // Usar o documento diretamente para manter acesso aos getters dinâmicos
+      const itemData = i; 
       
-      // Garantir que dados do sistema sejam mesclados corretamente
-      itemData.system = {
-        ...itemData.system,
-        cost: i.system.cost ?? 1,
-        range: i.system.range
-      };
-
       if (i.type === "weapon") {
-        itemData.calculatedDamage = i.system.damageTable;
         weapons.push(itemData);
       }
       else if (i.type === "talent") {
@@ -138,6 +130,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       else if (i.type === "ascendancy") activeAscendancy = itemData;
       else if (i.type === "element") {
         activeElement = itemData;
+        // Atribuições extras necessárias para a lógica do template de elemento
         activeElement.resolvedDamageTable = i.system.resolvedDamageTable;
         activeElement.resolvedHealTable = i.system.resolvedHealTable;
       }
@@ -168,7 +161,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       attributes: cat.attrs.map(attrKey => ({
         key: attrKey,
         label: CONFIG.ANIMUS.attributes[attrKey].i18n,
-        value: system.attributes[attrKey].value,
+        base: system.attributes[attrKey].value,
+        total: system.attributes[attrKey].total,
         skills: Object.entries(CONFIG.ANIMUS.skills)
           .filter(([_, s]) => s.attr === attrKey)
           .map(([sKey, s]) => ({
@@ -184,10 +178,14 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     context.pointsRemaining = this.actor.system.pointsRemaining || 0;
     context.attrPoints = this.actor.system.attrPoints || { total: 0, available: 0 };
     context.skillPoints = this.actor.system.skillPoints || { total: 0, available: 0 };
+    context.talentPoints = this.actor.system.talentPoints || { total: 2, count: 0, available: 2 };
+    
+    context.talentCount = context.talentPoints.count;
+    context.talentLimit = context.talentPoints.total;
 
     // Níveis Ímpares para Bônus de Atributo
     const level = system.details.level;
-    context.oddLevels = [3, 5, 7, 9].filter(l => l <= level).map(l => ({
+    context.oddLevels = [1, 3, 5, 7, 9].filter(l => l <= level).map(l => ({
       level: l,
       selected: system.details.advancement.attributeBonuses[l] || ""
     }));
@@ -206,6 +204,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     // Dados para Filtros
     context.filters = this.filters;
+    context.showInnate = (this.filters.talents === "all" || this.filters.talents === "Ascendencia");
     context.talentCategories = Object.entries(CONFIG.ANIMUS.talentCategories || {}).map(([id, data]) => ({
       id,
       ...data
@@ -301,28 +300,37 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   async _onUpdateAbility(event, target) {
     const { ability, value } = target.dataset;
     const system = this.actor.system;
-    const newValue = parseInt(value);
+    const clickedValue = parseInt(value);
     const currentValue = foundry.utils.getProperty(this.actor._source.system, `${ability}.value`) || 0;
+    
+    // Determinar se a bolinha clicada está "cheia" (total ou base)
+    let isFilled = false;
+    if (ability.startsWith("attributes.")) {
+      const attrKey = ability.split(".")[1];
+      const attr = this.actor.system.attributes[attrKey];
+      isFilled = clickedValue <= (attr.total || 0);
+    } else {
+      isFilled = clickedValue <= currentValue;
+    }
+
+    // Se cheia subtrai, se vazia soma
+    let finalValue = isFilled ? currentValue - 1 : currentValue + 1;
+    finalValue = Math.max(0, Math.min(3, finalValue));
+
     const isAttribute = ability.startsWith("attributes.");
     const isSkill = ability.startsWith("skills.");
-
-    // Toggle logic
-    let finalValue = currentValue === newValue ? newValue - 1 : newValue;
 
     // Enforcement of Rules (if not in edit mode)
     if (!this.editMode) {
       const level = this.actor.system.details.level || 1;
 
       if (isAttribute) {
-        // 1. Limite de pontos totais
-        const totalAttrPoints = this.actor.system.attrPoints.total;
-        const otherSpent = Object.entries(this.actor._source.system.attributes)
-          .filter(([key, _]) => `attributes.${key}` !== ability)
-          .reduce((acc, [_, a]) => acc + Math.max(0, a.value || 0), 0);
+        const totalAttrPoints = system.attrPoints?.total || 0;
+        const otherSpent = (system.attrPoints?.spent || 0) - currentValue;
         
         if (otherSpent + Math.max(0, finalValue) > totalAttrPoints) {
-          ui.notifications.warn(`Limite de pontos de atributo atingido (${totalAttrPoints}).`);
-          return;
+          ui.notifications.info(`Ponto redistribuído (Limite: ${totalAttrPoints}).`);
+          finalValue = 0;
         }
 
         // 2. Limite por nível
@@ -357,8 +365,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         const otherSpent = (system.skillPoints?.spent || 0) - currentValue;
 
         if (otherSpent + finalValue > totalSkillPoints) {
-          ui.notifications.warn(`Limite de pontos de perícia atingido (${totalSkillPoints}).`);
-          return;
+          ui.notifications.info(`Ponto de perícia redistribuído (Limite: ${totalSkillPoints}).`);
+          finalValue = 0;
         }
 
         // Mestre (3) requer Foco em Perícia
@@ -454,7 +462,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     await AnimusRoll.rollTest({
       poolSize: poolSize,
-      attributeValue: attr.value || 0,
+      attributeValue: attr.total || 0,
       label: `Teste de ${label}`,
       advantage: advantage,
       speaker: this.actor
@@ -478,7 +486,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
     await AnimusRoll.rollTest({
       poolSize: 2,
-      attributeValue: attr.value || 0,
+      attributeValue: attr.total || 0,
       label: `Teste de ${game.i18n.localize(label)}`,
       advantage: advantage,
       speaker: this.actor
@@ -548,7 +556,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const skill = this.actor.system.skills[skillKey];
 
     const poolSize = 2 + (skill?.value || 0);
-    const totalBonus = (attr?.value || 0) + (options.bonus || 0);
+    const totalBonus = (attr?.total || 0) + (options.bonus || 0);
     const hitTable = weapon.system.damageTable;
 
     await AnimusRoll.rollTest({
@@ -871,4 +879,116 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       `
     });
   }
+
+  /**
+   * Handle Elemental Use action — picks table type if actor has both damage and heal tables.
+   */
+  async _onRollElemental(event, target) {
+    // 1. Verifica se o personagem tem um Elemento
+    const elementItem = this.actor.items.find(i => i.type === "element");
+    if (!elementItem) {
+      return ui.notifications.warn("Este personagem não possui um Elemento atribuído.");
+    }
+
+    const hasDamage = !!elementItem.system.damageTable;
+    const hasHeal   = !!elementItem.system.healTable;
+
+    // 2. Se tiver ambas as tabelas, pergunta qual usar
+    let tableType = "damage";
+    if (hasDamage && hasHeal) {
+      tableType = await foundry.applications.api.DialogV2.wait({
+        window: { title: `Uso Elemental — ${elementItem.name}` },
+        content: `<p style="margin-bottom:8px;">Escolha o tipo de uso elemental:</p>`,
+        buttons: [
+          { action: "damage", label: '<i class="fas fa-fire"></i> Dano',  default: true },
+          { action: "heal",   label: '<i class="fas fa-heart"></i> Cura' }
+        ],
+        rejectClose: false
+      });
+      if (!tableType) return; // Cancelado
+    } else if (hasHeal && !hasDamage) {
+      tableType = "heal";
+    }
+
+    // 3. Recupera a tabela RESOLVIDA (base + mult×ANI já calculado) e usa Nível 1 (acesso base)
+    const resolved = tableType === "heal"
+      ? elementItem.system.resolvedHealTable
+      : elementItem.system.resolvedDamageTable;
+
+    if (!resolved || !Object.keys(resolved).length)
+      return ui.notifications.warn("Tabela elemental não encontrada.");
+
+    // Nível 1 = primeira entrada (acesso base do personagem)
+    const tier1 = Object.values(resolved)[0];
+
+    // Converte para o formato flat que o dice.mjs espera: { ac1: number, ac2: number, ... }
+    const hitTable = {
+      ac1: tier1?.ac1?.total ?? 0,
+      ac2: tier1?.ac2?.total ?? 0,
+      ac3: tier1?.ac3?.total ?? 0,
+      ac4: tier1?.ac4?.total ?? 0
+    };
+
+    // 4. Dados da perícia Elemento
+    const skillKey  = "elemento";
+    const skillData = CONFIG.ANIMUS.skills[skillKey];
+    const skill     = this.actor.system.skills[skillKey];
+    const attrKey   = skillData.attr; // "ani"
+    const attr      = this.actor.system.attributes[attrKey];
+    const poolSize  = 2 + (skill?.value || 0);
+
+    // 5. Detectar vantagem/desvantagem por modificadores de teclado
+    let advantage = null;
+    if (event.shiftKey) advantage = "advantage";
+    if (event.altKey || event.ctrlKey) advantage = "disadvantage";
+
+    // 6. Consome recursos: 1 PA (custo da ação) + 3 PE (custo elemental base Nível 1)
+    const paConsumed = await this.actor.consumeResource("pa", 1);
+    if (!paConsumed) return;
+
+    const peConsumed = await this.actor.consumeResource("pe", 3);
+    if (!peConsumed) {
+      // Reembolsa o PA se não tiver PE suficiente
+      await this.actor.update({ "system.status.pa.value": Math.min(
+        this.actor.system.status.pa.max,
+        this.actor.system.status.pa.value + 1
+      )});
+      return ui.notifications.warn("Pontos de Energia insuficientes para Uso Elemental (custo: 3 PE).");
+    }
+
+    // 7. Rola o teste com hitTable flat — mesmo mecanismo de _executeWeaponRoll
+    const label = tableType === "heal" ? "Cura" : "Dano";
+
+    await AnimusRoll.rollTest({
+      poolSize:       poolSize,
+      attributeValue: attr?.total || 0,
+      label:          `Uso Elemental — ${elementItem.name} (${label})`,
+      hitTable:       hitTable,
+      advantage:      advantage,
+      speaker:        this.actor,
+      healMode:       tableType === "heal"
+    });
+  }
+
+  /**
+   * Aplica cura elemental ao alvo selecionado (ou ao próprio ator)
+   */
+  async _onApplyHeal(event, target) {
+    const healAmount = parseInt(target.dataset.damage) || 0;
+    if (!healAmount) return;
+
+    // Preferência: alvo selecionado na cena
+    const targets = Array.from(game.user.targets);
+    const recipients = targets.length > 0
+      ? targets.map(t => t.actor).filter(Boolean)
+      : [this.actor];
+
+    for (const actor of recipients) {
+      const hp    = actor.system.status.hp;
+      const newHp = Math.min(hp.max, (hp.value || 0) + healAmount);
+      await actor.update({ "system.status.hp.value": newHp });
+      ui.notifications.info(`${actor.name} recuperou ${healAmount} PV (${newHp}/${hp.max}).`);
+    }
+  }
 }
+

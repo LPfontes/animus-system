@@ -70,6 +70,10 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       }
     }
 
+    if (this.document.type === "element") {
+      context.secondaryEffects = await this.#getSecondaryEffects(this.document.name);
+    }
+
     return context;
   }
 
@@ -91,6 +95,22 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       if (entry) return entry;
     }
     return null;
+  }
+
+  async #getSecondaryEffects(elementName) {
+    const effects = { combat: null, utility: null };
+    const pack = game.packs.get("animus.regras");
+    if (!pack) return effects;
+
+    const index = await pack.getIndex({ fields: ["system.description", "system.type"] });
+    const matches = index.filter(i => i.name.includes(`(${elementName})`));
+
+    for (const match of matches) {
+      if (match.system.type === 0) effects.combat = match;
+      else if (match.system.type === 2) effects.utility = match;
+    }
+
+    return effects;
   }
 
   /** @override */

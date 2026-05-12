@@ -8,7 +8,7 @@ system:
     lenta ou sussurrar mensagens de forma direcionada a até 18 metros.
   cost: 0
   pa: 0
-  type: utility
+  type: 2
 folder: utilidadeshub001
 effects: []
 _stats:

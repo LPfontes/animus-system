@@ -185,9 +185,10 @@ ANIMUS.gearCategories = {
 };
 
 ANIMUS.talentCategories = {
-  "Combate": { label: "ANIMUS.TalentCategoryCombate", icon: "fas fa-swords" },
-  "Elemento": { label: "ANIMUS.TalentCategoryElemento", icon: "fas fa-fire-alt" },
-  "Pericia": { label: "ANIMUS.TalentCategoryPericia", icon: "fas fa-scroll" }
+  "Combate":     { label: "ANIMUS.TalentCategoryCombate",     icon: "fas fa-swords"   },
+  "Elemento":    { label: "ANIMUS.TalentCategoryElemento",    icon: "fas fa-fire-alt" },
+  "Pericia":     { label: "ANIMUS.TalentCategoryPericia",     icon: "fas fa-scroll"   },
+  "Ascendencia": { label: "ANIMUS.TalentCategoryAscendencia", icon: "fas fa-dna"      }
 };
 
 ANIMUS.ascendancies = {
@@ -232,7 +233,8 @@ ANIMUS.basicActions = [
   { name: "Sacar Arma", cost: 1, img: "systems/animus/assets/system-icons/action/switch-weapon.svg", description: "Saca ou guarda uma arma pronta para uso." },
   { name: "Usar Item", cost: 1, img: "systems/animus/assets/system-icons/action/targeting.svg", description: "Consome ou ativa um item do seu inventário." },
   { name: "Manobra", cost: 1, img: "systems/animus/assets/system-icons/action/grab.svg", description: "Realiza uma manobra de combate (Empurrar, Agarrar, etc)." },
-  { name: "Reação Defensiva", cost: 0, img: "systems/animus/assets/system-icons/action/broken-shield.svg", description: "Gasta PA do próximo turno para aumentar sua Proteção contra um ataque." }
+  { name: "Reação Defensiva", cost: 0, img: "systems/animus/assets/system-icons/action/broken-shield.svg", description: "Gasta PA do próximo turno para aumentar sua Proteção contra um ataque." },
+  { name: "Uso Elemental", cost: 1, img: "systems/animus/assets/system-icons/element/star.svg", description: "Ativa o uso elemental do seu elemento, consultando a tabela de dano ou cura." }
 ];
 
 /* -------------------------------------------- */

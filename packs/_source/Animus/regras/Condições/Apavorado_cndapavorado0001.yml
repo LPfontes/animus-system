@@ -3,22 +3,15 @@ name: Apavorado
 type: condition
 img: icons/svg/eye.svg
 system:
-  description: ''
-  penalty: Dupla
-  cause: Falha em teste de PRE contra efeito de medo
-  removal: Fim do combate, ou aliado usa 1 PA + PRE CD 10
+  description: 'O alvo está tomado pelo medo.'
+  penalty: 'Desvantagem Dupla e fuga compulsória (não pode se aproximar da fonte do medo).'
+  cause: Falha em teste de PRE contra efeito de medo.
+  removal: Teste de Aura CD 10 ou sair da linha de visão da fonte.
+  duration: Enquanto a fonte for visível
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

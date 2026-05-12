@@ -25,6 +25,9 @@ system:
     selectedAttribute: ''
   range: 18m
   rhythm: Paciente
+  secondaryEffects:
+    outOfCombat: 'Encharcar (poças, purificar água, sentir fontes).'
+    inCombat: 'Película de Gelo — Acrobacia CD 7 ou Derrubado.'
   damageTable:
     '1':
       pe: 3

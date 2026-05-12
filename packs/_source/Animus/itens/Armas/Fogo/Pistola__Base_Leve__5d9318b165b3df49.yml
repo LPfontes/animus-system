@@ -3,15 +3,26 @@ name: Pistola (Base Leve)
 type: weapon
 img: systems/animus/assets/system-icons/weapon/crossed-pistols.svg
 system:
-  category: fogo
+  category: weapon
   damageType: fogo
   type: fogo_leve
-  description: 'Tipo: Arma de Fogo<br>'
+  description: 'Tipo: Arma de Fogo<br>Antecarga; Base Leve'
   damage:
-    ac1: 1 + 1xHAB + 2
-    ac2: 1 + 2xHAB + 2
-    ac3: 2 + 3xHAB + 2
-    ac4: 3 + 4xHAB + 2
+    ac1:
+      base: 3
+      mult: 1
+    ac2:
+      base: 3
+      mult: 2
+    ac3:
+      base: 4
+      mult: 3
+    ac4:
+      base: 5
+      mult: 4
+  properties:
+    - xj9v9acu6m000000
+    - qz45g5pe5j000000
   weight: 0
   price: 200 Đ
   check:
@@ -20,3 +31,4 @@ system:
     dc: 0
 folder: 12a3c819990821c3
 _key: '!items!5d9318b165b3df49'
+

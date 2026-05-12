@@ -3,15 +3,25 @@ name: Montante
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Montante.png
 system:
-  category: branca
+  category: weapon
   damageType: cortante
   type: cortante_medio
-  description: 'Tipo: Cortante Média<br>Duas Mãos'
+  description: 'Tabela Oficial Animus'
   damage:
-    ac1: '3'
-    ac2: 4 + 2xPOT
-    ac3: 6 + 3xPOT
-    ac4: 8 + 3xPOT
+    ac1:
+      base: 3
+      mult: 0
+    ac2:
+      base: 4
+      mult: 2
+    ac3:
+      base: 6
+      mult: 3
+    ac4:
+      base: 8
+      mult: 3
+  properties:
+    - v1hk2hjcjs000000
   weight: 0
   price: 20 Đ
   check:
@@ -20,3 +30,4 @@ system:
     dc: 0
 folder: bd51c3d03d930431
 _key: '!items!64d61f416a975d3b'
+

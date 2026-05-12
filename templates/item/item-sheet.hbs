@@ -262,7 +262,7 @@
           {{#if isEditing}}
           <select name="system.subCategory">
             <option value="">Geral</option>
-            {{selectOptions config.talentCategories selected=system.subCategory labelAttr="label"}}
+            {{selectOptions config.talentCategories selected=system.subCategory labelAttr="label" localize=true}}
           </select>
           {{else}}
           <span class="value-display-v3">{{localize (lookup (lookup config.talentCategories system.subCategory)
@@ -473,7 +473,10 @@
           <input type="number" name="system.damage.{{ac}}.base" value="{{lookup (lookup ../system.damage ac) 'base'}}"
             placeholder="0" />
           {{else}}
-          <span class="value-display-v3">{{lookup (lookup ../system.damage ac) 'base'}}</span>
+          <span class="value-display-v3">
+            {{lookup (lookup ../system.damage ac) 'base'}}
+            {{#if ../system.hasTwoHands}}<span class="dmg-bonus-tag" title="Bônus de Duas Mãos">+3</span>{{/if}}
+          </span>
           {{/if}}
         </div>
 
@@ -750,21 +753,33 @@
     </div>
     <div class="form-group stacked">
       <label>Fora de Combate (Sem PE)</label>
-      {{#if isEditing}}
-      <input type="text" name="system.secondaryEffects.outOfCombat" value="{{system.secondaryEffects.outOfCombat}}"
-        placeholder="Ex: Reflexo Elétrico..." />
-      {{else}}
-      <div class="value-display-v3 secondary-effect-display">{{{system.secondaryEffects.outOfCombat}}}</div>
-      {{/if}}
+      <div class="value-display-v3 secondary-effect-display">
+        {{#if secondaryEffects.utility}}
+          <strong>{{secondaryEffects.utility.name}}:</strong> {{{secondaryEffects.utility.system.description}}}
+        {{else}}
+          {{#if isEditing}}
+          <input type="text" name="system.secondaryEffects.outOfCombat" value="{{system.secondaryEffects.outOfCombat}}"
+            placeholder="Ex: Reflexo Elétrico..." />
+          {{else}}
+          {{{system.secondaryEffects.outOfCombat}}}
+          {{/if}}
+        {{/if}}
+      </div>
     </div>
     <div class="form-group stacked">
       <label>Em Combate (1 PA, Sem PE)</label>
-      {{#if isEditing}}
-      <input type="text" name="system.secondaryEffects.inCombat" value="{{system.secondaryEffects.inCombat}}"
-        placeholder="Ex: Descarga..." />
-      {{else}}
-      <div class="value-display-v3 secondary-effect-display">{{{system.secondaryEffects.inCombat}}}</div>
-      {{/if}}
+      <div class="value-display-v3 secondary-effect-display">
+        {{#if secondaryEffects.combat}}
+          <strong>{{secondaryEffects.combat.name}}:</strong> {{{secondaryEffects.combat.system.description}}}
+        {{else}}
+          {{#if isEditing}}
+          <input type="text" name="system.secondaryEffects.inCombat" value="{{system.secondaryEffects.inCombat}}"
+            placeholder="Ex: Descarga..." />
+          {{else}}
+          {{{system.secondaryEffects.inCombat}}}
+          {{/if}}
+        {{/if}}
+      </div>
     </div>
 
     <div class="section-header-v3">

@@ -175,9 +175,9 @@
       <div class="header-with-action">
         <div class="header-content">
           <h3 class="category-title">TALENTOS</h3>
-          <div class="status-item {{#if (eq talentCount 2)}}complete{{/if}}"
-            style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount 2)}}var(--fire){{else}}var(--accent){{/if}};">
-            <i class="fas fa-brain"></i> {{talentCount}} / 2
+          <div class="status-item {{#if (eq talentCount talentLimit)}}complete{{/if}}"
+            style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount talentLimit)}}var(--fire){{else}}var(--accent){{/if}};">
+            <i class="fas fa-brain"></i> {{talentCount}} / {{talentLimit}}
           </div>
         </div>
 
@@ -193,14 +193,15 @@
         </button>
         {{#each talentCategories}}
         <button type="button" class="category-btn {{#if (eq ../filters.talents this.id)}}active{{/if}}"
-          data-action="filterTalents" data-category="{{this.id}}" title="{{this.label}}">
+          data-action="filterTalents" data-category="{{this.id}}" title="{{localize this.label}}">
           <i class="{{this.icon}}"></i>
         </button>
         {{/each}}
       </div>
 
       <div class="talents-scroll-list">
-        {{!-- Habilidades Inatas da Ascendência --}}
+        {{!-- Habilidades Inatas da Ascendência (respeitam o filtro) --}}
+        {{#if showInnate}}
         {{#each ascendancy.system.innateAbilities as |ability|}}
         <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})">
           <div class="talent-header">
@@ -212,6 +213,7 @@
           </div>
         </div>
         {{/each}}
+        {{/if}}
 
         {{#each talents as |talent|}}
         <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}">
@@ -233,7 +235,9 @@
         </div>
         {{/each}}
 
-        {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length))}}
+        {{#if (and (not showInnate) (not talents.length))}}
+        <div class="empty-state">Nenhum talento nesta categoria</div>
+        {{else if (and showInnate (not ascendancy.system.innateAbilities.length) (not talents.length))}}
         <div class="empty-state">Nenhum talento adquirido</div>
         {{/if}}
       </div>
@@ -269,12 +273,12 @@
             <a class="attr-name rollable" data-action="rollAttribute" data-attribute="{{attr.key}}">{{localize attr.label}}</a>
             <div class="attr-dots">
               {{#each (list 1 2 3)}}
-              <a class="dot {{#if (gt attr.value (sub this 1))}}filled{{/if}}" data-action="updateAbility"
-                data-ability="attributes.{{attr.key}}" data-value="{{this}}"></a>
+              <a class="dot {{#if (gt attr.total (sub this 1))}}filled{{/if}} {{#if (and (gt attr.total (sub this 1)) (lte attr.base (sub this 1)))}}bonus-filled{{/if}}" 
+                data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="{{this}}"></a>
               {{/each}}
             </div>
             <div class="attr-bonus-roll">
-              <span class="attr-bonus">+{{attr.value}}</span>
+              <span class="attr-bonus">+{{attr.total}}</span>
               <a class="attr-roll-btn" data-action="rollAttribute" data-attribute="{{attr.key}}" title="Rolar Teste de {{localize attr.label}}">
                 <i class="fas fa-dice-d20"></i>
               </a>

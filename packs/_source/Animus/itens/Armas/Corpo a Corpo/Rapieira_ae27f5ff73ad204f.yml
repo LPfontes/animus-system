@@ -3,15 +3,25 @@ name: Rapieira
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Rapieira.png
 system:
-  category: branca
+  category: weapon
   damageType: perfurante
   type: perfurante_medio
-  description: 'Tipo: Perfurante Média<br>'
+  description: 'Tabela Oficial Animus'
   damage:
-    ac1: '2 + 1xPOT'
-    ac2: 3 + 1xPOT
-    ac3: 4 + 3xPOT
-    ac4: 7 + 6xPOT
+    ac1:
+      base: 2
+      mult: 0
+    ac2:
+      base: 3
+      mult: 1
+    ac3:
+      base: 4
+      mult: 3
+    ac4:
+      base: 7
+      mult: 6
+  properties:
+    - []
   weight: 0
   price: 10 Đ
   check:
@@ -20,3 +30,4 @@ system:
     dc: 0
 folder: bd51c3d03d930431
 _key: '!items!ae27f5ff73ad204f'
+

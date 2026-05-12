@@ -1,0 +1,33 @@
+_id: sq1nivo7n8h00000
+name: Punhal
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Punhal.png
+system:
+  category: weapon
+  damageType: perfurante
+  type: perfurante_leve
+  description: 'Tabela Oficial Animus'
+  damage:
+    ac1:
+      base: 1
+      mult: 0
+    ac2:
+      base: 2
+      mult: 1
+    ac3:
+      base: 3
+      mult: 2
+    ac4:
+      base: 5
+      mult: 5
+  properties:
+    - dkrjligtpne00000
+  weight: 0
+  price: 8 Đ
+  check:
+    attribute: pot
+    skill: luta
+    dc: 0
+folder: bd51c3d03d930431
+_key: '!items!sq1nivo7n8h00000'
+

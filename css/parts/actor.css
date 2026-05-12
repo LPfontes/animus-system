@@ -726,6 +726,12 @@
   box-shadow: 0 0 8px rgba(255, 255, 255, 0.4);
 }
 
+.animus .attr-dots .dot.bonus-filled {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
 .animus .attr-bonus {
   font-weight: 900;
   font-size: 1.2rem;
@@ -941,6 +947,20 @@
   color: var(--text-muted);
   font-family: 'JetBrains Mono', monospace;
   font-size: 0.9rem;
+}
+
+.animus .dmg-bonus-tag {
+  font-size: 0.65rem;
+  color: #00ffcc;
+  background: rgba(0, 255, 204, 0.1);
+  border: 1px solid rgba(0, 255, 204, 0.3);
+  padding: 1px 4px;
+  border-radius: 4px;
+  margin-left: 4px;
+  vertical-align: middle;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 800;
+  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
 }
 
 .animus .combat-bottom-grid {
@@ -1374,7 +1394,7 @@
 
 .animus .matrix-header {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   font-size: 0.6rem;
   font-weight: 900;
@@ -1385,7 +1405,7 @@
 
 .animus .matrix-row {
   display: grid;
-  grid-template-columns: 40px 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
   gap: 10px;
   margin-bottom: 5px;
   align-items: center;

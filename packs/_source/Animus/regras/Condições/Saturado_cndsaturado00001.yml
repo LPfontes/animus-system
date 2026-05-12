@@ -3,25 +3,15 @@ name: Saturado
 type: condition
 img: icons/svg/explosion.svg
 system:
-  description: ''
-  penalty: >-
-    Próximo dano elemental de qualquer fonte causa +1×ANI de dano bônus (consome
-    o efeito).
+  description: 'O corpo do alvo está carregado de energia elemental instável.'
+  penalty: 'O próximo dano elemental recebido é DOBRADO.'
   cause: Exposição excessiva a elementos.
-  removal: Expira ao ser ativado ou no descanso.
+  removal: Automático após receber dano elemental.
   duration: Até ser ativado
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

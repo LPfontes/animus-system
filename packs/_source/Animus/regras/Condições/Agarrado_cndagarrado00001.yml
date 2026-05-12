@@ -3,23 +3,15 @@ name: Agarrado
 type: condition
 img: systems/animus/assets/system-icons/action/grab.svg
 system:
-  description: ''
-  penalty: Não pode se mover. −1d em ataques que não sejam contra o agarrador.
-  cause: Mordida Interna, talento Gravitacional, Manobra de Combate.
-  removal: Luta oposta.
+  description: 'O alvo foi contido fisicamente por outro ser.'
+  penalty: 'Preso; -1d em todos os ataques.'
+  cause: Mordida, Manobra de Combate Agarrar.
+  removal: Teste de POT oposto ao do agarrador.
   duration: Até escapar
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

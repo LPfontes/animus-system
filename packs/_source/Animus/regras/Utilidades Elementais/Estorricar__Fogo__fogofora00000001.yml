@@ -9,7 +9,7 @@ system:
     fumaça.
   cost: 0
   pa: 0
-  type: utility
+  type: 2
 folder: utilidadeshub001
 effects: []
 _stats:

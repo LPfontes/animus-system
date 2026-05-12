@@ -93,14 +93,14 @@ export default class AnimusWeaponData extends AnimusItemData {
       const ac = this.damage[`ac${i}`];
       
       // Cálculo: [Base + DanoFixo] + [(Mult + MultFixo) * AttrBase] + [Somatório(BônusAttr * Attr)]
-      let damageValue = ac.base + flatDamageBonus;
+      let damageValue = (parseInt(ac.base) || 0) + flatDamageBonus;
       
       // Contribuição do Atributo Base (incluindo bônus fixo no multiplicador)
-      damageValue += (ac.mult + flatMultBonus) * attrValue;
+      damageValue += (parseInt(ac.mult) || 0 + flatMultBonus) * attrValue;
       
       // Contribuições de outros Atributos (ex: +1xPER de Estratégica)
       for (const [a, factor] of Object.entries(attrMultBonuses)) {
-        const val = actor.system.attributes[a]?.value || 0;
+        const val = actor.system.attributes[a]?.total || 0;
         damageValue += factor * val;
       }
 
@@ -111,11 +111,25 @@ export default class AnimusWeaponData extends AnimusItemData {
   }
 
   /**
+   * Verifica se a arma possui a propriedade Duas Mãos.
+   */
+  get hasTwoHands() {
+    return this.properties.includes("v1hk2hjcjs000000");
+  }
+
+  /**
    * Retorna os itens de propriedade vinculados a esta arma.
    */
   get propertyItems() {
+    const pack = game.packs.get("animus.itens");
     return this.properties.map(id => {
-      return game.items.get(id) || game.packs.get("animus.itens")?.index.get(id);
+      const worldItem = game.items.get(id);
+      if (worldItem) return worldItem;
+      
+      const indexEntry = pack?.index.get(id);
+      if (indexEntry) return indexEntry;
+
+      return null;
     }).filter(p => p);
   }
 

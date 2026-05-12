@@ -13,35 +13,37 @@ export class AnimusRoll {
    * @param {string} params.advantage - 'advantage', 'disadvantage' ou null
    * @param {Actor} params.speaker - O ator que está rolando
    */
-  static async rollTest({ poolSize = 2, attributeValue = 0, label = "", hitTable = null, advantage = null, speaker = null }) {
+  static async rollTest({ poolSize = 2, attributeValue = 0, label = "", hitTable = null, advantage = null, speaker = null, healMode = false }) {
     // 1. Definir a fórmula usando a sintaxe nativa do Foundry (Keep Highest 2)
     const formula = `${poolSize}d6kh2 + ${attributeValue}`;
     const roll = await new Roll(formula).evaluate();
 
-    // 2. Aplicar lógica Animus de Vantagem/Desvantagem nos dados rolados
+    // 2. Aplicar lógica Animus de Vantagem/Desvantagem nos dados mantidos
     const dice = roll.dice[0];
     const results = dice.results;
     
-    // Encontrar o maior dado entre os ativos
+    // Encontrar o maior dado entre os ativos (mantidos pelo kh2)
     const activeResults = results.filter(r => r.active).sort((a, b) => b.result - a.result);
     
     if (activeResults.length > 0) {
       const highestDie = activeResults[0];
-      const isAdvantage = advantage === "advantage";
-      const isDisadvantage = advantage === "disadvantage";
 
-      if (isAdvantage && highestDie.result < 4) {
+      if (advantage === "advantage" && highestDie.result < 4) {
+        // Vantagem: se o maior dado for 1, 2 ou 3, ele é tratado como 4
         highestDie.result = 4;
-      } else if (isDisadvantage) {
-        results.forEach(r => {
-          if (r.result > 3) r.result = 3;
-        });
+      } else if (advantage === "disadvantage" && highestDie.result > 3) {
+        // Desvantagem: se o maior dado for 4, 5 ou 6, ele é tratado como 3
+        highestDie.result = 3;
       }
     }
 
-    // 3. Recalcular o total do Roll após as modificações manuais
+    // 3. Recalcular o total do Roll explicitamente para garantir sincronia no Chat
     const diceTotal = results.reduce((acc, r) => acc + (r.active ? r.result : 0), 0);
-    const numericBonus = roll.terms.filter(t => t instanceof foundry.dice.terms.NumericTerm).reduce((acc, t) => acc + t.number, 0);
+    const numericBonus = roll.terms
+      .filter(t => t instanceof foundry.dice.terms.NumericTerm)
+      .reduce((acc, t) => acc + t.number, 0);
+    
+    // Sobrescreve o total interno para que o Foundry use o valor modificado
     roll._total = diceTotal + numericBonus;
 
     // 4. Verificar Crítico Natural
@@ -93,15 +95,19 @@ export class AnimusRoll {
     if (hitTable) {
       const isCrit = isNaturalCritical || total >= 13;
       const colorClass = isCrit ? "crit" : "hit";
+      const valueLabel = healMode ? "Cura" : "Dano";
+      const applyAction = healMode ? "applyHeal" : "applyDamage";
+      const applyIcon  = healMode ? "fa-heart" : "fa-user-minus";
+      const applyLabel = healMode ? "Aplicar Cura" : "Aplicar Dano";
       flavor += `
         <div class="hit-result-banner ${colorClass}">
           <span class="ac-label">${hitResult}</span>
-          ${damageValue > 0 ? `<span class="damage-val">Dano: ${damageValue}</span>` : ""}
+          ${damageValue > 0 ? `<span class="damage-val">${valueLabel}: ${damageValue}</span>` : ""}
         </div>
         ${damageValue > 0 ? `
         <div class="chat-actions">
-          <button class="apply-damage-btn" data-action="applyDamage" data-damage="${damageValue}">
-            <i class="fas fa-user-minus"></i> Aplicar Dano
+          <button class="apply-damage-btn" data-action="${applyAction}" data-damage="${damageValue}">
+            <i class="fas ${applyIcon}"></i> ${applyLabel}
           </button>
         </div>` : ""}
       `;

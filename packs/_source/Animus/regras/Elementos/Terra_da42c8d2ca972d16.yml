@@ -22,8 +22,11 @@ system:
       - pot
       - cog
     selectedAttribute: ''
-  range: 9m
-  rhythm: Deliberado
+  range: 12m
+  rhythm: Firme
+  secondaryEffects:
+    outOfCombat: 'Tremorsense (vibrações 18m, criaturas, minérios).'
+    inCombat: 'Pilar — cobertura parcial de 1 quadrado.'
   damageTable:
     '1':
       pe: 3

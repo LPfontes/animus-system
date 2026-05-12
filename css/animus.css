@@ -7,3 +7,5 @@
    e para overrides rápidos. Os estilos principais foram 
    movidos para a pasta css/parts/
 */
+
+@import "parts/weapon-creator.css";

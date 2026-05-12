@@ -16,6 +16,11 @@
             {{/if}}
           </h1>
           <div class="header-controls">
+            {{#if isGM}}
+            <a class="monster-creator-btn" data-action="openMonsterCreator" title="Abrir Criador de Monstros">
+              <i class="fas fa-dna"></i>
+            </a>
+            {{/if}}
             <a class="toggle-mode-btn" data-action="toggleMode">
               <i class="fas {{#if isEditing}}fa-lock-open{{else}}fa-lock{{/if}}"></i>
             </a>

@@ -8,7 +8,7 @@ system:
     brotarem, identificar plantas ou criar cipós de até 3 metros para escalada.
   cost: 0
   pa: 0
-  type: utility
+  type: 2
 folder: utilidadeshub001
 effects: []
 _stats:

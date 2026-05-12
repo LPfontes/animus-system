@@ -6,8 +6,8 @@ export default class AnimusItemData extends foundry.abstract.TypeDataModel {
     return {
       description: new fields.HTMLField({ initial: "" }),
       effect: new fields.HTMLField({ initial: "" }),
-      category: new fields.StringField({ initial: "", choices: Object.keys(ANIMUS.itemTypes), blank: true }),
-      subCategory: new fields.StringField({ initial: "", choices: Object.keys(ANIMUS.gearCategories), blank: true }),
+      category: new fields.StringField({ initial: "", blank: true }),
+      subCategory: new fields.StringField({ initial: "", blank: true }),
       consumable: new fields.BooleanField({ initial: false }),
       equipped: new fields.BooleanField({ initial: false }),
       
@@ -56,6 +56,13 @@ export default class AnimusItemData extends foundry.abstract.TypeDataModel {
         source.check.skill = ANIMUS.skillsByIndex[source.check.skill] || "";
       }
     }
+
+    // Migrar category para subCategory se não for um tipo de item válido
+    if (source.category && !Object.keys(ANIMUS.itemTypes).includes(source.category)) {
+      if (!source.subCategory) source.subCategory = source.category;
+      source.category = "";
+    }
+
     return super.migrateData(source);
   }
 }

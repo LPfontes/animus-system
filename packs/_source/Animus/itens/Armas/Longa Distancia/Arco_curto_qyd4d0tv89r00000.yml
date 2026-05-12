@@ -1,0 +1,33 @@
+_id: qyd4d0tv89r00000
+name: Arco curto
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Arco_curto.png
+system:
+  category: projetil
+  damageType: distancia
+  type: distancia_media
+  description: 'Tabela Oficial Animus'
+  damage:
+    ac1:
+      base: 2
+      mult: 0
+    ac2:
+      base: 3
+      mult: 1
+    ac3:
+      base: 4
+      mult: 2
+    ac4:
+      base: 5
+      mult: 3
+  properties:
+    - hcn431hqket00000
+  weight: 0
+  price: 15 Đ
+  check:
+    attribute: hab
+    skill: pontaria
+    dc: 0
+folder: e1470d5c3ce776cd
+_key: '!items!qyd4d0tv89r00000'
+

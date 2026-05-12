@@ -22,7 +22,7 @@
       {{#each categories}}
       <button type="button" class="category-btn {{#if (eq ../filters.category this.id)}}active{{/if}}"
         data-action="filterCategory" data-category="{{this.id}}">
-        <i class="{{this.icon}}"></i> {{this.label}}
+        <i class="{{this.icon}}"></i> {{localize this.label}}
       </button>
       {{/each}}
     </div>

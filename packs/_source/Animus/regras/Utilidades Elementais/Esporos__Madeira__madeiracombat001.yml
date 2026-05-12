@@ -1,0 +1,18 @@
+_id: madeiracombat001
+name: Esporos (Madeira)
+type: action
+img: icons/magic/nature/sprouts-bloom-green.webp
+system:
+  description: 'Esporos — O alvo recebe Desvantagem em Percepção.'
+  cost: 0
+  pa: 1
+  type: 0
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!madeiracombat001'

@@ -1,25 +1,17 @@
 _id: cndenveneleve001
-name: Envenenado (comum)
+name: Envenenado
 type: condition
 img: icons/svg/poison.svg
 system:
-  description: ''
-  penalty: 2 PV de dano por turno.
-  cause: Veneno comum.
-  removal: POT CD 8 (início de cada turno).
+  description: 'Toxinas estão circulando no sangue do alvo.'
+  penalty: '2 PV de dano por turno.'
+  cause: Veneno, picadas, ingestão.
+  removal: Teste de Resistência (CD varia) ou Antídoto.
   duration: 3 turnos
 folder: condicoeshub0001
 effects: []
 _stats:
   coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
 sort: 0
 ownership:
   default: 0

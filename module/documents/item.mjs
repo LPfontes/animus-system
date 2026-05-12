@@ -178,7 +178,58 @@ export class AnimusItem extends Item {
 
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({actor}),
-      content: `<div class="animus-chat-card">${chatContent}</div>`
+      content: `<div class="animus-chat-card">${chatContent}${this._getChatCardExtraContent()}</div>`
     });
+  }
+
+  /**
+   * Gera o conteúdo extra (botões de teste e efeitos) para o cartão de chat
+   */
+  _getChatCardExtraContent() {
+    let extraHtml = "";
+    const system = this.system;
+
+    // 1. Botão de Teste (Check / Resistência)
+    if (system.check?.attribute) {
+      const attr = system.check.attribute.toUpperCase();
+      const dc = system.check.dc || system.check.difficulty || "10";
+      extraHtml += `
+        <div class="chat-section">
+          <button class="chat-button roll-resistance" data-attr="${system.check.attribute}" data-dc="${dc}">
+            <i class="fas fa-dice-d20"></i> Teste de ${attr} (CD ${dc})
+          </button>
+        </div>`;
+    }
+
+    // 2. Botão de Efeitos (Aplicação)
+    const app = system.application;
+    const hasSpecialActions = system.specialActions && system.specialActions.length > 0;
+    
+    if ((app && app.type !== "none") || hasSpecialActions) {
+      extraHtml += `<div class="chat-section effects">`;
+      
+      if (app && app.type !== "none") {
+        const label = app.type === "damage" ? "Dano" : (app.type === "heal" ? "Cura" : "Efeito");
+        const icon = app.type === "damage" ? "fa-tint" : (app.type === "heal" ? "fa-heart" : "fa-magic");
+        
+        extraHtml += `
+          <button class="chat-button apply-effect" data-type="${app.type}" data-formula="${app.formula}" data-condition="${app.condition || ''}">
+            <i class="fas ${icon}"></i> Aplicar ${label} ${app.formula ? `(${app.formula})` : ""}
+          </button>`;
+      }
+
+      if (hasSpecialActions) {
+        system.specialActions.forEach(action => {
+          extraHtml += `
+            <button class="chat-button apply-effect" data-condition="${action}">
+              <i class="fas fa-bolt"></i> Aplicar: ${action}
+            </button>`;
+        });
+      }
+
+      extraHtml += `</div>`;
+    }
+
+    return extraHtml ? `<div class="chat-footer-v3">${extraHtml}</div>` : "";
   }
 }

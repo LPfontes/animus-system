@@ -9,7 +9,7 @@ system:
     +1d em iniciativa.</p>
   cost: 3
   requirements: []
-  category: combate
+  subCategory: Combate
   bonuses:
     hp: 0
     pe: 0

@@ -18,8 +18,11 @@ system:
       - hab
       - pre
     selectedAttribute: ''
-  range: 9m
-  rhythm: Alta adrenalina
+  range: 18m
+  rhythm: Veloz
+  secondaryEffects:
+    outOfCombat: 'Reflexo Elétrico (+1d iniciativa, acordar aliado).'
+    inCombat: 'Descarga — +1 em próximo teste de aliado.'
   damageTable:
     '1':
       pe: 3

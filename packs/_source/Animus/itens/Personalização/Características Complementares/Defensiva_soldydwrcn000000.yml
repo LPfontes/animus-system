@@ -11,6 +11,7 @@ system:
     mult: 0
     defense: 0
     defenseMult: 1
+    attributeMult: hab
     reach: 0
     attributeOverride: ''
     attrMult:

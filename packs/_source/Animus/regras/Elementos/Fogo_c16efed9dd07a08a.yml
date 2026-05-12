@@ -17,8 +17,11 @@ system:
       - pot
       - pre
     selectedAttribute: ''
-  range: 36m
-  rhythm: Pressão constante
+  range: 12m
+  rhythm: Explosivo
+  secondaryEffects:
+    outOfCombat: 'Estorricar (secar, cauterizar, cozinhar, sinais).'
+    inCombat: 'Aura Calor — 1 dano c/c em adjacentes.'
   damageTable:
     '1':
       pe: 3

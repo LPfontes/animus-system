@@ -23,11 +23,11 @@ system:
       - hab
       - per
     selectedAttribute: ''
-  range: 36m
-  rhythm: Caótico e móvel
+  range: 18m
+  rhythm: Fluido
   secondaryEffects:
-    outOfCombat: Passo do Vento (salto duplo, queda lenta, sussurrar 18m)
-    inCombat: Rajada Protetora — -1 acerto em projéteis
+    outOfCombat: 'Passo do Vento (salto duplo, queda lenta, sussurrar 18m).'
+    inCombat: 'Rajada Protetora — -1 acerto em projéteis.'
   philosophy: |-
     <p><b>Vento: O Moldador do Campo</b></p> <ul>
       <li><b>Dano de corte:</b> +ANI ao dano do efeito quando o vento se torna lâmina.</li>
