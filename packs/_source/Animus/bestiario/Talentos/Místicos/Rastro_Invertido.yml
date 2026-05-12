@@ -1,6 +1,6 @@
 _id: npcTalentM000012
 name: "Rastro Invertido"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/utilitario.svg
 folder: fldbestmistic000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalentM000012'
+

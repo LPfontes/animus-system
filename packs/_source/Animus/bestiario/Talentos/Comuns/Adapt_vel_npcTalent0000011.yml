@@ -1,6 +1,6 @@
 _id: npcTalent0000011
 name: Adaptável
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/utilitario.svg
 folder: fldbestcomun0000
 system:
@@ -49,3 +49,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalent0000011'
+

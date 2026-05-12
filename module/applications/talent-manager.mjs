@@ -58,7 +58,10 @@ export class AnimusTalentManager extends HandlebarsApplicationMixin(ApplicationV
       const category = foundry.utils.getProperty(i, "system.subCategory") || "Geral";
       categories.add(category);
 
-      const owned = this.actor.items.some(it => it.name === i.name || it.flags?.animus?.sourceId === id);
+      const owned = this.actor.items.some(it => {
+        const sourceId = it._stats?.compendiumSource || it.flags?.core?.sourceId || it.getFlag("animus", "sourceId") || "";
+        return sourceId.includes(id) || it.name === i.name;
+      });
       const check = await this.checkRequirements(i);
 
       talents.push({
@@ -161,9 +164,9 @@ export class AnimusTalentManager extends HandlebarsApplicationMixin(ApplicationV
     for (const [talentName, talentId] of Object.entries(talentReqs)) {
       // Check if actor has a talent with this ID or this name (fallback)
       const hasTalent = this.actor.items.some(i => {
-        if (i.type !== "talent") return false;
-        // Check stable ID (from source) or current ID
-        return i.id === talentId || i.flags?.animus?.sourceId === talentId;
+        if (i.type !== "talent" && i.type !== "npcTalent") return false;
+        const sourceId = i._stats?.compendiumSource || i.flags?.core?.sourceId || i.getFlag("animus", "sourceId") || "";
+        return sourceId.includes(talentId) || i.id === talentId || i.name === talentName;
       });
 
       if (!hasTalent) {
@@ -203,7 +206,10 @@ export class AnimusTalentManager extends HandlebarsApplicationMixin(ApplicationV
     const uuid = btn.dataset.uuid;
     const item = await fromUuid(uuid);
 
-    if (this.actor.items.some(i => i.name === item.name)) {
+    if (this.actor.items.some(i => {
+      const sourceId = i._stats?.compendiumSource || i.flags?.core?.sourceId || i.getFlag("animus", "sourceId") || "";
+      return sourceId.includes(item._id) || i.name === item.name;
+    })) {
       ui.notifications.warn(`O personagem já possui o talento ${item.name}`);
       return;
     }

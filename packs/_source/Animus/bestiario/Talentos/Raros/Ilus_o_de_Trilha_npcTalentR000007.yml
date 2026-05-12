@@ -1,6 +1,6 @@
 _id: npcTalentR000007
 name: Ilusão de Trilha
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/mental.svg
 folder: fldbestraros0000
 system:
@@ -49,3 +49,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalentR000007'
+

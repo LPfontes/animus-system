@@ -174,8 +174,8 @@ export default class AnimusNPCData extends foundry.abstract.TypeDataModel {
     this.status.pa.perRound = paBase;
 
     // 3. Orçamento de Pontos de Talento
-    const talentBudgets = { comum: 2, raro: 5, místico: 10 };
-    this.talentPointsTotal = nd + (talentBudgets[classification] || 2);
+    const multipliers = { comum: 4, raro: 6, místico: 8 };
+    this.talentPointsTotal = nd * (multipliers[classification] || 4);
     this.talentPointsSpent = this.abilities.reduce((acc, a) => acc + (a.talentCost || 0), 0);
 
     // 4. Dados de Ataque (ND 1-3: 2d6, 4-5: 3d6, 6-7: 4d6, 8+: 5d6)

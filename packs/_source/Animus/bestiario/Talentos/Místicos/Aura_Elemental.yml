@@ -1,6 +1,6 @@
 _id: npcTalentM000004
 name: "Aura Elemental"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/elemental.svg
 folder: fldbestmistic000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalentM000004'
+

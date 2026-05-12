@@ -3,23 +3,28 @@
   <div class="steps-progress">
     <div class="step {{#if (eq step 1)}}active{{/if}}" data-step="1">1. Identidade</div>
     <div class="step {{#if (eq step 2)}}active{{/if}}" data-step="2">2. Atributos</div>
-    <div class="step {{#if (eq step 3)}}active{{/if}}" data-step="3">3. Revisão</div>
+    <div class="step {{#if (eq step 3)}}active{{/if}}" data-step="3">3. Dano</div>
+    <div class="step {{#if (eq step 4)}}active{{/if}}" data-step="4">4. Perícias</div>
+    <div class="step {{#if (eq step 5)}}active{{/if}}" data-step="5">5. Talentos</div>
+    <div class="step {{#if (eq step 6)}}active{{/if}}" data-step="6">6. Revisão</div>
   </div>
 
-  <div class="step-container">
+  <div class="creator-body">
     {{#if (eq step 1)}}
-    <div class="form-group-stack">
-      <label>Nome do Espécime</label>
-      <input type="text" name="name" value="{{data.name}}" placeholder="Ex: Urso Sombrio" />
+    <div class="identity-step">
+      <div class="form-group">
+        <label>Nome do Espécime</label>
+        <input type="text" name="name" value="{{data.name}}" placeholder="Ex: Urso das Sombras" />
+      </div>
 
-      <div class="grid grid-2">
-        <div class="field">
+      <div class="grid col-2">
+        <div class="form-group">
           <label>Nível de Desafio (ND)</label>
-          <input type="number" name="nd" value="{{data.nd}}" min="1" max="20" data-action="updateBase" />
+          <input type="number" name="nd" value="{{data.nd}}" min="1" max="20" />
         </div>
-        <div class="field">
+        <div class="form-group">
           <label>Classificação</label>
-          <select name="classification" data-action="updateBase">
+          <select name="classification">
             <option value="comum" {{#if (eq data.classification "comum" )}}selected{{/if}}>Comum</option>
             <option value="raro" {{#if (eq data.classification "raro" )}}selected{{/if}}>Raro</option>
             <option value="místico" {{#if (eq data.classification "místico" )}}selected{{/if}}>Místico</option>
@@ -27,32 +32,45 @@
         </div>
       </div>
 
-      <label>Identidade Inata (Tipo)</label>
-      <select name="type" data-action="updateBase">
-        <option value="humanoide" {{#if (eq data.type "humanoide" )}}selected{{/if}}>Humanoide</option>
-        <option value="aberração" {{#if (eq data.type "aberração" )}}selected{{/if}}>Aberração</option>
-        <option value="animal" {{#if (eq data.type "animal" )}}selected{{/if}}>Animal</option>
-        <option value="elemental" {{#if (eq data.type "elemental" )}}selected{{/if}}>Elemental</option>
-        <option value="espírito" {{#if (eq data.type "espírito" )}}selected{{/if}}>Espírito</option>
-        <option value="morto-vivo" {{#if (eq data.type "morto-vivo" )}}selected{{/if}}>Morto-Vivo</option>
-      </select>
-    </div>
+      <div class="form-group">
+        <label>Identidade Inata (Tipo)</label>
+        <select name="type">
+          <option value="humanoide" {{#if (eq data.type "humanoide" )}}selected{{/if}}>Humanoide</option>
+          <option value="aberração" {{#if (eq data.type "aberração" )}}selected{{/if}}>Aberração</option>
+          <option value="animal" {{#if (eq data.type "animal" )}}selected{{/if}}>Animal</option>
+          <option value="elemental" {{#if (eq data.type "elemental" )}}selected{{/if}}>Elemental</option>
+          <option value="espírito" {{#if (eq data.type "espírito" )}}selected{{/if}}>Espírito</option>
+          <option value="morto-vivo" {{#if (eq data.type "morto-vivo" )}}selected{{/if}}>Morto-Vivo</option>
+        </select>
 
-    <div class="projections glass-panel">
-      <h4><i class="fas fa-chart-line"></i> Projeções Estimadas (ND {{data.nd}})</h4>
-      <div class="stats-grid">
-        <div class="stat"><span class="label">PV:</span> <span class="val">{{suggestions.hp}}</span></div>
-        <div class="stat"><span class="label">PE:</span> <span class="val">{{suggestions.pe}}</span></div>
-        <div class="stat"><span class="label">PA:</span> <span class="val">{{suggestions.pa}}</span></div>
-        <div class="stat"><span class="label">Ataque:</span> <span class="val">{{suggestions.dice}} + {{suggestions.atkBonus}}</span></div>
-        <div class="stat"><span class="label">Talentos:</span> <span class="val">{{suggestions.talentPoints}} pts</span></div>
+        {{#if innate}}
+        <div class="innate-rule-box glass-panel">
+          <div class="innate-header">
+            <i class="fas fa-fingerprint"></i> Regra Especial: {{innate.name}}
+          </div>
+          <div class="innate-body">{{innate.description}}</div>
+        </div>
+        {{/if}}
+      </div>
+
+      <div class="projections glass-panel">
+        <div class="proj-header"><i class="fas fa-chart-line"></i> Projeções Estimadas</div>
+        <div class="proj-grid">
+          <div class="proj-item"><strong>PV:</strong> {{suggestions.hp}}</div>
+          <div class="proj-item"><strong>PA:</strong> {{suggestions.pa}}</div>
+          <div class="proj-item"><strong>Ataque:</strong> {{suggestions.dice}} (+{{suggestions.atkBonus}})</div>
+          <div class="proj-item"><strong>Talento:</strong> {{suggestions.talentPoints}} pts</div>
+        </div>
       </div>
     </div>
     {{/if}}
 
     {{#if (eq step 2)}}
-    <div class="attributes-setup">
-      <p class="instruction">Distribua os bônus fixos de atributos do NPC.</p>
+    <div class="attributes-step">
+      <div class="step-header">
+        <h3>DISTRIBUIÇÃO DE ATRIBUTOS</h3>
+        <p>Defina os bônus fixos do monstro. ND {{data.nd}} sugere bônus entre 1 e {{data.nd}}.</p>
+      </div>
       <div class="attributes-grid">
         {{#each data.attributes as |val key|}}
         <div class="attr-input">
@@ -65,18 +83,138 @@
     {{/if}}
 
     {{#if (eq step 3)}}
+    <div class="damage-step">
+      <div class="step-header">
+        <h3>PERFIL DE DANO</h3>
+        <p>Defina o estilo de ataque.</p>
+      </div>
+
+      <div class="grid col-2">
+        <div class="form-group">
+          <label>Tipo de Base</label>
+          <select name="damage.preset">
+            {{#each weaponPresets as |preset key|}}
+            <option value="{{key}}" {{#if (eq ../data.damage.preset key)}}selected{{/if}}>{{preset.label}}</option>
+            {{/each}}
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Atributo Base</label>
+          <select name="damage.attribute">
+            <option value="pot" {{#if (eq data.damage.attribute "pot" )}}selected{{/if}}>Potência (POT)</option>
+            <option value="hab" {{#if (eq data.damage.attribute "hab" )}}selected{{/if}}>Habilidade (HAB)</option>
+            <option value="ani" {{#if (eq data.damage.attribute "ani" )}}selected{{/if}}>Anima (ANI)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label>Nome do Ataque / Tipo de Dano</label>
+        <input type="text" name="damage.type" value="{{data.damage.type}}" placeholder="Ex: Mordida, Garras, Fogo..." />
+      </div>
+
+      <div class="damage-preview glass-panel">
+        <div class="preview-header">PRÉVIA DA TABELA DE DANO ({{#if (lt data.nd 5)}}1-4 AC{{else}}1-6 AC{{/if}})</div>
+        <div class="damage-table-grid {{#if (lt data.nd 5)}}cols-4{{else}}cols-6{{/if}}">
+          <div class="ac-box"><span>AC 1 (2-3)</span><strong>{{damageTable.ac1}}</strong></div>
+          <div class="ac-box"><span>AC 2 (4-5)</span><strong>{{damageTable.ac2}}</strong></div>
+          <div class="ac-box"><span>AC 3 (6-7)</span><strong>{{damageTable.ac3}}</strong></div>
+          <div class="ac-box"><span>AC 4 (8-9)</span><strong>{{damageTable.ac4}}</strong></div>
+          {{#if (gte data.nd 5)}}
+          <div class="ac-box"><span>AC 5 (10-12)</span><strong>{{damageTable.ac5}}</strong></div>
+          <div class="ac-box"><span>AC 6 (D66)</span><strong>{{damageTable.ac6}}</strong></div>
+          {{/if}}
+        </div>
+        <p class="formula-info text-muted">Resultados entre parênteses indicam a soma dos dados necessária.</p>
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq step 4)}}
+    <div class="skills-step">
+      <div class="step-header">
+        <h3>QUALIFICAÇÃO DE PERÍCIAS</h3>
+        <p>Selecione o nível de treinamento. Perícias com <i class="fas fa-star" style="color: gold;"></i> são
+          recomendadas para {{data.type}}.</p>
+      </div>
+
+      <div class="skills-selection-grid scrollable">
+        {{#each skills}}
+        <div class="skill-row glass-panel {{#if isRecommended}}recommended{{/if}}">
+          <div class="skill-info">
+            <span class="skill-name">
+              {{#if isRecommended}}<i class="fas fa-star mini-icon"></i>{{/if}}
+              {{label}}
+            </span>
+          </div>
+          <div class="rank-selector">
+            <button type="button" class="rank-btn {{#if (eq rank 0)}}active{{/if}}" data-action="toggleSkill"
+              data-skill="{{key}}" data-rank="0">Nenhum</button>
+            <button type="button" class="rank-btn {{#if (eq rank 1)}}active{{/if}}" data-action="toggleSkill"
+              data-skill="{{key}}" data-rank="1">Amador</button>
+            <button type="button" class="rank-btn {{#if (eq rank 2)}}active{{/if}}" data-action="toggleSkill"
+              data-skill="{{key}}" data-rank="2">Profissional</button>
+            <button type="button" class="rank-btn {{#if (eq rank 3)}}active{{/if}}" data-action="toggleSkill"
+              data-skill="{{key}}" data-rank="3">Mestre</button>
+          </div>
+        </div>
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq step 4)}}
+    <div class="talents-selection">
+      <div class="budget-header glass-panel">
+        <span class="label">Orçamento de Talentos:</span>
+        <span class="value {{#if (gt spentPoints suggestions.talentPoints)}}over{{/if}}">
+          {{spentPoints}} / {{suggestions.talentPoints}} pts
+        </span>
+      </div>
+
+      <div class="talents-list-container scrollable">
+        {{#each availableTalents as |group|}}
+        <div class="cost-group-header">Custo {{group.cost}}</div>
+        {{#each group.talents}}
+        <div class="talent-item glass-panel {{#if isSelected}}selected{{/if}}" data-action="toggleTalent"
+          data-uuid="{{uuid}}" data-name="{{name}}" data-cost="{{cost}}">
+          <div class="talent-main">
+            <span class="name">{{name}} <small class="text-muted">({{category}})</small></span>
+            <span class="cost">{{cost}} pts</span>
+          </div>
+          <div class="talent-desc">{{{description}}}</div>
+        </div>
+        {{/each}}
+        {{/each}}
+      </div>
+    </div>
+    {{/if}}
+
+    {{#if (eq step 6)}}
     <div class="summary-view glass-panel">
       <h3>Resumo do Protocolo</h3>
       <div class="summary-line"><strong>Nome:</strong> {{data.name}}</div>
       <div class="summary-line"><strong>ND:</strong> {{data.nd}} ({{upper data.classification}})</div>
-      <div class="summary-line"><strong>Tipo:</strong> {{upper data.type}}</div>
-      <hr>
-      <div class="summary-stats">
-        <p>Este monstro será criado com o escalonamento automático de ND {{data.nd}} aplicado.</p>
-        <ul>
-          <li>Vida calculada com bônus de tipo.</li>
-          <li>Orçamento de Talentos disponível na ficha após a criação.</li>
-        </ul>
+      <div class="summary-line"><strong>Atributos:</strong>
+        POT {{data.attributes.pot}}, HAB {{data.attributes.hab}}, COG {{data.attributes.cog}},
+        PER {{data.attributes.per}}, PRE {{data.attributes.pre}}, ANI {{data.attributes.ani}}
+      </div>
+      <div class="summary-line"><strong>Dano:</strong> {{data.damage.type}} ({{data.damage.preset}}) - Base: {{upper
+        data.damage.attribute}}</div>
+      <div class="summary-line"><strong>Identidade Inata:</strong> {{innate.name}}</div>
+      <div class="summary-line"><strong>Perícias Principais:</strong>
+        {{#each skills}}
+        {{#if (gt rank 0)}}
+        {{label}} ({{rank}}){{#unless @last}}, {{/unless}}
+        {{/if}}
+        {{/each}}
+      </div>
+      <div class="summary-line"><strong>Talentos Selecionados:</strong>
+        {{#if data.selectedTalents.length}}
+        {{#each data.selectedTalents}}{{name}} ({{cost}} pts){{#unless @last}}, {{/unless}}{{/each}}
+        {{else}}
+        Nenhum
+        {{/if}}
       </div>
     </div>
     {{/if}}
@@ -87,10 +225,10 @@
     <button type="button" class="prev-btn" data-action="prevStep"><i class="fas fa-arrow-left"></i> Voltar</button>
     {{/if}}
 
-    {{#if (lt step 3)}}
+    {{#if (lt step 6)}}
     <button type="button" class="next-btn" data-action="nextStep">Continuar <i class="fas fa-arrow-right"></i></button>
     {{else}}
-    <button type="button" class="create-btn" data-action="createMonster"><i class="fas fa-check"></i> FINALIZAR PROTOCOLO</button>
+    <button type="button" class="create-btn" data-action="createMonster"><i class="fas fa-check"></i> Finalizar</button>
     {{/if}}
   </div>
 </div>

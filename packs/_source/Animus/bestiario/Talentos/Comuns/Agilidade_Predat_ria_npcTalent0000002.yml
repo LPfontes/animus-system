@@ -1,6 +1,6 @@
 _id: npcTalent0000002
 name: Agilidade Predatória
-type: talent
+type: npcTalent
 img: systems/animus/assets/icons/skills/talentos/combate/2.png
 folder: fldbestcomun0000
 system:
@@ -49,3 +49,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalent0000002'
+

@@ -1,6 +1,6 @@
 _id: npcTalentR000005
 name: "Toque do Abismo"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/sobrenatural.svg
 folder: fldbestraros0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalentR000005'
+

@@ -1,6 +1,6 @@
 _id: npcTalentR000001
 name: "Investida Esmagadora"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/combate.svg
 folder: fldbestraros0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalentR000001'
+

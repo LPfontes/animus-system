@@ -1,6 +1,6 @@
 _id: npcTalent0000001
 name: "Musculatura Densa"
-type: talent
+type: npcTalent
 img: systems/animus/assets/icons/skills/talentos/combate/28.png
 folder: fldbestcomun0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalent0000001'
+

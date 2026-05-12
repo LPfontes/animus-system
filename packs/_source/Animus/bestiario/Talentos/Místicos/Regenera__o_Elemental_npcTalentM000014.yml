@@ -1,6 +1,6 @@
 _id: npcTalentM000014
 name: Regeneração Elemental
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/defensivo.svg
 folder: fldbestmistic000
 system:
@@ -49,3 +49,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalentM000014'
+

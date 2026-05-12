@@ -1,6 +1,6 @@
 _id: npcTalentM000001
 name: Domínio Mental
-type: talent
+type: npcTalent
 img: systems/animus/assets/icons/skills/criaturas/demonios/5.png
 folder: fldbestmistic000
 system:
@@ -50,3 +50,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalentM000001'
+

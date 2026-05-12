@@ -1,6 +1,6 @@
 _id: npcTalent0000012
 name: "Corpo de Brasas"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/combate.svg
 folder: fldbestcomun0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalent0000012'
+

@@ -1,117 +1,173 @@
 .animus.monster-creator {
-  --accent: #00f2ff;
-  --bg-dark: rgba(10, 15, 25, 0.98);
-  
+  --accent: #9d4edd;
+  --accent-glow: rgba(157, 78, 221, 0.3);
+  --panel-bg: rgba(15, 15, 20, 0.85);
+  --glass: blur(12px);
+  --border: rgba(255, 255, 255, 0.1);
+
   background: var(--bg-dark);
-  color: #e0e0e0;
-  font-family: 'Outfit', sans-serif;
-  border: 1px solid rgba(0, 242, 255, 0.2);
-  box-shadow: 0 0 30px rgba(0, 0, 0, 0.8);
+  color: var(--text-main);
+  font-family: 'Inter', sans-serif;
+  overflow: hidden;
 }
 
 .animus.monster-creator .window-content {
   padding: 0;
+  background: radial-gradient(circle at top right, rgba(157, 78, 221, 0.1), transparent 60%);
   overflow: hidden;
 }
 
 .animus.monster-creator .creator-content {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
   padding: 20px;
+  gap: 20px;
 }
 
 /* Steps Progress */
 .animus.monster-creator .steps-progress {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-  padding-bottom: 15px;
+  margin-bottom: 20px;
+  position: relative;
+  padding: 0 10px;
+}
+
+.animus.monster-creator .steps-progress::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: var(--border);
+  z-index: 1;
 }
 
 .animus.monster-creator .step {
-  font-size: 0.9rem;
-  font-weight: 600;
-  color: #666;
-  position: relative;
+  background: #1a1a1a;
+  border: 2px solid var(--border);
+  color: var(--text-muted);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  z-index: 2;
+  transition: all 0.3s ease;
+  backdrop-filter: var(--glass);
 }
 
 .animus.monster-creator .step.active {
-  color: var(--accent);
-  text-shadow: 0 0 10px rgba(0, 242, 255, 0.5);
-}
-
-.animus.monster-creator .step.active::after {
-  content: '';
-  position: absolute;
-  bottom: -16px;
-  left: 0;
-  width: 100%;
-  height: 2px;
   background: var(--accent);
-  box-shadow: 0 0 10px var(--accent);
+  border-color: var(--accent);
+  color: white;
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(1.05);
 }
 
-/* Form Styles */
+/* Step Container */
+.step-container {
+  flex: 1;
+  min-height: 300px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Form Groups */
 .animus.monster-creator .form-group-stack {
   display: flex;
   flex-direction: column;
   gap: 15px;
 }
 
-.animus.monster-creator label {
-  font-size: 0.8rem;
+.animus.monster-creator .form-group-stack label,
+.animus.monster-creator .field label {
+  font-size: 0.7rem;
+  color: var(--accent);
   text-transform: uppercase;
   letter-spacing: 1px;
-  color: #aaa;
-  margin-bottom: 5px;
+  font-weight: 700;
+  margin-bottom: 4px;
 }
 
-.animus.monster-creator input, 
+.animus.monster-creator input[type="text"],
+.animus.monster-creator input[type="number"],
 .animus.monster-creator select {
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #fff;
-  padding: 10px;
-  border-radius: 4px;
-  transition: all 0.3s ease;
+  background: rgba(0, 0, 0, 0.4) !important;
+  border: 1px solid var(--border) !important;
+  color: white !important;
+  border-radius: 6px !important;
+  font-family: inherit !important;
+  transition: all 0.2s ease !important;
 }
 
-.animus.monster-creator input:focus, 
+.animus.monster-creator input:focus,
 .animus.monster-creator select:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 8px rgba(0, 242, 255, 0.3);
+  border-color: var(--accent) !important;
+  box-shadow: 0 0 10px var(--accent-glow) !important;
+  background: rgba(0, 0, 0, 0.6) !important;
 }
 
 /* Projections Box */
 .animus.monster-creator .projections {
-  margin-top: 25px;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
   padding: 15px;
-  background: rgba(0, 242, 255, 0.03);
-  border-left: 3px solid var(--accent);
+  backdrop-filter: var(--glass);
 }
 
 .animus.monster-creator .projections h4 {
-  margin: 0 0 10px 0;
+  margin: 0 0 12px 0;
+  font-size: 0.8rem;
   color: var(--accent);
-  font-size: 0.9rem;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .animus.monster-creator .stats-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
 }
 
 .animus.monster-creator .stat {
-  font-size: 0.85rem;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }
 
 .animus.monster-creator .stat .label {
-  color: #888;
+  font-size: 0.65rem;
+  color: var(--text-muted);
+  text-transform: uppercase;
 }
 
 .animus.monster-creator .stat .val {
-  color: #fff;
-  font-weight: 700;
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+  text-shadow: 0 0 8px rgba(255, 255, 255, 0.2);
 }
 
 /* Attributes Grid */
@@ -127,54 +183,349 @@
   flex-direction: column;
   align-items: center;
   background: rgba(255, 255, 255, 0.05);
-  padding: 10px;
-  border-radius: 8px;
+  padding: 15px;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  transition: all 0.2s;
+}
+
+.animus.monster-creator .attr-input:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+}
+
+.animus.monster-creator .attr-input label {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--accent);
+  margin-bottom: 8px;
 }
 
 .animus.monster-creator .attr-input input {
-  width: 60px;
+  width: 70px !important;
   text-align: center;
-  font-size: 1.2rem;
-  font-weight: 800;
+  font-size: 1.4rem !important;
+  font-weight: 800 !important;
+  background: transparent !important;
+  border: none !important;
 }
 
-/* Footer Buttons */
+/* Summary View */
+.animus.monster-creator .summary-view {
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: 20px;
+  backdrop-filter: var(--glass);
+}
+
+.animus.monster-creator .summary-line {
+  margin-bottom: 12px;
+  font-size: 0.95rem;
+}
+
+.animus.monster-creator .summary-line strong {
+  color: var(--accent);
+  margin-right: 8px;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Footer & Buttons */
 .animus.monster-creator .creator-footer {
   display: flex;
   justify-content: space-between;
-  margin-top: 30px;
   gap: 15px;
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
 }
 
 .animus.monster-creator button {
-  flex: 1;
-  padding: 12px;
-  border: none;
-  border-radius: 4px;
-  font-weight: 700;
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 1px;
   cursor: pointer;
   transition: all 0.2s ease;
-  text-transform: uppercase;
-  font-size: 0.85rem;
+  border: none;
+  font-family: inherit;
 }
 
 .animus.monster-creator .prev-btn {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  color: white;
+  border: 1px solid var(--border) !important;
 }
 
-.animus.monster-creator .next-btn {
+.animus.monster-creator .next-btn,
+.animus.monster-creator .create-btn {
   background: var(--accent);
-  color: #000;
+  color: white;
+  box-shadow: 0 4px 15px var(--accent-glow);
+  flex: 1;
 }
 
 .animus.monster-creator .create-btn {
   background: #2e7d32;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(46, 125, 50, 0.4);
+  box-shadow: 0 4px 15px rgba(46, 125, 50, 0.4);
 }
 
 .animus.monster-creator button:hover {
-  filter: brightness(1.2);
   transform: translateY(-2px);
+  filter: brightness(1.2);
+}
+
+.animus.monster-creator button:active {
+  transform: translateY(0);
+}
+
+/* Talent Selection */
+.talents-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-height: 500px;
+}
+
+.budget-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: rgba(0, 0, 0, 0.4);
+  border-bottom: 2px solid var(--accent);
+}
+
+.budget-header .label {
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.budget-header .value {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--accent);
+}
+
+.budget-header .value.over {
+  color: #ff4444;
+  text-shadow: 0 0 10px rgba(255, 68, 68, 0.5);
+}
+
+.talents-list-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  overflow-y: auto;
+  padding-right: 5px;
+  flex: 1;
+}
+
+.talent-item {
+  padding: 12px;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid var(--border);
+}
+
+.talent-item:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+.talent-item.selected {
+  border-color: var(--accent);
+  background: rgba(157, 78, 221, 0.1);
+  box-shadow: inset 0 0 10px var(--accent-glow);
+}
+
+.talent-main {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 5px;
+}
+
+.talent-main .name {
+  font-weight: 800;
+  color: white;
+}
+
+.talent-main .cost {
+  font-size: 0.75rem;
+  background: var(--accent);
+  color: white;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-weight: 900;
+}
+
+.talent-desc {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  line-height: 1.4;
+}
+
+.scrollable::-webkit-scrollbar { width: 6px; }
+.scrollable::-webkit-scrollbar-track { background: transparent; }
+.scrollable::-webkit-scrollbar-thumb { background: var(--border); border-radius: 10px; }
+
+/* Innate Rules Box */
+.innate-rule-box {
+  margin-top: 15px;
+  padding: 12px;
+  border-left: 4px solid var(--water);
+  background: rgba(77, 166, 255, 0.05);
+}
+
+.innate-header {
+  font-size: 0.75rem;
+  font-weight: 900;
+  color: var(--water);
+  text-transform: uppercase;
+  margin-bottom: 5px;
+  letter-spacing: 1px;
+}
+
+.innate-body {
+  font-size: 0.8rem;
+  line-height: 1.4;
+  color: var(--text-muted);
+}
+
+.skills-selection-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 400px;
+  padding-right: 5px;
+}
+
+.skill-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  transition: all 0.2s ease;
+}
+
+.skill-row.recommended {
+  border-left: 3px solid gold;
+  background: rgba(255, 215, 0, 0.05);
+}
+
+.skill-name {
+  font-weight: 700;
+  font-size: 0.85rem;
+}
+
+.mini-icon {
+  font-size: 0.7rem;
+  margin-right: 5px;
+}
+
+.rank-selector {
+  display: flex;
+  gap: 4px;
+}
+
+.rank-btn {
+  padding: 4px 8px;
+  font-size: 0.65rem;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.05);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+  cursor: pointer;
+  min-width: 65px;
+  transition: all 0.2s ease;
+}
+
+.rank-btn:hover {
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.rank-btn.active {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  font-weight: 800;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+
+.rank-btn.active[data-rank="2"] { background: #4da6ff; border-color: #4da6ff; }
+.rank-btn.active[data-rank="3"] { background: #ff4d4d; border-color: #ff4d4d; }
+
+.damage-preview {
+  margin-top: 15px;
+  padding: 12px;
+}
+
+.preview-header {
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+  color: var(--text-muted);
+  margin-bottom: 10px;
+  text-align: center;
+}
+
+.damage-table-grid.cols-4 {
+  grid-template-columns: repeat(4, 1fr);
+}
+
+.damage-table-grid.cols-6 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 600px) {
+  .damage-table-grid.cols-6 {
+    grid-template-columns: repeat(6, 1fr);
+  }
+}
+
+.ac-box {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.ac-box span {
+  font-size: 0.6rem;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.ac-box strong {
+  font-size: 1.1rem;
+  color: white;
+}
+
+.cost-group-header {
+  background: rgba(157, 78, 221, 0.15);
+  color: var(--accent);
+  padding: 5px 12px;
+  font-size: 0.7rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  border-left: 3px solid var(--accent);
+  margin-top: 10px;
+  backdrop-filter: blur(5px);
+}
+
+.animus.monster-creator .grid {
+  display: grid;
+  gap: 15px;
+}
+
+.animus.monster-creator .grid-2 {
+  grid-template-columns: 1fr 1fr;
 }

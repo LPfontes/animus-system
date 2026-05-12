@@ -7,6 +7,7 @@ import { AnimusBonusSelector } from "../bonus-selector.mjs";
 import { AnimusAdvancement } from "./advancement.mjs";
 import { AnimusWeaponCreator } from "../weapon-creator.mjs";
 import { AnimusRollDialog } from "../roll-dialog.mjs";
+import { AnimusElementalModal } from "../elemental-modal.mjs";
 
 export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   constructor(options = {}) {
@@ -881,7 +882,7 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   }
 
   /**
-   * Handle Elemental Use action — picks table type if actor has both damage and heal tables.
+   * Handle Elemental Use action — opens a modal to configure variables like Range and Area.
    */
   async _onRollElemental(event, target) {
     // 1. Verifica se o personagem tem um Elemento
@@ -890,43 +891,31 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       return ui.notifications.warn("Este personagem não possui um Elemento atribuído.");
     }
 
-    const hasDamage = !!elementItem.system.damageTable;
-    const hasHeal   = !!elementItem.system.healTable;
+    // 2. Abre o Modal Modernizado para configuração
+    const config = await AnimusElementalModal.awaitConfig(this.actor, elementItem);
+    if (!config) return; // Cancelado
 
-    // 2. Se tiver ambas as tabelas, pergunta qual usar
-    let tableType = "damage";
-    if (hasDamage && hasHeal) {
-      tableType = await foundry.applications.api.DialogV2.wait({
-        window: { title: `Uso Elemental — ${elementItem.name}` },
-        content: `<p style="margin-bottom:8px;">Escolha o tipo de uso elemental:</p>`,
-        buttons: [
-          { action: "damage", label: '<i class="fas fa-fire"></i> Dano',  default: true },
-          { action: "heal",   label: '<i class="fas fa-heart"></i> Cura' }
-        ],
-        rejectClose: false
-      });
-      if (!tableType) return; // Cancelado
-    } else if (hasHeal && !hasDamage) {
-      tableType = "heal";
-    }
+    const { usageType, category, tier, level, peCost, paCost, label: configLabel } = config;
 
-    // 3. Recupera a tabela RESOLVIDA (base + mult×ANI já calculado) e usa Nível 1 (acesso base)
-    const resolved = tableType === "heal"
+    // 3. Recupera a tabela RESOLVIDA (base + mult×ANI já calculado)
+    const resolved = usageType === "heal"
       ? elementItem.system.resolvedHealTable
       : elementItem.system.resolvedDamageTable;
 
     if (!resolved || !Object.keys(resolved).length)
       return ui.notifications.warn("Tabela elemental não encontrada.");
 
-    // Nível 1 = primeira entrada (acesso base do personagem)
-    const tier1 = Object.values(resolved)[0];
+    // Selecionar o Nível (Tier) correto da tabela
+    // Nível 1 = index 0, Nível 2 = index 1, Nível 3 = index 2
+    const tiers = Object.values(resolved);
+    const selectedTier = tiers[level - 1] || tiers[0];
 
     // Converte para o formato flat que o dice.mjs espera: { ac1: number, ac2: number, ... }
     const hitTable = {
-      ac1: tier1?.ac1?.total ?? 0,
-      ac2: tier1?.ac2?.total ?? 0,
-      ac3: tier1?.ac3?.total ?? 0,
-      ac4: tier1?.ac4?.total ?? 0
+      ac1: selectedTier?.ac1?.total ?? 0,
+      ac2: selectedTier?.ac2?.total ?? 0,
+      ac3: selectedTier?.ac3?.total ?? 0,
+      ac4: selectedTier?.ac4?.total ?? 0
     };
 
     // 4. Dados da perícia Elemento
@@ -942,32 +931,90 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (event.shiftKey) advantage = "advantage";
     if (event.altKey || event.ctrlKey) advantage = "disadvantage";
 
-    // 6. Consome recursos: 1 PA (custo da ação) + 3 PE (custo elemental base Nível 1)
-    const paConsumed = await this.actor.consumeResource("pa", 1);
-    if (!paConsumed) return;
+    // 6. Consome recursos: PA e PE calculados pelo modal
+    const paConsumed = await this.actor.consumeResource("pa", paCost);
+    if (!paConsumed) return ui.notifications.warn(`Você não possui PA suficiente (${paCost} PA).`);
 
-    const peConsumed = await this.actor.consumeResource("pe", 3);
+    const peConsumed = await this.actor.consumeResource("pe", peCost);
     if (!peConsumed) {
       // Reembolsa o PA se não tiver PE suficiente
       await this.actor.update({ "system.status.pa.value": Math.min(
         this.actor.system.status.pa.max,
-        this.actor.system.status.pa.value + 1
+        this.actor.system.status.pa.value + paCost
       )});
-      return ui.notifications.warn("Pontos de Energia insuficientes para Uso Elemental (custo: 3 PE).");
+      return ui.notifications.warn(`Pontos de Energia insuficientes para Uso Elemental (custo: ${peCost} PE).`);
     }
 
-    // 7. Rola o teste com hitTable flat — mesmo mecanismo de _executeWeaponRoll
-    const label = tableType === "heal" ? "Cura" : "Dano";
+    // 7. Registrar ação e rolar
+    await this.actor.recordTurnAction("Uso Elemental");
+
+    // 8. Criar Template de Área se aplicável
+    if (category !== "single") {
+      this._placeElementalTemplate(category, tier, elementItem);
+    }
 
     await AnimusRoll.rollTest({
       poolSize:       poolSize,
       attributeValue: attr?.total || 0,
-      label:          `Uso Elemental — ${elementItem.name} (${label})`,
+      label:          configLabel,
       hitTable:       hitTable,
       advantage:      advantage,
       speaker:        this.actor,
-      healMode:       tableType === "heal"
+      healMode:       usageType === "heal"
     });
+  }
+
+  /**
+   * Cria e posiciona um template de medida baseado na categoria e tier selecionados.
+   */
+  async _placeElementalTemplate(category, tier, elementItem) {
+    const scene = canvas.scene;
+    if (!scene) return;
+
+    // Mapa de tamanhos (em metros)
+    const sizes = { small: 3, medium: 6, large: 12, curto: 3, medio: 6, longo: 12 };
+    const distance = sizes[tier] || 3;
+
+    const templateData = {
+      t: "",
+      user: game.user.id,
+      distance: distance,
+      direction: 0,
+      x: 0,
+      y: 0,
+      fillColor: game.user.color,
+      flags: { animus: { element: elementItem.name } }
+    };
+
+    // Configura o tipo de template
+    switch (category) {
+      case "burst":
+        templateData.t = "circle";
+        break;
+      case "cone":
+        templateData.t = "cone";
+        templateData.angle = 60; // Ângulo padrão de cone
+        break;
+      case "line":
+        templateData.t = "ray";
+        templateData.width = scene.grid.distance; // Largura de 1 quadrado
+        break;
+    }
+
+    // No V12, o processo de preview pode variar. Usamos uma abordagem resiliente.
+    const doc = new CONFIG.MeasuredTemplate.documentClass(templateData, { parent: scene });
+    const template = new CONFIG.MeasuredTemplate.objectClass(doc);
+    
+    canvas.templates.activate();
+    
+    // Tenta o método de preview interativo
+    if (typeof template.drawPreview === "function") {
+      template.drawPreview();
+    } else {
+      // Fallback: Cria diretamente e informa o usuário
+      canvas.scene.createEmbeddedDocuments("MeasuredTemplate", [templateData]);
+      ui.notifications.info("Área de efeito criada. Posicione-a sobre os alvos.");
+    }
   }
 
   /**

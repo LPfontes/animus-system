@@ -1,6 +1,6 @@
 _id: npcTalent0000005
 name: "Pele Endurecida"
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/defensivo.svg
 folder: fldbestcomun0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalent0000005'
+

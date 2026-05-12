@@ -1,6 +1,6 @@
 _id: npcTalentR000003
 name: "Sopro Elemental"
-type: talent
+type: npcTalent
 img: systems/animus/assets/icons/skills/elementais/fogo/1.png
 folder: fldbestraros0000
 system:
@@ -33,3 +33,4 @@ flags:
   animus:
     isNPCTalent: true
 _key: '!items!npcTalentR000003'
+

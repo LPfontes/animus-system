@@ -23,6 +23,7 @@ export const item = {
   armor: AnimusArmorData,
   shield: AnimusArmorData,
   talent: AnimusTalentData,
+  npcTalent: AnimusTalentData,
   item: AnimusItemData,
   secondary: AnimusItemData,
   property: AnimusPropertyData,

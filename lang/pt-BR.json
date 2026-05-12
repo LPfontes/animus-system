@@ -162,5 +162,7 @@
   "ANIMUS.GearTatico": "Tático",
   "ANIMUS.GearViagem": "Viagem",
   "ANIMUS.GearEspecial": "Especial",
+  "ANIMUS.ItemNPCTalent": "Talento de Criatura",
+  "TYPES.Item.npcTalent": "Talento de Criatura",
   "ANIMUS.GearIluminacao": "Iluminação"
 }

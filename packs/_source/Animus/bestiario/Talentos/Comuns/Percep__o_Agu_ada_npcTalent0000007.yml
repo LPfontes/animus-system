@@ -1,6 +1,6 @@
 _id: npcTalent0000007
 name: Percepção Aguçada
-type: talent
+type: npcTalent
 img: systems/animus/assets/system-icons/talents/utilitario.svg
 folder: fldbestcomun0000
 system:
@@ -49,3 +49,4 @@ sort: 0
 ownership:
   default: 0
 _key: '!items!npcTalent0000007'
+

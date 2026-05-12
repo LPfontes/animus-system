@@ -21,10 +21,10 @@ export class AnimusRoll {
     // 2. Aplicar lógica Animus de Vantagem/Desvantagem nos dados mantidos
     const dice = roll.dice[0];
     const results = dice.results;
-    
+
     // Encontrar o maior dado entre os ativos (mantidos pelo kh2)
     const activeResults = results.filter(r => r.active).sort((a, b) => b.result - a.result);
-    
+
     if (activeResults.length > 0) {
       const highestDie = activeResults[0];
 
@@ -42,7 +42,7 @@ export class AnimusRoll {
     const numericBonus = roll.terms
       .filter(t => t instanceof foundry.dice.terms.NumericTerm)
       .reduce((acc, t) => acc + t.number, 0);
-    
+
     // Sobrescreve o total interno para que o Foundry use o valor modificado
     roll._total = diceTotal + numericBonus;
 
@@ -56,27 +56,53 @@ export class AnimusRoll {
     const total = roll.total;
 
     if (hitTable) {
-      if (isNaturalCritical || total >= 13) {
-        hitResult = "AC 4 (CRÍTICO)";
-        damageValue = hitTable.ac4 || 0;
-      } else if (total >= 10) {
-        hitResult = "AC 3";
-        damageValue = hitTable.ac3 || 0;
-      } else if (total >= 6) {
-        hitResult = "AC 2";
-        damageValue = hitTable.ac2 || 0;
+      const hasSixTiers = hitTable.ac6 !== undefined && hitTable.ac6 > 0;
+
+      if (hasSixTiers) {
+        // Nova Lógica (1-6) - Usada por Monstros ND 5+
+        if (isNaturalCritical) {
+          hitResult = "AC 6 (CRÍTICO)";
+          damageValue = hitTable.ac6 || 0;
+        } else if (total >= 10) {
+          hitResult = "AC 5";
+          damageValue = hitTable.ac5 || 0;
+        } else if (total >= 8) {
+          hitResult = "AC 4";
+          damageValue = hitTable.ac4 || 0;
+        } else if (total >= 6) {
+          hitResult = "AC 3";
+          damageValue = hitTable.ac3 || 0;
+        } else if (total >= 4) {
+          hitResult = "AC 2";
+          damageValue = hitTable.ac2 || 0;
+        } else {
+          hitResult = "AC 1";
+          damageValue = hitTable.ac1 || 0;
+        }
       } else {
-        hitResult = "AC 1";
-        damageValue = hitTable.ac1 || 0;
+        // Lógica Padrão (1-4) - Usada por Armas e Monstros de ND baixo
+        if (isNaturalCritical || total >= 13) {
+          hitResult = "AC 4 (CRÍTICO)";
+          damageValue = hitTable.ac4 || 0;
+        } else if (total >= 10) {
+          hitResult = "AC 3";
+          damageValue = hitTable.ac3 || 0;
+        } else if (total >= 6) {
+          hitResult = "AC 2";
+          damageValue = hitTable.ac2 || 0;
+        } else {
+          hitResult = "AC 1";
+          damageValue = hitTable.ac1 || 0;
+        }
       }
     }
 
     // 6. Enviar para o chat
     const targets = Array.from(game.user.targets);
-    
+
     let flavor = `<div class="animus-roll-flavor">
       <div class="roll-label">${label}</div>`;
-    
+
     if (targets.length > 0) {
       flavor += `<div class="target-list">`;
       for (let t of targets) {
@@ -91,13 +117,13 @@ export class AnimusRoll {
 
     if (advantage === "advantage") flavor += `<div class="roll-mod advantage">[Vantagem]</div>`;
     if (advantage === "disadvantage") flavor += `<div class="roll-mod disadvantage">[Desvantagem]</div>`;
-    
+
     if (hitTable) {
       const isCrit = isNaturalCritical || total >= 13;
       const colorClass = isCrit ? "crit" : "hit";
       const valueLabel = healMode ? "Cura" : "Dano";
       const applyAction = healMode ? "applyHeal" : "applyDamage";
-      const applyIcon  = healMode ? "fa-heart" : "fa-user-minus";
+      const applyIcon = healMode ? "fa-heart" : "fa-user-minus";
       const applyLabel = healMode ? "Aplicar Cura" : "Aplicar Dano";
       flavor += `
         <div class="hit-result-banner ${colorClass}">
@@ -119,7 +145,7 @@ export class AnimusRoll {
     return roll.toMessage({
       speaker: ChatMessage.getSpeaker({ actor: speaker }),
       flavor: flavor,
-      flags: { 
+      flags: {
         "animus.isCritical": isNaturalCritical,
         "animus.hitResult": hitResult,
         "animus.damageValue": damageValue,

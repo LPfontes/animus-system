@@ -63,6 +63,7 @@ ANIMUS.itemTypes = {
   secondary: "ANIMUS.ItemSecondary",
   gear: "ANIMUS.ItemGear",
   talent: "ANIMUS.ItemTalent",
+  npcTalent: "ANIMUS.ItemNPCTalent",
   element: "ANIMUS.ItemElement",
   ascendancy: "ANIMUS.ItemAscendancy",
   property: "ANIMUS.ItemProperty",
@@ -154,6 +155,13 @@ ANIMUS.weaponRanges = {
   1: "ANIMUS.RangeCurto",
   2: "ANIMUS.RangeMedio",
   3: "ANIMUS.RangeLongo"
+};
+
+ANIMUS.areaTypes = {
+  none: "ANIMUS.AreaIndividual",
+  line: "ANIMUS.AreaLinha",
+  cone: "ANIMUS.AreaCone",
+  burst: "ANIMUS.AreaExplosao"
 };
 
 ANIMUS.talentTypes = {
