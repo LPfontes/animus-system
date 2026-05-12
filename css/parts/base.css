@@ -24,12 +24,20 @@
 
 /* Base Layout Setup */
 .animus.sheet.actor {
-  min-width: 900px;
-  min-height: 800px;
-  height: 800px; /* Altura fixa para forçar o scroll interno */
+  min-width: 1000px;
+  min-height: 900px;
+  height: 900px; /* Altura fixa para forçar o scroll interno */
   background: var(--bg-dark);
   color: var(--text-main);
   font-family: 'Inter', sans-serif;
+}
+
+.animus .glass-panel {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
 }
 
 .animus .window-content {

@@ -607,6 +607,12 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       packId = "animus.regras";
       title = "Seleção Elemental";
       activeTab = "element";
+    } else if (type === "equipment") {
+      activeTab = "equipment";
+      title = "Armaria & Proteções";
+    } else if (type === "secondary") {
+      activeTab = "secondary";
+      title = "Suprimentos & Itens";
     }
 
     const browser = new AnimusCompendiumBrowser({

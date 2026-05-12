@@ -3,21 +3,16 @@
 
   {{!-- Botão de Evolução (Apenas se houver pendências) --}}
   {{#if pendingAdvancement}}
-  <div class="advancement-launcher glass-panel"
-    style="margin-bottom: 20px; padding: 10px 15px; display: flex; justify-content: space-between; align-items: center; border-left: 3px solid var(--accent);">
+  <div class="advancement-launcher glass-panel">
     <div class="launcher-label">
-      <span style="font-weight: 900; letter-spacing: 0.1em; color: var(--accent);"><i class="fas fa-level-up-alt"></i>
-        EVOLUÇÃO DISPONÍVEL</span>
-      <p style="margin: 0; font-size: 0.7rem; color: var(--text-muted);">Distribua seus pontos de nível e bônus de
-        atributo.</p>
+      <span><i class="fas fa-level-up-alt"></i> EVOLUÇÃO DISPONÍVEL</span>
+      <p>Distribua seus pontos de nível e bônus de atributo.</p>
     </div>
-    <div class="launcher-actions" style="display: flex; align-items: center; gap: 15px;">
-      <span class="points-badge {{#if (eq pointsRemaining 0)}}complete{{/if}}"
-        style="font-size: 0.75rem; font-weight: 800; background: rgba(157, 78, 221, 0.2); padding: 4px 12px; border-radius: 20px;">
+    <div class="launcher-actions">
+      <span class="points-badge {{#if (eq pointsRemaining 0)}}complete{{/if}}">
         Pontos: {{pointsRemaining}}
       </span>
-      <button type="button" class="btn-open-advancement" data-action="openAdvancement"
-        style="background: var(--accent); color: #fff; border: none; padding: 6px 15px; border-radius: 4px; font-weight: 900; cursor: pointer; transition: transform 0.2s;">
+      <button type="button" class="btn-open-advancement" data-action="openAdvancement">
         ABRIR PAINEL
       </button>
     </div>
@@ -66,13 +61,11 @@
 
     <div class="input-group rest-group">
       <label class="input-label">DESCANSAR</label>
-      <div class="rest-buttons" style="display: flex; gap: 5px;">
-        <button type="button" class="rest-btn short" data-action="shortRest" title="Descanso Curto (10-30 min)"
-          style="height: 42px; background: rgba(0, 242, 255, 0.1); border: 1px solid rgba(0, 242, 255, 0.3); color: #00f2ff; border-radius: 10px; cursor: pointer; padding: 0 10px; font-weight: 800; font-size: 0.7rem;">
+      <div class="rest-buttons">
+        <button type="button" class="rest-btn short" data-action="shortRest" title="Descanso Curto (10-30 min)">
           <i class="fas fa-hourglass-half"></i> {{system.details.shortRests}}/2
         </button>
-        <button type="button" class="rest-btn long" data-action="longRest" title="Descanso Longo (8h)"
-          style="height: 42px; background: rgba(157, 78, 221, 0.1); border: 1px solid rgba(157, 78, 221, 0.3); color: #9d4edd; border-radius: 10px; cursor: pointer; padding: 0 10px;">
+        <button type="button" class="rest-btn long" data-action="longRest" title="Descanso Longo (8h)">
           <i class="fas fa-bed"></i>
         </button>
       </div>
@@ -176,7 +169,7 @@
         <div class="header-content">
           <h3 class="category-title">TALENTOS</h3>
           <div class="status-item {{#if (eq talentCount talentLimit)}}complete{{/if}}"
-            style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt talentCount talentLimit)}}var(--fire){{else}}var(--accent){{/if}};">
+            style="font-size: 1rem; font-weight: 700; color: {{#if (gt talentCount talentLimit)}}var(--fire){{else}}var(--accent){{/if}};">
             <i class="fas fa-brain"></i> {{talentCount}} / {{talentLimit}}
           </div>
         </div>
@@ -251,12 +244,12 @@
       <h3 class="category-title" style="margin: 0;">PERÍCIAS</h3>
       <div class="header-status-pills" style="display: flex; gap: 15px;">
         <div class="status-item {{#if (eq attrCount attrLimit)}}complete{{/if}}"
-          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt attrCount attrLimit)}}var(--fire){{else}}var(--accent){{/if}};"
+          style="font-size: 1rem; font-weight: 700; color: {{#if (gt attrCount attrLimit)}}var(--fire){{else}}var(--accent){{/if}};"
           title="Pontos de Atributo">
           <i class="fas fa-star"></i> Atributos: {{attrCount}} / {{attrLimit}}
         </div>
         <div class="status-item {{#if (eq skillCount skillLimit)}}complete{{/if}}"
-          style="font-size: 0.75rem; font-weight: 700; color: {{#if (gt skillCount skillLimit)}}var(--fire){{else}}var(--accent){{/if}};"
+          style="font-size: 1rem; font-weight: 700; color: {{#if (gt skillCount skillLimit)}}var(--fire){{else}}var(--accent){{/if}};"
           title="Pontos de Perícia">
           <i class="fas fa-list-check"></i> Perícias: {{skillCount}} / {{skillLimit}}
         </div>
