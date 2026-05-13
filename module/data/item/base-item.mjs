@@ -57,11 +57,7 @@ export default class AnimusItemData extends foundry.abstract.TypeDataModel {
       }
     }
 
-    // Migrar category para subCategory se não for um tipo de item válido
-    if (source.category && !Object.keys(ANIMUS.itemTypes).includes(source.category)) {
-      if (!source.subCategory) source.subCategory = source.category;
-      source.category = "";
-    }
+
 
     return super.migrateData(source);
   }

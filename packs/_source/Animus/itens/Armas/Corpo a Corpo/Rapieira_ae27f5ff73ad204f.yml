@@ -3,7 +3,7 @@ name: Rapieira
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Rapieira.png
 system:
-  category: weapon
+  category: branca
   damageType: perfurante
   type: perfurante_medio
   description: 'Tabela Oficial Animus'

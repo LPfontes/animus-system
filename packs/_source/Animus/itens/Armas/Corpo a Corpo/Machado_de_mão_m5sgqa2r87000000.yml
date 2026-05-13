@@ -3,7 +3,7 @@ name: Machado de mão
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Machado_de_mão.png
 system:
-  category: weapon
+  category: branca
   damageType: cortante
   type: cortante_leve
   description: 'Tabela Oficial Animus'

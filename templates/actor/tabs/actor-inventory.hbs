@@ -1,32 +1,33 @@
 <div class="tab inventory {{tabs.inventory.cssClass}}" data-group="primary" data-tab="inventory">
+  <div class="header-buttons">
+        <button type="button" class="action-btn small" data-action="openWeaponBrowser"
+          title="Adicionar Arma do Compêndio">
+          <i class="fas fa-search"></i> Compêndio
+        </button>
+        <button type="button" class="action-btn small" data-action="openWeaponCreator" data-type="weapon">
+          <i class="fas fa-plus"></i> Criar
+        </button>
+      </div>
   <div class="inventory-sidebar">
-      {{!-- Seção de Armas --}}
+    {{!-- Seção de Armas --}}
     <div class="inventory-section">
       <div class="section-header header-with-action">
-        <div class="header-buttons">
-          <button type="button" class="action-btn small" data-action="openWeaponBrowser" title="Adicionar Arma do Compêndio">
-            <i class="fas fa-search"></i> Compêndio
-          </button>
-          <button type="button" class="action-btn small" data-action="openWeaponCreator" data-type="weapon">
-            <i class="fas fa-plus"></i> Criar
-          </button>
-        </div>
         <div class="header-content">
           <h3><i class="fas fa-swords"></i> Armas</h3>
         </div>
       </div>
       <ul class="item-list">
         {{#each weapons as |item|}}
-        <li class="item-row" data-item-id="{{item.id}}">
+        <li class="item-row" data-item-id="{{item.id}}" draggable="true">
           <div class="item-name">
-            <img src="{{item.img}}" width="28" height="28" class="item-img" />
             <span class="name-wrapper">
               <a class="item-edit" data-action="editItem">{{item.name}}</a>
               <span class="item-type-tag">{{localize (concat "ANIMUS.WeaponType." item.system.type)}}</span>
             </span>
           </div>
           <div class="item-controls">
-            <a class="item-control {{#if item.system.equipped}}active{{/if}}" data-action="toggleEquip" title="Equipar/Desequipar">
+            <a class="item-control {{#if item.system.equipped}}active{{/if}}" data-action="toggleEquip"
+              title="Equipar/Desequipar">
               <i class="fas fa-hand-holding-magic"></i>
             </a>
             <a class="item-control" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
@@ -39,18 +40,13 @@
     {{!-- Seção de Proteções --}}
     <div class="inventory-section">
       <div class="section-header header-with-action">
-        <div class="header-buttons">
-          <button type="button" class="action-btn small" data-action="openBrowser" data-type="equipment" title="Adicionar Proteção do Compêndio">
-            <i class="fas fa-search"></i> Compêndio
-          </button>
-        </div>
         <div class="header-content">
           <h3><i class="fas fa-shield-halved"></i> Proteções</h3>
         </div>
       </div>
       <ul class="item-list">
         {{#each gear.armor as |item|}}
-        <li class="item-row" data-item-id="{{item.id}}">
+        <li class="item-row" data-item-id="{{item.id}}" draggable="true">
           <div class="item-name">
             <img src="{{item.img}}" width="28" height="28" class="item-img" />
             <a class="item-edit" data-action="editItem">{{item.name}} ({{item.system.type}})</a>
@@ -64,7 +60,7 @@
         </li>
         {{/each}}
         {{#each gear.shield as |item|}}
-        <li class="item-row" data-item-id="{{item.id}}">
+        <li class="item-row" data-item-id="{{item.id}}" draggable="true">
           <div class="item-name">
             <img src="{{item.img}}" width="28" height="28" class="item-img" />
             <a class="item-edit" data-action="editItem">{{item.name}}</a>
@@ -83,18 +79,13 @@
     {{!-- Seção de Secundários --}}
     <div class="inventory-section">
       <div class="section-header header-with-action">
-        <div class="header-buttons">
-          <button type="button" class="action-btn small" data-action="openBrowser" data-type="secondary" title="Adicionar Item do Compêndio">
-            <i class="fas fa-search"></i> Compêndio
-          </button>
-        </div>
-         <div class="header-content">
+        <div class="header-content">
           <h3><i class="fas fa-backpack"></i> Secundários</h3>
         </div>
       </div>
       <ul class="item-list">
         {{#each gear.secondary as |item|}}
-        <li class="item-row" data-item-id="{{item.id}}">
+        <li class="item-row" data-item-id="{{item.id}}" draggable="true">
           <div class="item-name">
             <img src="{{item.img}}" width="28" height="28" class="item-img" />
             <span class="name-wrapper">
@@ -114,7 +105,7 @@
         {{/each}}
       </ul>
     </div>
-  
+
   </div>
 
 </div>

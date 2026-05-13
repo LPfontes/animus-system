@@ -88,11 +88,18 @@ Hooks.once("init", function() {
   Handlebars.registerHelper('isNumber', function(v) {
     return !isNaN(parseFloat(v)) && isFinite(v);
   });
+
+  // Expose system functions
+  game.animus = {
+    rollItemMacro: rollItemMacro
+  };
 });
 
 async function preloadHandlebarsTemplates() {
   const paths = [
     // Actor partials
+    "systems/animus/templates/actor/parts/actor-portrait-stats.hbs",
+    "systems/animus/templates/actor/parts/actor-talents-grid.hbs",
     "systems/animus/templates/actor/tabs/actor-attributes.hbs",
     "systems/animus/templates/actor/tabs/actor-skills.hbs",
     "systems/animus/templates/actor/tabs/actor-combat.hbs",
@@ -383,3 +390,169 @@ Hooks.once("ready", async function() {
     console.log("Animus | Índice do Compêndio atualizado com campos do sistema.");
   }
 });
+
+/* -------------------------------------------- */
+/*  Hotbar Macros                               */
+/* -------------------------------------------- */
+
+Hooks.on("hotbarDrop", (bar, data, slot) => {
+  // Only intercept our custom drag type
+  if (data.type !== "AnimusMacro") return true; // let Foundry handle other types normally
+
+  createAnimusMacro(data, slot);
+  return false; // prevent default Foundry macro creation
+});
+
+/**
+ * Resolve the actor from drag data. Prefers token actor for scene accuracy.
+ * @param {Object} data  Drag data with actorId/tokenId/sceneId
+ * @returns {Actor|null}
+ */
+function _resolveActor(data) {
+  // Priority 1: token on current scene
+  if (data.tokenId && data.sceneId) {
+    const scene = game.scenes.get(data.sceneId);
+    if (scene) {
+      const token = scene.tokens.get(data.tokenId);
+      if (token?.actor) return token.actor;
+    }
+  }
+  // Priority 2: world actor
+  if (data.actorId) return game.actors.get(data.actorId);
+  return null;
+}
+
+/**
+ * Get the currently controlled/selected actor at macro execution time.
+ * @returns {Actor|null}
+ */
+function _getActiveActor() {
+  const speaker = ChatMessage.getSpeaker();
+  let actor;
+  if (speaker.token) actor = game.actors.tokens[speaker.token];
+  actor ??= game.actors.get(speaker.actor);
+  return actor || null;
+}
+
+/**
+ * Create a Macro from an Animus item/action drag.
+ * @param {Object} data   Drag data
+ * @param {number} slot   Hotbar slot
+ */
+async function createAnimusMacro(data, slot) {
+  let name, img, command;
+
+  if (data.subtype === "item") {
+    // Resolve item at drag time to get name/img
+    const actor = _resolveActor(data);
+    const item = actor?.items.get(data.itemId);
+    name = item?.name ?? data.name ?? "Item Desconhecido";
+    img = item?.img ?? data.img ?? "icons/svg/item-bag.svg";
+    // Command uses actorId + itemId + name for portable resolution
+    command = `game.animus.rollItemMacro(${JSON.stringify({ itemId: data.itemId, actorId: data.actorId, itemType: data.itemType, itemName: name })});`;
+
+  } else if (data.subtype === "basicAction") {
+    name = data.actionName;
+    img = data.img || "icons/svg/combat.svg";
+    command = `game.animus.rollItemMacro(${JSON.stringify({ subtype: "basicAction", actionName: data.actionName })});`;
+
+  } else if (data.subtype === "innate") {
+    name = data.abilityName;
+    img = data.img || "icons/svg/dna.svg";
+    command = `game.animus.rollItemMacro(${JSON.stringify({ subtype: "innate", abilityName: data.abilityName, actorId: data.actorId })});`;
+
+  } else {
+    return ui.notifications.warn("Tipo de ação não suportado na hotbar.");
+  }
+
+  // Reuse existing macro with same command, or create new
+  let macro = game.macros.find(m => m.command === command);
+  if (!macro) {
+    macro = await Macro.create({
+      name,
+      type: "script",
+      img,
+      command,
+      flags: { "animus.itemMacro": true }
+    });
+  }
+
+  await game.user.assignHotbarMacro(macro, slot);
+  ui.notifications.info(`Macro "${name}" criada no slot ${slot}.`);
+}
+
+/**
+ * Execute a hotbar macro action.
+ * @param {Object} opts   Options from the macro command string
+ */
+async function rollItemMacro(opts = {}) {
+  // --- Basic Action ---
+  if (opts.subtype === "basicAction") {
+    const actor = _getActiveActor();
+    if (!actor) return ui.notifications.warn("Selecione um token ou personagem primeiro.");
+
+    // Special Route for Elemental Use (opens modal)
+    if (opts.actionName === "Uso Elemental") {
+      return actor.sheet._onRollElemental();
+    }
+
+    // Use sheet logic for other basic actions (handles PA cost and chat card)
+    return actor.sheet._onRollBasicAction(null, { dataset: { name: opts.actionName } });
+  }
+
+  // --- Innate Ability ---
+  if (opts.subtype === "innate") {
+    const actor = _getActiveActor();
+    if (!actor) return ui.notifications.warn("Selecione um token ou personagem primeiro.");
+
+    // Try to find the ability by name in the actor's ascendancy/element items
+    const abilityName = opts.abilityName;
+    let abilityData = null;
+    for (const item of actor.items) {
+      const innates = item.system?.innateAbilities || item.system?.abilities || [];
+      abilityData = innates.find(a => a.name === abilityName);
+      if (abilityData) break;
+    }
+
+    return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `
+        <div class="animus-chat-card">
+          <div class="chat-header"><h3>${abilityName}</h3></div>
+          ${abilityData?.description ? `<div class="chat-body">${abilityData.description}</div>` : ""}
+        </div>`
+    });
+  }
+
+  // --- Real Item ---
+  const actor = _getActiveActor();
+  if (!actor) return ui.notifications.warn("Selecione um token ou personagem primeiro.");
+
+  // First try by itemId (most reliable), then fall back to name or type
+  let item = actor.items.get(opts.itemId);
+
+  if (!item) {
+    // Portability fallback: search by name if the ID changed (e.g. dragging from actor A to actor B)
+    item = actor.items.find(i => (opts.itemName && i.name === opts.itemName) || i.type === opts.itemType);
+  }
+
+  if (!item) {
+    return ui.notifications.warn(`Item não encontrado neste personagem. ID: ${opts.itemId}`);
+  }
+
+  if (item.type === "weapon") return item.rollAttack();
+  if (item.type === "talent") {
+    return ChatMessage.create({
+      speaker: ChatMessage.getSpeaker({ actor }),
+      content: `
+        <div class="animus-chat-card">
+          <div class="chat-header"><h3>${item.name}</h3></div>
+          ${item.system.description ? `<div class="chat-body">${item.system.description}</div>` : ""}
+        </div>`
+    });
+  }
+
+  // Generic fallback for other item types
+  if (item.use) return item.use();
+  return ui.notifications.info(`Usando: ${item.name}`);
+}

@@ -3,7 +3,7 @@ name: Pistola (Base Leve)
 type: weapon
 img: systems/animus/assets/system-icons/weapon/crossed-pistols.svg
 system:
-  category: weapon
+  category: fogo
   damageType: fogo
   type: fogo_leve
   description: 'Tipo: Arma de Fogo<br>Antecarga; Base Leve'

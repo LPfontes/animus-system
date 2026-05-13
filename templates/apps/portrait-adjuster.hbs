@@ -1,0 +1,56 @@
+<div class="portrait-adjuster-container selection-tool">
+  {{!-- Viewport: the canvas div IS the crop preview --}}
+  <div class="viewfinder-area glass-panel">
+    <div class="portrait-canvas" style="cursor: grab;">
+      {{!-- Background is applied via JS: background-image/size/position --}}
+
+      {{!-- Dim overlay with viewfinder hole --}}
+      <div class="selection-overlay">
+        <div class="viewfinder">
+          <div class="corner top-left"></div>
+          <div class="corner top-right"></div>
+          <div class="corner bottom-left"></div>
+          <div class="corner bottom-right"></div>
+          <div class="center-mark"><i class="fas fa-plus"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="interaction-hint">
+      <i class="fas fa-mouse-pointer"></i> Arraste para mover
+      &nbsp;·&nbsp;
+      <i class="fas fa-search-plus"></i> Scroll para Zoom
+    </div>
+  </div>
+
+  {{!-- Controls --}}
+  <div class="controls-area">
+    <div class="control-group">
+      <div class="label-row">
+        <label>Zoom</label>
+        <span class="value-display">{{portrait.scale}}%</span>
+      </div>
+      <input type="range" data-crop="scale" min="100" max="500" step="5" value="{{portrait.scale}}" />
+    </div>
+
+    <div class="coords-row">
+      <div class="control-group">
+        <label>Posição X</label>
+        <input type="number" data-crop="x" min="0" max="100" step="1" value="{{portrait.x}}" />
+      </div>
+      <div class="control-group">
+        <label>Posição Y</label>
+        <input type="number" data-crop="y" min="0" max="100" step="1" value="{{portrait.y}}" />
+      </div>
+    </div>
+  </div>
+
+  <footer class="adjuster-footer">
+    <button type="button" class="reset-btn" data-action="reset">
+      <i class="fas fa-undo"></i> Resetar
+    </button>
+    <button type="button" class="save-btn" data-action="submit">
+      <i class="fas fa-check"></i> Confirmar Seleção
+    </button>
+  </footer>
+</div>

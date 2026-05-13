@@ -1,246 +1,16 @@
 <div class="tab combat {{tabs.combat.cssClass}}" data-group="primary" data-tab="combat">
 
   <div class="main-profile-layout">
-    {{!-- Coluna Esquerda: Retrato e Status --}}
-    <div class="portrait-stats-column">
-      <div class="portrait-frame">
-        <img src="{{actor.img}}" data-edit="img" data-action="editImage" title="{{actor.name}}" />
-
-        {{!-- Status Sobreposto ao Topo (Não Contido) --}}
-        <div class="floating-stats-overlay">
-          {{!-- Vida (PV) com Defesa Sobreposta --}}
-          <div class="stat-group hp relative-container">
-            <div class="stat-label">VIDA (PV)</div>
-            <div class="bar-with-icon">
-              <div class="bar-track">
-                <div class="bar-ghost hp" style="width: {{hpPercent}}%"></div>
-                <div class="bar-fill hp" style="width: {{hpPercent}}%"></div>
-                <div class="bar-values-overlay">
-                  <div class="stat-values">
-                    <input type="number" data-path="system.status.hp.value" value="{{system.status.hp.value}}"
-                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
-                    <span class="stat-sep">/</span>
-                    <span class="stat-max-overlay">{{system.status.hp.max}}</span>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            {{!-- Escudo Flutuante sobre a Vida --}}
-            <div class="defense-floating-on-hp">
-              <span class="defense-label">{{localize "ANIMUS.Protection"}}</span>
-              <div class="defense-mini-box">
-                <i class="fas fa-shield shield-icon-mini"></i>
-                <div class="stat-label-mini">
-                  <input type="number" data-path="system.status.prot.value" value="{{system.status.prot.value}}"
-                    class="defense-value-mini stat-sync-input" data-dtype="Number" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Segunda Linha: PE e PA --}}
-          <div class="overlay-secondary-row-v4">
-            <div class="stat-group pe">
-              <div class="stat-label">PE</div>
-              <div class="bar-with-icon">
-                <div class="bar-track">
-                  <div class="bar-ghost pe" style="width: {{pePercent}}%"></div>
-                  <div class="bar-fill pe" style="width: {{pePercent}}%"></div>
-                  <div class="bar-values-overlay">
-                    <input type="number" data-path="system.status.pe.value" value="{{system.status.pe.value}}"
-                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
-                    <span class="stat-sep">/</span>
-                    <span class="stat-max-overlay">{{system.status.pe.max}}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="stat-group pa">
-              <div class="stat-label">PA</div>
-              <div class="pa-pips-v3">
-                {{#each paPips}}
-                <div class="pa-pip {{#if filled}}filled{{/if}}" data-action="updatePA" data-value="{{add @index 1}}">
-                </div>
-                {{/each}}
-              </div>
-              {{#if system.status.pa.debt}}
-              <div class="pa-debt-display" title="PA gasto do próximo turno (Reação)">
-                <i class="fas fa-undo"></i> -{{system.status.pa.debt}}
-                <a class="pa-debt-control" data-action="updatePADebt" data-delta="-1"><i
-                    class="fas fa-minus-circle"></i></a>
-              </div>
-              {{/if}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    {{> "systems/animus/templates/actor/parts/actor-portrait-stats.hbs"}}
 
     {{!-- Coluna Direita: Conteúdo de Combate --}}
-    <div class="combat-content-column">
       {{!-- Grade de Talentos e Ações --}}
-      <div class="talents-grid-column combat-talents">
-        <div class="header-with-action">
-          <div class="header-content">
-            <h3 class="category-title">TALENTOS E AÇÕES</h3>
-          </div>
-          <button type="button" class="action-btn small" data-action="openTalentManager" title="Gerenciar Talentos">
-            <i class="fas fa-cog"></i> Gerenciar
-          </button>
-        </div>
+      {{> "systems/animus/templates/actor/parts/actor-talents-grid.hbs" isCombatTab=true}}
 
-        <div class="category-filters">
-          <button type="button" class="category-btn {{#if (eq filters.talents 'all')}}active{{/if}}"
-            data-action="filterTalents" data-category="all">
-            <i class="fas fa-th-large"></i>
-          </button>
-          {{#each talentCategories}}
-          <button type="button" class="category-btn {{#if (eq ../filters.talents this.id)}}active{{/if}}"
-            data-action="filterTalents" data-category="{{this.id}}" title="{{this.label}}">
-            <i class="{{this.icon}}"></i>
-          </button>
-          {{/each}}
-        </div>
-
-        <div class="talents-scroll-list">
-          {{!-- Habilidades Inatas da Ascendência (respeitam o filtro) --}}
-          {{#if showInnate}}
-          {{#each ascendancy.system.innateAbilities as |ability|}}
-          <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})">
-            <div class="talent-header">
-              <span class="talent-name"><i class="fas fa-dna mini-icon"></i> {{ability.name}}</span>
-            </div>
-            <div class="talent-body">
-              {{#if ability.mechanicalEffect}}<strong>{{{ability.mechanicalEffect}}}</strong><br>{{/if}}
-              {{{ability.description}}}
-            </div>
-          </div>
-          {{/each}}
-          {{/if}}
-
-          {{!-- Talentos Filtrados --}}
-          {{#each talents as |talent|}}
-          <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}">
-            <div class="talent-header">
-              <div class="talent-name-wrapper">
-                <span class="talent-name">{{talent.name}}</span>
-                <span class="talent-category-tag">{{talent.system.subCategory}}</span>
-              </div>
-              <div class="talent-controls">
-                <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
-                <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i
-                    class="fas fa-trash"></i></a>
-              </div>
-            </div>
-            {{#if talent.system.description}}
-            <div class="talent-body">
-              {{{talent.system.description}}}
-            </div>
-            {{/if}}
-          </div>
-          {{/each}}
-
-          {{!-- Ações --}}
-          {{#each actions as |action|}}
-          <div class="talent-card glass-panel action item-row" data-item-id="{{action.id}}">
-            <div class="talent-header">
-              <div class="talent-name-wrapper">
-                <span class="talent-name"><i class="fas fa-bolt mini-icon"></i> {{action.name}}</span>
-              </div>
-              <div class="talent-controls">
-                <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
-                <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i
-                    class="fas fa-trash"></i></a>
-              </div>
-            </div>
-            {{#if action.system.description}}
-            <div class="talent-body">
-              {{{action.system.description}}}
-            </div>
-            {{/if}}
-          </div>
-          {{/each}}
-
-          {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length) (not actions.length))}}
-          <div class="empty-state">Nenhum talento ou ação disponível</div>
-          {{/if}}
-        </div>
-      </div>
-    </div>
   </div>
-  {{!-- Seção de Ações - Movida para fora do grid --}}
-  <div class="combat-section">
-    <div class="section-header header-with-action">
-      <div class="header-content">
-        <h3 class="category-title">AÇÕES</h3>
-      </div>
-    </div>
-    <div class="actions-modern-list">
-      {{!-- Ações Básicas (Sempre Visíveis) --}}
-      {{#each config.basicActions as |action|}}
-      {{#unless (or (eq action.name 'Uso Elemental') (eq action.name 'Atacar'))}}
-      <div class="action-item-row glass-row basic-action" data-action="toggleActionDescription">
-        <div class="action-row-main">
-          <div class="item-main-info">
-            <div class="roll-icon-btn" data-action="rollBasicAction" data-name="{{action.name}}">
-              <i class="fas fa-play"></i>
-            </div>
-            <img src="{{action.img}}" class="item-icon-small" />
-            <span class="item-name">{{action.name}}</span>
-          </div>
-          
-          <div class="item-tags">
-            <span class="tag cost">{{action.cost}} PA</span>
-          </div>
-        </div>
-        <div class="action-description">{{action.description}}</div>
-      </div>
-      {{/unless}}
-      {{/each}}
-
-      {{!-- Ações Customizadas/Adquiridas --}}
-      {{#each actions as |action|}}
-      <div class="action-item-row glass-row item-row" data-item-id="{{action.id}}" data-action="toggleActionDescription">
-        <div class="action-row-main">
-          <div class="item-main-info">
-            <div class="roll-icon-btn" data-action="useItem" title="Usar Ação">
-              <i class="fas fa-play"></i>
-            </div>
-            <img src="{{action.img}}" class="item-icon-small" />
-            <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
-          </div>
-          <div class="item-tags">
-            {{#if action.system.cost}}<span class="tag cost">{{action.system.cost}} PA</span>{{/if}}
-            {{#if action.system.range}}<span class="tag range">{{action.system.range}}</span>{{/if}}
-          </div>
-        </div>
-        {{#if action.system.description}}
-        <div class="action-description">{{{action.system.description}}}</div>
-        {{/if}}
-      </div>
-      {{/each}}
-    </div>
-  </div> 
   <div class="grid grid-2">
     {{!-- Seção de Armas --}}
     <div class="combat-section">
-      <div class="section-header header-with-action">
-        <div class="header-content">
-          <h3 class="category-title">ARMAS</h3>
-        </div>
-        <div class="header-buttons">
-          <button type="button" class="action-btn small" data-action="openWeaponBrowser"
-            title="Adicionar Arma do Compêndio">
-            <i class="fas fa-search"></i> Compêndio
-          </button>
-          <button type="button" class="action-btn small" data-action="openWeaponCreator" data-type="weapon">
-            <i class="fas fa-plus"></i> Criar
-          </button>
-        </div>
-      </div>
       <div class="weapons-modern-list">
         <div class="list-header">
           <div class="col-name">{{localize "ANIMUS.Weapon"}}</div>
@@ -253,7 +23,7 @@
 
         <div class="list-body">
           {{#each weapons as |weapon|}}
-          <div class="weapon-item-row item-row glass-row" data-item-id="{{weapon.id}}">
+          <div class="weapon-item-row item-row glass-row" data-item-id="{{weapon.id}}" draggable="true">
             <div class="item-main-info">
               <div class="roll-icon-btn" data-action="rollWeapon" title="Rolar Ataque">
                 <i class="fas fa-dice-d20"></i>
@@ -280,66 +50,92 @@
       </div>
     </div>
 
-    {{!-- Seção de Itens de Combate --}}
-    <div class="combat-section">
-      <div class="section-header header-with-action">
-        <div class="header-content">
-          <h3 class="category-title">ITENS DE COMBATE</h3>
-        </div>
-        <div class="header-buttons">
-          <button type="button" class="action-btn small" data-action="openBrowser" data-type="secondary" title="Adicionar Item do Compêndio">
-            <i class="fas fa-search"></i> Compêndio
-          </button>
-        </div>
-      </div>
-      <div class="list-body">
-        {{#each gear.secondary as |item|}}
-        <div class="item-row glass-row" data-item-id="{{item.id}}">
-          <div class="item-main-info">
-            <div class="roll-icon-btn" data-action="useItem" title="Usar Item">
-              <i class="fas fa-play"></i>
-            </div>
-            <img src="{{item.img}}" class="item-icon-small" />
-            <span class="item-name-clickable" data-action="editItem">{{item.name}}</span>
-          </div>
-          <div class="item-tags">
-            <span class="tag quantity">{{item.system.quantity}} unid.</span>
-          </div>
-        </div>
-        {{/each}}
+  {{!-- Terceira Coluna: Ações Básicas e Rápidas --}}
+  <div class="combat-content-column expanded">
+    <div class="section-header header-with-action">
+      <div class="header-content">
+        <button type="button" class="action-btn small toggle-accordion-btn" data-action="toggleActionDescription" title="Expandir/Recolher">
+          <h3 class="category-title">
+            <span class="text-expanded">OCULTAR</span><span class="text-collapsed">EXIBIR</span> AÇÕES
+          </h3>
+          <i class="fas fa-chevron-up"></i>
+        </button>
       </div>
     </div>
+    <div class="actions-modern-list">
+      {{!-- Uso Elemental --}}
+      <div class="action-item-row glass-row basic-action elemental-action" data-action="toggleActionDescription" draggable="true">
+        <div class="action-row-main">
+          <div class="item-main-info">
+            <div class="roll-icon-btn" data-action="rollElemental" data-name="Uso Elemental">
+              <i class="fas fa-play"></i>
+            </div>
+            <span class="item-name">Uso Elemental</span>
+          </div>
+        </div>
+        <div class="action-description">Ativa o uso elemental do seu elemento, consultando a tabela de dano ou cura.</div>
+      </div>
+
+      {{!-- Ações Básicas (Sempre Visíveis) --}}
+      {{#each config.basicActions as |action|}}
+      {{#unless (or (eq action.name 'Uso Elemental') (eq action.name 'Atacar'))}}
+      <div class="action-item-row glass-row basic-action" data-action="toggleActionDescription" draggable="true">
+        <div class="action-row-main">
+          <div class="item-main-info">
+            <div class="roll-icon-btn" data-action="rollBasicAction" data-name="{{action.name}}">
+              <i class="fas fa-play"></i>
+            </div>
+            <span class="item-name">{{action.name}}</span>
+          </div>
+          
+          <div class="item-tags">
+            <span class="tag cost">{{action.cost}} PA</span>
+          </div>
+        </div>
+        <div class="action-description">{{action.description}}</div>
+      </div>
+      {{/unless}}
+      {{/each}}
+
+      {{!-- Ações Customizadas/Adquiridas --}}
+      {{#each actions as |action|}}
+      <div class="action-item-row glass-row item-row" data-item-id="{{action.id}}" data-action="toggleActionDescription" draggable="true">
+        <div class="action-row-main">
+          <div class="item-main-info">
+            <div class="roll-icon-btn" data-action="useItem" title="Usar Ação">
+              <i class="fas fa-play"></i>
+            </div>
+            <span class="item-name-clickable" data-action="editItem">{{action.name}}</span>
+          </div>
+          <div class="item-tags">
+            {{#if action.system.cost}}<span class="tag cost">{{action.system.cost}} PA</span>{{/if}}
+            {{#if action.system.range}}<span class="tag range">{{action.system.range}}</span>{{/if}}
+          </div>
+        </div>
+        {{#if action.system.description}}
+        <div class="action-description">{{{action.system.description}}}</div>
+        {{/if}}
+      </div>
+      {{/each}}
+    </div>
+  </div> 
+
+
   </div>
 
   <div class="combat-tables">
-    {{!-- Uso Elemental - Movido para cá --}}
-    <div class="action-item-row glass-row basic-action elemental-action" data-action="toggleActionDescription" style="margin-bottom: 15px; grid-column: span 2;">
-      <div class="action-row-main">
-        <div class="item-main-info">
-          <div class="roll-icon-btn" data-action="rollElemental" data-name="Uso Elemental">
-            <i class="fas fa-play"></i>
-          </div>
-          <i class="fas fa-star item-icon-small" style="color: var(--accent); font-size: 1.1em; width:22px; text-align:center;"></i>
-          <span class="item-name">Uso Elemental</span>
-        </div>
-        
-        <div class="item-tags">
-          <span class="tag cost">1 PA</span>
-          <span class="tag elemental">Elemental</span>
-        </div>
-      </div>
-      <div class="action-description">Ativa o uso elemental do seu elemento, consultando a tabela de dano ou cura.</div>
-    </div>
-
     {{!-- Tabela de Dano Elemental --}}
     {{#if element.resolvedDamageTable}}
-    <div class="element-damage-table-panel">
+    <div class="element-damage-table-panel" data-action="toggleActionDescription">
       <div class="edt-header">
         <i class="fas fa-fire"></i>
-        <span>{{element.name}} — Tabela de Dano (ANI {{system.attributes.ani.value}})</span>
+        <span>
+          <span class="text-expanded">OCULTAR</span><span class="text-collapsed">EXIBIR</span> {{element.name}} — Tabela de Dano (ANI {{system.attributes.ani.value}})
+        </span>
       </div>
-      <table class="edt-table">
-        <thead>
+      <div class="edt-body">
+        <table class="edt-table">
+          <thead>
           <tr>
             <th>Nível</th>
             <th>PE</th>
@@ -360,20 +156,23 @@
             <td>{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
           </tr>
           {{/each}}
-        </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     {{/if}}
 
     {{!-- Tabela de Cura do Elemento --}}
     {{#if element.resolvedHealTable}}
-    <div class="element-damage-table-panel heal-panel">
+    <div class="element-damage-table-panel heal-panel" data-action="toggleActionDescription">
       <div class="edt-header heal-header">
         <i class="fas fa-heart"></i>
-        <span>{{element.name}} — Tabela de Cura (ANI {{system.attributes.ani.value}})</span>
+        <span>
+          <span class="text-expanded">OCULTAR</span><span class="text-collapsed">EXIBIR</span> {{element.name}} — Tabela de Cura (ANI {{system.attributes.ani.value}})
+        </span>
       </div>
-      <table class="edt-table">
-        <thead>
+      <div class="edt-body">
+        <table class="edt-table">
+          <thead>
           <tr>
             <th>Nível</th>
             <th>PE</th>
@@ -394,8 +193,8 @@
             <td class="ac4-crit">{{tier.ac4.total}} <span class="formula">({{tier.ac4.label}})</span></td>
           </tr>
           {{/each}}
-        </tbody>
-      </table>
+        </table>
+      </div>
     </div>
     {{/if}}
   </div>

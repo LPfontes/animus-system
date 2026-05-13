@@ -1,0 +1,77 @@
+    {{!-- Coluna Esquerda: Retrato e Status --}}
+    <div class="portrait-stats-column">
+      <div class="portrait-frame">
+        {{!-- Portrait rendered as background-image for precise crop control --}}
+        <div class="portrait-bg" 
+             style="background-image: url('{{actor.img}}'); background-size: {{portrait.scale}}%; background-position: {{portrait.x}}% {{portrait.y}}%;">
+        </div>
+        
+        <div class="portrait-overlay-controls">
+          <a class="control-btn" data-action="editImage" data-edit="img" title="Trocar Imagem"><i class="fas fa-image"></i></a>
+          <a class="control-btn" data-action="adjustPortrait" title="Ajustar Corte"><i class="fas fa-crop-alt"></i></a>
+        </div>
+
+        {{!-- Status Sobreposto ao Topo (Não Contido) --}}
+        <div class="floating-stats-overlay">
+          {{!-- Vida (PV) com Defesa Sobreposta --}}
+          <div class="stat-group hp relative-container">
+            <div class="stat-label">VIDA (PV)</div>
+            <div class="bar-with-icon">
+              <div class="bar-track">
+                <div class="bar-ghost hp" style="width: {{hpPercent}}%"></div>
+                <div class="bar-fill hp" style="width: {{hpPercent}}%"></div>
+                <div class="bar-values-overlay">
+                  <div class="stat-values">
+                    <input type="number" data-path="system.status.hp.value" value="{{system.status.hp.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
+                    <span class="stat-sep">/</span>
+                    <span class="stat-max-overlay">{{system.status.hp.max}}</span>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            {{!-- Escudo Flutuante sobre a Vida --}}
+            <div class="defense-floating-on-hp">
+              <div class="defense-mini-box">
+                <i class="fas fa-shield shield-icon-mini"></i>
+                <div class="stat-label-mini">
+                  <input type="number" data-path="system.status.prot.value" value="{{system.status.prot.value}}"
+                    data-tooltip="{{localize 'ANIMUS.ProtectionTooltip'}}" class="defense-value-mini stat-sync-input" data-dtype="Number" />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {{!-- Segunda Linha: PE e PA --}}
+          <div class="overlay-secondary-row-v4">
+            <div class="stat-group pe">
+              <div class="stat-label">PE</div>
+              <div class="bar-with-icon">
+                <div class="bar-track">
+                  <div class="bar-ghost pe" style="width: {{pePercent}}%"></div>
+                  <div class="bar-fill pe" style="width: {{pePercent}}%"></div>
+                  <div class="bar-values-overlay">
+                    <input type="number" data-path="system.status.pe.value" value="{{system.status.pe.value}}"
+                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
+                    <span class="stat-sep">/</span>
+                    <span class="stat-max-overlay">{{system.status.pe.max}}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="stat-group pa">
+              <div class="stat-label">PA</div>
+              <div class="pa-pips-v3">
+                {{#each paPips}}
+                <div class="pa-pip {{#if filled}}filled{{/if}}" data-action="updatePA" data-value="{{add @index 1}}">
+                </div>
+                {{/each}}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>

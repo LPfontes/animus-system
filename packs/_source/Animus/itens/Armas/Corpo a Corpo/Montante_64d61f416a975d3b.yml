@@ -3,7 +3,7 @@ name: Montante
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Montante.png
 system:
-  category: weapon
+  category: branca
   damageType: cortante
   type: cortante_medio
   description: 'Tabela Oficial Animus'

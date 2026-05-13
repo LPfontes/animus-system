@@ -139,12 +139,20 @@ export default class AnimusWeaponData extends AnimusItemData {
     }
     if (typeof source.damageType === "number") {
       source.damageType = ANIMUS.damageTypesByIndex[source.damageType] || "cortante";
+    } else if (typeof source.damageType === "string" && !Object.keys(ANIMUS.damageTypes).includes(source.damageType)) {
+      source.damageType = "cortante";
     }
+
     if (typeof source.category === "number") {
       source.category = "branca"; 
+    } else if (typeof source.category === "string" && !Object.keys(ANIMUS.weaponCategories).includes(source.category)) {
+      source.category = "branca"; 
     }
+
     if (typeof source.type === "number") {
       source.type = ANIMUS.weaponTypesByIndex[source.type] || "cortante_leve";
+    } else if (typeof source.type === "string" && !Object.keys(ANIMUS.weaponTypes).includes(source.type)) {
+      source.type = "cortante_leve";
     }
     if (source.check) {
       if (typeof source.check.attribute === "number") {

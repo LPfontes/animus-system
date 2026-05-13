@@ -1,0 +1,119 @@
+<div class="talents-grid-column expanded {{#if isCombatTab}}combat-talents{{/if}}">
+  <div class="header-with-action">
+    <div class="header-content">
+      <button type="button" class="action-btn small toggle-accordion-btn" data-action="toggleActionDescription" title="Expandir/Recolher" style="margin-left: auto;">
+        <h3 class="category-title">
+          <span class="text-expanded">OCULTAR</span><span class="text-collapsed">EXIBIR</span> TALENTOS
+        </h3>
+        <i class="fas fa-chevron-up"></i>
+      </button>
+      {{#unless isCombatTab}}
+      <div class="status-item {{#if (eq talentCount talentLimit)}}complete{{/if}}"
+        style="font-size: 1rem; font-weight: 700; color: {{#if (gt talentCount talentLimit)}}var(--fire){{else}}var(--accent){{/if}};">
+        <i class="fas fa-brain"></i> {{talentCount}} / {{talentLimit}}
+      </div>
+      {{/unless}}
+    </div>
+
+    <div class="header-buttons">
+      <button type="button" class="action-btn small" data-action="openTalentManager" title="Gerenciar Talentos">
+        <i class="fas fa-cog"></i> Gerenciar
+      </button>
+    </div>
+  </div>
+
+
+  <div class="category-filters">
+    <button type="button" class="category-btn {{#if (eq filters.talents 'all')}}active{{/if}}"
+      data-action="filterTalents" data-category="all">
+      <i class="fas fa-th-large"></i>
+    </button>
+    {{#each talentCategories}}
+    <button type="button" class="category-btn {{#if (eq ../filters.talents this.id)}}active{{/if}}"
+      data-action="filterTalents" data-category="{{this.id}}" title="{{localize this.label}}">
+      <i class="{{this.icon}}"></i>
+    </button>
+    {{/each}}
+  </div>
+
+  <div class="talents-scroll-list">
+    {{!-- Habilidades Inatas da Ascendência (respeitam o filtro) --}}
+    {{#if showInnate}}
+    {{#each ascendancy.system.innateAbilities as |ability|}}
+    <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})" data-action="toggleActionDescription" draggable="true" data-ability-name="{{ability.name}}">
+      <div class="talent-header">
+        <div class="talent-name-wrapper">
+          <span class="talent-name"><i class="fas fa-dna mini-icon"></i> {{ability.name}}</span>
+          <span class="talent-category-tag">Ascendência</span>
+        </div>
+        <div class="talent-controls">
+          <a class="talent-control post" data-action="postItem" data-ability-name="{{ability.name}}" title="Enviar no Chat"><i class="fas fa-comment"></i></a>
+        </div>
+      </div>
+      <div class="talent-body">
+        {{#if ability.mechanicalEffect}}<strong>{{{ability.mechanicalEffect}}}</strong><br>{{/if}}
+        {{{ability.description}}}
+      </div>
+    </div>
+    {{/each}}
+    {{/if}}
+
+    {{!-- Talentos Filtrados --}}
+    {{#each talents as |talent|}}
+    <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}" data-action="toggleActionDescription" draggable="true">
+      <div class="talent-header">
+        <div class="talent-name-wrapper">
+          <span class="talent-name">{{talent.name}}</span>
+          <span class="talent-category-tag">{{talent.system.subCategory}}</span>
+        </div>
+        <div class="talent-controls">
+          <a class="talent-control post" data-action="postItem" title="Enviar no Chat"><i class="fas fa-comment"></i></a>
+          <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
+          <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
+        </div>
+      </div>
+      {{#if talent.system.description}}
+      <div class="talent-body">
+        {{{talent.system.description}}}
+      </div>
+      {{/if}}
+    </div>
+    {{/each}}
+
+    {{!-- Ações (Apenas na aba de combate) --}}
+    {{#if isCombatTab}}
+      {{#each actions as |action|}}
+      <div class="talent-card glass-panel action item-row" data-item-id="{{action.id}}" data-action="toggleActionDescription">
+        <div class="talent-header">
+          <div class="talent-name-wrapper">
+            <span class="talent-name"><i class="fas fa-bolt mini-icon"></i> {{action.name}}</span>
+          </div>
+          <div class="talent-controls">
+            <a class="talent-control post" data-action="postItem" title="Enviar no Chat"><i class="fas fa-comment"></i></a>
+            <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
+            <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
+          </div>
+        </div>
+        {{#if action.system.description}}
+        <div class="talent-body">
+          {{{action.system.description}}}
+        </div>
+        {{/if}}
+      </div>
+      {{/each}}
+    {{/if}}
+
+    {{!-- Empty States --}}
+    {{#if isCombatTab}}
+      {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length) (not actions.length))}}
+      <div class="empty-state">Nenhum talento ou ação disponível</div>
+      {{/if}}
+    {{else}}
+      {{#if (and (not showInnate) (not talents.length))}}
+      <div class="empty-state">Nenhum talento nesta categoria</div>
+      {{else if (and showInnate (not ascendancy.system.innateAbilities.length) (not talents.length))}}
+      <div class="empty-state">Nenhum talento adquirido</div>
+      {{/if}}
+    {{/if}}
+  </div>
+</div>

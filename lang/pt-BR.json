@@ -57,6 +57,7 @@
   "ANIMUS.Weight": "Peso",
   "ANIMUS.Price": "Preço",
   "ANIMUS.Protection": "Proteção",
+  "ANIMUS.ProtectionTooltip": "A Proteção reduz o dano recebido. É calculada somando a base da armadura/escudo equipado com bônus de atributos e propriedades de itens.",
   "ANIMUS.TalentPassiva": "Passiva",
   "ANIMUS.TalentAtiva": "Ativa",
   "ANIMUS.TalentReacao": "Reação",

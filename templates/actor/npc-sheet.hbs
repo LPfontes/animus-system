@@ -4,7 +4,14 @@
   <header class="sheet-header">
     <div class="header-main">
       <div class="portrait-container">
-        <img src="{{actor.img}}" data-edit="img" title="{{actor.name}}" />
+        <div class="portrait-bg"
+             style="background-image: url('{{actor.img}}'); background-size: {{portrait.scale}}%; background-position: {{portrait.x}}% {{portrait.y}}%;">
+        </div>
+        
+        <div class="portrait-overlay-controls">
+          <a class="control-btn" data-action="editImage" data-edit="img" title="Trocar Imagem"><i class="fas fa-image"></i></a>
+          <a class="control-btn" data-action="adjustPortrait" title="Ajustar Corte"><i class="fas fa-crop-alt"></i></a>
+        </div>
       </div>
       <div class="identity-info">
         <div class="name-row">

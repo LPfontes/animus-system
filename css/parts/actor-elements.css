@@ -9,6 +9,25 @@
   overflow: hidden;
   margin-bottom: 12px;
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.animus .element-damage-table-panel:hover {
+  border-color: rgba(157, 78, 221, 0.5);
+  box-shadow: 0 4px 20px rgba(157, 78, 221, 0.1);
+}
+
+.animus .edt-body {
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease-out, opacity 0.3s ease-out;
+}
+
+.animus .element-damage-table-panel.expanded .edt-body {
+  max-height: 800px;
+  opacity: 1;
 }
 
 .animus .edt-header {
@@ -35,7 +54,7 @@
 .animus .edt-table {
   width: 100%;
   border-collapse: collapse;
-  font-size: 2rem;
+  font-size: 1rem;
 }
 
 .animus .edt-table thead tr {
@@ -71,7 +90,7 @@
 .animus .edt-table td.tier-label {
   font-weight: 700;
   font-family: 'Outfit', sans-serif;
-  font-size: 1.5rem;
+  font-size: 1rem;
   width: 36px;
 }
 
@@ -85,15 +104,15 @@
   background: var(--accent);
   color: white;
   border-radius: 50%;
-  font-size: 1.5rem;
-  font-weight: 900;
+  font-size: 1rem;
+  font-weight: 700;
   box-shadow: 0 0 8px var(--accent-glow);
 }
 
 .animus .edt-table td.pe-cost {
   color: #00d4ff;
   font-weight: 700;
-  font-size: 1.5rem;
+  font-size: 1rem;
   white-space: nowrap;
 }
 
@@ -109,6 +128,11 @@
 /* ---- Heal panel overrides ---- */
 .animus .heal-panel {
   border-color: rgba(80, 200, 120, 0.25);
+}
+
+.animus .element-damage-table-panel.heal-panel:hover {
+  border-color: rgba(80, 200, 120, 0.5);
+  box-shadow: 0 4px 20px rgba(80, 200, 120, 0.1);
 }
 
 .animus .heal-header {
@@ -247,4 +271,49 @@
 .animus .heal-editor .resolved-hint {
   color: #50c878;
   text-shadow: 0 0 6px rgba(80, 200, 120, 0.5);
+}
+
+/* =========================================== */
+/*         PORTRAIT OVERLAY CONTROLS           */
+/* =========================================== */
+
+.animus .portrait-overlay-controls {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  z-index: 100;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.animus .portrait-frame:hover .portrait-overlay-controls,
+.animus .portrait-container:hover .portrait-overlay-controls {
+  opacity: 1;
+}
+
+.animus .portrait-overlay-controls .control-btn {
+  width: 36px;
+  height: 36px;
+  background: rgba(15, 12, 25, 0.8);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #888;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animus .portrait-overlay-controls .control-btn:hover {
+  background: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  box-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(1.1);
 }

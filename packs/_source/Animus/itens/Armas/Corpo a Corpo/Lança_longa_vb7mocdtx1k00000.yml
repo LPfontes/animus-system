@@ -3,7 +3,7 @@ name: Lança longa
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Lança_longa.png
 system:
-  category: weapon
+  category: branca
   damageType: perfurante
   type: perfurante_medio
   description: 'Tabela Oficial Animus'

@@ -3,7 +3,7 @@ name: Punhal
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Punhal.png
 system:
-  category: weapon
+  category: branca
   damageType: perfurante
   type: perfurante_leve
   description: 'Tabela Oficial Animus'

@@ -2,6 +2,7 @@ const { HandlebarsApplicationMixin } = foundry.applications.api;
 const { ActorSheetV2 } = foundry.applications.sheets;
 import { AnimusRoll } from "../../dice.mjs";
 import { AnimusMonsterCreator } from "./monster-creator.mjs";
+import { AnimusPortraitAdjuster } from "./portrait-adjuster.mjs";
 
 export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
   constructor(options = {}) {
@@ -31,7 +32,9 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       triggerSpecialAction: AnimusNPCSheet.prototype._onTriggerSpecialAction,
       addTurnPattern: AnimusNPCSheet.prototype._onAddTurnPattern,
       deleteTurnPattern: AnimusNPCSheet.prototype._onDeleteTurnPattern,
-      toggleCollapse: AnimusNPCSheet.prototype._onToggleCollapse
+      toggleCollapse: AnimusNPCSheet.prototype._onToggleCollapse,
+      adjustPortrait: AnimusNPCSheet.prototype._onAdjustPortrait,
+      editImage: AnimusNPCSheet.prototype._onEditImage
     },
     form: {
       handler: AnimusNPCSheet.#onSubmit,
@@ -51,7 +54,12 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       config: CONFIG.ANIMUS,
       isEditing: this.isEditing,
       isGM: game.user.isGM,
-      owner: this.document.isOwner
+      owner: this.document.isOwner,
+      portrait: foundry.utils.mergeObject({
+        scale: 100,
+        x: 50,
+        y: 50
+      }, this.document.getFlag("animus", "portrait") || {})
     };
 
     // Preparar labels das perícias
@@ -80,6 +88,26 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   _onOpenMonsterCreator(event, target) {
     new AnimusMonsterCreator().render(true);
+  }
+
+  async _onEditImage(event, target) {
+    const attr = target.dataset.edit || "img";
+    const current = foundry.utils.getProperty(this.document, attr);
+    const FilePickerClass = foundry.applications?.apps?.FilePicker?.implementation ?? FilePicker;
+    const fp = new FilePickerClass({
+      type: "image",
+      current: current,
+      callback: path => {
+        this.document.update({ [attr]: path });
+      },
+      top: this.position.top + 40,
+      left: this.position.left + 10
+    });
+    return fp.browse();
+  }
+
+  async _onAdjustPortrait(event, target) {
+    new AnimusPortraitAdjuster({ actor: this.document }).render(true);
   }
 
   async _onRollAttribute(event, target) {

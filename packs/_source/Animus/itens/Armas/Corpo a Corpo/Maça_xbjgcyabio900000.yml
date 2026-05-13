@@ -3,6 +3,7 @@ name: Maça
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Maça.png
 system:
+  category: branca
   damageType: contuso
   type: contusa_medio
   description: 'Tabela Oficial Animus'

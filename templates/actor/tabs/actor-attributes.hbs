@@ -80,161 +80,9 @@
   </div>
 
   <div class="main-profile-layout">
-    {{!-- Coluna Esquerda: Retrato e Status --}}
-    <div class="portrait-stats-column">
-      <div class="portrait-frame">
-        <img src="{{actor.img}}" data-edit="img" data-action="editImage" title="{{actor.name}}" />
+    {{> "systems/animus/templates/actor/parts/actor-portrait-stats.hbs"}}
 
-        {{!-- Status Sobreposto ao Topo (Não Contido) --}}
-        <div class="floating-stats-overlay">
-          {{!-- Vida (PV) com Defesa Sobreposta --}}
-          <div class="stat-group hp relative-container">
-            <div class="stat-label">VIDA (PV)</div>
-            <div class="bar-with-icon">
-              <div class="bar-track">
-                <div class="bar-ghost hp" style="width: {{hpPercent}}%"></div>
-                <div class="bar-fill hp" style="width: {{hpPercent}}%"></div>
-                <div class="bar-values-overlay">
-                  <div class="stat-values">
-                    <input type="number" data-path="system.status.hp.value" value="{{system.status.hp.value}}"
-                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
-                    <span class="stat-sep">/</span>
-                    <span class="stat-max-overlay">{{system.status.hp.max}}</span>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-
-            {{!-- Escudo Flutuante sobre a Vida --}}
-            <div class="defense-floating-on-hp">
-              <span class="defense-label">{{localize "ANIMUS.Protection"}}</span>
-              <div class="defense-mini-box">
-                <i class="fas fa-shield shield-icon-mini"></i>
-                <div class="stat-label-mini">
-                  <input type="number" data-path="system.status.prot.value" value="{{system.status.prot.value}}"
-                    class="defense-value-mini stat-sync-input" data-dtype="Number" />
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {{!-- Segunda Linha: PE e PA --}}
-          <div class="overlay-secondary-row-v4">
-            <div class="stat-group pe">
-              <div class="stat-label">PE</div>
-              <div class="bar-with-icon">
-                <div class="bar-track">
-                  <div class="bar-ghost pe" style="width: {{pePercent}}%"></div>
-                  <div class="bar-fill pe" style="width: {{pePercent}}%"></div>
-                  <div class="bar-values-overlay">
-                    <input type="number" data-path="system.status.pe.value" value="{{system.status.pe.value}}"
-                      class="stat-input-overlay stat-sync-input" data-dtype="Number" />
-                    <span class="stat-sep">/</span>
-                    <span class="stat-max-overlay">{{system.status.pe.max}}</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div class="stat-group pa">
-              <div class="stat-label">PA</div>
-              <div class="pa-pips-v3">
-                {{#each paPips}}
-                <div class="pa-pip {{#if filled}}filled{{/if}}" data-action="updatePA" data-value="{{add @index 1}}">
-                </div>
-                {{/each}}
-              </div>
-              {{#if system.status.pa.debt}}
-              <div class="pa-debt-display" title="PA gasto do próximo turno (Reação)">
-                <i class="fas fa-undo"></i> -{{system.status.pa.debt}}
-                <a class="pa-debt-control" data-action="updatePADebt" data-delta="-1"><i
-                    class="fas fa-minus-circle"></i></a>
-              </div>
-              {{else}}
-              <a class="pa-debt-control add" data-action="updatePADebt" data-delta="1"
-                title="Gastar PA da rodada seguinte (Reação)">
-                <i class="fas fa-plus-circle"></i>
-              </a>
-              {{/if}}
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    {{!-- Coluna Direita (Retrato): Grade de Talentos --}}
-    <div class="talents-grid-column">
-      <div class="header-with-action">
-        <div class="header-content">
-          <h3 class="category-title">TALENTOS</h3>
-          <div class="status-item {{#if (eq talentCount talentLimit)}}complete{{/if}}"
-            style="font-size: 1rem; font-weight: 700; color: {{#if (gt talentCount talentLimit)}}var(--fire){{else}}var(--accent){{/if}};">
-            <i class="fas fa-brain"></i> {{talentCount}} / {{talentLimit}}
-          </div>
-        </div>
-
-        <button type="button" class="action-btn small" data-action="openTalentManager" title="Gerenciar Talentos">
-          <i class="fas fa-cog"></i> Gerenciar
-        </button>
-      </div>
-
-      <div class="category-filters">
-        <button type="button" class="category-btn {{#if (eq filters.talents 'all')}}active{{/if}}"
-          data-action="filterTalents" data-category="all">
-          <i class="fas fa-th-large"></i>
-        </button>
-        {{#each talentCategories}}
-        <button type="button" class="category-btn {{#if (eq ../filters.talents this.id)}}active{{/if}}"
-          data-action="filterTalents" data-category="{{this.id}}" title="{{localize this.label}}">
-          <i class="{{this.icon}}"></i>
-        </button>
-        {{/each}}
-      </div>
-
-      <div class="talents-scroll-list">
-        {{!-- Habilidades Inatas da Ascendência (respeitam o filtro) --}}
-        {{#if showInnate}}
-        {{#each ascendancy.system.innateAbilities as |ability|}}
-        <div class="talent-card glass-panel innate" title="Habilidade Inata ({{../ascendancy.name}})">
-          <div class="talent-header">
-            <span class="talent-name"><i class="fas fa-dna mini-icon"></i> {{ability.name}}</span>
-          </div>
-          <div class="talent-body">
-            {{#if ability.mechanicalEffect}}<strong>{{{ability.mechanicalEffect}}}</strong><br>{{/if}}
-            {{{ability.description}}}
-          </div>
-        </div>
-        {{/each}}
-        {{/if}}
-
-        {{#each talents as |talent|}}
-        <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}">
-          <div class="talent-header">
-            <div class="talent-name-wrapper">
-              <span class="talent-name">{{talent.name}}</span>
-              <span class="talent-category-tag">{{talent.system.subCategory}}</span>
-            </div>
-            <div class="talent-controls">
-              <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
-              <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
-            </div>
-          </div>
-          {{#if talent.system.description}}
-          <div class="talent-body">
-            {{{talent.system.description}}}
-          </div>
-          {{/if}}
-        </div>
-        {{/each}}
-
-        {{#if (and (not showInnate) (not talents.length))}}
-        <div class="empty-state">Nenhum talento nesta categoria</div>
-        {{else if (and showInnate (not ascendancy.system.innateAbilities.length) (not talents.length))}}
-        <div class="empty-state">Nenhum talento adquirido</div>
-        {{/if}}
-      </div>
-    </div>
+    {{> "systems/animus/templates/actor/parts/actor-talents-grid.hbs" isCombatTab=false}}
   </div>
 
   {{!-- Grade de Habilidades --}}
@@ -263,16 +111,18 @@
         {{#each category.attributes as |attr|}}
         <div class="attribute-card glass-panel">
           <div class="attr-header">
-            <a class="attr-name rollable" data-action="rollAttribute" data-attribute="{{attr.key}}">{{localize attr.label}}</a>
+            <a class="attr-name rollable" data-action="rollAttribute" data-attribute="{{attr.key}}">{{localize
+              attr.label}}</a>
             <div class="attr-dots">
               {{#each (list 1 2 3)}}
-              <a class="dot {{#if (gt attr.total (sub this 1))}}filled{{/if}} {{#if (and (gt attr.total (sub this 1)) (lte attr.base (sub this 1)))}}bonus-filled{{/if}}" 
+              <a class="dot {{#if (gt attr.total (sub this 1))}}filled{{/if}} {{#if (and (gt attr.total (sub this 1)) (lte attr.base (sub this 1)))}}bonus-filled{{/if}}"
                 data-action="updateAbility" data-ability="attributes.{{attr.key}}" data-value="{{this}}"></a>
               {{/each}}
             </div>
             <div class="attr-bonus-roll">
               <span class="attr-bonus">+{{attr.total}}</span>
-              <a class="attr-roll-btn" data-action="rollAttribute" data-attribute="{{attr.key}}" title="Rolar Teste de {{localize attr.label}}">
+              <a class="attr-roll-btn" data-action="rollAttribute" data-attribute="{{attr.key}}"
+                title="Rolar Teste de {{localize attr.label}}">
                 <i class="fas fa-dice-d20"></i>
               </a>
             </div>
@@ -289,7 +139,7 @@
                     data-ability="skills.{{skill.key}}" data-value="{{this}}"></a>
                   {{/each}}
                 </div>
-                <span class="skill-mod">—</span>
+                <span class="skill-mod">{{skill.dice}}d</span>
                 <a class="skill-roll-btn" data-action="rollSkill" data-skill="{{skill.key}}">
                   <i class="fas fa-dice-d20"></i>
                 </a>

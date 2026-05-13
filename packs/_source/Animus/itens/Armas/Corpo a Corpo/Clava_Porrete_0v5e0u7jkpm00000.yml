@@ -3,7 +3,7 @@ name: Clava / Porrete
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Clava_Porrete.png
 system:
-  category: weapon
+  category: branca
   damageType: contuso
   type: contusa_leve
   description: 'Tabela Oficial Animus'

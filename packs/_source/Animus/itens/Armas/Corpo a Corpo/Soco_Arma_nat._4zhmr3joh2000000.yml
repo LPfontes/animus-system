@@ -3,7 +3,7 @@ name: Soco / Arma nat.
 type: weapon
 img: systems/animus/assets/system-icons/weapon/Soco_Arma_nat..png
 system:
-  category: weapon
+  category: branca
   damageType: contuso
   type: contusa_leve
   description: 'Tabela Oficial Animus'

@@ -1,3 +1,6 @@
+import { AnimusRoll } from "../dice.mjs";
+import { AnimusRollDialog } from "../applications/roll-dialog.mjs";
+
 export class AnimusItem extends Item {
   /** @override */
   prepareDerivedData() {
@@ -179,6 +182,56 @@ export class AnimusItem extends Item {
     return ChatMessage.create({
       speaker: ChatMessage.getSpeaker({actor}),
       content: `<div class="animus-chat-card">${chatContent}${this._getChatCardExtraContent()}</div>`
+    });
+  }
+
+  /**
+   * Realiza a rolagem de ataque para armas
+   * @param {Object} options - Opções de rolagem (advantage, bonus)
+   */
+  async rollAttack(options = {}) {
+    if (this.type !== "weapon") return;
+    const actor = this.actor;
+    if (!actor) return;
+
+    // Se não passar opções, abre o diálogo (a menos que seja uma rolagem rápida via macro futuramente)
+    if (options.advantage === undefined && options.bonus === undefined) {
+      const result = await AnimusRollDialog.awaitRoll(this);
+      if (!result) return;
+      options = {
+        advantage: result.advantage === "none" ? null : result.advantage,
+        bonus: parseInt(result.bonus) || 0
+      };
+    }
+
+    // Consumir PA + Repetição
+    const baseCost = this.system.cost || 1;
+    const repeatCost = actor.getActionRepeatCost("Atacar");
+    const paCost = baseCost + repeatCost;
+
+    const consumed = await actor.consumeResource("pa", paCost);
+    if (!consumed) return;
+
+    // Registrar ação
+    await actor.recordTurnAction("Atacar");
+
+    const attrKey = (this.system.attribute || "pot").toLowerCase();
+    const skillKey = attrKey === "hab" ? "pontaria" : "luta";
+
+    const attr = actor.system.attributes[attrKey];
+    const skill = actor.system.skills[skillKey];
+
+    const poolSize = 2 + (skill?.value || 0);
+    const totalBonus = (attr?.total || 0) + (options.bonus || 0);
+    const hitTable = this.system.damageTable;
+
+    return AnimusRoll.rollTest({
+      poolSize: poolSize,
+      attributeValue: totalBonus,
+      label: `Ataque com ${this.name}`,
+      hitTable: hitTable,
+      advantage: options.advantage,
+      speaker: actor
     });
   }
 
