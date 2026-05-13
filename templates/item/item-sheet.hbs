@@ -566,7 +566,7 @@
       {{#if (lookup ../propertyNames propId)}}
       <div class="prop-desc-item">
         <strong>{{lookup ../propertyNames propId}}:</strong>
-        <span>{{lookup ../propertyDescriptions propId}}</span>
+        <span>{{{lookup ../propertyDescriptions propId}}}</span>
       </div>
       {{/if}}
       {{/each}}
@@ -674,7 +674,7 @@
           {{#if ../isEditing}}
           <textarea name="system.grantedActions.{{i}}.description" style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: #fff; resize: vertical;">{{action.description}}</textarea>
           {{else}}
-          <span style="font-size: 0.9rem; color: #ccc;">{{action.description}}</span>
+          <span style="font-size: 0.9rem; color: #ccc;">{{{action.description}}}</span>
           {{/if}}
         </div>
         <input type="hidden" name="system.grantedActions.{{i}}.id" value="{{action.id}}" />
@@ -722,7 +722,7 @@
             {{#if ../isEditing}}
             <textarea name="system.grantedItems.{{i}}.description" style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: #fff; resize: vertical;">{{item.description}}</textarea>
             {{else}}
-            <span style="font-size: 0.9rem; color: #ccc;">{{item.description}}</span>
+            <span style="font-size: 0.9rem; color: #ccc;">{{{item.description}}}</span>
             {{/if}}
           </div>
         </div>

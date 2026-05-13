@@ -1,0 +1,122 @@
+_id: olamentoeterno0001
+name: O Lamento Eterno
+type: npc
+img: systems/animus/assets/system-icons/types/espírito.svg
+folder: fldbestespiri000
+system:
+  nd: 10
+  classification: místico
+  innateIdentity: espírito
+  type: Espírito
+  quote: ''
+  attributes:
+    pot:
+      value: 2
+    hab:
+      value: 2
+    cog:
+      value: 2
+    per:
+      value: 2
+    pre:
+      value: 2
+    ani:
+      value: 5
+  status:
+    hp:
+      value: 290
+      max: 290
+    pe:
+      value: 80
+      max: 80
+    pa:
+      value: 6
+      max: 6
+  attack:
+    label: Lamento
+    formula: 5d6
+    attribute: ani
+    baseBonus: 5
+  damageTable:
+    damageType: Lamento
+    attribute: ani
+    ac1: 20
+    ac2: 30
+    ac3: 40
+    ac4: 50
+    ac5: 60
+    ac6: 80
+  skills:
+    - key: resistencia
+      rank: 2
+    - key: aura
+      rank: 2
+  abilities:
+    - name: Essência Elemental - Fogo
+      rarity: comum
+      description: >-
+        <p>+2 ANI. Imune a Fogo. Regenera 10 PV por rodada em contato com
+        superfície inflamável. Seus ataques de fogo aplicam Ignição
+        automaticamente (sem teste).</p>
+      bonuses:
+        attributes:
+          ani: 2
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Aura de Chama
+      rarity: comum
+      description: >-
+        <p>Passiva: personagens a menos de 3m recebem 3 de dano de fogo por
+        rodada. Armaduras de couro sofrem -5 Proteção por rodada. A 1m: PER CD
+        12 ou cegado por 1 turno.</p>
+      check:
+        attribute: per
+        difficulty: '12'
+      formula: '3'
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Chama do Fim
+      rarity: místico
+      description: >-
+        <p>1x/combate: 6 PA, 12 PE — explosão Nível 3 em área de 20m. CD
+        Resistência 16 para metade. Quem falhar fica em Ignição por 3 rodadas.
+        Apaga toda luz elemental na área.</p>
+      check:
+        attribute: pre
+        difficulty: '16'
+      specialActions:
+        - Explosão Final
+      formula: 5d6 + 10
+      img: systems/animus/assets/system-icons/talents/místico.svg
+    - name: Forma Fluida
+      rarity: comum
+      description: >-
+        <p>Não pode ser Agarrado ou Imobilizado. Ocupa qualquer espaço com ar.
+        Ataques com armas não-elementais causam metade do dano.</p>
+      img: systems/animus/assets/system-icons/talents/comum.svg
+  turnPatterns:
+    - label: Incineração Total
+      description: Lamento (2) + Lamento (2) + Movimentação (1) + Movimentação (1)
+      totalPA: 6
+  availableActions: ''
+  ecology: >-
+    <p>O remanescente do Primeiro Incêndio. Sua dor é eterna e se manifesta como
+    uma chama que consome tudo ao redor. Não busca destruição, apenas o fim de
+    seu próprio sofrimento através do consumo de Anima.</p>
+  weaknesses: >-
+    <p><b>Condição de extinção:</b> núcleo de fogo negro deve ser atingido com
+    Elemento Água Nível 3 (CD ANI 15) — extinção temporária por 24h. <b>Frio
+    extremo:</b> abaixo de –10°C, sofre –1d em todos os ataques e perde
+    Regeneração.</p>
+  loot: >-
+    <p><b>Núcleo de Fogo Negro:</b> Runa de Fogo Nível 3 — 1×/descanso longo sem
+    custo de PE. Valor: 500 Đ. <b>Cinza Primordial:</b> Ingrediente para Bálsamo
+    Superior (dobro de efeito) e Elixir de Clareza (+10 PE). Valor: 50 Đ/porção,
+    até 6 porções. <b>Escama de Brasas:</b> +2 resistência a Fogo, impermeável a
+    temperaturas abaixo de 1000°C. Forja: 20 dias, 800 Đ.</p>
+  narratorNotes: >-
+    <p><b>Asfixia:</b> uma câmara selada sem oxigênio reduz sua forma a apenas 1
+    PA por rodada. Ele não busca o combate, mas sua mera presença é um desastre
+    ambiental.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!olamentoeterno0001'

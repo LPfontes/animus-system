@@ -1,0 +1,27 @@
+_id: 567d96959dc11448
+name: Tática de Flanqueamento
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/42.png
+system:
+  description: >-
+    Quando você e pelo menos um aliado atacam o mesmo alvo na mesma <span
+    class="text-mechanic">rodada</span>, ambos recebem +1d no ataque contra esse
+    alvo.
+  trigger: ''
+  requirements:
+    description: Amador em Luta.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_key: '!items!567d96959dc11448'

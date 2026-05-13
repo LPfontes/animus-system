@@ -1,0 +1,19 @@
+_id: cndenveneleve001
+name: Envenenado
+type: condition
+img: icons/svg/poison.svg
+system:
+  description: Toxinas estão circulando no sangue do alvo.
+  penalty: 2 PV de dano por turno.
+  cause: Veneno, picadas, ingestão.
+  removal: Teste de Resistência (CD varia) ou Antídoto.
+  duration: 3 turnos
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndenveneleve001'

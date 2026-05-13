@@ -1,0 +1,53 @@
+_id: 59cc7ea93e6e7793
+name: Quebrar Equipamento
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/16.png
+system:
+  description: >-
+    Realize um ataque direto contra um equipamento do oponente. <br>O <span
+    class="text-mechanic">dano</span> é considerado dobrado em equipamentos.
+    <br>[Caso quebre o item, o <span class="text-mechanic">dano</span> restante
+    é perdido].
+  trigger: ''
+  requirements:
+    description: Profissional em Luta.
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+  grantedActions:
+    - id: 75b1a02f7f058cab
+      name: Quebrar Equipamento
+      cost: 2
+      peCost: 3
+      type: 2
+      description: >-
+        Realize um ataque direto contra um equipamento do oponente. <br>O <span
+        class="text-mechanic">dano</span> é considerado dobrado em equipamentos.
+        <br>[Caso quebre o item, o <span class="text-mechanic">dano</span>
+        restante é perdido].
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!59cc7ea93e6e7793'

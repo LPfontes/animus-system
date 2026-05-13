@@ -1,0 +1,79 @@
+_id: 4e60933a890b7624
+name: Armadilheiro Profissional
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/28.png
+system:
+  description: Como armadilheiro, mas com efeitos extras:.
+  trigger: ''
+  requirements:
+    description: >-
+      Profissional em Sobrevivência; Profissional em Prestidigitação;
+      armadilheiro.
+    talents:
+      Prestidigitação: e7e2a31a65753cbc
+      Armadilheiro: 941a50cfa939b17d
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 2
+      - key: prestidigitacao
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedItems:
+    - id: b385b90d1351226d
+      name: 'Mod: Paralisar'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: >-
+        +5 PE para aplicar. Alvo deve passar em CD 7+PERSPICÁCIA ou ficar
+        paralisado.
+    - id: 2e4ea7c7cd5b6614
+      name: 'Mod: Drenante'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: +4 PE para aplicar. Drena 3+PERSPICÁCIA PE do alvo.
+    - id: e532e04e12edc054
+      name: 'Mod: Área Maior'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: +5 PE para aplicar. Aumenta o raio da armadilha para 3m.
+    - id: bb96a23b21d421ca
+      name: 'Mod: Dano Extra'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: +4 PE para aplicar. Adiciona +3 de dano fixo à armadilha.
+    - id: 3015b5af7f789bf6
+      name: 'Mod: Empurrão'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: >-
+        +5 PE para aplicar. Teste de resistência; se falhar, acertos = metros
+        empurrados.
+    - id: b00e5705f94594e1
+      name: 'Mod: Extenuante'
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: +8 PE para aplicar. Alvo perde 1 ação até o fim da cena.
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!4e60933a890b7624'

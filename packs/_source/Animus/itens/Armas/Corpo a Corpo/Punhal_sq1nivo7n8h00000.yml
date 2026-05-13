@@ -6,7 +6,7 @@ system:
   category: branca
   damageType: perfurante
   type: perfurante_leve
-  description: 'Tabela Oficial Animus'
+  description: Tabela Oficial Animus
   damage:
     ac1:
       base: 1
@@ -29,5 +29,5 @@ system:
     skill: luta
     dc: 0
 folder: bd51c3d03d930431
+effects: []
 _key: '!items!sq1nivo7n8h00000'
-

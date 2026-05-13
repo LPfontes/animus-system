@@ -1,0 +1,18 @@
+_id: aguacombate00001
+name: Película de Gelo (Água)
+type: action
+img: icons/magic/water/projectile-ice-snowball.webp
+system:
+  description: Película de Gelo — O alvo testa Acrobacia CD 7 ou fica Derrubado.
+  cost: 0
+  pa: 1
+  type: 0
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!aguacombate00001'

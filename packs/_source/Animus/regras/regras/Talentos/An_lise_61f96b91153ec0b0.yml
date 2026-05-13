@@ -1,0 +1,39 @@
+_id: 61f96b91153ec0b0
+name: Análise
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/14.png
+system:
+  description: >-
+    Identifica a natureza de uma aura, criatura ou artefato místico (<span
+    class="text-mechanic">CD</span> 10). <br>Sucesso revela o total de <span
+    class="text-resource">PV</span> do alvo e sua emoção predominante (Irritado,
+    Tranquilo, Evasivo, Ódio, Neutro)
+  trigger: ''
+  requirements:
+    description: Amador em Conhecimento arcano.
+    talents: {}
+    attributes: []
+    skills:
+      - key: con_arcano
+        rank: 1
+  cost: 0
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: bea5eacaf9ca3801
+      name: Análise
+      cost: 1
+      peCost: 0
+      type: 2
+      description: >-
+        Identifica a natureza de uma aura, criatura ou artefato místico (<span
+        class="text-mechanic">CD</span> 10). <br>Sucesso revela o total de <span
+        class="text-resource">PV</span> do alvo e sua emoção predominante
+        (Irritado, Tranquilo, Evasivo, Ódio, Neutro)
+folder: talentoshub00001
+effects: []
+_key: '!items!61f96b91153ec0b0'

@@ -1,0 +1,53 @@
+_id: e6eef9315288f4a5
+name: Artista de Campo
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/46.png
+system:
+  description: >-
+    Você sabe entreter seus colegas com piadas, histórias, músicas ou outras
+    formas. <br>Quando realizar um descanso curto ou longo, você pode dar 5
+    <span class="text-resource">PE</span> extra aos seus aliados até o próximo
+    descanso longo.
+  trigger: Descanso curto ou longo
+  requirements:
+    description: 1 ponto em PRESENÇA.
+    talents: {}
+    attributes:
+      - key: pre
+        value: 1
+    skills: []
+  cost: 5
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: eb3ac8302920aa21
+      name: Artista de Campo
+      cost: 0
+      peCost: 5
+      type: 2
+      description: >-
+        Você sabe entreter seus colegas com piadas, histórias, músicas ou outras
+        formas. <br>Quando realizar um descanso curto ou longo, você pode dar 5
+        <span class="text-resource">PE</span> extra aos seus aliados até o
+        próximo descanso longo.
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!e6eef9315288f4a5'

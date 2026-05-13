@@ -1,0 +1,39 @@
+_id: fbc6dd13699c202b
+name: Contador de Histórias
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/29.png
+system:
+  description: >-
+    Narrar uma história breve ou cantar. <br>Todos os aliados que ouvirem ganham
+    <span class="text-mechanic">Vantagem</span> no próximo <span
+    class="text-mechanic">teste</span> até o início da próxima <span
+    class="text-mechanic">rodada</span>. <br>1×/<span
+    class="text-mechanic">cena</span>.
+  trigger: ''
+  requirements:
+    description: Amador em Desempenho; nível 4+.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: 5cca014b4a01163e
+      name: Contador de Histórias
+      cost: 0
+      peCost: 2
+      type: 2
+      description: >-
+        Narrar uma história breve ou cantar. <br>Todos os aliados que ouvirem
+        ganham <span class="text-mechanic">Vantagem</span> no próximo <span
+        class="text-mechanic">teste</span> até o início da próxima <span
+        class="text-mechanic">rodada</span>. <br>1×/<span
+        class="text-mechanic">cena</span>.
+folder: talentoshub00001
+effects: []
+_key: '!items!fbc6dd13699c202b'

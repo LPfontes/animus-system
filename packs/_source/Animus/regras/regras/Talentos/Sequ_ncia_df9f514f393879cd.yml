@@ -1,0 +1,33 @@
+_id: df9f514f393879cd
+name: Sequência
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/15.png
+system:
+  description: Após acertar um ataque, causa metade dos acertos no mesmo alvo
+  trigger: ''
+  requirements:
+    description: Amador em Luta ou Pontaria.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 1
+      - key: luta
+        rank: 1
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+  grantedActions:
+    - id: 8290ef941a4045e1
+      name: Sequência
+      cost: 2
+      peCost: 3
+      type: 2
+      description: Após acertar um ataque, causa metade dos acertos no mesmo alvo
+folder: talentoshub00001
+effects: []
+_key: '!items!df9f514f393879cd'

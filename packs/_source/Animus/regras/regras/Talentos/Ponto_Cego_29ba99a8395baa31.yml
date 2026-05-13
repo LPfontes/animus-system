@@ -1,0 +1,59 @@
+_id: 29ba99a8395baa31
+name: Ponto Cego
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/23.png
+system:
+  description: >-
+    Após observar um oponente por pelo menos 1 <span
+    class="text-mechanic">rodada</span> completa, gaste 1 <span
+    class="text-mechanic">ação</span> e 3 <span class="text-resource">PE</span>
+    para identificar seu ponto <span class="text-condition">cego</span>. <br>O
+    próximo ataque físico ou elemental de qualquer aliado contra esse oponente
+    tem a dificuldade de acertos reduzida em 2.
+  trigger: ''
+  requirements:
+    description: Profissional em Compreensão; Análise Rápida.
+    talents:
+      Análise Rápida: fb4e20f68c9b88c2
+    attributes: []
+    skills:
+      - key: compreensao
+        rank: 2
+  cost: 3
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: 5ef3c7bf1f2675d6
+      name: Ponto Cego
+      cost: 1
+      peCost: 3
+      type: 2
+      description: >-
+        Após observar um oponente por pelo menos 1 <span
+        class="text-mechanic">rodada</span> completa, gaste 1 <span
+        class="text-mechanic">ação</span> e 3 <span
+        class="text-resource">PE</span> para identificar seu ponto <span
+        class="text-condition">cego</span>. <br>O próximo ataque físico ou
+        elemental de qualquer aliado contra esse oponente tem a dificuldade de
+        acertos reduzida em 2.
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!29ba99a8395baa31'

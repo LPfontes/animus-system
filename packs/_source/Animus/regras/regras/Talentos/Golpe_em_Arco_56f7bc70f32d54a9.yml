@@ -1,0 +1,52 @@
+_id: 56f7bc70f32d54a9
+name: Golpe em Arco
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/14.png
+system:
+  description: >-
+    Realiza um ataque em arco à sua frente com uma arma com a qual possua
+    Maestria Marcial. <br>Todos os alvos recebem o <span
+    class="text-mechanic">dano</span> da sua rolagem.
+  trigger: ''
+  requirements:
+    description: Profissional em Luta; Maestria Marcial.
+    talents:
+      Maestria Marcial: 83a721ac1600af78
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+  cost: 0
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+  grantedActions:
+    - id: 14192a50253282c0
+      name: Golpe em Arco
+      cost: 2
+      peCost: 0
+      type: 2
+      description: >-
+        Realiza um ataque em arco à sua frente com uma arma com a qual possua
+        Maestria Marcial. <br>Todos os alvos recebem o <span
+        class="text-mechanic">dano</span> da sua rolagem.
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!56f7bc70f32d54a9'

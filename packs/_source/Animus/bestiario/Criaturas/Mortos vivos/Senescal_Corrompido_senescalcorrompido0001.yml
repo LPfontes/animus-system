@@ -1,0 +1,113 @@
+_id: senescalcorrompido0001
+name: Senescal Corrompido
+type: npc
+img: systems/animus/assets/system-icons/types/morto-vivo.svg
+folder: fldbestmortos000
+system:
+  nd: 6
+  classification: raro
+  innateIdentity: morto-vivo
+  type: Morto-Vivo
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 2
+    cog:
+      value: 3
+    per:
+      value: 2
+    pre:
+      value: 3
+    ani:
+      value: 1
+  status:
+    hp:
+      value: 125
+      max: 125
+    pe:
+      value: 40
+      max: 40
+    pa:
+      value: 5
+      max: 5
+  attack:
+    label: Adaga de Prata
+    formula: 4d6
+    attribute: hab
+    baseBonus: 2
+  damageTable:
+    damageType: Adaga de Prata
+    attribute: hab
+    ac1: 12
+    ac2: 18
+    ac3: 24
+    ac4: 30
+    ac5: 36
+    ac6: 48
+  skills:
+    - key: enganacao
+      rank: 3
+    - key: intuicao
+      rank: 3
+    - key: luta
+      rank: 2
+    - key: persuasao
+      rank: 2
+  abilities:
+    - name: Escudo de Guardas
+      rarity: raro
+      description: >-
+        <p>Passiva: Enquanto houver pelo menos um aliado humanoide a menos de
+        3m, o Senescal recebe +2 de Redução de Dano Físico e Vantagem em testes
+        de Resistência.</p>
+      bonuses:
+        resistances:
+          physical: 2
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Traição Calculada
+      rarity: raro
+      description: >-
+        <p>Reação, 3 PE: Quando for alvo de um ataque, pode forçar um aliado a
+        menos de 2m a se tornar o novo alvo. O aliado recebe o dano em seu
+        lugar.</p>
+      specialActions:
+        - Trocar Alvo
+      img: systems/animus/assets/system-icons/talents/raro.svg
+    - name: Língua de Serpente
+      rarity: comum
+      description: >-
+        <p>1 PA, 4 PE: Alvo testa PRE CD 13 ou sofre -2 em todos os testes de
+        Atributo por 2 rodadas devido a insultos e manipulação psicológica.</p>
+      check:
+        attribute: pre
+        difficulty: '13'
+      img: systems/animus/assets/system-icons/talents/comum.svg
+  turnPatterns:
+    - label: Manipulação
+      description: Língua de Serpente (1) + Adaga (2) + Movimentação (1)
+      totalPA: 4
+    - label: Fuga Desesperada
+      description: Movimentação (1) + Movimentação (1) + Ação de Fuga (Percepção oposta)
+      totalPA: 3
+  availableActions: ''
+  ecology: >-
+    <p>Um antigo conselheiro que vendeu sua alma e seu povo por promessas de
+    poder eterno. Sua aparência é impecável, mas sua presença emite um odor de
+    decadência e falsidade.</p>
+  weaknesses: >-
+    <p><b>Sem os guardas:</b> perde Escudo de Guardas e fica visivelmente
+    perturbado (–1d em Intimidação). <b>Segredos expostos:</b> se o grupo
+    revelar seus crimes publicamente antes do confronto, chega ao combate com
+    –10 PV e sem Traição Calculada. <b>Elemento Terra ou Água:</b> fraqueza
+    elemental por trauma específico da história.</p>
+  loot: ''
+  narratorNotes: >-
+    <p><b>PV < 50%:</b> tenta fugir via passagem secreta (Percepção CD 13 para
+    notar). Se capturado, negocia com segredos. Ele nunca luta de forma justa;
+    sempre terá capangas para se esconder atrás.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!senescalcorrompido0001'

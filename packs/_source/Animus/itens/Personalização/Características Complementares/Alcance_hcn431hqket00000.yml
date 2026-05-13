@@ -3,8 +3,8 @@ name: Alcance
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Aumenta o alcance de combate corpo a corpo em 1,5m.'
-  price: '50 Đ'
+  description: Aumenta o alcance de combate corpo a corpo em 1,5m.
+  price: 50 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!hcn431hqket00000'

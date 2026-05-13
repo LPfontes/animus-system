@@ -54,11 +54,21 @@ async function compile() {
  * Extract LevelDB packs into source files.
  */
 async function extract() {
-  const packs = fs.readdirSync(PACK_DEST).filter(p => p !== "_source");
+  const systemJson = JSON.parse(fs.readFileSync("system.json", "utf8"));
+  const packs = systemJson.packs;
+
   for (const pack of packs) {
-    const src = path.join(PACK_DEST, pack);
-    const dest = path.join(PACK_SRC, pack);
-    console.log(`Extracting ${pack}...`);
+    const packName = pack.name;
+    let destName = packName;
+    if (packName === "bestiario") destName = path.join("bestiario", "Criaturas");
+    if (packName === "talentos-criaturas") destName = path.join("bestiario", "Talentos");
+
+    const src = path.join(PACK_DEST, packName);
+    const dest = path.join(PACK_SRC, destName);
+
+    console.log(`Extracting ${packName} to ${dest}...`);
+    if (!fs.existsSync(dest)) fs.mkdirSync(dest, { recursive: true });
+    
     await extractPack(src, dest, { 
       yaml: true, 
       folders: true,

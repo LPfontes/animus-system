@@ -1,0 +1,38 @@
+_id: npcTalent0000012
+name: Corpo de Brasas
+type: npcTalent
+img: systems/animus/assets/system-icons/talents/combate.svg
+folder: fldbestcomun0000
+system:
+  description: >-
+    <p>Contato com a criatura causa 1d6 dano de fogo ao atacante corpo a
+    corpo.</p>
+  cost: 2
+  requirements: []
+  category: combate
+  bonuses:
+    hp: 0
+    pe: 0
+    pa: 0
+    damage: 0
+    attributes:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    resistances:
+      physical: 0
+      elemental: 0
+      mental: 0
+  check:
+    attribute: ''
+    difficulty: ''
+  specialActions: []
+  formula: 1d6
+flags:
+  animus:
+    isNPCTalent: true
+effects: []
+_key: '!items!npcTalent0000012'

@@ -1,0 +1,38 @@
+_id: npcTalent0000001
+name: Musculatura Densa
+type: npcTalent
+img: systems/animus/assets/icons/skills/talentos/combate/28.png
+folder: fldbestcomun0000
+system:
+  description: >-
+    <p>+1 POT efetivo. Ataques físicos causam +2 de dano fixo em todos os
+    acertos.</p>
+  cost: 3
+  requirements: []
+  category: combate
+  bonuses:
+    hp: 0
+    pe: 0
+    pa: 0
+    damage: 2
+    attributes:
+      pot: 1
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    resistances:
+      physical: 0
+      elemental: 0
+      mental: 0
+  check:
+    attribute: ''
+    difficulty: ''
+  specialActions: []
+  formula: ''
+flags:
+  animus:
+    isNPCTalent: true
+effects: []
+_key: '!items!npcTalent0000001'

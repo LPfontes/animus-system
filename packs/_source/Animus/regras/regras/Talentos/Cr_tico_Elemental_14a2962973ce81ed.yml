@@ -1,0 +1,26 @@
+_id: 14a2962973ce81ed
+name: Crítico Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/5.png
+system:
+  description: >-
+    Diminui a margem do <span class="text-mechanic">acerto</span> <span
+    class="text-mechanic">crítico</span> para 11 – 12.
+  trigger: ''
+  requirements:
+    description: Mestre em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!14a2962973ce81ed'

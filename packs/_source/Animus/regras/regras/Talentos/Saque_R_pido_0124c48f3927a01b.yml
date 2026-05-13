@@ -1,0 +1,24 @@
+_id: 0124c48f3927a01b
+name: Saque Rápido
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/22.png
+system:
+  description: >-
+    Não gasta <span class="text-mechanic">ações</span> para sacar, trocar armas
+    ou pegar itens do inventário.
+  trigger: ''
+  requirements:
+    description: ''
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_key: '!items!0124c48f3927a01b'

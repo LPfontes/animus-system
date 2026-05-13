@@ -1,0 +1,18 @@
+_id: ventocombate0001
+name: Rajada Protetora (Vento)
+type: action
+img: icons/magic/air/wind-swirl-blue-red.webp
+system:
+  description: Rajada Protetora — Impõe -1 acerto em ataques de projéteis contra você.
+  cost: 0
+  pa: 1
+  type: 0
+folder: utilidadeshub001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!ventocombate0001'

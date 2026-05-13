@@ -1,0 +1,23 @@
+_id: 2e1d9770bd816768
+name: Mestre em Perícia
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/8.png
+system:
+  description: Chave. <br>aumenta a sua perícia de Profissional para Mestre.
+  trigger: ''
+  requirements:
+    description: Profissional na Perícia-Chave; Foco em Perícia-
+    talents:
+      Foco em Perícia: b0224ad16d714bf5
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_key: '!items!2e1d9770bd816768'

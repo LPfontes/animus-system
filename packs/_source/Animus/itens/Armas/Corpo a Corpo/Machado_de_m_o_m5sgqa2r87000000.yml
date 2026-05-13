@@ -1,0 +1,33 @@
+_id: m5sgqa2r87000000
+name: Machado de mão
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Machado_de_mão.png
+system:
+  category: branca
+  damageType: cortante
+  type: cortante_leve
+  description: Tabela Oficial Animus
+  damage:
+    ac1:
+      base: 2
+      mult: 0
+    ac2:
+      base: 3
+      mult: 1
+    ac3:
+      base: 4
+      mult: 2
+    ac4:
+      base: 5
+      mult: 3
+  properties:
+    - 9hep7jj39cn00000
+  weight: 0
+  price: 10 Đ
+  check:
+    attribute: pot
+    skill: luta
+    dc: 0
+folder: bd51c3d03d930431
+effects: []
+_key: '!items!m5sgqa2r87000000'

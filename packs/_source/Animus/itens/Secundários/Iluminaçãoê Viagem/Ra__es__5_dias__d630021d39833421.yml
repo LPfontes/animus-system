@@ -1,0 +1,13 @@
+_id: d630021d39833421
+name: Rações (5 dias)
+type: secondary
+img: systems/animus/assets/system-icons/items/Rações (5 dias).png
+system:
+  consumable: true
+  subCategory: viagem
+  description: Sem rações o personagem sofre Exaustão após 24h
+  weight: 0
+  price: 5 Đ
+folder: ec461ee0e7ff19c3
+effects: []
+_key: '!items!d630021d39833421'

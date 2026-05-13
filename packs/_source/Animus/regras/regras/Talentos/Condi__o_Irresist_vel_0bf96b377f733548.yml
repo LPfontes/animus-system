@@ -1,0 +1,29 @@
+_id: 0bf96b377f733548
+name: Condição Irresistível
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/14.png
+system:
+  description: >-
+    A <span class="text-mechanic">CD</span> de resistência de todas as suas
+    condições elementais aumenta em +<span class="text-attribute">ANI</span>
+    (além de outros bônus ativos).
+  trigger: ''
+  requirements:
+    description: Mestre em Elemento; Condição amplificada; Dupla Condição.
+    talents:
+      Condição Amplificada: cf0b6ca42c0401c1
+      Dupla Condição: 3d500da9e225c360
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!0bf96b377f733548'

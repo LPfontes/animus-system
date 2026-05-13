@@ -4,7 +4,7 @@ type: property
 img: icons/svg/gear.svg
 system:
   description: '1x/rodada: gaste 1 PE como reação para reduzir o dano recebido em 3.'
-  price: '100 Đ'
+  price: 100 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!bxcc321ufhr00000'

@@ -3,8 +3,8 @@ name: Calibre Aumentado
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Multiplicador de HAB +1 em todos os Acertos; disparo 50% mais alto.'
-  price: '500 Đ'
+  description: Multiplicador de HAB +1 em todos os Acertos; disparo 50% mais alto.
+  price: 500 Đ
   subCategory: '1'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caracfogo0000001
+effects: []
 _key: '!items!do8yiauocus00000'

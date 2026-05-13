@@ -6,9 +6,9 @@ system:
   consumable: true
   application:
     type: condition
-    formula: ""
+    formula: ''
     resource: pv
-    condition: "estavel"
+    condition: estavel
   subCategory: cura
   description: >-
     Estabiliza personagem a 0 <span class="text-resource">PV</span> sem <span
@@ -16,4 +16,5 @@ system:
   weight: 0
   price: 15 Đ
 folder: af1210fca9de3586
+effects: []
 _key: '!items!96d348fa300b0c36'

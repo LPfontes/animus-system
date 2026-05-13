@@ -6,7 +6,7 @@ system:
   category: projetil
   damageType: distancia
   type: distancia_media
-  description: 'Tabela Oficial Animus'
+  description: Tabela Oficial Animus
   damage:
     ac1:
       base: 2
@@ -29,5 +29,5 @@ system:
     skill: pontaria
     dc: 0
 folder: e1470d5c3ce776cd
+effects: []
 _key: '!items!qyd4d0tv89r00000'
-

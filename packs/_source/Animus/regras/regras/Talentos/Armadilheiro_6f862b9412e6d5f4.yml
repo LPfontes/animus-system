@@ -1,0 +1,71 @@
+_id: 6f862b9412e6d5f4
+name: Armadilheiro
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/13.png
+system:
+  description: >-
+    Você sabe fazer armadilhas fixas de forma rápida. <br>Gasta 4 <span
+    class="text-mechanic">ações</span> para 'plantar' uma armadilha. <br>Para
+    detectar: <span class="text-attribute">PER</span> ou Sobrevivência <span
+    class="text-mechanic">CD</span> 9+<span class="text-attribute">PER</span> do
+    armadilheiro.
+  trigger: Plantar armadilha
+  requirements:
+    description: Amador em Sobrevivência.
+    talents: {}
+    attributes: []
+    skills:
+      - key: sobrevivencia
+        rank: 1
+  cost: 2
+  action: 4
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedItems:
+    - id: 6750d3273abb8e23
+      name: Armadilha de Lentidão
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: 'Movimento custa +1 ação — Custo: 2 PE para armar.'
+    - id: 23b97337264ae4a5
+      name: Armadilha de Dano
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: 'Causa 3+PERSPICÁCIA de dano — Custo: 2 PE para armar.'
+    - id: 4c5bd4d9b8dea825
+      name: Armadilha de Alerta
+      img: icons/sundries/survival/trap-bear.webp
+      quantity: 1
+      description: 'Causa som alto ao ser disparada — Custo: 2 PE para armar.'
+  grantedActions:
+    - id: 036250a03020a39d
+      name: Armadilheiro
+      cost: 4
+      peCost: 2
+      type: 2
+      description: >-
+        Você sabe fazer armadilhas fixas de forma rápida. <br>Gasta 4 <span
+        class="text-mechanic">ações</span> para 'plantar' uma armadilha.
+        <br>Para detectar: <span class="text-attribute">PER</span> ou
+        Sobrevivência <span class="text-mechanic">CD</span> 9+<span
+        class="text-attribute">PER</span> do armadilheiro.
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!6f862b9412e6d5f4'

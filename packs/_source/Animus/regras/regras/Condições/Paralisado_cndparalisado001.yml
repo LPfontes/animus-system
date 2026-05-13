@@ -1,0 +1,19 @@
+_id: cndparalisado001
+name: Paralisado
+type: condition
+img: icons/svg/statue.svg
+system:
+  description: O corpo do alvo está completamente rígido.
+  penalty: Falha automática em testes de HAB; Movimento reduzido a 0.
+  cause: Efeito avançado de Trovão, veneno paralisante, magia.
+  removal: Teste de POT (CD varia) no final de cada rodada.
+  duration: Enquanto durar o efeito
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndparalisado001'

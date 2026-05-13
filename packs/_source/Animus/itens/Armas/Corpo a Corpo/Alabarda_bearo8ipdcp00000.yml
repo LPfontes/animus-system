@@ -6,7 +6,7 @@ system:
   category: branca
   damageType: cortante
   type: cortante_medio
-  description: 'Tabela Oficial Animus'
+  description: Tabela Oficial Animus
   damage:
     ac1:
       base: 3
@@ -30,5 +30,5 @@ system:
     skill: luta
     dc: 0
 folder: bd51c3d03d930431
+effects: []
 _key: '!items!bearo8ipdcp00000'
-

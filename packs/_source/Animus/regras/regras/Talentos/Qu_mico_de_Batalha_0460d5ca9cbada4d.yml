@@ -1,0 +1,43 @@
+_id: 0460d5ca9cbada4d
+name: Químico de Batalha
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/50.png
+system:
+  description: >-
+    Cria uma bomba de fumaça ou flash improvisado. <br>Fumaça: cria área 3m de
+    raio com visibilidade zero por 2 <span class="text-mechanic">rodadas</span>.
+    <br>Flash: todos que olharem para o centro (3m) fazem Resistência <span
+    class="text-mechanic">CD</span> 8+<span class="text-attribute">COG</span> ou
+    ficam Desprevenidos por 1 <span class="text-mechanic">rodada</span>.
+  trigger: ''
+  requirements:
+    description: Profissional em Natureza; apotecário.
+    talents:
+      Apotecário: 25a5affec119ae15
+    attributes: []
+    skills:
+      - key: natureza
+        rank: 2
+  cost: 4
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: 4fa9e500e12296c5
+      name: Químico de Batalha
+      cost: 1
+      peCost: 4
+      type: 2
+      description: >-
+        Cria uma bomba de fumaça ou flash improvisado. <br>Fumaça: cria área 3m
+        de raio com visibilidade zero por 2 <span
+        class="text-mechanic">rodadas</span>. <br>Flash: todos que olharem para
+        o centro (3m) fazem Resistência <span class="text-mechanic">CD</span>
+        8+<span class="text-attribute">COG</span> ou ficam Desprevenidos por 1
+        <span class="text-mechanic">rodada</span>.
+folder: talentoshub00001
+effects: []
+_key: '!items!0460d5ca9cbada4d'

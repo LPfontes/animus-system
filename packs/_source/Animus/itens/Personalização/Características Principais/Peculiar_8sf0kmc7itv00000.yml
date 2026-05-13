@@ -3,8 +3,8 @@ name: Peculiar
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Adicione 1×COGNIÇÃO nos multiplicadores de dano.'
-  price: '100 Đ'
+  description: Adicione 1×COGNIÇÃO nos multiplicadores de dano.
+  price: 100 Đ
   subCategory: '2'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caracprincipai01
+effects: []
 _key: '!items!8sf0kmc7itv00000'

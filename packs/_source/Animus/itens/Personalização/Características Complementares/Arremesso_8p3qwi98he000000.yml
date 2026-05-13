@@ -3,8 +3,8 @@ name: Arremesso
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Arma projetada para arremesso a curta distância.'
-  price: '5 Đ'
+  description: Arma projetada para arremesso a curta distância.
+  price: 5 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!8p3qwi98he000000'

@@ -1,0 +1,19 @@
+_id: cndagarrado00001
+name: Agarrado
+type: condition
+img: systems/animus/assets/system-icons/action/grab.svg
+system:
+  description: O alvo foi contido fisicamente por outro ser.
+  penalty: Preso; -1d em todos os ataques.
+  cause: Mordida, Manobra de Combate Agarrar.
+  removal: Teste de POT oposto ao do agarrador.
+  duration: Até escapar
+folder: condicoeshub0001
+effects: []
+_stats:
+  coreVersion: '13.346'
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!cndagarrado00001'

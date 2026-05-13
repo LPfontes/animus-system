@@ -1,0 +1,54 @@
+_id: c91c0b5c0f83d212
+name: Tiro Perfurante
+type: talent
+img: systems/animus/assets/icons/skills/talentos/arqueria/15.png
+system:
+  description: >-
+    Quando dispara com uma arma à distância que tenha Maestria Marcial, pode
+    utilizar metade dos acertos no alvo imediatamente atrás do oponente.
+    <br>[Caso o alvo seja Grande ou maior, pode causar o <span
+    class="text-mechanic">dano</span> no mesmo alvo].
+  trigger: ''
+  requirements:
+    description: Amador em Pontaria; Maestria Marcial em armas à distância.
+    talents:
+      Maestria Marcial: 83a721ac1600af78
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 1
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+  grantedActions:
+    - id: 3c642ce0f48fb7c9
+      name: Tiro Perfurante
+      cost: 2
+      peCost: 3
+      type: 2
+      description: >-
+        Quando dispara com uma arma à distância que tenha Maestria Marcial, pode
+        utilizar metade dos acertos no alvo imediatamente atrás do oponente.
+        <br>[Caso o alvo seja Grande ou maior, pode causar o <span
+        class="text-mechanic">dano</span> no mesmo alvo].
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!c91c0b5c0f83d212'

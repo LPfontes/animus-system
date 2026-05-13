@@ -3,8 +3,8 @@ name: Penetrante
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Ignora Proteção de armaduras leves; contra médias/pesadas reduz em 2.'
-  price: '100 Đ'
+  description: Ignora Proteção de armaduras leves; contra médias/pesadas reduz em 2.
+  price: 100 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!ue1i0xzhjy000000'

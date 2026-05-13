@@ -1,0 +1,35 @@
+_id: c96e8f0feb3179a8
+name: Prática leva à Perfeição
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/3.png
+system:
+  description: >-
+    Quando fizer ac. 2 no <span class="text-mechanic">teste</span> da
+    perícia-chave, gaste 2 <span class="text-resource">PE</span> para tratar o
+    resultado como ac. 3.
+  trigger: Resultado como ac.2
+  requirements:
+    description: Profissional em Perícia-Chave.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: 9cd477382dbd1f40
+      name: Prática leva à Perfeição
+      cost: 0
+      peCost: 2
+      type: 2
+      description: >-
+        Quando fizer ac. 2 no <span class="text-mechanic">teste</span> da
+        perícia-chave, gaste 2 <span class="text-resource">PE</span> para tratar
+        o resultado como ac. 3.
+folder: talentoshub00001
+effects: []
+_key: '!items!c96e8f0feb3179a8'

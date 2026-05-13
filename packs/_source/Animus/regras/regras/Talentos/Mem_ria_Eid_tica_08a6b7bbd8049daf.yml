@@ -1,0 +1,25 @@
+_id: 08a6b7bbd8049daf
+name: Memória Eidética
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/13.png
+system:
+  description: >-
+    Você nunca esquece o que viu. <br>1×/sessão, pode declarar que 'já leu ou
+    viu isso antes', e o narrador deve fornecer uma informação relevante que seu
+    personagem teria encontrado anteriormente.
+  trigger: ''
+  requirements:
+    description: Amador em qualquer perícia de COG.
+    talents: {}
+    attributes: []
+    skills: []
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+folder: talentoshub00001
+effects: []
+_key: '!items!08a6b7bbd8049daf'

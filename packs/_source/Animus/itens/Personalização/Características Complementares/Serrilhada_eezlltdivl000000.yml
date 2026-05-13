@@ -4,7 +4,7 @@ type: property
 img: icons/svg/gear.svg
 system:
   description: '3+ acertos: Sangramento — alvo perde 2 PV/turno por 2 turnos (não acumula).'
-  price: '75 Đ'
+  price: 75 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!eezlltdivl000000'

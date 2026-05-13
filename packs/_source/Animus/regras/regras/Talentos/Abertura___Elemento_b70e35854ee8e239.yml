@@ -1,0 +1,59 @@
+_id: b70e35854ee8e239
+name: Abertura + Elemento
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/12.png
+system:
+  description: >-
+    Faça um <span class="text-mechanic">teste</span> oposto de Luta. <br>Se
+    vencer: o alvo fica <span class="text-condition">Marcado</span> (−2 <span
+    class="text-resource">Proteção</span> de armadura até o próximo ataque
+    recebido) E sofre a condição inata do seu elemento (Resistência <span
+    class="text-mechanic">CD</span> 8+<span class="text-attribute">ANI</span>
+    para evitar).
+  trigger: Após um teste oposto
+  requirements:
+    description: 'Profissional em Luta; Profissional em Elemento; nível 4+. '
+    talents: {}
+    attributes: []
+    skills:
+      - key: luta
+        rank: 2
+      - key: elemento
+        rank: 2
+  cost: 3
+  action: 2
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+  grantedActions:
+    - id: 478a5c4594a71446
+      name: Abertura + Elemento
+      cost: 2
+      peCost: 3
+      type: 2
+      description: >-
+        Faça um <span class="text-mechanic">teste</span> oposto de Luta. <br>Se
+        vencer: o alvo fica <span class="text-condition">Marcado</span> (−2
+        <span class="text-resource">Proteção</span> de armadura até o próximo
+        ataque recebido) E sofre a condição inata do seu elemento (Resistência
+        <span class="text-mechanic">CD</span> 8+<span
+        class="text-attribute">ANI</span> para evitar).
+folder: talentoshub00001
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: null
+  systemVersion: null
+  createdTime: null
+  modifiedTime: null
+  lastModifiedBy: null
+  compendiumSource: null
+  duplicateSource: null
+  exportSource: null
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!b70e35854ee8e239'

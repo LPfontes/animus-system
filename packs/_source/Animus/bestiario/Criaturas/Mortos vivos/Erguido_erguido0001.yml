@@ -1,0 +1,99 @@
+_id: erguido0001
+name: Erguido
+type: npc
+img: systems/animus/assets/system-icons/types/morto-vivo.svg
+folder: fldbestmortos000
+system:
+  nd: 2
+  classification: comum
+  innateIdentity: morto-vivo
+  type: Morto-vivo
+  quote: ''
+  attributes:
+    pot:
+      value: 1
+    hab:
+      value: 0
+    cog:
+      value: 0
+    per:
+      value: 0
+    pre:
+      value: 0
+    ani:
+      value: 0
+  status:
+    hp:
+      value: 59
+      max: 59
+    pe:
+      value: 12
+      max: 12
+    pa:
+      value: 3
+      max: 3
+  attack:
+    label: Soco
+    formula: 2d6
+    attribute: pot
+    baseBonus: 1
+  damageTable:
+    damageType: Soco
+    attribute: pot
+    ac1: 4
+    ac2: 6
+    ac3: 8
+    ac4: 10
+    ac5: 12
+    ac6: 16
+  skills:
+    - key: luta
+      rank: 1
+    - key: resistencia
+      rank: 1
+  abilities:
+    - name: Constituição Robusta
+      rarity: comum
+      description: <p>+15 PV máximos (incluído no total). Imune a dano de sangramento.</p>
+      bonuses:
+        hp: 15
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Impassível
+      rarity: comum
+      description: >-
+        <p>Imune a medo, charme, exaustão e condições psicológicas. Falha
+        automática em testes de PRE e COG.</p>
+      bonuses:
+        resistances:
+          mental: 10
+      img: systems/animus/assets/system-icons/talents/comum.svg
+    - name: Infecção Latente
+      rarity: comum
+      description: >-
+        <p>Com 3+ acertos, o alvo testa Resistência CD 8 ou contrai Infecção
+        Latente: -1 em todos os testes por 24h.</p>
+      check:
+        attribute: pot
+        difficulty: '8'
+      img: systems/animus/assets/system-icons/talents/comum.svg
+  turnPatterns:
+    - label: Avanço Lento
+      description: Soco (2) + Movimentação (1)
+      totalPA: 3
+  availableActions: ''
+  ecology: >-
+    <p>Cadáveres reanimados por resíduos de Anima. Não possuem vontade própria,
+    servindo apenas como recipientes para uma fome insaciável de vida.</p>
+  weaknesses: >-
+    <p><b>Fogo:</b> dano de fogo causa +2 extra por acerto. <b>Foco
+    necrótico:</b> se o necromante controlador for eliminado, ficam Atordoados 1
+    rodada e depois deambulam aleatoriamente. <b>Decapitação:</b> acerto com 4+
+    que declare ataque à cabeça (CD 10 de HAB) destrói instantaneamente.</p>
+  loot: ''
+  narratorNotes: >-
+    <p>Sem estratégia — serve apenas ao controlador. Quando em massa, seu
+    principal objetivo é cercar os alvos e criar pressão de posicionamento.</p>
+flags: {}
+items: []
+effects: []
+_key: '!actors!erguido0001'

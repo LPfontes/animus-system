@@ -4,53 +4,60 @@ import path from "path";
 const PACK_SRC = "packs/_source/Animus";
 
 const ENCODING_MAP = {
+  "Aberra__es": "Aberrações",
+  "A__es": "Ações",
+  "Condi__es": "Condições",
+  "Personaliza__o": "Personalização",
+  "Secund_rios": "Secundários",
+  "Esp_ritos": "Espíritos",
+  "Ascend_ncias": "Ascendências",
+  "Ilumina__o": "Iluminação",
+  "Explora__o": "Exploração",
+  "Utilit_rios": "Utilitários",
+  "Caracter_sticas": "Características",
+  "M_sticos": "Místicos",
+  "T_tico": "Tático",
   "__o": "ção",
   "__e": "ções",
   "__a": "ção",
   "_o": "ão",
   "_a": "ã",
   "_i": "í",
-  "_e": "ê",
   "_u": "ú",
-  "Personaliza__o": "Personalização",
-  "Secund_rios": "Secundários",
-  "Esp_ritos": "Espíritos",
-  "Aberra__es": "Aberrações",
-  "Ascend_ncias": "Ascendências",
-  "A__es": "Ações",
-  "Condi__es": "Condições",
-  "Ilumina__o": "Iluminação",
-  "Explora__o": "Exploração",
-  "Utilit_rios": "Utilitários",
-  "Caracter_sticas": "Características",
-  "M_sticos": "Místicos",
-  "T_tico": "Tático"
+  // Handled separately for connectors
+  "_e_": " e ",
+  " _e ": " e ",
+  "_a_": " a ",
+  " _a ": " a "
 };
 
 function cleanName(name) {
   let newName = name;
-  // Remove ID suffixes (16 hex chars at the end, preceded by _)
-  // Example: Armas_e5c8a80452bc9a5e -> Armas
-  // Also handles some custom ones like _fldbest...
+  
+  // 1. Remove ID suffixes first
   newName = newName.replace(/_[a-z0-9]{16}$/i, "");
   newName = newName.replace(/_fld[a-z0-9]+$/i, "");
   newName = newName.replace(/_equipament[0-9]+$/i, "");
   newName = newName.replace(/_personalizacao[0-9]+$/i, "");
   newName = newName.replace(/_secundarios[0-9]+$/i, "");
   newName = newName.replace(/_regrashub[0-9]+$/i, "");
+  newName = newName.replace(/_talentoshub[0-9]+$/i, "");
+  newName = newName.replace(/_acoeshub[0-9]+$/i, "");
+  newName = newName.replace(/_elementoshub[0-9]+$/i, "");
 
-  // Fix encoding
+  // 2. Fix encoding using the map (Specific to General)
   for (const [key, value] of Object.entries(ENCODING_MAP)) {
     if (newName.includes(key)) {
       newName = newName.replace(new RegExp(key, 'g'), value);
     }
   }
 
-  // Final cleanup of remaining double underscores or weird patterns
+  // 3. Final cleanup of remaining underscores
   newName = newName.replace(/__/g, " ");
   newName = newName.replace(/_/g, " ");
   
-  return newName.trim();
+  // Trim and ensure no double spaces
+  return newName.replace(/\s+/g, " ").trim();
 }
 
 function mergeDirs(src, dest) {

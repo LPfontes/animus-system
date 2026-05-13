@@ -6,12 +6,13 @@ system:
   consumable: true
   application:
     type: heal
-    formula: "1d6 + 3"
+    formula: 1d6 + 3
     resource: prot
-    condition: ""
+    condition: ''
   subCategory: cura
   description: Recupera 1d6+3 <span class="text-resource">Proteção</span> imediatos
   weight: 0
   price: 14 Đ
 folder: af1210fca9de3586
+effects: []
 _key: '!items!f3e653c0e2fd2d6b'

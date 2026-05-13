@@ -1,0 +1,15 @@
+_id: 005daa77637ad324
+name: Corda de Cânhamo 15m
+type: secondary
+img: systems/animus/assets/system-icons/items/Corda de Cânhamo 15m.png
+system:
+  consumable: false
+  subCategory: viagem
+  description: >-
+    Suporta 200kg; <span class="text-mechanic">Vantagem</span> em testes de
+    escalada
+  weight: 0
+  price: 10 Đ
+folder: ec461ee0e7ff19c3
+effects: []
+_key: '!items!005daa77637ad324'

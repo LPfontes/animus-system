@@ -1,0 +1,34 @@
+_id: vb7mocdtx1k00000
+name: Lança longa
+type: weapon
+img: systems/animus/assets/system-icons/weapon/Lança_longa.png
+system:
+  category: branca
+  damageType: perfurante
+  type: perfurante_medio
+  description: Tabela Oficial Animus
+  damage:
+    ac1:
+      base: 2
+      mult: 0
+    ac2:
+      base: 3
+      mult: 1
+    ac3:
+      base: 4
+      mult: 3
+    ac4:
+      base: 7
+      mult: 6
+  properties:
+    - v1hk2hjcjs000000
+    - hcn431hqket00000
+  weight: 0
+  price: 25 Đ
+  check:
+    attribute: pot
+    skill: luta
+    dc: 0
+folder: bd51c3d03d930431
+effects: []
+_key: '!items!vb7mocdtx1k00000'

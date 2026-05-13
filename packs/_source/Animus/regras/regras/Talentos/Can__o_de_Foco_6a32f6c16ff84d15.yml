@@ -1,0 +1,35 @@
+_id: 6a32f6c16ff84d15
+name: Canção de Foco
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/33.png
+system:
+  description: >-
+    Aliados ganham <span class="text-mechanic">Vantagem</span> no próximo <span
+    class="text-mechanic">teste</span>.
+  trigger: ''
+  requirements:
+    description: Amador em Performance.
+    talents: {}
+    attributes: []
+    skills:
+      - key: performance
+        rank: 1
+  cost: 2
+  action: 1
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Pericia
+  grantedActions:
+    - id: 2d7d80d6c8b3943b
+      name: Canção de Foco
+      cost: 1
+      peCost: 2
+      type: 2
+      description: >-
+        Aliados ganham <span class="text-mechanic">Vantagem</span> no próximo
+        <span class="text-mechanic">teste</span>.
+folder: talentoshub00001
+effects: []
+_key: '!items!6a32f6c16ff84d15'

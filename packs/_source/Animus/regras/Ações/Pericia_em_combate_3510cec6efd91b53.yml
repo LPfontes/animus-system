@@ -1,9 +1,0 @@
-_id: 3510cec6efd91b53
-folder: acoeshub00000001
-name: Perícia em combate
-type: action
-img: systems/animus/assets/system-icons/action/targeting.svg
-system:
-  description: Usa uma perícia (Atletismo, Intimidação, Medicina, etc.) durante o combate.
-  cost: 1
-_key: '!items!3510cec6efd91b53'

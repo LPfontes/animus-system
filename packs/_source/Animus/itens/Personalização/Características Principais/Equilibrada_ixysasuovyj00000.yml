@@ -3,8 +3,10 @@ name: Equilibrada
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Troque o modificador de POTÊNCIA por HABILIDADE; adicione +1×HAB no multiplicador de cada acerto.'
-  price: '100 Đ'
+  description: >-
+    Troque o modificador de POTÊNCIA por HABILIDADE; adicione +1×HAB no
+    multiplicador de cada acerto.
+  price: 100 Đ
   subCategory: '2'
   bonus:
     damage: 0
@@ -12,7 +14,7 @@ system:
     defense: 0
     defenseMult: 0
     reach: 0
-    attributeOverride: 'hab'
+    attributeOverride: hab
     attrMult:
       pot: 0
       hab: 1
@@ -32,4 +34,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caracprincipai01
+effects: []
 _key: '!items!ixysasuovyj00000'

@@ -3,8 +3,8 @@ name: Alcance Ampliado
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Aumenta o alcance corpo a corpo em +1,5m adicional (empilhável).'
-  price: '75 Đ'
+  description: Aumenta o alcance corpo a corpo em +1,5m adicional (empilhável).
+  price: 75 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!vaorzquhf2t00000'

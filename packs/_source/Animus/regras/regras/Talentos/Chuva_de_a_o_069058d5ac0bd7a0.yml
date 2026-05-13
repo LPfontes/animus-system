@@ -1,0 +1,38 @@
+_id: 069058d5ac0bd7a0
+name: Chuva de aço
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/8.png
+system:
+  description: >-
+    Realize 4 ataques contra quaisquer oponentes que possa acertar (dois com
+    cada arma).
+  trigger: ''
+  requirements:
+    description: Mestre em Luta ou Pontaria; Dança de Lâminas.
+    talents:
+      Dança de Lâminas: 2845637de723d3da
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 3
+      - key: luta
+        rank: 3
+  cost: 6
+  action: 4
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+  grantedActions:
+    - id: e6efda78191692b9
+      name: Chuva de aço
+      cost: 4
+      peCost: 6
+      type: 2
+      description: >-
+        Realize 4 ataques contra quaisquer oponentes que possa acertar (dois com
+        cada arma).
+folder: talentoshub00001
+effects: []
+_key: '!items!069058d5ac0bd7a0'

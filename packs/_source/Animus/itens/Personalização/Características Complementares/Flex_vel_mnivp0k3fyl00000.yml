@@ -1,0 +1,36 @@
+_id: mnivp0k3fyl00000
+name: Flexível
+type: property
+img: icons/svg/gear.svg
+system:
+  description: Ignora cobertura de escudos leves e Proteção de escudos no ataque.
+  price: 75 Đ
+  subCategory: '3'
+  bonus:
+    damage: 0
+    mult: 0
+    defense: 0
+    defenseMult: 0
+    reach: 0
+    attributeOverride: ''
+    attrMult:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    ac:
+      ac1: 0
+      ac2: 0
+      ac3: 0
+      ac4: 0
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: true
+    isSilent: false
+    isThrown: false
+folder: caraccomp0000001
+effects: []
+_key: '!items!mnivp0k3fyl00000'

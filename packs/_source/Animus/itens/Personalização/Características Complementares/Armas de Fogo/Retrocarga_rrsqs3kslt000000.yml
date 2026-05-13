@@ -3,8 +3,8 @@ name: Retrocarga
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Cartucho/tambor. 2 PA para recarregar, mas pode ser feita em movimento.'
-  price: '300 Đ'
+  description: Cartucho/tambor. 2 PA para recarregar, mas pode ser feita em movimento.
+  price: 300 Đ
   subCategory: '1'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: false
     isThrown: false
 folder: caracfogo0000001
+effects: []
 _key: '!items!rrsqs3kslt000000'

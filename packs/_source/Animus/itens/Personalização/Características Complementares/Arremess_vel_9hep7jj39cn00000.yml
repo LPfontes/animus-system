@@ -1,0 +1,36 @@
+_id: 9hep7jj39cn00000
+name: Arremessável
+type: property
+img: icons/svg/gear.svg
+system:
+  description: Arremessa até 9m (usa HAB); recuperar custa 1 PA.
+  price: 50 Đ
+  subCategory: '3'
+  bonus:
+    damage: 0
+    mult: 0
+    defense: 0
+    defenseMult: 0
+    reach: 0
+    attributeOverride: ''
+    attrMult:
+      pot: 0
+      hab: 0
+      cog: 0
+      per: 0
+      pre: 0
+      ani: 0
+    ac:
+      ac1: 0
+      ac2: 0
+      ac3: 0
+      ac4: 0
+  flags:
+    isLight: false
+    isVersatile: false
+    ignoreShields: false
+    isSilent: false
+    isThrown: true
+folder: caraccomp0000001
+effects: []
+_key: '!items!9hep7jj39cn00000'

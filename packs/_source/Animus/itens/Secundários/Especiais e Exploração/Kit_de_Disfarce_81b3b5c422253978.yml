@@ -4,12 +4,13 @@ type: secondary
 img: systems/animus/assets/system-icons/items/Kit de Disfarce.png
 system:
   check:
-    attribute: "pre"
-    skill: "enganacao"
+    attribute: pre
+    skill: enganacao
     dc: 0
   subCategory: especial
   description: Bônus de +2 em Enganação para disfarces físicos
   weight: 0
   price: 40 Đ
 folder: f67425a08c83ef01
+effects: []
 _key: '!items!81b3b5c422253978'

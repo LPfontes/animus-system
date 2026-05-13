@@ -1,0 +1,13 @@
+_id: 90a22e71ab674321
+name: Tocha
+type: secondary
+img: systems/animus/assets/system-icons/fire/flame.svg
+system:
+  consumable: false
+  subCategory: iluminacao
+  description: 1h de luz, 9m claro / 18m difuso
+  weight: 0
+  price: 2 Đ
+folder: ec461ee0e7ff19c3
+effects: []
+_key: '!items!90a22e71ab674321'

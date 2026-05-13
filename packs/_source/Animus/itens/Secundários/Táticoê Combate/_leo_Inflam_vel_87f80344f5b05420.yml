@@ -1,0 +1,19 @@
+_id: 87f80344f5b05420
+name: Óleo Inflamável
+type: secondary
+img: systems/animus/assets/system-icons/items/Óleo Inflamável.png
+system:
+  consumable: true
+  application:
+    type: damage
+    formula: '2'
+    condition: ''
+  subCategory: tatico
+  description: >-
+    Cria área ardente por 3 <span class="text-mechanic">rodadas</span>; 1d6 de
+    <span class="text-mechanic">dano</span> de fogo
+  weight: 0
+  price: 10 Đ
+folder: 5cd7dc6a15f7f111
+effects: []
+_key: '!items!87f80344f5b05420'

@@ -1,0 +1,26 @@
+_id: 2a4062b48681bf9a
+name: Proteção Elemental
+type: talent
+img: systems/animus/assets/icons/skills/talentos/paladino/9.png
+system:
+  description: >-
+    Quando você é atacado pelo mesmo elemento do seu personagem, diminua o
+    número de acertos em 1.
+  trigger: Quando você é atacado
+  requirements:
+    description: Amador em aura.
+    talents: {}
+    attributes: []
+    skills:
+      - key: aura
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!2a4062b48681bf9a'

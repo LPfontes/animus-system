@@ -1,0 +1,29 @@
+_id: 41ba4bcf5e3c2167
+name: Elemento áutônomo
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/7.png
+system:
+  description: >-
+    Você não gasta <span class="text-mechanic">ações</span> extras para manter
+    um efeito persistente do elemento.
+  trigger: ''
+  requirements:
+    description: Profissional em Controle Elemental; Persistência Elemental
+    talents:
+      Persistência Elemental: bf1e3ee30f81a296
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 2
+      - key: controle
+        rank: 2
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!41ba4bcf5e3c2167'

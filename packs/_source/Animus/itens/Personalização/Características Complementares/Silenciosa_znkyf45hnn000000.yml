@@ -3,8 +3,8 @@ name: Silenciosa
 type: property
 img: icons/svg/gear.svg
 system:
-  description: 'Sem som; vantagem em emboscada; não quebra Furtividade.'
-  price: '50 Đ'
+  description: Sem som; vantagem em emboscada; não quebra Furtividade.
+  price: 50 Đ
   subCategory: '3'
   bonus:
     damage: 0
@@ -32,4 +32,5 @@ system:
     isSilent: true
     isThrown: false
 folder: caraccomp0000001
+effects: []
 _key: '!items!znkyf45hnn000000'

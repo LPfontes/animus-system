@@ -1,0 +1,19 @@
+_id: dae79fe33bfa33fc
+name: Bomba de Fumaça
+type: secondary
+img: systems/animus/assets/system-icons/items/Bomba de Fumaça.png
+system:
+  consumable: true
+  application:
+    type: condition
+    formula: ''
+    condition: desvantagem_percepcao
+  subCategory: tatico
+  description: >-
+    Area de 3m; impõe <span class="text-mechanic">Desvantagem</span> em
+    Percepção e Pontaria
+  weight: 0
+  price: 12 Đ
+folder: 5cd7dc6a15f7f111
+effects: []
+_key: '!items!dae79fe33bfa33fc'
