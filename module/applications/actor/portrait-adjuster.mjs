@@ -1,21 +1,10 @@
 const { ApplicationV2, HandlebarsApplicationMixin } = foundry.applications.api;
 
-/**
- * Portrait Adjuster — uses background-image/size/position for precise, 
- * predictable crop control with full X/Y axis support at any zoom level.
- *
- * Saved flags: { scale: Number (100–1000, %= zoom%), x: Number (0–100%), y: Number (0–100%) }
- * Applied in templates via:
- *   background-image: url(img); background-size: {{portrait.scale}}%; 
- *   background-position: {{portrait.x}}% {{portrait.y}}%;
- */
 export class AnimusPortraitAdjuster extends HandlebarsApplicationMixin(ApplicationV2) {
   constructor(options = {}) {
     super(options);
     this.actor = options.actor;
 
-    // scale: background-size % (100 = fit, 200 = 2× zoom)
-    // x/y: background-position % (0–100)
     this.portraitData = foundry.utils.mergeObject({
       scale: 100,
       x: 50,

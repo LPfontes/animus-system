@@ -31,7 +31,6 @@
 .animus .bio-section {
   display: flex;
   flex-direction: column;
-  gap: 10px;
 }
 
 .animus .bio-section.full-height {
@@ -42,7 +41,6 @@
   font-family: "Outfit", sans-serif;
   font-size: 0.85rem;
   letter-spacing: 0.15rem;
-  color: var(--accent);
   text-transform: uppercase;
   font-weight: 800;
   margin: 0;

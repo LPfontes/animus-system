@@ -57,12 +57,24 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
     if (mainSelect) {
       mainSelect.addEventListener("change", (ev) => {
         const id = ev.target.value;
+        // Se a propriedade já estiver nas complementares, impede a seleção
         if (id && this.selectedPropertyIds.has(id)) {
           ui.notifications.warn("Esta característica já está selecionada nas Complementares.");
           ev.target.value = this.mainPropertyId || "";
           return;
         }
         this.mainPropertyId = id;
+        
+        // Automação de Atributo baseada na Característica Principal
+        const prop = this._getPropertyById(id);
+        if (prop) {
+          const attrSelect = this.element.querySelector('select[name="system.attribute"]');
+          if (attrSelect) {
+            // APENAS Equilibrada troca o atributo base para HAB
+            if (prop.name === "Equilibrada") attrSelect.value = "hab";
+          }
+        }
+
         this._updatePropertyPreview(ev.target);
         this._updateTotalPriceUI();
         this._updateDamagePreview();
@@ -87,8 +99,10 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
       }
     });
 
+    // Listener para qualquer input na tabela de dano
     this.element.addEventListener("input", (ev) => {
-      if (ev.target.name?.startsWith("system.damage.")) {
+      const name = ev.target.name || "";
+      if (name.includes("system.damage.") || name === "system.attribute") {
         this._updateDamagePreview();
       }
     });
@@ -471,38 +485,69 @@ export class AnimusWeaponCreator extends HandlebarsApplicationMixin(ApplicationV
 
     // 1. Coletar bônus de todas as propriedades selecionadas
     let damageBonus = 0;
+    let multiplierBonus = 0;
 
-    // Principal
-    if (this.mainPropertyId) {
-      const prop = this._getPropertyById(this.mainPropertyId);
-      if (prop?.bonus?.damage) damageBonus += prop.bonus.damage;
-    }
+    // Função auxiliar para somar bônus
+    const addBonuses = (propId) => {
+      if (!propId) return;
+      const prop = this._getPropertyById(propId);
+      if (!prop) return;
+      
+      if (prop.bonus?.damage) damageBonus += prop.bonus.damage;
+      if (prop.bonus?.multiplier) multiplierBonus += prop.bonus.multiplier;
+      
+      // Bônus específicos de Características Principais
+      if (prop.name === "Reforçada") multiplierBonus += 1; // +1x Atributo Base
+      else if (prop.name === "Equilibrada") multiplierBonus += 1; // +1x HAB (já trocado)
+      else if (prop.name === "Estratégica") multiplierBonus += 1; // +1x PER
+      else if (prop.name === "Peculiar") multiplierBonus += 1; // +1x COG
+    };
 
-    // Complementares
-    for (const id of this.selectedPropertyIds) {
-      const prop = this._getPropertyById(id);
-      if (prop?.bonus?.damage) damageBonus += prop.bonus.damage;
-    }
+    addBonuses(this.mainPropertyId);
+    this.selectedPropertyIds.forEach(id => addBonuses(id));
 
-    // 2. Atualizar spans de total
+    // 2. Atualizar spans de total na matriz
     const form = this.element.querySelector("form");
     if (!form) return;
 
     for (let i = 1; i <= 4; i++) {
       const baseInput = form.querySelector(`input[name="system.damage.ac${i}.base"]`);
+      const multInput = form.querySelector(`input[name="system.damage.ac${i}.mult"]`);
       const totalSpan = this.element.querySelector(`.ac-total[data-ac="ac${i}"]`);
+      
       if (baseInput && totalSpan) {
         const base = parseInt(baseInput.value) || 0;
-        totalSpan.textContent = base + damageBonus;
+        const mult = parseInt(multInput?.value) || 0;
+        
+        // O TOTAL na matriz de criação exibe (Base + Bônus Fixo) 
+        // e indica o multiplicador final entre parênteses para clareza
+        const finalBase = base + damageBonus;
+        const finalMult = mult + multiplierBonus;
+        
+        totalSpan.innerHTML = `${finalBase} <small>(+${finalMult}x)</small>`;
       }
     }
 
-    // 3. Atualizar indicador de bônus ativo
+    // 3. Atualizar indicador de bônus ativo no rodapé da tabela
     const bonusIndicator = this.element.querySelector(".bonus-value");
     if (bonusIndicator) {
-      bonusIndicator.textContent = `+${damageBonus} DANO ATIVO`;
-      bonusIndicator.style.opacity = damageBonus > 0 ? "1" : "0.3";
-      bonusIndicator.style.background = damageBonus > 0 ? "rgba(0, 255, 204, 0.2)" : "rgba(255, 255, 255, 0.05)";
+      const hasBonus = damageBonus > 0 || multiplierBonus > 0;
+      let text = "";
+      if (damageBonus > 0) text += `+${damageBonus} DANO`;
+      
+      if (multiplierBonus > 0) {
+        const prop = this._getPropertyById(this.mainPropertyId);
+        let multSuffix = "x MULT";
+        if (prop?.name === "Estratégica") multSuffix = "x PER";
+        else if (prop?.name === "Peculiar") multSuffix = "x COG";
+        else if (prop?.name === "Equilibrada") multSuffix = "x HAB";
+        
+        text += (text ? " e " : "") + `+${multiplierBonus}${multSuffix}`;
+      }
+      
+      bonusIndicator.textContent = hasBonus ? text + " ATIVOS" : "+0 DANO ATIVO";
+      bonusIndicator.style.opacity = hasBonus ? "1" : "0.3";
+      bonusIndicator.style.background = hasBonus ? "rgba(0, 210, 255, 0.15)" : "rgba(255, 255, 255, 0.05)";
     }
   }
 }
