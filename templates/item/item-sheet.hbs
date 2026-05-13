@@ -128,7 +128,13 @@
             {{selectOptions config.weaponTypes selected=system.type localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup config.weaponTypes system.type)}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.weaponTypes system.type)}}
+              {{localize (lookup config.weaponTypes system.type)}}
+            {{else}}
+              {{system.type}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         <div class="prop-box">
@@ -152,7 +158,13 @@
             {{selectOptions config.weaponRanges selected=system.range localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup config.weaponRanges system.range)}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.weaponRanges system.range)}}
+              {{localize (lookup config.weaponRanges system.range)}}
+            {{else}}
+              {{system.range}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         <div class="prop-box">
@@ -225,7 +237,13 @@
             {{selectOptions config.gearCategories selected=system.subCategory localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup config.gearCategories system.subCategory)}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.gearCategories system.subCategory)}}
+              {{localize (lookup config.gearCategories system.subCategory)}}
+            {{else}}
+              {{system.subCategory}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         {{/if}}
@@ -254,7 +272,13 @@
             {{selectOptions config.talentTypes selected=system.type localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup config.talentTypes system.type)}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.talentTypes system.type)}}
+              {{localize (lookup config.talentTypes system.type)}}
+            {{else}}
+              {{system.type}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         <div class="prop-box">
@@ -265,8 +289,13 @@
             {{selectOptions config.talentCategories selected=system.subCategory labelAttr="label" localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup (lookup config.talentCategories system.subCategory)
-            'label')}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.talentCategories system.subCategory)}}
+              {{localize (lookup (lookup config.talentCategories system.subCategory) 'label')}}
+            {{else}}
+              {{system.subCategory}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         {{/if}}
@@ -415,7 +444,13 @@
             {{selectOptions config.actionTypes selected=system.type localize=true}}
           </select>
           {{else}}
-          <span class="value-display-v3">{{localize (lookup config.actionTypes system.type)}}</span>
+          <span class="value-display-v3">
+            {{#if (lookup config.actionTypes system.type)}}
+              {{localize (lookup config.actionTypes system.type)}}
+            {{else}}
+              {{system.type}}
+            {{/if}}
+          </span>
           {{/if}}
         </div>
         {{/if}}
@@ -582,6 +617,123 @@
       {{/if}}
     </div>
 
+    <div class="section-header-v3">
+      <i class="fas fa-play-circle"></i>
+      <span>Ações Concedidas</span>
+      <a class="action-button" data-action="arrayAdd" data-field="grantedActions" title="Adicionar Ação">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+    <div class="properties-list-v3 granted-actions-container">
+      {{#each system.grantedActions as |action i|}}
+      <div class="property-tag-v3 granted-action-card card-style" style="display: flex; flex-direction: column; width: 100%; align-items: stretch; gap: 0.5rem; padding: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+          {{#if ../isEditing}}
+          <input type="text" name="system.grantedActions.{{i}}.name" value="{{action.name}}" placeholder="Nome da Ação" style="flex: 1; font-weight: bold; background: transparent; border: none; font-size: 1.1rem;" />
+          <a class="delete-btn" data-action="arrayDelete" data-field="grantedActions" data-index="{{i}}" style="color: var(--accent);"><i class="fas fa-times"></i></a>
+          {{else}}
+          <span style="font-weight: bold; font-size: 1.1rem;">{{action.name}}</span>
+          {{/if}}
+        </div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.5rem;">
+          <div style="display: flex; flex-direction: column;">
+            <label style="font-size: 0.8rem; color: #888;">Custo (PA)</label>
+            {{#if ../isEditing}}
+            <input type="number" name="system.grantedActions.{{i}}.cost" value="{{action.cost}}" min="0" style="width: 100%;" />
+            {{else}}
+            <span>{{action.cost}} PA</span>
+            {{/if}}
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label style="font-size: 0.8rem; color: #888;">Custo (PE)</label>
+            {{#if ../isEditing}}
+            <input type="number" name="system.grantedActions.{{i}}.peCost" value="{{action.peCost}}" min="0" style="width: 100%;" />
+            {{else}}
+            <span>{{action.peCost}} PE</span>
+            {{/if}}
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label style="font-size: 0.8rem; color: #888;">Tipo</label>
+            {{#if ../isEditing}}
+            <select name="system.grantedActions.{{i}}.type" style="width: 100%;">
+              {{selectOptions ../config.actionTypes selected=action.type localize=true}}
+            </select>
+            {{else}}
+            <span>
+              {{#if (lookup ../config.actionTypes action.type)}}
+                {{localize (lookup ../config.actionTypes action.type)}}
+              {{else}}
+                {{action.type}}
+              {{/if}}
+            </span>
+            {{/if}}
+          </div>
+        </div>
+        <div style="display: flex; flex-direction: column; margin-top: 0.5rem;">
+          <label style="font-size: 0.8rem; color: #888;">Descrição</label>
+          {{#if ../isEditing}}
+          <textarea name="system.grantedActions.{{i}}.description" style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: #fff; resize: vertical;">{{action.description}}</textarea>
+          {{else}}
+          <span style="font-size: 0.9rem; color: #ccc;">{{action.description}}</span>
+          {{/if}}
+        </div>
+        <input type="hidden" name="system.grantedActions.{{i}}.id" value="{{action.id}}" />
+      </div>
+      {{/each}}
+      {{#unless system.grantedActions.length}}
+      <p class="empty-hint" style="text-align: center; width: 100%; padding: 1rem; color: #888; font-style: italic;">Nenhuma ação concedida.</p>
+      {{/unless}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-box-open"></i>
+      <span>Itens Concedidos / Criações</span>
+      <a class="action-button" data-action="arrayAdd" data-field="grantedItems" title="Adicionar Item">
+        <i class="fas fa-plus"></i>
+      </a>
+    </div>
+    <div class="properties-list-v3 granted-items-container">
+      {{#each system.grantedItems as |item i|}}
+      <div class="property-tag-v3 granted-item-card card-style" style="display: flex; flex-direction: column; width: 100%; align-items: stretch; gap: 0.5rem; padding: 1rem;">
+        <div style="display: flex; justify-content: space-between; align-items: center; border-bottom: 1px solid rgba(255,255,255,0.1); padding-bottom: 0.5rem;">
+          <div style="display: flex; align-items: center; gap: 0.5rem; flex: 1;">
+            <img src="{{item.img}}" data-edit="system.grantedItems.{{i}}.img" title="{{item.name}}" style="width: 32px; height: 32px; cursor: pointer; border: 1px solid rgba(255,255,255,0.2); border-radius: 4px;" />
+            {{#if ../isEditing}}
+            <input type="text" name="system.grantedItems.{{i}}.name" value="{{item.name}}" placeholder="Nome do Item" style="flex: 1; font-weight: bold; background: transparent; border: none; font-size: 1.1rem;" />
+            {{else}}
+            <span style="font-weight: bold; font-size: 1.1rem;">{{item.name}}</span>
+            {{/if}}
+          </div>
+          {{#if ../isEditing}}
+          <a class="delete-btn" data-action="arrayDelete" data-field="grantedItems" data-index="{{i}}" style="color: var(--accent);"><i class="fas fa-times"></i></a>
+          {{/if}}
+        </div>
+        <div style="display: grid; grid-template-columns: 100px 1fr; gap: 0.5rem;">
+          <div style="display: flex; flex-direction: column;">
+            <label style="font-size: 0.8rem; color: #888;">Quantidade</label>
+            {{#if ../isEditing}}
+            <input type="number" name="system.grantedItems.{{i}}.quantity" value="{{item.quantity}}" min="1" style="width: 100%;" />
+            {{else}}
+            <span>{{item.quantity}}x</span>
+            {{/if}}
+          </div>
+          <div style="display: flex; flex-direction: column;">
+            <label style="font-size: 0.8rem; color: #888;">Descrição do Item</label>
+            {{#if ../isEditing}}
+            <textarea name="system.grantedItems.{{i}}.description" style="width: 100%; background: rgba(0,0,0,0.2); border: 1px solid rgba(255,255,255,0.1); color: #fff; resize: vertical;">{{item.description}}</textarea>
+            {{else}}
+            <span style="font-size: 0.9rem; color: #ccc;">{{item.description}}</span>
+            {{/if}}
+          </div>
+        </div>
+        <input type="hidden" name="system.grantedItems.{{i}}.id" value="{{item.id}}" />
+      </div>
+      {{/each}}
+      {{#unless system.grantedItems.length}}
+      <p class="empty-hint" style="text-align: center; width: 100%; padding: 1rem; color: #888; font-style: italic;">Nenhum item concedido.</p>
+      {{/unless}}
+    </div>
+
     {{/if}}
 
     {{!-- Seção de Requisitos (Comum a Talentos, Armas e Ações) --}}
@@ -614,7 +766,13 @@
               <a class="delete-btn" data-action="reqDelete" data-type="attributes" data-index="{{i}}"><i
                   class="fas fa-times"></i></a>
               {{else}}
-              <span class="req-label-v3">{{localize (lookup ../config.attributes attr.key)}}:</span>
+              <span class="req-label-v3">
+                {{#if (lookup ../config.attributes attr.key)}}
+                  {{localize (lookup ../config.attributes attr.key)}}
+                {{else}}
+                  {{attr.key}}
+                {{/if}}:
+              </span>
               <span class="req-value-v3">{{attr.value}}</span>
               {{/if}}
             </div>
@@ -638,7 +796,13 @@
               <a class="delete-btn" data-action="reqDelete" data-type="skills" data-index="{{i}}"><i
                   class="fas fa-times"></i></a>
               {{else}}
-              <span class="req-label-v3">{{localize (lookup (lookup ../config.skills skill.key) 'label')}}:</span>
+              <span class="req-label-v3">
+                {{#if (lookup ../config.skills skill.key)}}
+                  {{localize (lookup (lookup ../config.skills skill.key) 'label')}}
+                {{else}}
+                  {{skill.key}}
+                {{/if}}:
+              </span>
               <span class="req-value-v3">Ranque {{skill.rank}}</span>
               {{/if}}
             </div>

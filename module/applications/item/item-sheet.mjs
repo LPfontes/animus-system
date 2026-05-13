@@ -175,7 +175,26 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
   static async #onArrayAdd(event, target) {
     const field = target.dataset.field;
     const array = foundry.utils.getProperty(this.document.system, field) || [];
-    const newArray = [...array, ""];
+    let newItem = "";
+    if (field === "grantedActions") {
+      newItem = {
+        id: foundry.utils.randomID(),
+        name: "Nova Ação",
+        cost: 1,
+        peCost: 0,
+        type: 2,
+        description: ""
+      };
+    } else if (field === "grantedItems") {
+      newItem = {
+        id: foundry.utils.randomID(),
+        name: "Novo Item",
+        img: "icons/svg/item-bag.svg",
+        quantity: 1,
+        description: ""
+      };
+    }
+    const newArray = [...array, newItem];
     await this.document.update({ [`system.${field}`]: newArray });
   }
 

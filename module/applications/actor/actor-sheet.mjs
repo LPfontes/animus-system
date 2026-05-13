@@ -58,7 +58,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       applyHeal: AnimusActorSheet.prototype._onApplyHeal,
       toggleActionDescription: AnimusActorSheet.prototype._onToggleActionDescription,
       postItem: AnimusActorSheet.prototype._onPostItem,
-      adjustPortrait: AnimusActorSheet.prototype._onAdjustPortrait
+      adjustPortrait: AnimusActorSheet.prototype._onAdjustPortrait,
+      claimTalentItem: AnimusActorSheet.prototype._onClaimTalentItem
     },
     form: {
       handler: AnimusActorSheet.#onSubmit,
@@ -139,6 +140,25 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
         const category = i.system.subCategory || "Geral";
         if (this.filters.talents === "all" || category === this.filters.talents) {
           talents.push(itemData);
+        }
+        if (i.system.grantedActions && i.system.grantedActions.length > 0) {
+          for (let ga of i.system.grantedActions) {
+            actions.push({
+              id: `${i.id}-${ga.id}`,
+              name: ga.name || i.name,
+              type: "action",
+              img: i.img,
+              system: {
+                cost: ga.cost,
+                peCost: ga.peCost,
+                type: ga.type,
+                description: ga.description,
+                trigger: i.system.trigger
+              },
+              isGranted: true,
+              parentTalentId: i.id
+            });
+          }
         }
       }
       else if (i.type === "property") properties.push(itemData);
@@ -923,12 +943,34 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     this.render();
   }
 
-  /**
-   * Use a consumable item
-   */
   async _onUseItem(event, target) {
     const itemId = target.closest(".item-row").dataset.itemId;
-    const item = this.actor.items.get(itemId);
+    let item = this.actor.items.get(itemId);
+
+    // Se for uma ação concedida por talento (formato: talentId-actionId)
+    if (!item && itemId.includes("-")) {
+      const [talentId, actionId] = itemId.split("-");
+      const talent = this.actor.items.get(talentId);
+      if (talent && talent.system.grantedActions) {
+        const ga = talent.system.grantedActions.find(a => a.id === actionId);
+        if (ga) {
+          item = new CONFIG.Item.documentClass({
+            name: ga.name || talent.name,
+            type: "action",
+            img: talent.img,
+            system: {
+              cost: ga.cost,
+              peCost: ga.peCost,
+              type: ga.type,
+              description: ga.description,
+              trigger: talent.system.trigger,
+              application: { type: "none" }
+            }
+          }, { parent: this.actor });
+        }
+      }
+    }
+
     if (!item) return;
 
     // Chamar a lógica de uso do item (definida na classe AnimusItem)
@@ -1108,6 +1150,32 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     if (event.target.closest(".roll-icon-btn")) return;
 
     row.classList.toggle("expanded");
+  }
+
+  /**
+   * Generates/Claims an item granted by a talent.
+   */
+  async _onClaimTalentItem(event, target) {
+    const { talentId, itemId } = target.dataset;
+    const talent = this.actor.items.get(talentId);
+    if (!talent) return;
+
+    const gItem = talent.system.grantedItems.find(i => i.id === itemId);
+    if (!gItem) return;
+
+    // Create the item on the actor
+    const itemData = {
+      name: gItem.name,
+      img: gItem.img,
+      type: "item",
+      system: {
+        description: gItem.description,
+        quantity: gItem.quantity
+      }
+    };
+
+    await this.actor.createEmbeddedDocuments("Item", [itemData]);
+    ui.notifications.info(`Item "${gItem.name}" adicionado ao inventário.`);
   }
 }
 

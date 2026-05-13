@@ -12,6 +12,21 @@ export default class AnimusTalentData extends AnimusItemData {
       action: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       trigger: new fields.StringField({ initial: "" }),
       specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
+      grantedActions: new fields.ArrayField(new fields.SchemaField({
+        id: new fields.StringField({ initial: () => foundry.utils.randomID() }),
+        name: new fields.StringField({ initial: "" }),
+        cost: new fields.NumberField({ initial: 1, integer: true, min: 0 }),
+        peCost: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+        type: new fields.NumberField({ initial: 2, integer: true, min: 0, max: 2 }),
+        description: new fields.StringField({ initial: "" })
+      }), { initial: [] }),
+      grantedItems: new fields.ArrayField(new fields.SchemaField({
+        id: new fields.StringField({ initial: () => foundry.utils.randomID() }),
+        name: new fields.StringField({ initial: "" }),
+        img: new fields.FilePathField({ categories: ["IMAGE"], initial: "icons/svg/item-bag.svg" }),
+        quantity: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
+        description: new fields.StringField({ initial: "" })
+      }), { initial: [] }),
       subCategory: new fields.StringField({ initial: "" }),
       
       // Bônus Mecânicos
