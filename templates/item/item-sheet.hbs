@@ -248,7 +248,30 @@
         </div>
         {{/if}}
 
-        {{#if (eq item.type "talent")}}
+        {{#if (or (eq item.type "talent") (eq item.type "npcTalent"))}}
+        <div class="prop-box highlight">
+          <label>Exige Esp.?</label>
+          {{#if isEditing}}
+          <input type="checkbox" name="system.requiresSpecialization" {{checked system.requiresSpecialization}} />
+          {{else}}
+          <span class="value-display-v3">{{#if system.requiresSpecialization}}Sim{{else}}Não{{/if}}</span>
+          {{/if}}
+        </div>
+        {{#if system.requiresSpecialization}}
+        <div class="prop-box highlight">
+          <label>Especialização</label>
+          {{#if isEditing}}
+          <select name="system.specialization">
+            <option value="">Nenhuma</option>
+            {{#each availableActions as |action|}}
+            <option value="{{action}}" {{#if (eq ../system.specialization action)}}selected{{/if}}>{{action}}</option>
+            {{/each}}
+          </select>
+          {{else}}
+          <span class="value-display-v3">{{#if system.specialization}}{{system.specialization}}{{else}}—{{/if}}</span>
+          {{/if}}
+        </div>
+        {{/if}}
         <div class="prop-box">
           <label>{{localize "ANIMUS.Cost"}} (PE)</label>
           {{#if isEditing}}
@@ -604,6 +627,7 @@
 
     {{!-- Seção de Talento: Gatilho e Requisitos --}}
     {{#if (eq item.type "talent")}}
+    
     <div class="section-header-v3">
       <i class="fas fa-bolt"></i>
       <span>{{localize "ANIMUS.Trigger"}}</span>
@@ -615,6 +639,107 @@
       {{else}}
       <div class="value-display-v3 trigger-display">{{system.trigger}}</div>
       {{/if}}
+    </div>
+
+    <div class="section-header-v3">
+      <i class="fas fa-plus-circle"></i>
+      <span>Bônus Mecânicos</span>
+    </div>
+    <div class="bonuses-grid-v3 {{#unless isEditing}}view-mode{{/unless}}">
+      {{!-- Atributos --}}
+      <div class="bonus-section">
+        <label>Atributos</label>
+        <div class="attr-bonus-row">
+          {{#each config.attributes as |attr key|}}
+          <div class="attr-bonus-input">
+            <label>{{attr.label}}</label>
+            {{#if ../isEditing}}
+            <input type="number" name="system.bonuses.attributes.{{key}}" value="{{lookup ../system.bonuses.attributes key}}" />
+            {{else}}
+            <span class="value">{{#if (lookup ../system.bonuses.attributes key)}}+{{lookup ../system.bonuses.attributes key}}{{else}}0{{/if}}</span>
+            {{/if}}
+          </div>
+          {{/each}}
+        </div>
+      </div>
+      
+      {{!-- Recursos e Outros --}}
+      <div class="bonus-section">
+        <label>Recursos / Outros</label>
+        <div class="misc-bonus-grid">
+           <div class="misc-bonus-input">
+             <label>PV</label>
+             {{#if isEditing}}
+             <input type="number" name="system.bonuses.hp" value="{{system.bonuses.hp}}" />
+             {{else}}
+             <span class="value">+{{system.bonuses.hp}}</span>
+             {{/if}}
+           </div>
+           <div class="misc-bonus-input">
+             <label>PE</label>
+             {{#if isEditing}}
+             <input type="number" name="system.bonuses.pe" value="{{system.bonuses.pe}}" />
+             {{else}}
+             <span class="value">+{{system.bonuses.pe}}</span>
+             {{/if}}
+           </div>
+           <div class="misc-bonus-input">
+             <label>PA</label>
+             {{#if isEditing}}
+             <input type="number" name="system.bonuses.pa" value="{{system.bonuses.pa}}" />
+             {{else}}
+             <span class="value">+{{system.bonuses.pa}}</span>
+             {{/if}}
+           </div>
+           <div class="misc-bonus-input">
+             <label>Dano</label>
+             {{#if isEditing}}
+             <input type="number" name="system.bonuses.damage" value="{{system.bonuses.damage}}" />
+             {{else}}
+             <span class="value">+{{system.bonuses.damage}}</span>
+             {{/if}}
+           </div>
+           <div class="misc-bonus-input">
+             <label>RD</label>
+             {{#if isEditing}}
+             <input type="number" name="system.bonuses.dr" value="{{system.bonuses.dr}}" />
+             {{else}}
+             <span class="value">+{{system.bonuses.dr}}</span>
+             {{/if}}
+           </div>
+        </div>
+      </div>
+      
+      {{!-- Resistências --}}
+      <div class="bonus-section">
+        <label>Resistências</label>
+        <div class="misc-bonus-grid">
+          <div class="misc-bonus-input">
+            <label>Física</label>
+            {{#if isEditing}}
+            <input type="number" name="system.bonuses.resistances.physical" value="{{system.bonuses.resistances.physical}}" />
+            {{else}}
+            <span class="value">+{{system.bonuses.resistances.physical}}</span>
+            {{/if}}
+          </div>
+          <div class="misc-bonus-input">
+            <label>Elemental</label>
+            {{#if isEditing}}
+            <input type="number" name="system.bonuses.resistances.elemental" value="{{system.bonuses.resistances.elemental}}" />
+            {{else}}
+            <span class="value">+{{system.bonuses.resistances.elemental}}</span>
+            {{/if}}
+          </div>
+          <div class="misc-bonus-input">
+            <label>Mental</label>
+            {{#if isEditing}}
+            <input type="number" name="system.bonuses.resistances.mental" value="{{system.bonuses.resistances.mental}}" />
+            {{else}}
+            <span class="value">+{{system.bonuses.resistances.mental}}</span>
+            {{/if}}
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="section-header-v3">

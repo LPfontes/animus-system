@@ -5,7 +5,7 @@ img: systems/animus/assets/system-icons/weapon/Arco_curto.png
 system:
   category: projetil
   damageType: distancia
-  type: distancia_media
+  type: distancia_leve
   description: Tabela Oficial Animus
   damage:
     ac1:
@@ -28,6 +28,7 @@ system:
     attribute: hab
     skill: pontaria
     dc: 0
+  cost: 1
 folder: e1470d5c3ce776cd
 effects: []
 _key: '!items!qyd4d0tv89r00000'

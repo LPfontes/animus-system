@@ -1,22 +1,56 @@
-<div class="roll-dialog-content">
-  <div class="grid grid-2">
-    <div class="form-group">
-      <label>Modo de Rolagem</label>
-      <select name="advantage">
-        <option value="none">Normal</option>
-        <option value="advantage">Vantagem</option>
-        <option value="disadvantage">Desvantagem</option>
-      </select>
+<div class="roll-dialog-v2">
+  {{!-- Cabeçalho de Contexto --}}
+  <div class="roll-header">
+    <div class="header-icon">
+      <i class="fas fa-dice-d20"></i>
     </div>
-    <div class="form-group">
-      <label>Bônus de Acerto</label>
-      <input type="number" name="bonus" value="0" placeholder="Ex: +2, -1..." />
+    <div class="header-text">
+      <h2 class="title">{{label}}</h2>
+      <span class="subtitle">{{actor.name}}</span>
     </div>
   </div>
 
-  <footer class="creator-footer">
-    <button type="submit" class="create-btn">
-      <i class="fas fa-dice-d20"></i> ROLAR
+  {{!-- Visualização da Fórmula --}}
+  <div class="formula-section">
+    <div class="dice-visualization">
+      <div class="dice-preview">
+        <div class="dice-icons">
+          {{#each dice}}
+            <i class="fas fa-dice-six"></i>
+          {{/each}}
+        </div>
+        <span class="dice-count">{{poolSize}}d6</span>
+      </div>
+    </div>
+  </div>
+
+  {{!-- Configurações --}}
+  <fieldset class="config-section">
+    <legend>Configurações</legend>
+    <div class="form-group">
+      <label>Modo de Rolagem</label>
+      <div class="form-fields">
+        <select name="rollMode">
+          {{selectOptions rollModes selected="publicroll" localize=true}}
+        </select>
+      </div>
+    </div>
+    <div class="form-group situational-bonus">
+      <label>Bônus/Penalidade</label>
+      <input type="number" name="bonus" value="0" placeholder="Bônus Situacional?" title="Adicione bônus ou penalidades extras" />
+    </div>
+  </fieldset>
+
+  {{!-- Botões de Ação --}}
+  <nav class="roll-actions">
+    <button type="submit" name="advantage" value="advantage" class="btn-advantage" title="Mantém o maior resultado com valor mínimo 4">
+    VANTAGEM
     </button>
-  </footer>
+    <button type="submit" name="advantage" value="none" class="btn-normal" autofocus>
+    NORMAL
+    </button>
+    <button type="submit" name="advantage" value="disadvantage" class="btn-disadvantage" title="Mantém o maior resultado com valor máximo 3">
+    DESVANTAGEM
+    </button>
+  </nav>
 </div>

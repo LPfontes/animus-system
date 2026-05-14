@@ -6,7 +6,7 @@
 .window-app.elemental-modal .elemental-modal-container,
 .animus.elemental-modal .elemental-modal-container {
   padding: 1.5rem;
-  color: #e0e0e0;
+  color: var(--text-main);
   font-family: "Inter", sans-serif;
   height: 100%;
   display: flex;
@@ -18,7 +18,7 @@
   align-items: center;
   gap: 1.25rem;
   margin-bottom: 1.5rem;
-  border-bottom: 2px solid rgba(0, 255, 204, 0.2);
+  border-bottom: 2px solid rgba(var(--accent-dark-rgb), 0.2);
   padding-bottom: 1rem;
   position: relative;
 }
@@ -30,14 +30,14 @@
   left: 0;
   width: 40px;
   height: 2px;
-  background: #00ffcc;
-  box-shadow: 0 0 10px #00ffcc;
+  background: var(--accent-dark);
+  box-shadow: 0 0 10px var(--accent-dark);
 }
 
 .elemental-modal .element-icon {
   width: 48px;
   height: 48px;
-  filter: drop-shadow(0 0 10px rgba(0, 255, 204, 0.4));
+  filter: drop-shadow(0 0 10px rgba(var(--accent-dark-rgb), 0.4));
 }
 
 .elemental-modal h2 {
@@ -45,7 +45,7 @@
   font-size: 1.3rem;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #fff;
+  color: var(--text-white);
   text-transform: uppercase;
 }
 
@@ -57,12 +57,11 @@
 }
 
 .elemental-modal .form-section label {
-  display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 10px;
   font-size: 0.7rem;
   font-weight: 900;
-  color: #00ffcc;
+  color: var(--accent-dark);
   margin-bottom: 10px;
   text-transform: uppercase;
   letter-spacing: 1px;
@@ -91,47 +90,57 @@
   justify-content: center;
   gap: 8px;
   padding: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--border-white-05);
+  border: 1px solid var(--border-white-10);
   border-radius: 6px;
   transition: all 0.2s ease;
   font-size: 0.85rem;
   font-weight: 700;
-  color: #999;
+  color: var(--text-muted);
 }
 
 .elemental-modal .radio-btn input:checked + span {
-  background: rgba(0, 255, 204, 0.15);
-  border-color: #00ffcc;
-  color: #fff;
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.2);
+  background: rgba(var(--accent-dark-rgb), 0.15);
+  border-color: var(--accent-dark);
+  color: var(--text-white);
+  box-shadow: 0 0 15px rgba(var(--accent-dark-rgb), 0.2);
 }
 
 /* Select Box Styles */
 .elemental-modal select {
   width: 100%;
   padding: 8px 12px;
-  background: rgba(0, 0, 0, 0.5) !important;
+  background: var(--bg-dark-glass) !important;
   border: 1px solid rgba(255, 255, 255, 0.2) !important;
   border-radius: 4px;
-  color: #fff !important;
+  color: var(--text-white) !important;
   font-size: 0.9rem;
 }
-
+.elemental-modal .grid .col-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 /* Cost Summary */
 .elemental-modal .cost-summary {
   padding: 1rem;
-  background: rgba(0, 0, 0, 0.4);
-  border: 1px solid rgba(0, 255, 204, 0.2);
+  background: var(--bg-dark-glass);
+  border: 1px solid rgba(var(--accent-dark-rgb), 0.2);
   border-radius: 8px;
 }
-
+.elemental-modal .form-section{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
 .elemental-modal .cost-line {
   display: flex;
   justify-content: space-between;
   font-size: 0.9rem;
   margin-bottom: 5px;
-  color: #bbb;
+  color: var(--text-secondary);
+  padding: 10px 15px;
 }
 
 .elemental-modal .cost-line .value {
@@ -139,19 +148,19 @@
 }
 
 .elemental-modal .total-pe {
-  color: #00ffcc !important;
-  text-shadow: 0 0 8px rgba(0, 255, 204, 0.3);
+  color: var(--accent-dark) !important;
+  text-shadow: 0 0 8px rgba(var(--accent-dark-rgb), 0.3);
 }
 
 .elemental-modal .total-pa {
-  color: #ffcc00 !important;
+  color: var(--pa-color) !important;
 }
 
 .elemental-modal .observation-line {
   margin-top: 8px;
   font-size: 0.7rem;
   font-style: italic;
-  color: #888;
+  color: var(--text-muted);
 }
 
 /* Footer Buttons */
@@ -175,16 +184,23 @@
 }
 
 .elemental-modal .btn-cancel {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--border-white-10);
+  color: var(--text-white);
 }
 
 .elemental-modal .btn-confirm {
-  background: linear-gradient(135deg, #00ffcc 0%, #0099ff 100%);
+  background: linear-gradient(135deg, var(--accent-dark) 0%, var(--secondary) 100%);
   color: #000;
 }
 
 .elemental-modal .btn-confirm:hover {
   filter: brightness(1.1);
-  box-shadow: 0 0 15px rgba(0, 255, 204, 0.4);
+  box-shadow: 0 0 15px rgba(var(--accent-dark-rgb), 0.4);
+}
+.elemental-modal .grid-col-2{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }

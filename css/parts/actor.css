@@ -21,8 +21,8 @@
 
 .animus .window-content {
   background:
-    radial-gradient(circle at 15% 15%, rgba(157, 78, 221, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 85% 85%, rgba(77, 166, 255, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 15% 15%, rgba(var(--accent-rgb), 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 85%, rgba(var(--secondary-rgb), 0.1) 0%, transparent 50%),
     var(--bg-dark);
   padding: 0;
   overflow: hidden;
@@ -31,27 +31,27 @@
 /* Premium Panel Base */
 .animus .glass-panel {
   padding: 0;
-  background: rgba(255, 255, 255, 0.03);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: var(--bg-card);
+  backdrop-filter: var(--bg-glass);
+  border: 1px solid var(--border-white-05);
   border-radius: 16px;
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: var(--shadow-main);
   cursor: pointer;
 }
 
 .animus .glass-row {
   background: rgba(255, 255, 255, 0.02);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid var(--border-white-05);
   border-radius: 12px;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animus .glass-row:hover {
-  background: rgba(157, 78, 221, 0.08);
-  border-color: rgba(157, 78, 221, 0.2);
+  background: var(--accent-hover);
+  border-color: var(--accent-border);
   transform: translateX(4px);
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-main);
 }
 
 /* ========================================= */
@@ -91,10 +91,10 @@
 }
 
 .animus .input-field {
-  background: rgba(0, 0, 0, 0.3) !important;
-  border: 1px solid rgba(255, 255, 255, 0.05) !important;
+  background: var(--bg-dark-glass) !important;
+  border: 1px solid var(--border-white-05) !important;
   border-radius: 8px !important;
-  color: #fff !important;
+  color: var(--text-white) !important;
   padding: 0 12px !important;
   height: 40px !important;
   font-weight: 700 !important;
@@ -114,10 +114,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: linear-gradient(90deg, rgba(157, 78, 221, 0.15) 0%, rgba(157, 78, 221, 0.05) 100%);
+  background: linear-gradient(90deg, var(--accent-hover) 0%, rgba(var(--accent-rgb), 0.05) 100%);
   border-left: 4px solid var(--accent);
   border-radius: 12px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  box-shadow: var(--shadow-main);
   animation: banner-glow 3s infinite ease-in-out;
 }
 
@@ -138,7 +138,7 @@
 .animus .advancement-launcher .launcher-label span {
   font-weight: 900;
   letter-spacing: 0.15em;
-  color: #fff;
+  color: var(--text-white);
   text-shadow: 0 0 10px var(--accent-glow);
   display: flex;
   align-items: center;
@@ -154,17 +154,17 @@
 .animus .advancement-launcher .points-badge {
   font-size: 0.75rem;
   font-weight: 800;
-  background: rgba(157, 78, 221, 0.2);
+  background: var(--accent-hover);
   padding: 6px 16px;
   border-radius: 20px;
-  color: #fff;
-  border: 1px solid rgba(157, 78, 221, 0.3);
+  color: var(--text-white);
+  border: 1px solid var(--accent-border);
 }
 
 .animus .advancement-launcher .points-badge.complete {
-  background: rgba(76, 201, 240, 0.2);
-  color: #4cc9f0;
-  border-color: rgba(76, 201, 240, 0.3);
+  background: var(--secondary-hover);
+  color: var(--secondary);
+  border-color: var(--secondary-border);
 }
 
 .animus .btn-open-advancement {
@@ -218,7 +218,7 @@
 }
 
 .animus .item-slot.active .slot-text {
-  color: #fff;
+  color: var(--text-white);
 }
 
 .animus .slot-control.delete {
@@ -242,7 +242,7 @@
 
 .animus .slot-control.bonus-edit:hover {
   transform: scale(1.2);
-  color: #fff;
+  color: var(--text-white);
 }
 
 .animus .slot-control.bonus-edit.pending {
@@ -303,19 +303,19 @@
 }
 
 .animus .rest-btn.short {
-  background: rgba(0, 242, 255, 0.08);
-  border: 1px solid rgba(0, 242, 255, 0.3);
-  color: #00f2ff;
+  background: var(--secondary-hover);
+  border: 1px solid var(--secondary-border);
+  color: var(--secondary);
 }
 
 .animus .rest-btn.short:hover {
-  background: rgba(0, 242, 255, 0.2);
-  box-shadow: 0 0 10px rgba(0, 242, 255, 0.3);
+  background: var(--secondary-hover);
+  box-shadow: var(--shadow-secondary-glow);
 }
 
 .animus .rest-btn.long {
-  background: rgba(157, 78, 221, 0.08);
-  border: 1px solid rgba(157, 78, 221, 0.3);
+  background: var(--accent-hover);
+  border: 1px solid var(--accent-border);
   color: var(--accent);
 }
 
@@ -339,15 +339,15 @@
 }
 
 .animus .edit-mode-toggle:hover {
-  background: rgba(255, 255, 255, 0.1);
-  color: #fff;
+  background: var(--border-white-10);
+  color: var(--text-white);
 }
 
 .animus .edit-mode-toggle.active {
   background: var(--accent);
   border-color: var(--accent);
-  color: white;
-  box-shadow: 0 0 10px var(--accent-glow);
+  color: var(--text-white);
+  box-shadow: var(--shadow-glow);
 }
 
 /* Main Content Area */
@@ -449,6 +449,36 @@
   justify-content: center;
 }
 
+.animus .dr-mini-box {
+  position: absolute;
+  right: -55px;
+  bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(157, 78, 221, 0.3);
+  border-radius: 8px;
+  padding: 4px 6px;
+  min-width: 45px;
+  z-index: 40;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.animus .dr-icon-mini {
+  font-size: 0.8rem;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+
+.animus .dr-value-mini {
+  font-size: 0.9rem;
+  font-weight: 900;
+  color: var(--text-white);
+  text-shadow: 0 0 5px var(--accent-glow);
+}
+
 .animus .shield-icon-mini {
   font-size: 3.5rem;
   color: rgba(110, 110, 110, 0.904);
@@ -471,7 +501,7 @@
   text-align: center;
   font-size: 1.5rem;
   font-weight: 800;
-  color: white;
+  color: var(--text-white);
   outline: none;
   position: relative;
 }
@@ -509,7 +539,7 @@
 .animus .bar-track {
   flex: 1;
   height: 26px;
-  background: rgba(0, 0, 0, 0.4);
+  background: var(--bg-dark-glass);
   border: 1px solid var(--border);
   border-radius: 11px;
   overflow: hidden;
@@ -560,7 +590,7 @@
 .animus .stat-input-overlay {
   background: transparent;
   border: none;
-  color: #fff;
+  color: var(--text-white);
   width: 40px;
   text-align: right;
   font-weight: 800;
@@ -764,7 +794,7 @@
 .animus .item-name-clickable {
   font-weight: 600;
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--text-white);
   cursor: pointer;
   transition: color 0.2s ease;
 }

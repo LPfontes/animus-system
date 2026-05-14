@@ -236,13 +236,14 @@ ANIMUS.weaponProperties = [
 ];
 
 ANIMUS.basicActions = [
-  { name: "Mover", cost: 1, img: "systems/animus/assets/system-icons/action/sprint.svg", description: "Desloca-se até 9 metros pelo campo de batalha." },
+  { name: "Mover (6m)", cost: 1, img: "systems/animus/assets/system-icons/action/sprint.svg", description: "Desloca-se até 6 metros pelo campo de batalha." },
   { name: "Atacar", cost: 1, img: "systems/animus/assets/system-icons/weapon/sword-clash.svg", description: "Realiza um ataque com uma arma pronta (Leve = 1 PA, Média = 2 PA)." },
+  { name: "Manobra", cost: 2, img: "systems/animus/assets/system-icons/action/grab.svg", description: "Realiza uma manobra (agarrar, derrubar, empurrar...)." },
   { name: "Sacar Arma", cost: 1, img: "systems/animus/assets/system-icons/action/switch-weapon.svg", description: "Saca ou guarda uma arma pronta para uso." },
-  { name: "Usar Item", cost: 1, img: "systems/animus/assets/system-icons/action/targeting.svg", description: "Consome ou ativa um item do seu inventário." },
-  { name: "Manobra", cost: 1, img: "systems/animus/assets/system-icons/action/grab.svg", description: "Realiza uma manobra de combate (Empurrar, Agarrar, etc)." },
-  { name: "Reação Defensiva", cost: 0, img: "systems/animus/assets/system-icons/action/broken-shield.svg", description: "Gasta PA do próximo turno para aumentar sua Proteção contra um ataque." },
-  { name: "Uso Elemental", cost: 1, img: "systems/animus/assets/system-icons/element/star.svg", description: "Ativa o uso elemental do seu elemento, consultando a tabela de dano ou cura." }
+  { name: "Usar Item", cost: 1, img: "systems/animus/assets/system-icons/action/targeting.svg", description: "Consome ou ativa um item (poção, bomba, etc)." },
+  { name: "Perícia em Combate", cost: 1, img: "systems/animus/assets/system-icons/action/brain-ready.svg", description: "Usa uma perícia durante o combate." },
+  { name: "Estabilizar Aliado", cost: 2, img: "systems/animus/assets/system-icons/action/heart-plus.svg", description: "Tenta estabilizar um aliado caído." },
+  { name: "Uso Elemental", cost: 2, img: "systems/animus/assets/system-icons/element/star.svg", description: "Ativa o uso elemental (Nível 1) do seu elemento. Custa 2 PA + 3 PE." }
 ];
 
 /* -------------------------------------------- */

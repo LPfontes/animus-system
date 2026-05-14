@@ -7,7 +7,7 @@
 }
 
 .animus .section-header-v3 {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid var(--border-light);
   margin-bottom: 15px;
   padding-bottom: 8px;
 }
@@ -63,16 +63,16 @@
 
 .animus .dmg-bonus-tag {
   font-size: 0.65rem;
-  color: #00ffcc;
-  background: rgba(0, 255, 204, 0.1);
-  border: 1px solid rgba(0, 255, 204, 0.3);
+  color: var(--accent-dark);
+  background: rgba(var(--accent-dark-rgb), 0.1);
+  border: 1px solid rgba(var(--accent-dark-rgb), 0.3);
   padding: 1px 4px;
   border-radius: 4px;
   margin-left: 4px;
   vertical-align: middle;
   font-family: 'Outfit', sans-serif;
   font-weight: 800;
-  text-shadow: 0 0 5px rgba(0, 255, 204, 0.5);
+  text-shadow: 0 0 5px rgba(var(--accent-dark-rgb), 0.3);
 }
 
 .animus .combat-bottom-grid {
@@ -144,7 +144,7 @@
 }
 
 .animus .talents-scroll-list::-webkit-scrollbar-track {
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--border-white-05);
   border-radius: 10px;
 }
 
@@ -167,8 +167,7 @@
 }
 
 .animus .combat-content-column.expanded .actions-modern-list {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   max-height: 800px;
   opacity: 1;
 }
@@ -182,8 +181,8 @@
   flex-direction: column;
   padding: 0;
   border-radius: 10px;
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.06);
+  background: var(--bg-card);
+  border: 1px solid var(--border-white-05);
   transition: all 0.2s ease;
   position: relative;
   cursor: pointer;
@@ -199,13 +198,49 @@
   min-width: 0;
 }
 
+.animus .action-item-row .item-controls {
+  display: flex;
+  gap: 8px;
+  opacity: 0;
+  transition: opacity 0.2s;
+  margin-left: 12px;
+  border-left: 1px solid var(--border-white-10);
+  padding-left: 12px;
+}
+
+.animus .action-item-row .item-main-info {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
 .animus .action-item-row .item-name {
   font-size: 0.85rem;
   font-weight: 600;
-  color: #fff;
+  color: var(--text-white);
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.animus .action-item-row:hover .item-controls {
+  opacity: 1;
+}
+
+.animus .action-item-row .item-control {
+  color: var(--text-muted);
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.animus .action-item-row .item-control:hover {
+  color: var(--accent);
+}
+
+.animus .action-item-row .item-control.delete:hover {
+  color: var(--fire);
 }
 
 .animus .action-description {
@@ -215,28 +250,28 @@
   overflow: hidden;
   transition: all 0.3s ease;
   font-size: 0.72rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   padding: 0 10px;
   line-height: 1.4;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--bg-dark-glass);
 }
 
 .animus .action-item-row.expanded {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(157, 78, 221, 0.3);
+  background: var(--border-white-05);
+  border-color: var(--accent-border);
 }
 
 .animus .action-item-row.expanded .action-description {
   max-height: 200px;
   padding: 6px 10px 8px 10px;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-white-05);
 }
 
 .animus .action-item-row:hover {
-  background: rgba(157, 78, 221, 0.1);
-  border-color: rgba(157, 78, 221, 0.4);
+  background: var(--accent-hover);
+  border-color: var(--accent-active);
   transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  box-shadow: var(--shadow-main);
 }
 
 .animus .action-item-row.basic-action {
@@ -245,37 +280,31 @@
 }
 
 .animus .action-item-row.elemental-action {
-  background: linear-gradient(90deg, rgba(157, 78, 221, 0.12) 0%, rgba(157, 78, 221, 0.03) 100%);
-  border-left-color: #4cc9f0;
+  background: linear-gradient(90deg, rgba(var(--accent-rgb), 0.12) 0%, rgba(var(--accent-rgb), 0.03) 100%);
+  border-left-color: var(--secondary);
 }
 
 .animus .roll-icon-btn {
-  width: 28px;
-  height: 28px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(255, 255, 255, 0.08);
-  border-radius: 10px;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 1.2rem;
   transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-  cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .animus .action-item-row:hover .roll-icon-btn,
 .animus .weapon-item-row:hover .roll-icon-btn {
-  background: var(--accent);
-  color: #fff;
+  color: var(--text-white);
   box-shadow: 0 0 15px var(--accent-glow);
   transform: scale(1.15);
-  border-color: rgba(255, 255, 255, 0.2);
+  border-color: var(--border);
 }
 
 .animus .action-item-row .item-tags {
   display: flex;
   gap: 8px;
+  margin-left: auto;
 }
 
 .animus .action-item-row .tag {
@@ -284,26 +313,77 @@
   padding: 2px 6px;
   border-radius: 4px;
   text-transform: uppercase;
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--border-white-10);
+  border: 1px solid var(--border-white-10);
   color: var(--text-muted);
 }
 
 .animus .action-item-row .tag.cost {
-  background: rgba(157, 78, 221, 0.15);
+  background: var(--accent-hover);
   color: var(--accent);
-  border-color: rgba(157, 78, 221, 0.3);
+  border-color: var(--accent-border);
 }
 
 .animus .action-item-row .tag.elemental {
-  background: rgba(76, 201, 240, 0.15);
-  color: #4cc9f0;
-  border-color: rgba(76, 201, 240, 0.3);
+  background: var(--secondary-hover);
+  color: var(--secondary);
+  border-color: var(--secondary-border);
+}
+
+.animus .action-item-row.elemental-action:hover {
+  background: linear-gradient(90deg, var(--accent-hover) 0%, rgba(var(--accent-rgb), 0.08) 100%);
+}
+
+/* Weapons Modern List Grid */
+.animus .weapons-modern-list .list-header,
+.animus .weapon-item-row {
+  display: grid;
+  grid-template-columns: 1fr 40px 45px 45px 45px 45px 60px;
+  align-items: center;
+  gap: 8px;
+}
+
+.animus .weapon-item-row {
+  padding: 8px 12px;
+  min-height: 48px;
+}
+
+.animus .weapon-item-row .pa-value {
+  text-align: center;
+  font-size: 1rem;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
+.animus .weapon-item-row .col-ac {
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text-white);
+}
+
+.animus .weapon-item-row .item-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  opacity: 0.3;
+  transition: opacity 0.2s;
+}
+
+.animus .weapon-item-row:hover .item-controls {
+  opacity: 1;
+}
+
+.animus .weapon-item-row .item-control:hover {
+  color: var(--accent);
+}
+
+.animus .weapon-item-row .item-control.delete:hover {
+  color: var(--fire);
 }
 
 .animus .action-item-row .tag.range {
-  background: rgba(255, 255, 255, 0.08);
-  color: #fff;
+  background: var(--border-white-10);
+  color: var(--text-white);
 }
 
 .animus .combat-tables {
@@ -321,32 +401,32 @@
 
 .animus .talent-card:hover {
   transform: translateY(-1px);
-  background: rgba(255, 255, 255, 0.05);
+  background: var(--border-white-05);
 }
 
 /* Special styling for Innate Abilities */
 .animus .talent-card.innate {
-  background: linear-gradient(135deg, rgba(76, 201, 240, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
-  border-left: 4px solid #4cc9f0;
+  background: linear-gradient(135deg, var(--secondary-hover) 0%, rgba(255, 255, 255, 0.02) 100%);
+  border-left: 4px solid var(--secondary);
 }
 
 .animus .talent-card.innate:hover {
-  background: linear-gradient(135deg, rgba(76, 201, 240, 0.15) 0%, rgba(255, 255, 255, 0.05) 100%);
-  box-shadow: 0 4px 15px rgba(76, 201, 240, 0.1);
+  background: linear-gradient(135deg, var(--secondary-hover) 0%, var(--border-white-05) 100%);
+  box-shadow: 0 4px 15px var(--secondary-glow);
 }
 
 .animus .talent-card.innate.expanded {
-  border-color: rgba(76, 201, 240, 0.4);
-  box-shadow: 0 0 15px rgba(76, 201, 240, 0.15);
+  border-color: var(--secondary-border);
+  box-shadow: 0 0 15px var(--secondary-glow);
 }
 
 .animus .talent-card.innate .talent-name {
-  color: #4cc9f0;
-  text-shadow: 0 0 8px rgba(76, 201, 240, 0.3);
+  color: var(--secondary);
+  text-shadow: 0 0 8px var(--secondary-glow);
 }
 
 .animus .talent-card.innate .talent-name i {
-  color: #4cc9f0;
+  color: var(--secondary);
 }
 
 .animus .talent-header {
@@ -366,7 +446,7 @@
 .animus .talent-name {
   font-weight: 700;
   font-size: 0.95rem;
-  color: #fff;
+  color: var(--text-white);
   display: flex;
   align-items: center;
   gap: 8px;
@@ -401,7 +481,7 @@
 }
 
 .animus .talent-control.post:hover {
-  color: #4cc9f0;
+  color: var(--secondary);
 }
 
 .animus .talent-body {
@@ -409,25 +489,77 @@
   overflow: hidden;
   transition: all 0.3s ease;
   font-size: 0.8rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--text-secondary);
   line-height: 1.4;
   opacity: 0;
-  background: rgba(0, 0, 0, 0.1);
+  background: var(--bg-dark-glass);
   border-radius: 0 0 8px 8px;
 }
 
 .animus .talent-card.expanded {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(157, 78, 221, 0.3);
+  background: var(--border-white-05);
+  border-color: var(--accent-border);
 }
 
 .animus .talent-card.expanded .talent-body {
   max-height: 500px;
   padding: 10px 12px 12px 12px;
   opacity: 1;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-top: 1px solid var(--border-white-05);
 }
 .animus .col-ac{
   font-size: 1rem;
+}
 
+.animus .talent-specialization-tag {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent-hover);
+  border: 1px solid var(--accent-border);
+  padding: 4px 10px;
+  border-radius: 6px;
+  margin-bottom: 10px;
+  color: var(--text-white);
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+
+.animus .talent-specialization-tag i {
+  color: var(--accent);
+  font-size: 0.8rem;
+}
+
+.animus .talent-specialization-tag strong {
+  color: var(--accent);
+  text-shadow: 0 0 8px var(--accent-glow);
+}
+
+.animus .spec-inline-edit {
+  background: rgba(0, 0, 0, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 4px;
+  color: var(--accent);
+  padding: 1px 4px;
+  font-size: 0.7rem;
+  width: auto;
+  min-width: 120px;
+  max-width: 180px;
+  margin-left: 4px;
+  cursor: pointer;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.animus .spec-inline-edit option {
+  background: #1a1a1a;
+  color: var(--text-white);
+  font-weight: normal;
+}
+
+.animus .spec-inline-edit:focus {
+  border-color: var(--accent);
+  outline: none;
+  background: rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 10px var(--accent-glow);
 }

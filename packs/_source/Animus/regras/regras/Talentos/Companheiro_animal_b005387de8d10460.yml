@@ -7,7 +7,7 @@ system:
     Você ganha um companheiro animal. <br>Escolha um animal domesticável; ele
     pode realizar testes e auxiliar o mestre em algumas atividades. <br>Escolha
     uma perícia para receber <span class="text-mechanic">vantagem</span> quando
-    estiver na <span class="text-attribute">PRE</span> de seu companheiro.
+    estiver com seu companheiro.
   trigger: ''
   requirements:
     description: Amador em Sobrevivência.

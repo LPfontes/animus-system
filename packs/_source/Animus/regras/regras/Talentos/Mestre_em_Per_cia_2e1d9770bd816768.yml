@@ -13,6 +13,7 @@ system:
     skills: []
   cost: 0
   action: 0
+  requiresSpecialization: true
   check:
     attribute: -1
     skill: -1

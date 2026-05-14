@@ -4,8 +4,8 @@ type: action
 img: systems/animus/assets/system-icons/action/targeting.svg
 system:
   description: >-
-    Canaliza poder elemental para um ataque. Custo adicional de PE dependendo do
-    nível do ataque.
+    Canaliza poder elemental. Base: Pessoal (0m), alvo único, Nível 1. Custo: 3
+    PE. Cada implemento adicional de distância ou área custa +3 PE.
   cost: 2
 effects: []
 _stats:

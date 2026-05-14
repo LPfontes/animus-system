@@ -90,11 +90,11 @@ export class AnimusItem extends Item {
     if ( !actor ) return;
 
     // 0. Verificar e Consumir Recursos (PA/PE)
-    const basePaCost = (this.type === "action" ? this.system.cost : (this.type === "talent" ? this.system.action : 0)) || 0;
+    const rawPaCost = (this.type === "action" ? this.system.cost : (this.type === "talent" ? this.system.action : 0)) || 0;
     const peCost = (this.type === "action" ? this.system.peCost : (this.type === "talent" ? this.system.cost : 0)) || 0;
 
-    // Lógica de Repetição (Apenas para ações que gastam PA)
-    let paCost = basePaCost;
+    // Lógica de Redução de Custo e Repetição
+    let paCost = actor.getActionPaCost(this.name, rawPaCost);
     if (paCost > 0) {
       const repeatCost = actor.getActionRepeatCost(this.name);
       paCost += repeatCost;
@@ -194,18 +194,32 @@ export class AnimusItem extends Item {
     const actor = this.actor;
     if (!actor) return;
 
-    // Se não passar opções, abre o diálogo (a menos que seja uma rolagem rápida via macro futuramente)
+    // Se não passar opções, abre o diálogo
     if (options.advantage === undefined && options.bonus === undefined) {
-      const result = await AnimusRollDialog.awaitRoll(this);
+      const attrKey = (this.system.attribute || "pot").toLowerCase();
+      const skillKey = attrKey === "hab" ? "pontaria" : "luta";
+      const skill = actor.system.skills[skillKey];
+      const attr = actor.system.attributes[attrKey];
+      
+      const dialogData = {
+        label: `ATAQUE: ${this.name}`,
+        actor: actor,
+        poolSize: 2 + (skill?.value || 0),
+        formula: `${2 + (skill?.value || 0)}d6kh2 + ${attr?.total || 0}`
+      };
+
+      const result = await AnimusRollDialog.awaitRoll(dialogData);
       if (!result) return;
       options = {
         advantage: result.advantage === "none" ? null : result.advantage,
-        bonus: parseInt(result.bonus) || 0
+        bonus: parseInt(result.bonus) || 0,
+        rollMode: result.rollMode
       };
     }
 
     // Consumir PA + Repetição
-    const baseCost = this.system.cost || 1;
+    const rawCost = this.system.cost || 1;
+    const baseCost = actor.getActionPaCost("Atacar", rawCost);
     const repeatCost = actor.getActionRepeatCost("Atacar");
     const paCost = baseCost + repeatCost;
 
@@ -222,16 +236,21 @@ export class AnimusItem extends Item {
     const skill = actor.system.skills[skillKey];
 
     const poolSize = 2 + (skill?.value || 0);
-    const totalBonus = (attr?.total || 0) + (options.bonus || 0);
     const hitTable = this.system.damageTable;
+
+    // Calcular bônus de dano (genérico + especializado para esta arma ou "Atacar")
+    const bonusDamage = actor.getActionDamageBonus(this.name) || 0;
 
     return AnimusRoll.rollTest({
       poolSize: poolSize,
-      attributeValue: totalBonus,
+      attributeValue: attr?.total || 0,
+      bonus: options.bonus || 0,
       label: `Ataque com ${this.name}`,
       hitTable: hitTable,
       advantage: options.advantage,
-      speaker: actor
+      speaker: actor,
+      bonusDamage: bonusDamage,
+      rollMode: options.rollMode
     });
   }
 

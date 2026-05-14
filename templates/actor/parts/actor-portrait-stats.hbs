@@ -41,6 +41,12 @@
                     data-tooltip="{{localize 'ANIMUS.ProtectionTooltip'}}" class="defense-value-mini stat-sync-input" data-dtype="Number" />
                 </div>
               </div>
+              {{#if system.status.dr}}
+              <div class="dr-mini-box" data-tooltip="Redução de Dano (RD)">
+                <i class="fas fa-shield-halved dr-icon-mini"></i>
+                <span class="dr-value-mini">{{system.status.dr}}</span>
+              </div>
+              {{/if}}
             </div>
           </div>
 
@@ -71,6 +77,25 @@
                 {{/each}}
               </div>
             </div>
+          </div>
+        </div>
+      </div>
+      
+      {{!-- Resistências --}}
+      <div class="stat-box resistances portrait-res">
+        <label>Resistências</label>
+        <div class="res-row">
+          <div class="res-item" title="Física">
+            <i class="fas fa-shield-alt"></i>
+            <span>{{system.status.resistances.physical}}</span>
+          </div>
+          <div class="res-item" title="Elemental">
+            <i class="fas fa-fire"></i>
+            <span>{{system.status.resistances.elemental}}</span>
+          </div>
+          <div class="res-item" title="Mental">
+            <i class="fas fa-brain"></i>
+            <span>{{system.status.resistances.mental}}</span>
           </div>
         </div>
       </div>

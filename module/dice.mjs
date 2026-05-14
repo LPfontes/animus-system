@@ -12,39 +12,46 @@ export class AnimusRoll {
    * @param {Object} params.hitTable - Tabela de dano (ac1, ac2, ac3, ac4)
    * @param {string} params.advantage - 'advantage', 'disadvantage' ou null
    * @param {Actor} params.speaker - O ator que está rolando
+   * @param {number} params.bonus - Bônus numérico para o total da rolagem
    */
-  static async rollTest({ poolSize = 2, attributeValue = 0, label = "", hitTable = null, advantage = null, speaker = null, healMode = false }) {
+  static async rollTest({ poolSize = 2, attributeValue = 0, label = "", hitTable = null, advantage = null, speaker = null, healMode = false, bonusDamage = 0, bonus = 0 }) {
     // 1. Definir a fórmula usando a sintaxe nativa do Foundry (Keep Highest 2)
-    const formula = `${poolSize}d6kh2 + ${attributeValue}`;
+    const formula = `${poolSize}d6kh2 + ${attributeValue} + ${bonus}`;
     const roll = await new Roll(formula).evaluate();
 
-    // 2. Aplicar lógica Animus de Vantagem/Desvantagem nos dados mantidos
+    // 2. Aplicar lógica Animus de Vantagem/Desvantagem (Apenas no Total)
     const dice = roll.dice[0];
     const results = dice.results;
+    let transformation = null;
+    let rollAdjustment = 0;
 
     // Encontrar o maior dado entre os ativos (mantidos pelo kh2)
     const activeResults = results.filter(r => r.active).sort((a, b) => b.result - a.result);
 
     if (activeResults.length > 0) {
       const highestDie = activeResults[0];
+      const originalResult = highestDie.result;
 
-      if (advantage === "advantage" && highestDie.result < 4) {
-        // Vantagem: se o maior dado for 1, 2 ou 3, ele é tratado como 4
-        highestDie.result = 4;
-      } else if (advantage === "disadvantage" && highestDie.result > 3) {
-        // Desvantagem: se o maior dado for 4, 5 ou 6, ele é tratado como 3
-        highestDie.result = 3;
+      if (advantage === "advantage" && originalResult < 4) {
+        // Vantagem: o maior dado é tratado como 4 para o cálculo
+        rollAdjustment = 4 - originalResult;
+        transformation = { from: originalResult, to: 4 };
+      } else if (advantage === "disadvantage" && originalResult > 3) {
+        // Desvantagem: o maior dado é tratado como 3 para o cálculo
+        rollAdjustment = 3 - originalResult;
+        transformation = { from: originalResult, to: 3 };
       }
     }
 
     // 3. Recalcular o total do Roll explicitamente para garantir sincronia no Chat
+    // Somamos os dados originais + bônus numéricos + ajuste de vantagem/desvantagem
     const diceTotal = results.reduce((acc, r) => acc + (r.active ? r.result : 0), 0);
     const numericBonus = roll.terms
       .filter(t => t instanceof foundry.dice.terms.NumericTerm)
       .reduce((acc, t) => acc + t.number, 0);
 
-    // Sobrescreve o total interno para que o Foundry use o valor modificado
-    roll._total = diceTotal + numericBonus;
+    // Sobrescreve o total interno com o ajuste aplicado
+    roll._total = diceTotal + numericBonus + rollAdjustment;
 
     // 4. Verificar Crítico Natural
     const naturalSixes = results.filter(r => r.active && r.result === 6).length;
@@ -95,6 +102,9 @@ export class AnimusRoll {
           damageValue = hitTable.ac1 || 0;
         }
       }
+
+      // Aplicar bônus de dano extra (de talentos, etc)
+      if (damageValue > 0) damageValue += bonusDamage;
     }
 
     // 6. Enviar para o chat
@@ -115,8 +125,14 @@ export class AnimusRoll {
       flavor += `</div>`;
     }
 
-    if (advantage === "advantage") flavor += `<div class="roll-mod advantage">[Vantagem]</div>`;
-    if (advantage === "disadvantage") flavor += `<div class="roll-mod disadvantage">[Desvantagem]</div>`;
+    if (advantage === "advantage") flavor += `<div class="roll-mod advantage">[Vantagem] <small>(Mínimo 4)</small></div>`;
+    if (advantage === "disadvantage") flavor += `<div class="roll-mod disadvantage">[Desvantagem] <small>(Máximo 3)</small></div>`;
+
+    if (transformation) {
+      flavor += `<div class="roll-mod-detail transformation-applied">
+        <i class="fas fa-magic"></i> Dado transformado: <strong>${transformation.from}</strong> <i class="fas fa-long-arrow-alt-right"></i> <strong>${transformation.to}</strong>
+      </div>`;
+    }
 
     if (hitTable) {
       const isCrit = isNaturalCritical || total >= 13;

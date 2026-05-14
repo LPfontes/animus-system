@@ -11,37 +11,40 @@ const ELEMENTAL_DATA = {
   single: {
     label: "Alvo Único",
     tiers: {
-      personal: { label: "Pessoal (0m)", pe: 3, pa: 1 },
-      curto: { label: "Curto (9m)", pe: 3, pa: 1, req: TALENT_IDS.PROJECTILE },
-      medio: { label: "Médio (18m)", pe: 5, pa: 1, req: TALENT_IDS.RANGE },
-      longo: { label: "Longo (36m)", pe: 8, pa: 1, req: TALENT_IDS.RANGE, obs: "Metal: +1 PE" }
+      personal: { label: "Pessoal (0m)", pe: 0, pa: 2 },
+      curto: { label: "Curto (6m)", pe: 3, pa: 2, req: TALENT_IDS.PROJECTILE },
+      medio: { label: "Médio (9m)", pe: 6, pa: 2, req: TALENT_IDS.RANGE },
+      longo: { label: "Longo (12m)", pe: 9, pa: 2, req: TALENT_IDS.RANGE }
     }
   },
   line: {
     label: "Linha",
     req: TALENT_IDS.AREA,
     tiers: {
-      curto: { label: "Curto (3m)", pe: 1, pa: 3 },
-      medio: { label: "Médio (6m)", pe: 3, pa: 3 },
-      longo: { label: "Longo (12m)", pe: 6, pa: 3 }
+      base: { label: "Base (3m)", pe: 3, pa: 2 },
+      curto: { label: "Curto (6m)", pe: 6, pa: 2, req: TALENT_IDS.PROJECTILE },
+      medio: { label: "Médio (9m)", pe: 9, pa: 2, req: TALENT_IDS.RANGE },
+      longo: { label: "Longo (12m)", pe: 12, pa: 2, req: TALENT_IDS.RANGE }
     }
   },
   cone: {
     label: "Cone",
     req: TALENT_IDS.AREA,
     tiers: {
-      curto: { label: "Curto (3m)", pe: 1, pa: 3 },
-      medio: { label: "Médio (6m)", pe: 3, pa: 3 },
-      longo: { label: "Longo (12m)", pe: 6, pa: 3 }
+      base: { label: "Base (3m)", pe: 3, pa: 2 },
+      curto: { label: "Curto (6m)", pe: 6, pa: 2, req: TALENT_IDS.PROJECTILE },
+      medio: { label: "Médio (9m)", pe: 9, pa: 2, req: TALENT_IDS.RANGE },
+      longo: { label: "Longo (12m)", pe: 12, pa: 2, req: TALENT_IDS.RANGE }
     }
   },
   burst: {
     label: "Explosão",
     req: TALENT_IDS.AREA,
     tiers: {
-      small: { label: "Pequena (3m)", pe: 1, pa: 1 },
-      medium: { label: "Média (6m)", pe: 3, pa: 1, obs: "Terra/Metal: +1 PE" },
-      large: { label: "Grande (12m)", pe: 6, pa: 1, obs: "Terra/Metal: +2 PE" }
+      "3m": { label: "Base (3m)", pe: 3, pa: 2 },
+      "6m": { label: "Curto (6m)", pe: 6, pa: 2, req: TALENT_IDS.PROJECTILE },
+      "9m": { label: "Médio (9m)", pe: 9, pa: 2, req: TALENT_IDS.RANGE },
+      "12m": { label: "Longo (12m)", pe: 12, pa: 2, req: TALENT_IDS.RANGE }
     }
   }
 };
@@ -54,6 +57,7 @@ export class AnimusElementalModal extends HandlebarsApplicationMixin(Application
     super(options);
     this.actor = options.actor;
     this.elementItem = options.element;
+    this.basePa = options.basePa || 2;
     this.resolve = null;
 
     // Cache de IDs e Nomes de talentos para busca resiliente
@@ -104,9 +108,9 @@ export class AnimusElementalModal extends HandlebarsApplicationMixin(Application
   /**
    * Abre o modal e aguarda a configuração do usuário.
    */
-  static async awaitConfig(actor, element) {
+  static async awaitConfig(actor, element, options = {}) {
     return new Promise(resolve => {
-      const modal = new AnimusElementalModal({ actor, element });
+      const modal = new AnimusElementalModal({ actor, element, ...options });
       modal.resolve = resolve;
       modal.render(true);
     });
@@ -188,18 +192,10 @@ export class AnimusElementalModal extends HandlebarsApplicationMixin(Application
 
     if (!tierData) return;
 
-    // Cálculo: Base do Nível + Adicional do Tier
-    const levelBase = level * 3; // Nív 1 = 3, Nív 2 = 6, Nív 3 = 9
+    const levelBase = level * 3;
     let peCost = levelBase + tierData.pe;
-    const paCost = tierData.pa;
-
-    // Aplicar observações de elemento
-    const elementName = this.elementItem.name.toLowerCase();
-    if (elementName === "metal" && category === "single" && tierKey === "longo") peCost += 1;
-    if ((elementName === "terra" || elementName === "metal") && category === "burst") {
-      if (tierKey === "medium") peCost += 1;
-      if (tierKey === "large") peCost += 2;
-    }
+    // Usa o basePa recebido da ficha em vez do valor fixo do ELEMENTAL_DATA
+    let paCost = this.actor.getActionPaCost("Uso Elemental", this.basePa) + this.actor.getActionRepeatCost("Uso Elemental");
 
     // Regra: Nível 3+ ganha -1 PE (mínimo 2 PE, a menos que já fosse menor)
     const actorLevel = this.actor.system.level || 1;
@@ -232,15 +228,8 @@ export class AnimusElementalModal extends HandlebarsApplicationMixin(Application
     // Re-calcular custo para o retorno
     const levelBase = level * 3;
     let peCost = levelBase + tierData.pe;
-    const paCost = tierData.pa;
-    const elementName = this.elementItem.name.toLowerCase();
+    let paCost = this.actor.getActionPaCost("Uso Elemental", this.basePa) + this.actor.getActionRepeatCost("Uso Elemental");
     const actorLevel = this.actor.system.level || 1;
-
-    if (elementName === "metal" && data.category === "single" && data.tier === "longo") peCost += 1;
-    if ((elementName === "terra" || elementName === "metal") && data.category === "burst") {
-      if (data.tier === "medium") peCost += 1;
-      if (data.tier === "large") peCost += 2;
-    }
 
     // Desconto de Nível 3+
     if (actorLevel >= 3 && peCost > 0) {

@@ -1,0 +1,79 @@
+/* ========================================= */
+/*       ANIMUS RPG - COLOR DESIGN SYSTEM    */
+/* ========================================= */
+
+:root {
+  /* --- Core Palette (Purple) --- */
+  --accent: #9d4edd;
+  --accent-rgb: 157, 78, 221;
+  --accent-light: #c77dff;
+  --accent-dark: #7b2cbf;
+  --accent-dark-rgb: 123, 44, 191;
+  --accent-glow: rgba(var(--accent-rgb), 0.3);
+  --accent-border: rgba(var(--accent-rgb), 0.25);
+  --accent-hover: rgba(var(--accent-rgb), 0.15);
+  --accent-active: rgba(var(--accent-rgb), 0.4);
+  
+  /* --- Secondary Palette (Cyan) --- */
+  --secondary: #4cc9f0;
+  --secondary-rgb: 76, 201, 240;
+  --secondary-glow: rgba(var(--secondary-rgb), 0.3);
+  --secondary-border: rgba(var(--secondary-rgb), 0.25);
+  --secondary-hover: rgba(var(--secondary-rgb), 0.15);
+
+  /* --- Specialty Colors --- */
+  
+  /* --- Status & Elemental Colors --- */
+  --fire: #ff4d4d;
+  --fire-rgb: 255, 77, 77;
+  --water: #4da6ff;
+  --water-rgb: 77, 166, 255;
+  --earth: #4dff88;
+  --earth-rgb: 77, 255, 136;
+  --air: #4dffff;
+  --air-rgb: 77, 255, 255;
+  --nature: #70e000;
+  --nature-rgb: 112, 224, 0;
+  --thunder: #ffee32;
+  --thunder-rgb: 255, 238, 50;
+  --light: #ffffff;
+  --light-rgb: 255, 255, 255;
+  --void: #3c096c;
+  --void-rgb: 60, 9, 108;
+  
+  /* --- Mechanical Resources --- */
+  --hp-color: var(--fire);
+  --hp-color-rgb: var(--fire-rgb);
+  --pe-color: var(--secondary);
+  --pe-color-rgb: var(--secondary-rgb);
+  --pa-color: #ff9e00;
+  --pa-color-rgb: 255, 158, 0;
+  --prot-color: #e0e0e0;
+  --prot-color-rgb: 224, 224, 224;
+  
+  /* --- Backgrounds & Glassmorphism --- */
+  --bg-dark: #0a0a0c;
+  --bg-panel: rgba(18, 18, 24, 0.85);
+  --bg-card: rgba(255, 255, 255, 0.03);
+  --bg-glass: blur(12px);
+  --bg-dark-glass: rgba(0, 0, 0, 0.4);
+  
+  /* --- Borders & Outlines --- */
+  --border: rgba(255, 255, 255, 0.1);
+  --border-light: rgba(255, 255, 255, 0.05);
+  --border-focus: rgba(var(--accent-rgb), 0.5);
+  --border-white-10: rgba(255, 255, 255, 0.1);
+  --border-white-05: rgba(255, 255, 255, 0.05);
+  
+  /* --- Typography --- */
+  --text-main: #e0e0e6;
+  --text-secondary: rgba(255, 255, 255, 0.75);
+  --text-muted: rgba(255, 255, 255, 0.45);
+  --text-contrast: #ffffff;
+  --text-white: #ffffff;
+  
+  /* --- Effects --- */
+  --shadow-main: 0 8px 32px 0 rgba(0, 0, 0, 0.8);
+  --shadow-glow: 0 0 15px var(--accent-glow);
+  --shadow-secondary-glow: 0 0 15px var(--secondary-glow);
+}

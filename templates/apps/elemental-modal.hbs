@@ -8,23 +8,23 @@
     <div class="modal-body">
       {{!-- Tipo de Uso --}}
       <div class="form-section">
-        <label><i class="fas fa-hand-sparkles"></i> TIPO DE USO</label>
+        <label><i class="fas fa-hand-sparkles"></i>TIPO DE USO</label>
         <div class="radio-group">
           <label class="radio-btn">
             <input type="radio" name="usageType" value="damage" checked />
-            <span><i class="fas fa-fire"></i> DANO</span>
+            <span><i class="fas fa-fire"></i>DANO</span>
           </label>
           <label class="radio-btn">
             <input type="radio" name="usageType" value="heal" />
-            <span><i class="fas fa-heart"></i> CURA</span>
+            <span><i class="fas fa-heart"></i>CURA</span>
           </label>
         </div>
       </div>
 
-      <div class="grid col-2">
+      <div class="grid-col-2">
         {{!-- Nível de Potência --}}
         <div class="form-section">
-          <label><i class="fas fa-bolt"></i> NÍVEL DE USO</label>
+          <label><i class="fas fa-bolt"></i>NÍVEL DE USO</label>
           <select name="level">
             <option value="1">Nível 1 (3 PE Base)</option>
             <option value="2">Nível 2 (6 PE Base)</option>
@@ -36,7 +36,7 @@
 
         {{!-- Categoria --}}
         <div class="form-section">
-          <label><i class="fas fa-layer-group"></i> CATEGORIA</label>
+          <label><i class="fas fa-layer-group"></i>CATEGORIA</label>
           <select name="category">
             {{#each categories as |cat key|}}
             <option value="{{key}}" {{#if cat.disabled}}disabled{{/if}}>
@@ -48,7 +48,7 @@
       </div>
 
       <div class="form-section">
-        <label><i class="fas fa-arrows-alt-h"></i> ALCANCE / TAMANHO</label>
+        <label><i class="fas fa-arrows-alt-h"></i>ALCANCE / TAMANHO</label>
         <select name="tier">
           {{!-- Populado via JS --}}
         </select>
@@ -70,10 +70,10 @@
 
     <div class="modal-footer">
       <button type="button" class="btn-cancel" data-action="close">
-        <i class="fas fa-times"></i> CANCELAR
+        <i class="fas fa-times"></i>CANCELAR
       </button>
       <button type="button" class="btn-confirm" data-action="confirm">
-        <i class="fas fa-dice-d20"></i> REALIZAR ROLAGEM
+        <i class="fas fa-dice-d20"></i>REALIZAR ROLAGEM
       </button>
     </div>
   </form>

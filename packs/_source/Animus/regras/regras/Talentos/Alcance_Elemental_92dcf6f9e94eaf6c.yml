@@ -4,8 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/23.png
 system:
   description: >-
-    Alcance médio 18m (+5 <span class="text-resource">PE</span>) e longo 36m (+8
-    <span class="text-resource">PE</span>). <br>Exige linha de visão.
+    Permite ataques em distância Média (18m, +2 implementos/+6 PE) e Longa (36m,
+    +3 implementos/+9 PE). <br>Exige linha de visão.
   trigger: ''
   requirements:
     description: ANI 2 + Projétil Elem.
@@ -29,8 +29,8 @@ system:
       peCost: 5
       type: 2
       description: >-
-        Alcance médio 18m (+5 <span class="text-resource">PE</span>) e longo 36m
-        (+8 <span class="text-resource">PE</span>). <br>Exige linha de visão.
+        Permite ataques em distância Média (18m, +2 implementos/+6 PE) e Longa
+        (36m, +3 implementos/+9 PE). <br>Exige linha de visão.
 folder: talentoshub00001
 effects: []
 _stats:

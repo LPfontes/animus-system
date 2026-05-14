@@ -42,7 +42,13 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
         prot: new fields.SchemaField({ 
           value: new fields.NumberField({ initial: 0, integer: true }),
           max: new fields.NumberField({ initial: 0, integer: true })
-        }) 
+        }),
+        dr: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
+        resistances: new fields.SchemaField({
+          physical: new fields.NumberField({ initial: 0, integer: true }),
+          elemental: new fields.NumberField({ initial: 0, integer: true }),
+          mental: new fields.NumberField({ initial: 0, integer: true })
+        })
       }),
       details: new fields.SchemaField({
         ascendancy: new fields.StringField({ initial: "" }),
@@ -107,6 +113,17 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
     const bonuses = details.advancement?.attributeBonuses || {};
     for (let [lvl, attrKey] of Object.entries(bonuses)) {
       if (parseInt(lvl) <= level && attributes[attrKey]) attributes[attrKey].total += 1;
+    }
+
+    // Bônus de Talentos
+    for (const talent of items.filter(i => i.type === "talent")) {
+      const b = talent.system.bonuses;
+      if (!b) continue;
+
+      // Atributos
+      for (const [attrKey, bonusValue] of Object.entries(b.attributes || {})) {
+        if (bonusValue && attributes[attrKey]) attributes[attrKey].total += bonusValue;
+      }
     }
 
     // 3. Consolidar Totais com Limites (Hard Caps) e Bônus Temporários
@@ -182,11 +199,43 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
 
     // 6. Cálculos de Status (HP, PE, PA)
     const autoBonus = level - 1;
-    status.hp.max = 10 + autoBonus + (details.advancement?.distributedPoints?.hp || 0);
-    status.pe.max = 10 + autoBonus + (details.advancement?.distributedPoints?.pe || 0);
     
-    // PA: Base do nível - penalidades - dívida de PA
-    status.pa.max = Math.max(0, caps.pa - paPenalty - (status.pa.penalty || 0));
+    // Bônus Extras de Talentos
+    let extraHP = 0;
+    let extraPE = 0;
+    let extraPA = 0;
+    let extraDR = 0;
+    let extraDamage = 0;
+
+    for (const talent of items.filter(i => i.type === "talent")) {
+      const b = talent.system.bonuses;
+      extraHP += (b?.hp || 0);
+      extraPE += (b?.pe || 0);
+      extraPA += (b?.pa || 0);
+      extraDR += (b?.dr || 0);
+      extraDamage += (b?.damage || 0);
+    }
+
+    status.hp.max = 10 + autoBonus + extraHP + (details.advancement?.distributedPoints?.hp || 0);
+    status.pe.max = 10 + autoBonus + extraPE + (details.advancement?.distributedPoints?.pe || 0);
+    status.dr = extraDR;
+    status.damageBonus = extraDamage;
+
+    // Resetar e Somar Resistências de Talentos
+    status.resistances.physical = 0;
+    status.resistances.elemental = 0;
+    status.resistances.mental = 0;
+    for (const talent of items.filter(i => i.type === "talent")) {
+      const b = talent.system.bonuses;
+      if (b?.resistances) {
+        status.resistances.physical += (b.resistances.physical || 0);
+        status.resistances.elemental += (b.resistances.elemental || 0);
+        status.resistances.mental += (b.resistances.mental || 0);
+      }
+    }
+    
+    // PA: Base do nível - penalidades - dívida de PA + talentos
+    status.pa.max = Math.max(0, caps.pa - paPenalty - (status.pa.penalty || 0) + extraPA);
 
     // 7. Cálculos de Pontos para a UI (Sincronização com Sheet)
     const totalStatPoints = autoBonus * 3;

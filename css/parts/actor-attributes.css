@@ -2,6 +2,61 @@
 /*              ATTRIBUTES & SKILLS          */
 /* ========================================= */
 
+/* Resistances Header Box */
+.animus .header-stats {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+.animus .stat-box.resistances {
+  width: 100%;
+  margin-top: 15px;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 12px 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+}
+
+.animus .stat-box.resistances label {
+  font-size: 0.65rem;
+  font-weight: 900;
+  color: var(--text-muted);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.animus .res-row {
+  display: flex;
+  gap: 25px;
+}
+
+.animus .res-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  color: #fff;
+  font-weight: 800;
+}
+
+.animus .res-item i {
+  color: var(--accent);
+  font-size: 0.9rem;
+  width: 14px;
+  text-align: center;
+}
+
+.animus .res-item span {
+  font-size: 1rem;
+  text-shadow: 0 0 10px var(--accent-glow);
+}
+
 /* ABILITIES GRID SIDE */
 .animus .abilities-grid-column {
   flex: 1;

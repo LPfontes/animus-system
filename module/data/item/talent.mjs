@@ -11,6 +11,8 @@ export default class AnimusTalentData extends AnimusItemData {
       type: new fields.NumberField({ initial: 0, integer: true, min: 0, max: 3 }),
       action: new fields.NumberField({ initial: 0, integer: true, min: 0 }),
       trigger: new fields.StringField({ initial: "" }),
+      specialization: new fields.StringField({ initial: "" }),
+      requiresSpecialization: new fields.BooleanField({ initial: false }),
       specialActions: new fields.ArrayField(new fields.StringField(), { initial: [] }),
       grantedActions: new fields.ArrayField(new fields.SchemaField({
         id: new fields.StringField({ initial: () => foundry.utils.randomID() }),
@@ -43,6 +45,7 @@ export default class AnimusTalentData extends AnimusItemData {
           pre: new fields.NumberField({ initial: 0, integer: true }),
           ani: new fields.NumberField({ initial: 0, integer: true })
         }),
+        dr: new fields.NumberField({ initial: 0, integer: true }),
         resistances: new fields.SchemaField({
           physical: new fields.NumberField({ initial: 0, integer: true }),
           elemental: new fields.NumberField({ initial: 0, integer: true }),

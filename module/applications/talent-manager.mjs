@@ -214,9 +214,11 @@ export class AnimusTalentManager extends HandlebarsApplicationMixin(ApplicationV
       return;
     }
 
-    // Verificar Limite de Talentos
+    // Verificar Limite de Talentos (Ignorar em modo de edição ou se for GM)
     const talentPoints = this.actor.system.talentPoints;
-    if (talentPoints.available <= 0) {
+    const isEditMode = this.options.editMode || game.user.isGM;
+    
+    if (talentPoints.available <= 0 && !isEditMode) {
       ui.notifications.warn(`Limite de talentos atingido (${talentPoints.total}). Evolua de nível para desbloquear mais.`);
       return;
     }

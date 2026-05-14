@@ -115,6 +115,13 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const attr = this.actor.system.attributes[attrKey];
     if (!attr) return;
 
+    // Validação de PA
+    const currentPa = this.actor.system.status.pa.value;
+    if (currentPa < 1) return ui.notifications.warn(`${this.actor.name} não possui PA suficiente.`);
+
+    // Fecha a ficha
+    await this.close();
+
     // Usar o pool de dados de ataque do NPC (ex: 3d6)
     const diceMatch = this.actor.system.attack.formula.match(/^(\d+)d6/);
     const poolSize = diceMatch ? parseInt(diceMatch[1]) : 2;
@@ -129,6 +136,13 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   async _onRollAttack(event, target) {
     const system = this.actor.system;
+    
+    // Validação de PA (Ataque básico de NPC custa 1 PA)
+    if (system.status.pa.value < 1) return ui.notifications.warn(`${this.actor.name} não possui PA suficiente.`);
+
+    // Fecha a ficha
+    await this.close();
+
     const formula = system.attack.formula;
     const attrKey = system.attack.attribute;
     const attrBonus = system.attributes[attrKey]?.value || 0;
@@ -378,6 +392,13 @@ export class AnimusNPCSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
 
   static async #onSubmit(event, form, formData) {
     const updateData = foundry.utils.expandObject(formData.object);
+
+    // Sanitize image paths to prevent validation errors if they come empty from the form
+    if (updateData.img === "" || (updateData.img && !updateData.img.includes("."))) delete updateData.img;
+    if (updateData.prototypeToken?.texture?.src === "" || (updateData.prototypeToken?.texture?.src && !updateData.prototypeToken.texture.src.includes("."))) {
+      if (updateData.prototypeToken?.texture) delete updateData.prototypeToken.texture.src;
+    }
+
     await this.document.update(updateData);
   }
 }

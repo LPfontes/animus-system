@@ -8,7 +8,7 @@ export class AnimusRollDialog extends HandlebarsApplicationMixin(ApplicationV2) 
     super(options);
     this.resolve = options.resolve;
     this.reject = options.reject;
-    this.weapon = options.weapon;
+    this.data = options.data || {};
   }
 
   static DEFAULT_OPTIONS = {
@@ -36,23 +36,33 @@ export class AnimusRollDialog extends HandlebarsApplicationMixin(ApplicationV2) 
 
   /** @override */
   async _prepareContext(options) {
+    const poolSize = this.data.poolSize || 2;
     return {
-      weapon: this.weapon
+      ...this.data,
+      dice: Array.from({ length: poolSize }, (_, i) => i),
+      rollModes: CONFIG.Dice.rollModes
     };
   }
 
   static async #onSubmit(event, form, formData) {
     const data = foundry.utils.expandObject(formData.object);
+    
+    // Captura qual botão de submissão foi clicado para definir a vantagem
+    const submitter = event.submitter;
+    if (submitter && submitter.name === "advantage") {
+      data.advantage = submitter.value;
+    }
+
     this.resolve(data);
   }
 
   /**
    * Método estático para facilitar a chamada via await
    */
-  static async awaitRoll(weapon) {
+  static async awaitRoll(data = {}) {
     return new Promise((resolve, reject) => {
       const dialog = new this({
-        weapon,
+        data,
         resolve,
         reject
       });

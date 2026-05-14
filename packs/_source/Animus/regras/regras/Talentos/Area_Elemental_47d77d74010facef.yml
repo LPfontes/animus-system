@@ -4,9 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/7.png
 system:
   description: >-
-    Ataques em área (linha, cone ou explosão). <br>+1 <span
-    class="text-resource">PE</span> (3m) / +3 <span
-    class="text-resource">PE</span> (6m).
+    Permite ataques em área (Linha, Cone ou Explosão). <br>Custo: +3 <span
+    class="text-resource">PE</span> (+1 implemento).
   trigger: ''
   requirements:
     description: ANI 2 + Projétil Elem.

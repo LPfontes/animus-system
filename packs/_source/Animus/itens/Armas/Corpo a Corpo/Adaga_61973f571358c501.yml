@@ -5,7 +5,7 @@ img: systems/animus/assets/system-icons/weapon/Adaga.png
 system:
   category: branca
   damageType: cortante
-  type: cortante_medio
+  type: cortante_leve
   description: Tabela Oficial Animus
   damage:
     ac1:
@@ -29,6 +29,7 @@ system:
     attribute: pot
     skill: luta
     dc: 0
+  cost: 1
 folder: bd51c3d03d930431
 effects: []
 _key: '!items!61973f571358c501'

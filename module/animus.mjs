@@ -89,6 +89,12 @@ Hooks.once("init", function() {
     return !isNaN(parseFloat(v)) && isFinite(v);
   });
 
+  // Configuração de Iniciativa (2d6 + PERSPICÁCIA)
+  CONFIG.Combat.initiative = {
+    formula: "2d6 + @attributes.per.total",
+    decimals: 2
+  };
+
   // Expose system functions
   game.animus = {
     rollItemMacro: rollItemMacro
@@ -121,19 +127,15 @@ async function preloadHandlebarsTemplates() {
 /* -------------------------------------------- */
 
 /**
- * Reset PA at start of turn and apply debt from reactions
+ * Função central para resetar o turno de um ator (PA e Repetições)
  */
-Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
-  const combatant = combat.combatant;
-  const actor = combatant?.actor;
+async function resetActorTurn(actor) {
   if (!actor || actor.type !== "character") return;
 
   const pa = actor.system.status.pa;
-  
-  // Se houver dívida, subtrair do máximo. Caso contrário, resetar para o máximo.
   const debt = pa.debt || 0;
   const newPA = Math.max(0, pa.max - debt);
-  
+
   await actor.update({
     "system.status.pa.value": newPA,
     "system.status.pa.debt": 0
@@ -144,6 +146,90 @@ Hooks.on("combatTurn", async (combat, updateData, updateOptions) => {
 
   if (debt > 0) {
     ui.notifications.info(`${actor.name} iniciou o turno com ${newPA} PA (${debt} descontado por reações).`);
+  }
+}
+
+/**
+ * Resetar ao mudar de turno ou rodada
+ */
+Hooks.on("updateCombat", async (combat, changed, options, userId) => {
+  // Apenas o GM processa o reset para evitar conflitos
+  if (!game.user.isGM) return;
+  
+  // Se mudou o turno ou a rodada
+  if ("turn" in changed || "round" in changed) {
+    const combatant = combat.combatant;
+    const actor = combatant?.actor;
+    if (actor && actor.type === "character") {
+      await resetActorTurn(actor);
+      
+      // Forçar re-renderização das fichas abertas desse ator
+      Object.values(ui.windows).forEach(app => {
+        if (app.document === actor) app.render();
+      });
+    }
+  }
+});
+
+/**
+ * Limpar rastreio e resetar PA ao iniciar combate (Turno 1)
+ */
+Hooks.on("combatStart", async (combat, updateData) => {
+  for (let c of combat.combatants) {
+    await resetActorTurn(c.actor);
+  }
+});
+
+/**
+ * Automação: Gastar PA ao se mover no combate
+ */
+Hooks.on("preUpdateToken", async (token, changed, options, userId) => {
+  // 1. Validar se o combate está ativo e se a mudança é de posição
+  if (!game.combat?.active) return;
+  if (!("x" in changed) && !("y" in changed)) return;
+
+  // 2. Validar se o ator é um personagem e se é o turno dele
+  const actor = token.actor;
+  if (!actor || actor.type !== "character") return;
+  if (game.combat.combatant?.actor !== actor) return;
+
+  // 3. Verificar se o movimento é significativo (mudou de quadrado/posição no grid)
+  const grid = canvas.grid;
+  const oldPos = { x: token.x, y: token.y };
+  const newPos = { x: "x" in changed ? changed.x : token.x, y: "y" in changed ? changed.y : token.y };
+  
+  if (grid.type !== CONST.GRID_TYPES.GRIDLESS) {
+    const oldOffset = grid.getOffset(oldPos);
+    const newOffset = grid.getOffset(newPos);
+    if (oldOffset.i === newOffset.i && oldOffset.j === newOffset.j) return;
+  }
+
+  // 4. Verificar se a ação "Mover" já foi registrada neste turno
+  const turnActions = actor.getFlag("animus", "turnActions") || [];
+  if (turnActions.includes("Mover")) return;
+
+  // 5. Tentar consumir 1 PA
+  const success = await actor.consumeResource("pa", 1);
+  if (success) {
+    await actor.recordTurnAction("Mover");
+    ui.notifications.info(`${actor.name} gastou 1 PA para se mover.`);
+  } else {
+    // Se não tiver PA, impede o movimento deletando as coordenadas do objeto 'changed'
+    ui.notifications.warn(`${actor.name} não possui PA suficiente para se mover!`);
+    delete changed.x;
+    delete changed.y;
+  }
+});
+
+Hooks.on("deleteCombat", async (combat, options, userId) => {
+  for (let c of combat.combatants) {
+    if (c.actor) {
+      await c.actor.setFlag("animus", "turnActions", []);
+      // Forçar re-render para limpar os +1 PA exibidos
+      Object.values(ui.windows).forEach(app => {
+        if (app.document === c.actor) app.render();
+      });
+    }
   }
 });
 
@@ -306,8 +392,9 @@ async function _applyDamageToTokens(damage) {
 
     const hp = actor.system.status.hp;
     const prot = actor.system.status.prot;
+    const dr = actor.system.status.dr || 0;
 
-    let remaining = damage;
+    let remaining = Math.max(0, damage - dr);
     let currentProt = prot.value;
     let currentHP = hp.value;
 
@@ -322,7 +409,8 @@ async function _applyDamageToTokens(damage) {
       "system.status.hp.value": newHP
     });
 
-    ui.notifications.info(`Dano: ${actor.name} perdeu ${damage} (Prot: -${absorbed}, PV: -${remaining})`);
+    const finalDamage = Math.max(0, damage - dr);
+    ui.notifications.info(`Dano: ${actor.name} recebeu ${finalDamage} (${damage} base, -${dr} RD). (Prot: -${absorbed}, PV: -${remaining})`);
   }
 }
 

@@ -1,6 +1,16 @@
 export class AnimusActor extends Actor {
 
   /** @override */
+  getRollData() {
+    const data = super.getRollData();
+    // Facilitar acesso a atributos na fórmula de iniciativa (ex: @attributes.per.total)
+    if (this.system.attributes) {
+      data.attributes = this.system.attributes;
+    }
+    return data;
+  }
+
+  /** @override */
   async _onUpdate(changed, options, userId) {
     super._onUpdate(changed, options, userId);
     
@@ -168,6 +178,78 @@ export class AnimusActor extends Actor {
     
     await this.update({ [`system.status.${type}.value`]: current - amount });
     return true;
+  }
+
+  /**
+   * Retorna todos os talentos que possuem uma especialização que coincide com o termo.
+   */
+  getSpecializedTalents(search) {
+    if (!search) return [];
+    const normSearch = this._normalize(search);
+    return this.items.filter(i => {
+      if (i.type !== "talent") return false;
+      return this._normalize(i.system.specialization) === normSearch;
+    });
+  }
+
+  /**
+   * Calcula o bônus de dano total para uma ação.
+   * @param {string} actionName - Nome da ação ou tipo
+   */
+  getActionDamageBonus(actionName) {
+    // 1. Somar talentos que NÃO possuem especialização (bônus globais)
+    let bonus = this.items.filter(i => i.type === "talent" && !i.system.specialization)
+                          .reduce((acc, t) => acc + (t.system.bonuses?.damage || 0), 0);
+    
+    // 2. Somar talentos especializados especificamente nesta ação
+    bonus += this.getSpecializedTalents(actionName)
+                 .reduce((acc, t) => acc + (t.system.bonuses?.damage || 0), 0);
+    
+    return bonus;
+  }
+
+  /**
+   * Calcula o custo final de PA para uma ação, considerando talentos como "Ação Refinada".
+   */
+  getActionPaCost(actionName, baseCost) {
+    if (baseCost <= 1) return baseCost;
+    
+    const normName = this._normalize(actionName);
+    
+    // Buscar bônus de redução de custo de talentos especializados em "Ação Refinada"
+    // Consideramos o nome específico E categorias genéricas
+    const reduction = this.items.filter(i => {
+      if (i.type !== "talent") return false;
+      const spec = this._normalize(i.system.specialization || "");
+      if (!spec) return false;
+
+      const isRefinada = this._normalize(i.name).includes("acao refinada");
+      if (!isRefinada) return false;
+
+      // Match direto
+      if (spec === normName) return true;
+
+      // Match por Categoria: Armas contam como "Atacar"
+      if (spec === "atacar") {
+        const isWeapon = this.items.some(w => w.type === "weapon" && this._normalize(w.name) === normName);
+        if (isWeapon || normName === "atacar") return true;
+      }
+
+      // Match por Categoria: Movimentação
+      if (spec === "mover" && normName.startsWith("mover")) return true;
+
+      return false;
+    }).length;
+
+    return Math.max(1, baseCost - reduction);
+  }
+
+  /**
+   * Normaliza strings para comparação (remover acentos, minúsculo, aparar)
+   */
+  _normalize(str) {
+    if (typeof str !== "string") return "";
+    return str.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase().trim();
   }
 
   /**

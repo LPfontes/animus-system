@@ -28,6 +28,7 @@ system:
     attribute: pot
     skill: luta
     dc: 0
+  cost: 1
 folder: bd51c3d03d930431
 effects: []
 _key: '!items!sq1nivo7n8h00000'

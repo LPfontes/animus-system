@@ -74,7 +74,35 @@ export class AnimusItemSheet extends HandlebarsApplicationMixin(ItemSheetV2) {
       context.secondaryEffects = await this.#getSecondaryEffects(this.document.name);
     }
 
+    // Lista de ações disponíveis para o seletor de especialização
+    context.availableActions = this.#getAvailableActions();
+
     return context;
+  }
+
+  /**
+   * Coleta todas as ações possíveis (Básicas, Itens, Armas) para especialização.
+   */
+  #getAvailableActions() {
+    const actions = new Set(["Atacar", "Ataque Elemental"]);
+    
+    // Adicionar ações básicas da configuração
+    if (CONFIG.ANIMUS.basicActions) {
+      for (const a of Object.values(CONFIG.ANIMUS.basicActions)) {
+        if (a.name) actions.add(a.name);
+      }
+    }
+
+    // Se estiver em um ator, adicionar armas, talentos e ações do próprio ator
+    if (this.document.actor) {
+      for (const i of this.document.actor.items) {
+        if (["weapon", "talent", "npcTalent", "action"].includes(i.type)) {
+          actions.add(i.name);
+        }
+      }
+    }
+
+    return Array.from(actions).sort((a, b) => a.localeCompare(b));
   }
 
   async #getTalentFromPacks(id) {

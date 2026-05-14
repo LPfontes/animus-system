@@ -10,6 +10,7 @@ system:
     <br>Só pode ser comprado 1 vez por tipo de <span
     class="text-mechanic">ação</span>].
   trigger: Uma ação especifica
+  specialization: ''
   requirements:
     description: ''
     talents: {}

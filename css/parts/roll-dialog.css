@@ -1,86 +1,284 @@
 /* =========================================== */
-/*              ROLL DIALOG APP                */
+/*         ANIMUS ROLL DIALOG V2 (PREMIUM)      */
 /* =========================================== */
 
-.roll-dialog-content {
+.roll-dialog-v2 {
   display: flex;
   flex-direction: column;
-  gap: 15px;
-  padding: 10px;
+  gap: 20px;
+  padding: 8px;
+  font-family: 'Outfit', sans-serif;
 }
 
-.roll-dialog-content .grid-2 {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 15px;
-}
-
-.roll-dialog-content .form-group {
+/* --- HEADER --- */
+.roll-dialog-v2 .roll-header {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  align-items: center;
+  gap: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+  padding-bottom: 16px;
   margin-bottom: 5px;
-  text-align: center;
 }
 
-.roll-dialog-content label {
-  font-family: "Outfit", sans-serif;
-  font-size: 0.75rem;
-  font-weight: 800;
-  text-transform: uppercase;
-  letter-spacing: 0.1em;
-  color: var(--accent);
-}
-
-.roll-dialog-content select,
-.roll-dialog-content input[type="number"] {
-  background: rgba(0, 0, 0, 0.3);
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  color: #fff;
-  padding: 8px 12px;
-  font-family: "Outfit", sans-serif;
-  transition: all 0.2s ease;
-}
-
-.roll-dialog-content select:focus,
-.roll-dialog-content input[type="number"]:focus {
-  border-color: var(--accent);
-  box-shadow: 0 0 10px var(--accent-glow);
-  outline: none;
-}
-
-.roll-dialog-content .creator-footer {
-  margin-top: 10px !important;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
-  padding-top: 15px !important;
-}
-
-.roll-dialog-content .create-btn {
-  width: 100%;
-  background: var(--accent);
-  color: white;
-  border: none;
-  padding: 12px;
-  border-radius: 10px;
-  font-weight: 900;
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: all 0.3s ease;
+.roll-dialog-v2 .header-icon {
+  width: 48px;
+  height: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 10px;
-  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, rgba(157, 78, 221, 0.2), rgba(157, 78, 221, 0.1));
+  border: 1px solid rgba(157, 78, 221, 0.4);
+  border-radius: 12px;
+  color: var(--accent);
+  font-size: 1.6rem;
+  box-shadow: 0 0 15px rgba(157, 78, 221, 0.15), inset 0 0 10px rgba(157, 78, 221, 0.1);
+  text-shadow: 0 0 8px var(--accent);
 }
 
-.roll-dialog-content .create-btn:hover {
+.roll-dialog-v2 .header-text {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+
+.roll-dialog-v2 .header-text .title {
+  margin: 0;
+  font-size: 1.25rem;
+  font-weight: 900;
+  color: #fff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  border: none;
+  line-height: 1;
+}
+
+.roll-dialog-v2 .header-text .subtitle {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.4);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+}
+
+/* --- FORMULA / DICE SECTION --- */
+.roll-dialog-v2 .formula-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+}
+
+.roll-dialog-v2 .dice-visualization {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+
+.roll-dialog-v2 .dice-preview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 12px 20px;
+  border-radius: 12px;
+  min-width: 80px;
+}
+
+.roll-dialog-v2 .dice-preview:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--accent-glow);
-  filter: brightness(1.1);
+  border-color: rgba(157, 78, 221, 0.3);
 }
 
-.roll-dialog-content .create-btn i {
-  font-size: 1.1rem;
+.roll-dialog-v2 .dice-icons {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+  margin-bottom: 6px;
+}
+
+.roll-dialog-v2 .dice-icons i {
+  font-size: 3rem;
+  color: var(--accent);
+  filter: drop-shadow(0 0 5px rgba(157, 78, 221, 0.5));
+}
+
+.roll-dialog-v2 .dice-preview .dice-count {
+  font-size: 1.3rem;
+  font-weight: 900;
+  color: #fff;
+}
+
+/* --- SITUATIONAL BONUS --- */
+.roll-dialog-v2 .situational-bonus {
+    width: 100%;
+}
+
+.roll-dialog-v2 .situational-bonus input {
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 10px;
+  color: #fff;
+  padding: 12px;
+  font-family: 'Outfit', sans-serif;
+  text-align: center;
+  font-weight: 900;
+  font-size: 1.2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.roll-dialog-v2 .situational-bonus input:focus {
+  border-color: var(--accent);
+  background: rgba(157, 78, 221, 0.05);
+  box-shadow: 0 0 20px rgba(157, 78, 221, 0.2), inset 0 2px 5px rgba(0, 0, 0, 0.5);
+  outline: none;
+  transform: scale(1.01);
+}
+
+.roll-dialog-v2 .situational-bonus input::placeholder {
+    color: rgba(255, 255, 255, 0.2);
+    font-weight: 500;
+    font-size: 0.9rem;
+}
+
+/* --- CONFIG SECTION --- */
+.roll-dialog-v2 .config-section {
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 12px;
+  padding: 15px 20px;
+  margin: 5px 0;
+}
+
+.roll-dialog-v2 .config-section legend {
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.25em;
+  color: var(--accent);
+  padding: 0 12px;
+  font-weight: 900;
+  opacity: 0.8;
+}
+
+.roll-dialog-v2 .form-group {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 75px;
+}
+
+.roll-dialog-v2 .form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.7);
+  letter-spacing: 0.02em;
+}
+
+.roll-dialog-v2 .form-group select {
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 6px;
+  padding: 6px 12px;
+  font-family: 'Outfit', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.roll-dialog-v2 .form-group select:hover {
+    border-color: var(--accent);
+}
+
+/* --- ACTIONS --- */
+.roll-dialog-v2 .roll-actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+  margin-top: 5px;
+}
+
+.roll-dialog-v2 .roll-actions button {
+  position: relative;
+  padding: 14px 8px;
+  border-radius: 10px;
+  font-family: 'Outfit', sans-serif;
+  font-weight: 900;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.03);
+  color: rgba(255, 255, 255, 0.9);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  overflow: hidden;
+}
+
+.roll-dialog-v2 .roll-actions button::after {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.05), transparent);
+    pointer-events: none;
+}
+
+.roll-dialog-v2 .roll-actions button i {
+  font-size: 1rem;
+  transition: transform 0.2s ease;
+}
+
+.roll-dialog-v2 .roll-actions button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.roll-dialog-v2 .roll-actions button:hover i {
+    transform: scale(1.2);
+}
+
+/* Advantage Button */
+.roll-dialog-v2 .roll-actions .btn-advantage {
+  border-color: rgba(46, 204, 113, 0.3);
+}
+.roll-dialog-v2 .roll-actions .btn-advantage:hover {
+  background: rgba(46, 204, 113, 0.15);
+  border-color: #2ecc71;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(46, 204, 113, 0.2);
+}
+.roll-dialog-v2 .roll-actions .btn-advantage i { color: #2ecc71; text-shadow: 0 0 10px rgba(46, 204, 113, 0.5); }
+
+/* Normal Button */
+.roll-dialog-v2 .roll-actions .btn-normal {
+  border-color: rgba(0, 212, 255, 0.3);
+  background: rgba(157, 78, 221, 0.05);
+}
+.roll-dialog-v2 .roll-actions .btn-normal:hover {
+  background: rgba(157, 78, 221, 0.15);
+  border-color: var(--accent);
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(157, 78, 221, 0.2);
+}
+
+/* Disadvantage Button */
+.roll-dialog-v2 .roll-actions .btn-disadvantage {
+  border-color: rgba(231, 76, 60, 0.3);
+}
+.roll-dialog-v2 .roll-actions .btn-disadvantage:hover {
+  background: rgba(231, 76, 60, 0.15);
+  border-color: #e74c3c;
+  color: #fff;
+  box-shadow: 0 5px 20px rgba(231, 76, 60, 0.2);
+}
+.roll-dialog-v2 .roll-actions .btn-disadvantage i { color: #e74c3c; text-shadow: 0 0 10px rgba(231, 76, 60, 0.5); }
+
+/* Window UI Tweaks */
+.application.animus.roll-dialog .window-content {
+    background: linear-gradient(180deg, rgba(15, 12, 25, 0.98), rgba(25, 20, 40, 0.98)) !important;
+    backdrop-filter: blur(10px);
 }

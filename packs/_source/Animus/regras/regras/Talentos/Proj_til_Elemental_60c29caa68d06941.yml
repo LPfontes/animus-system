@@ -4,8 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/22.png
 system:
   description: >-
-    Ataques elementais a 9m (+3 <span class="text-resource">PE</span>).
-    <br>Projétil visível do elemento.
+    Permite ataques elementais em distância Curta (9m). <br>Custo: +3 <span
+    class="text-resource">PE</span> (1 implemento).
   trigger: ''
   requirements:
     description: ANI 1
@@ -28,8 +28,8 @@ system:
       peCost: 3
       type: 2
       description: >-
-        Ataques elementais a 9m (+3 <span class="text-resource">PE</span>).
-        <br>Projétil visível do elemento.
+        Permite ataques elementais em distância Curta (9m). <br>Custo: +3 <span
+        class="text-resource">PE</span> (1 implemento).
 folder: talentoshub00001
 effects: []
 _key: '!items!60c29caa68d06941'

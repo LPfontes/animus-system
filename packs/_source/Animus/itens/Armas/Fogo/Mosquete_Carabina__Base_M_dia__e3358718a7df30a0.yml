@@ -30,6 +30,7 @@ system:
     attribute: hab
     skill: pontaria
     dc: 0
+  cost: 2
 folder: 12a3c819990821c3
 effects: []
 _key: '!items!e3358718a7df30a0'

@@ -63,7 +63,7 @@
     <div class="talent-card glass-panel item-row" data-item-id="{{talent.id}}" data-action="toggleActionDescription" draggable="true">
       <div class="talent-header">
         <div class="talent-name-wrapper">
-          <span class="talent-name">{{talent.name}}</span>
+          <span class="talent-name">{{talent.name}} {{#if (and talent.system.requiresSpecialization talent.system.specialization)}}({{talent.system.specialization}}){{/if}}</span>
           <span class="talent-category-tag">{{talent.system.subCategory}}</span>
         </div>
         <div class="talent-controls">
@@ -72,8 +72,23 @@
           <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
         </div>
       </div>
-      {{#if talent.system.description}}
+      {{#if (or talent.system.description talent.system.requiresSpecialization ../owner)}}
       <div class="talent-body">
+        {{#if talent.system.requiresSpecialization}}
+        <div class="talent-specialization-tag">
+          <i class="fas fa-crosshairs"></i> Especialização: 
+          {{#if ../owner}}
+          <select class="spec-inline-edit" data-item-id="{{talent.id}}">
+            <option value="">Nenhuma</option>
+            {{#each ../availableActions as |action|}}
+            <option value="{{action}}" {{#if (eq talent.system.specialization action)}}selected{{/if}}>{{action}}</option>
+            {{/each}}
+          </select>
+          {{else}}
+          <strong>{{#if talent.system.specialization}}{{talent.system.specialization}}{{else}}Nenhuma{{/if}}</strong>
+          {{/if}}
+        </div>
+        {{/if}}
         {{{talent.system.description}}}
       </div>
       {{/if}}
@@ -91,33 +106,10 @@
     </div>
     {{/each}}
 
-    {{!-- Ações (Apenas na aba de combate) --}}
-    {{#if isCombatTab}}
-      {{#each actions as |action|}}
-      <div class="talent-card glass-panel action item-row" data-item-id="{{action.id}}" data-action="toggleActionDescription">
-        <div class="talent-header">
-          <div class="talent-name-wrapper">
-            <span class="talent-name"><i class="fas fa-bolt mini-icon"></i> {{action.name}}</span>
-          </div>
-          <div class="talent-controls">
-            <a class="talent-control post" data-action="postItem" title="Enviar no Chat"><i class="fas fa-comment"></i></a>
-            <a class="talent-control edit" data-action="editItem" title="Editar"><i class="fas fa-edit"></i></a>
-            <a class="talent-control delete" data-action="deleteItem" title="Excluir"><i class="fas fa-trash"></i></a>
-          </div>
-        </div>
-        {{#if action.system.description}}
-        <div class="talent-body">
-          {{{action.system.description}}}
-        </div>
-        {{/if}}
-      </div>
-      {{/each}}
-    {{/if}}
-
     {{!-- Empty States --}}
     {{#if isCombatTab}}
-      {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length) (not actions.length))}}
-      <div class="empty-state">Nenhum talento ou ação disponível</div>
+      {{#if (and (not ascendancy.system.innateAbilities.length) (not talents.length))}}
+      <div class="empty-state">Nenhum talento disponível</div>
       {{/if}}
     {{else}}
       {{#if (and (not showInnate) (not talents.length))}}

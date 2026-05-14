@@ -8,5 +8,18 @@
    movidos para a pasta css/parts/
 */
 
+@import "parts/variables.css";
+@import "parts/base.css";
 @import "parts/weapon-creator.css";
 @import "parts/elemental-modal.css";
+@import "parts/actor-combat.css";
+@import "parts/actor-elements.css";
+@import "parts/actor-attributes.css";
+@import "parts/actor-inventory.css";
+@import "parts/actor-biography.css";
+@import "parts/actor.css";
+@import "parts/talent-manager.css";
+@import "parts/compendium-browser.css";
+@import "parts/bonus-selector.css";
+@import "parts/advancement.css";
+@import "parts/chat.css";

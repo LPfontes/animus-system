@@ -14,8 +14,13 @@ export default class AnimusTemplate extends foundry.canvas.placeables.MeasuredTe
     if (!scene) return null;
 
     // Mapa de tamanhos (em metros) do Animus
-    const sizes = { small: 3, medium: 6, large: 12, curto: 3, medio: 6, longo: 12 };
-    const distance = sizes[tier] || 3;
+    const sizes = { 
+      small: 3, medium: 6, large: 12, 
+      curto: 6, medio: 9, longo: 12,
+      base: 3, "3m": 1.5, "6m": 3, "9m": 4.5, "12m": 6,
+      personal: 0
+    };
+    const distance = sizes[tier] ?? 3;
 
     const templateData = {
       user: game.user.id,
@@ -68,12 +73,6 @@ export default class AnimusTemplate extends foundry.canvas.placeables.MeasuredTe
     this.layer.activate();
     this.layer.preview.addChild(this);
 
-    // Esconde a ficha
-    const sheet = this.actorSheet;
-    const { windowId } = (sheet?.parent ?? sheet)?.window ?? {};
-    this.#sheetMinimized = (game.release.generation < 14 || !windowId) && !sheet?._minimized;
-    if ( this.#sheetMinimized ) sheet?.minimize();
-
     // Ativa interatividade
     return this.activatePreviewListeners(initialLayer);
   }
@@ -117,7 +116,6 @@ export default class AnimusTemplate extends foundry.canvas.placeables.MeasuredTe
     }
     
     this.#initialLayer.activate();
-    if ( this.#sheetMinimized ) await this.actorSheet?.maximize();
   }
 
   /* -------------------------------------------- */
@@ -198,9 +196,13 @@ export default class AnimusTemplate extends foundry.canvas.placeables.MeasuredTe
           }
         }
         
-        // Atualiza os alvos do jogador
+        // Atualiza os alvos do jogador (Compatível com V13+)
         if (targets.length > 0) {
-          game.user.updateTokenTargets(targets);
+          game.user.targets.clear();
+          for ( let id of targets ) {
+            const token = canvas.tokens.get(id);
+            if ( token ) token.setTarget(true, { releaseOthers: false, groupSelection: true });
+          }
         }
       }, 100); // pequeno delay para garantir que o Foundry terminou de desenhar o template no mapa
     }
