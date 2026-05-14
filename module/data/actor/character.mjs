@@ -185,6 +185,10 @@ export default class AnimusCharacterData extends foundry.abstract.TypeDataModel 
       }
     }
     status.prot.max = totalProt;
+    
+    // Bônus de Ascendência: Draconato (Couro Escamoso)
+    if (ascendancy && ascendancy.name === "Draconato") status.prot.max += 2;
+
     details.actionCostPenalty = actionCostPenalty;
 
     // 5. Aplicar Bônus de Perícias (incluindo penalidades de equipamento)

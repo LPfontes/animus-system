@@ -209,7 +209,8 @@ ANIMUS.ascendancies = {
   mestico: "Mestiço",
   humano: "Humano",
   anao: "Anão",
-  elfo: "Elfo"
+  elfo: "Elfo",
+  draconato: "Draconato"
 };
 
 ANIMUS.elements = {
