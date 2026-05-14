@@ -7,7 +7,7 @@ system:
     Quando sua rolagem de ataque resultar em 4 acertos, pode gastar 2 <span
     class="text-resource">PE</span> para atordoar o alvo por 1 <span
     class="text-mechanic">rodada</span> (custo de todas as suas <span
-    class="text-mechanic">ações</span> aumenta em 1).
+    class="text-mechanic">PAs</span> aumenta em 1).
   trigger: Ataque com 4 acertos
   requirements:
     description: Amador em Luta ou Pontaria.
@@ -35,7 +35,7 @@ system:
         Quando sua rolagem de ataque resultar em 4 acertos, pode gastar 2 <span
         class="text-resource">PE</span> para atordoar o alvo por 1 <span
         class="text-mechanic">rodada</span> (custo de todas as suas <span
-        class="text-mechanic">ações</span> aumenta em 1).
+        class="text-mechanic">PAs</span> aumenta em 1).
 folder: talentoshub00001
 effects: []
 _stats:

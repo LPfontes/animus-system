@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/arqueria/18.png
 system:
   description: >-
     Dobra a distância de arremesso de armas leves (6m 12m). <br>Sacar uma arma
-    de arremesso não custa nenhuma <span class="text-mechanic">ação</span>.
+    de arremesso não custa nenhuma <span class="text-mechanic">PA</span>.
   trigger: passiva
   requirements:
     description: 1 ponto em HABILIDADE.

@@ -8,7 +8,7 @@ system:
     class="text-resource">PE</span> para fazer um <span
     class="text-mechanic">teste</span> de Resistência. <br>Se bem sucedido, fica
     com 1 <span class="text-resource">PV</span> e ganha uma <span
-    class="text-mechanic">ação</span>.
+    class="text-mechanic">PA</span>.
   trigger: ''
   requirements:
     description: Profissional em Resistência.
@@ -35,7 +35,7 @@ system:
         class="text-resource">PE</span> para fazer um <span
         class="text-mechanic">teste</span> de Resistência. <br>Se bem sucedido,
         fica com 1 <span class="text-resource">PV</span> e ganha uma <span
-        class="text-mechanic">ação</span>.
+        class="text-mechanic">PA</span>.
 folder: talentoshub00001
 effects: []
 _stats:

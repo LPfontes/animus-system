@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/22.png
 system:
   description: >-
-    Permite ataques elementais em distância Curta (9m). <br>Custo: +3 <span
+    Permite ataques elementais em distância Curta (6m). <br>Custo: +3 <span
     class="text-resource">PE</span> (1 implemento).
   trigger: ''
   requirements:
@@ -28,7 +28,7 @@ system:
       peCost: 3
       type: 2
       description: >-
-        Permite ataques elementais em distância Curta (9m). <br>Custo: +3 <span
+        Permite ataques elementais em distância Curta (6m). <br>Custo: +3 <span
         class="text-resource">PE</span> (1 implemento).
 folder: talentoshub00001
 effects: []

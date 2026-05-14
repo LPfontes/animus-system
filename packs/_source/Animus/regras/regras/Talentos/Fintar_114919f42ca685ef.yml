@@ -7,7 +7,7 @@ system:
     Realize um <span class="text-mechanic">teste</span> de Enganação contra
     <span class="text-attribute">PER</span> do alvo. <br>Se ele falhar fica com
     <span class="text-mechanic">desvantagem</span> contra suas <span
-    class="text-mechanic">ações</span> até a próxima <span
+    class="text-mechanic">PAs</span> até a próxima <span
     class="text-mechanic">rodada</span>.
   trigger: ''
   requirements:
@@ -34,7 +34,7 @@ system:
         Realize um <span class="text-mechanic">teste</span> de Enganação contra
         <span class="text-attribute">PER</span> do alvo. <br>Se ele falhar fica
         com <span class="text-mechanic">desvantagem</span> contra suas <span
-        class="text-mechanic">ações</span> até a próxima <span
+        class="text-mechanic">PAs</span> até a próxima <span
         class="text-mechanic">rodada</span>.
 folder: talentoshub00001
 effects: []

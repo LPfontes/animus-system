@@ -4,9 +4,9 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/21.png
 system:
   description: >-
-    Quando gasta uma <span class="text-mechanic">ação</span> extra para conjurar
+    Quando gasta uma <span class="text-mechanic">PA</span> extra para conjurar
     o elemento, ao invés de reduzir em 4 o custo, reduz em 7 para cada <span
-    class="text-mechanic">ação</span>.
+    class="text-mechanic">PA</span>.
   trigger: ''
   requirements:
     description: Amador em Perícia Elemental.

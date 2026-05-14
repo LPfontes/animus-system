@@ -3,7 +3,10 @@ name: Alquimista
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/11.png
 system:
-  description: .
+  description: >-
+    Você domina a arte da transmutação e síntese.
+    <br><b>Fabricar poções:</b> Você pode fabricar poções com 1/3 do custo normal.
+    <br><b>Sintetizar Elementos:</b> Você pode solidificar energia bruta em cristais ou runas para uso em ataques elementais.
   trigger: ''
   requirements:
     description: >-
@@ -26,6 +29,21 @@ system:
     skill: -1
     dc: 0
   subCategory: Pericia
+  grantedItems:
+    - id: 9ec1cf124e36b228
+      name: Elixir do Poder
+      type: secondary
+      img: systems/animus/assets/system-icons/items/Antídoto Universal.png
+      quantity: 1
+      description: +1 em um atributo por uma cena. (Máx 2 ativos).
+      consumable: true
+      subCategory: cura
+      price: 30 Đ
+      application:
+        type: bonus
+        formula: "1"
+        resource: attribute
+        condition: ""
 folder: talentoshub00001
 effects: []
 _stats:

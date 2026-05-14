@@ -26,19 +26,46 @@ system:
   grantedItems:
     - id: 7ba4c338ff9f13af
       name: Bálsamo
+      type: secondary
       img: icons/consumables/potions/potion-flask-corked-vial-red.webp
       quantity: 1
-      description: Cura ANIMA+COGNIÇÃO do criador; 10 dinheiros.
+      description: Cura ANIMA+COGNIÇÃO do criador.
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: heal
+        formula: "@anima + @cog"
+        resource: pv
+        condition: ""
     - id: 3c8a36c9b4d091a7
       name: Antídoto
+      type: secondary
       img: icons/consumables/potions/potion-flask-corked-vial-blue.webp
       quantity: 1
-      description: Remove Envenenado, purifica água/alimentos; 10 dinheiros.
+      description: Remove Envenenado, purifica água/alimentos.
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: condition
+        formula: ""
+        resource: pv
+        condition: envenenado
     - id: 17e6d7b6def4459b
       name: Toxina básica
+      type: secondary
       img: icons/consumables/potions/potion-flask-corked-vial-green.webp
       quantity: 1
       description: Causa dano igual a ANIMA+COGNIÇÃO do criador.
+      consumable: true
+      subCategory: utilitario
+      price: 10 Đ
+      application:
+        type: damage
+        formula: "@anima + @cog"
+        resource: pv
+        condition: ""
 folder: talentoshub00001
 effects: []
 _key: '!items!bf036223acd4ba3a'

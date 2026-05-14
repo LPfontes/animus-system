@@ -59,7 +59,7 @@ system:
       name: 'Mod: Extenuante'
       img: icons/sundries/survival/trap-bear.webp
       quantity: 1
-      description: +8 PE para aplicar. Alvo perde 1 ação até o fim da cena.
+      description: +8 PE para aplicar. Alvo perde 1 PA até o fim da cena.
 folder: talentoshub00001
 effects: []
 _stats:

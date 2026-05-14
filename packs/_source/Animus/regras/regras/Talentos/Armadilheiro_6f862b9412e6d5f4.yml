@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/13.png
 system:
   description: >-
     Você sabe fazer armadilhas fixas de forma rápida. <br>Gasta 4 <span
-    class="text-mechanic">ações</span> para 'plantar' uma armadilha. <br>Para
+    class="text-mechanic">PAs</span> para 'plantar' uma armadilha. <br>Para
     detectar: <span class="text-attribute">PER</span> ou Sobrevivência <span
     class="text-mechanic">CD</span> 9+<span class="text-attribute">PER</span> do
     armadilheiro.
@@ -27,19 +27,46 @@ system:
   grantedItems:
     - id: 6750d3273abb8e23
       name: Armadilha de Lentidão
+      type: secondary
       img: icons/sundries/survival/trap-bear.webp
       quantity: 1
-      description: 'Movimento custa +1 ação — Custo: 2 PE para armar.'
+      description: 'Movimento custa +1 PA.'
+      consumable: true
+      subCategory: utilitario
+      price: 10 Đ
+      application:
+        type: condition
+        formula: ""
+        resource: pa
+        condition: lento
     - id: 23b97337264ae4a5
       name: Armadilha de Dano
+      type: secondary
       img: icons/sundries/survival/trap-bear.webp
       quantity: 1
-      description: 'Causa 3+PERSPICÁCIA de dano — Custo: 2 PE para armar.'
+      description: 'Causa 3+PERSPICÁCIA de dano.'
+      consumable: true
+      subCategory: utilitario
+      price: 10 Đ
+      application:
+        type: damage
+        formula: "3 + @per"
+        resource: pv
+        condition: ""
     - id: 4c5bd4d9b8dea825
       name: Armadilha de Alerta
+      type: secondary
       img: icons/sundries/survival/trap-bear.webp
       quantity: 1
-      description: 'Causa som alto ao ser disparada — Custo: 2 PE para armar.'
+      description: 'Causa som alto ao ser disparada.'
+      consumable: true
+      subCategory: utilitario
+      price: 10 Đ
+      application:
+        type: ""
+        formula: ""
+        resource: ""
+        condition: ""
   grantedActions:
     - id: 036250a03020a39d
       name: Armadilheiro
@@ -48,7 +75,7 @@ system:
       type: 2
       description: >-
         Você sabe fazer armadilhas fixas de forma rápida. <br>Gasta 4 <span
-        class="text-mechanic">ações</span> para 'plantar' uma armadilha.
+        class="text-mechanic">PAs</span> para 'plantar' uma armadilha.
         <br>Para detectar: <span class="text-attribute">PER</span> ou
         Sobrevivência <span class="text-mechanic">CD</span> 9+<span
         class="text-attribute">PER</span> do armadilheiro.

@@ -5,13 +5,13 @@ img: systems/animus/assets/icons/skills/talentos/combate/12.png
 system:
   description: >-
     Após acertar um ataque com punhos ou arma natural, pode agarrar o alvo como
-    <span class="text-mechanic">ação livre</span> (0 <span
+    <span class="text-mechanic">PA livre</span> (0 <span
     class="text-resource">PA</span> adicional) por 2 <span
     class="text-resource">PE</span>. <br>Se já tiver o alvo <span
     class="text-condition">agarrado</span>, pode causar <span
     class="text-mechanic">dano</span> de punho automaticamente por 1 <span
     class="text-resource">PA</span>.
-  trigger: ação livre
+  trigger: PA livre
   requirements:
     description: Amador em Luta.
     talents: {}

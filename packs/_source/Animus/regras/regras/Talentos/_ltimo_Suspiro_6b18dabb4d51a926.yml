@@ -6,7 +6,7 @@ system:
   description: >-
     Quando você falha no <span class="text-mechanic">teste</span> do Duro de
     Matar, você ganha o dobro dos seus pontos de <span
-    class="text-mechanic">ação</span> de um turno comum e tem <span
+    class="text-mechanic">PA</span> de um turno comum e tem <span
     class="text-mechanic">vantagem</span> em todos seus testes. <br>Após isso,
     você cai.
   trigger: ''

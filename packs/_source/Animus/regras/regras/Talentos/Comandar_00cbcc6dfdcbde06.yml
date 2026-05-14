@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/48.png
 system:
   description: >-
     Dê um comando a um aliado. <br>Se ele seguir seu comando, ganhará 6 <span
-    class="text-mechanic">ações</span> para realizá-lo. <br>Comandos precisam
+    class="text-mechanic">PAs</span> para realizá-lo. <br>Comandos precisam
     ser precisos (ex: 'Ataque aquele oponente', 'Destrua aquela ponte',
     'Conserte aquele mecanismo').
   trigger: ''
@@ -32,7 +32,7 @@ system:
       type: 2
       description: >-
         Dê um comando a um aliado. <br>Se ele seguir seu comando, ganhará 6
-        <span class="text-mechanic">ações</span> para realizá-lo. <br>Comandos
+        <span class="text-mechanic">PAs</span> para realizá-lo. <br>Comandos
         precisam ser precisos (ex: 'Ataque aquele oponente', 'Destrua aquela
         ponte', 'Conserte aquele mecanismo').
 folder: talentoshub00001

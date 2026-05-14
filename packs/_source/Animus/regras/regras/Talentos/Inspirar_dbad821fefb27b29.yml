@@ -4,8 +4,11 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/49.png
 system:
   description: >-
-    Escolha um dos efeitos (não se aplica a quem usa; somente uma inspiração
-    ativa por personagem):.
+    Escolha um dos efeitos abaixo (não se aplica a quem usa; somente uma inspiração ativa por personagem):
+    <br><b>Inspirar Confiança:</b> Vantagem para a próxima PA de todos os aliados.
+    <br><b>Inspirar Ânimo:</b> Recupera 6 PE de todos os aliados.
+    <br><b>Inspirar a Vontade:</b> Dá 1 PA (PA) a cada aliado nessa rodada.
+    <br><b>Inspirar Reflexos:</b> Aumenta a dificuldade dos acertos nos aliados em 1 por essa rodada.
   trigger: ''
   requirements:
     description: Profissional em Performance; Motivar.
@@ -22,6 +25,63 @@ system:
     skill: -1
     dc: 0
   subCategory: Pericia
+  grantedItems:
+    - id: insp-confianca
+      name: Inspirar Confiança
+      type: secondary
+      img: icons/magic/life/cross-worn-green.webp
+      quantity: 1
+      description: Vantagem para a próxima PA de todos os aliados.
+      consumable: false
+      subCategory: utilitario
+      price: 0 Đ
+      application:
+        type: condition
+        formula: ""
+        resource: ""
+        condition: vantagem
+    - id: insp-animo
+      name: Inspirar Ânimo
+      type: secondary
+      img: icons/magic/life/heart-gloves-blue.webp
+      quantity: 1
+      description: Recupera 6 PE de todos os aliados.
+      consumable: false
+      subCategory: cura
+      price: 0 Đ
+      application:
+        type: heal
+        formula: "6"
+        resource: pe
+        condition: ""
+    - id: insp-vontade
+      name: Inspirar a Vontade
+      type: secondary
+      img: icons/magic/time/stopwatch-magnetic.webp
+      quantity: 1
+      description: Dá 1 PA (PA) a cada aliado nessa rodada.
+      consumable: false
+      subCategory: utilitario
+      price: 0 Đ
+      application:
+        type: bonus
+        formula: "1"
+        resource: pa
+        condition: ""
+    - id: insp-reflexos
+      name: Inspirar Reflexos
+      type: secondary
+      img: icons/magic/defensive/shield-barrier-blue.webp
+      quantity: 1
+      description: Aumenta dificuldade dos acertos nos aliados em 1.
+      consumable: false
+      subCategory: utilitario
+      price: 0 Đ
+      application:
+        type: bonus
+        formula: "1"
+        resource: prot
+        condition: ""
   grantedActions:
     - id: 39cab8d217139e03
       name: Inspirar

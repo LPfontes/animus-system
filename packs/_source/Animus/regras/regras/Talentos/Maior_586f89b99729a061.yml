@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/50.png
 system:
   description: >-
     1×/<span class="text-mechanic">rodada</span>: ao acertar com a arma
-    primária, ataque com a secundária como <span class="text-mechanic">ação
+    primária, ataque com a secundária como <span class="text-mechanic">PA
     livre</span> (0 <span class="text-resource">PA</span>, 0 <span
     class="text-resource">PE</span>). <br>Multiplicador completo.
   trigger: ao acertar

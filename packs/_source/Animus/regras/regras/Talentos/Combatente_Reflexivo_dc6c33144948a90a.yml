@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/36.png
 system:
   description: >-
-    Você pode declarar e executar suas <span class="text-mechanic">ações</span>
+    Você pode declarar e executar suas <span class="text-mechanic">PAs</span>
     de combate em qualquer ordem dentro do seu turno, sem precisar anunciá-las
     antecipadamente ao Narrador.
   trigger: ''

@@ -8,7 +8,7 @@ system:
     class="text-mechanic">teste</span> de ofício para dar pontos de vida extra a
     seus aliados, o valor é igual a 3+número de acertos do dado. <br>Esses
     pontos de vida dura até o próximo descanso longo. <br>Também utiliza metade
-    das rações por pessoa durante viagens.
+    das rPAs por pessoa durante viagens.
   trigger: Descanso longo
   requirements:
     description: ''

@@ -4,11 +4,11 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/39.png
 system:
   description: >-
-    Usa as <span class="text-mechanic">ações</span> da próxima <span
+    Usa as <span class="text-mechanic">PAs</span> da próxima <span
     class="text-mechanic">rodada</span> nesta <span
     class="text-mechanic">rodada</span>  na próxima <span
     class="text-mechanic">rodada</span>, não terá <span
-    class="text-mechanic">ações</span> disponíveis.
+    class="text-mechanic">PAs</span> disponíveis.
   trigger: ''
   requirements:
     description: Mestre em Luta ou Pontaria.
@@ -33,11 +33,11 @@ system:
       peCost: 6
       type: 2
       description: >-
-        Usa as <span class="text-mechanic">ações</span> da próxima <span
+        Usa as <span class="text-mechanic">PAs</span> da próxima <span
         class="text-mechanic">rodada</span> nesta <span
         class="text-mechanic">rodada</span>  na próxima <span
         class="text-mechanic">rodada</span>, não terá <span
-        class="text-mechanic">ações</span> disponíveis.
+        class="text-mechanic">PAs</span> disponíveis.
 folder: talentoshub00001
 effects: []
 _stats:

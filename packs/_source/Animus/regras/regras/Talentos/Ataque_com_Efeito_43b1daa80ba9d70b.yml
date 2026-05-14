@@ -7,7 +7,7 @@ system:
     Quando realizar um ataque em um oponente pode gastar 3 <span
     class="text-resource">PE</span> para realizar uma manobra com uma arma que
     possua Maestria Marcial.
-  trigger: Ação de ataque
+  trigger: PA de ataque
   requirements:
     description: Profissional em Luta; Maestria Marcial.
     talents:

@@ -6,7 +6,7 @@ system:
   description: >-
     Após observar um oponente por pelo menos 1 <span
     class="text-mechanic">rodada</span> completa, gaste 1 <span
-    class="text-mechanic">ação</span> e 3 <span class="text-resource">PE</span>
+    class="text-mechanic">PA</span> e 3 <span class="text-resource">PE</span>
     para identificar seu ponto <span class="text-condition">cego</span>. <br>O
     próximo ataque físico ou elemental de qualquer aliado contra esse oponente
     tem a dificuldade de acertos reduzida em 2.
@@ -35,7 +35,7 @@ system:
       description: >-
         Após observar um oponente por pelo menos 1 <span
         class="text-mechanic">rodada</span> completa, gaste 1 <span
-        class="text-mechanic">ação</span> e 3 <span
+        class="text-mechanic">PA</span> e 3 <span
         class="text-resource">PE</span> para identificar seu ponto <span
         class="text-condition">cego</span>. <br>O próximo ataque físico ou
         elemental de qualquer aliado contra esse oponente tem a dificuldade de

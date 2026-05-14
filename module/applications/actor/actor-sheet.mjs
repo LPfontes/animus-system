@@ -1335,10 +1335,19 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
     const itemData = {
       name: gItem.name,
       img: gItem.img,
-      type: "item",
+      type: gItem.type || "item",
       system: {
         description: gItem.description,
-        quantity: gItem.quantity
+        quantity: gItem.quantity,
+        consumable: gItem.consumable || false,
+        subCategory: gItem.subCategory || "",
+        price: gItem.price || "0 Đ",
+        application: {
+          type: gItem.application?.type || "",
+          formula: gItem.application?.formula || "",
+          resource: gItem.application?.resource || "",
+          condition: gItem.application?.condition || ""
+        }
       }
     };
 

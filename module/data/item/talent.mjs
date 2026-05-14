@@ -27,7 +27,17 @@ export default class AnimusTalentData extends AnimusItemData {
         name: new fields.StringField({ initial: "" }),
         img: new fields.FilePathField({ categories: ["IMAGE"], initial: "icons/svg/item-bag.svg" }),
         quantity: new fields.NumberField({ initial: 1, integer: true, min: 1 }),
-        description: new fields.StringField({ initial: "" })
+        description: new fields.StringField({ initial: "" }),
+        type: new fields.StringField({ initial: "item" }),
+        consumable: new fields.BooleanField({ initial: false }),
+        subCategory: new fields.StringField({ initial: "" }),
+        price: new fields.StringField({ initial: "0 Đ" }),
+        application: new fields.SchemaField({
+          type: new fields.StringField({ initial: "" }),
+          formula: new fields.StringField({ initial: "" }),
+          resource: new fields.StringField({ initial: "" }),
+          condition: new fields.StringField({ initial: "" })
+        })
       }), { initial: [] }),
       subCategory: new fields.StringField({ initial: "" }),
       

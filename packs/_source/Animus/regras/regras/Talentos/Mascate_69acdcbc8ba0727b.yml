@@ -5,8 +5,8 @@ img: systems/animus/assets/icons/skills/talentos/combate/8.png
 system:
   description: >-
     Compra itens comuns com 10% de desconto. <br>Vende itens com 10% de
-    acréscimo sobre o valor base. <br>Pode identificar falsificações e
-    supervalorizações with um <span class="text-mechanic">teste</span> de
+    acréscimo sobre o valor base. <br>Pode identificar falsificPAs e
+    supervalorizPAs with um <span class="text-mechanic">teste</span> de
     Intuição.
   trigger: ''
   requirements:

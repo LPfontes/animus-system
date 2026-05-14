@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/4.png
 system:
   description: >-
     Identifica as fraquezas de uma criatura. <br>Gastando mais 2 <span
-    class="text-mechanic">ações</span>, pode avisar aliados com detalhes
+    class="text-mechanic">PA</span>, pode avisar aliados com detalhes
     suficientes para que sejam exploradas. <br>[Um inimigo com fraquezas
     expostas diminui a dificuldade dos acertos em 2].
   trigger: ''
@@ -32,7 +32,7 @@ system:
       type: 2
       description: >-
         Identifica as fraquezas de uma criatura. <br>Gastando mais 2 <span
-        class="text-mechanic">ações</span>, pode avisar aliados com detalhes
+        class="text-mechanic">PA</span>, pode avisar aliados com detalhes
         suficientes para que sejam exploradas. <br>[Um inimigo com fraquezas
         expostas diminui a dificuldade dos acertos em 2].
 folder: talentoshub00001

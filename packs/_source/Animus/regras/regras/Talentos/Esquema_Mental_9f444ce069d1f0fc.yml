@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/45.png
 system:
   description: >-
     Quando você não ataca na sua <span class="text-mechanic">rodada</span> e usa
-    suas <span class="text-mechanic">ações</span> apenas para observar ou
+    suas <span class="text-mechanic">PAs</span> apenas para observar ou
     mover-se, na próxima <span class="text-mechanic">rodada</span> todos os seus
     ataques têm +1 no número de acertos. <br>(Bônus não acumula entre <span
     class="text-mechanic">rodadas</span>. )

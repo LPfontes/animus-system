@@ -6,7 +6,7 @@ system:
   description: >-
     A primeira vez que derrotar um oponente em uma <span
     class="text-mechanic">rodada</span>, receba 2 pontos de <span
-    class="text-mechanic">ação</span>.
+    class="text-mechanic">PA</span>.
   trigger: ''
   requirements:
     description: Mestre em Luta ou Pontaria.

@@ -6,7 +6,7 @@ system:
   description: >-
     Você força o inimigo a recuar. <br>Empurre o alvo 3m imediatamente (sem
     <span class="text-mechanic">teste</span>). <br>O alvo não pode usar <span
-    class="text-mechanic">Areações</span> até o início do seu próximo turno.
+    class="text-mechanic">ArePAs</span> até o início do seu próximo turno.
     <br>Se não puder recuar, sofre 2 de <span class="text-mechanic">dano</span>
     fixo.
   trigger: ''
@@ -33,7 +33,7 @@ system:
       description: >-
         Você força o inimigo a recuar. <br>Empurre o alvo 3m imediatamente (sem
         <span class="text-mechanic">teste</span>). <br>O alvo não pode usar
-        <span class="text-mechanic">Areações</span> até o início do seu próximo
+        <span class="text-mechanic">ArePAs</span> até o início do seu próximo
         turno. <br>Se não puder recuar, sofre 2 de <span
         class="text-mechanic">dano</span> fixo.
 folder: talentoshub00001

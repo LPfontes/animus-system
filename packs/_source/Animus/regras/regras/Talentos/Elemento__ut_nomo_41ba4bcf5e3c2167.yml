@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/7.png
 system:
   description: >-
-    Você não gasta <span class="text-mechanic">ações</span> extras para manter
+    Você não gasta <span class="text-mechanic">PAs</span> extras para manter
     um efeito persistente do elemento.
   trigger: ''
   requirements:

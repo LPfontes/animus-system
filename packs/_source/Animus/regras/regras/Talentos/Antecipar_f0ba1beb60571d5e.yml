@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/combate/19.png
 system:
   description: >-
     1×/<span class="text-mechanic">rodada</span>: ao declarar sua <span
-    class="text-mechanic">ação</span>, pode 'marcar' um oponente. <br>Se ele
+    class="text-mechanic">PA</span>, pode 'marcar' um oponente. <br>Se ele
     tiver a mesma iniciativa ou agir depois, você resolve seu ataque primeiro
     nessa <span class="text-mechanic">rodada</span>.
   trigger: ''

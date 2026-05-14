@@ -1,15 +1,15 @@
 _id: 6ca57d8560b6b6b9
-name: Ação Refinada I
+name: PA Refinada I
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/3.png
 system:
   description: >-
-    Diminui o custo de uma <span class="text-mechanic">ação</span> em 1 Ponto de
-    <span class="text-mechanic">ação</span> (mínimo 1). <br>[Compre esse talento
-    várias vezes para cada tipo de <span class="text-mechanic">ação</span>.
+    Diminui o custo de uma <span class="text-mechanic">PA</span> em 1 Ponto de
+    <span class="text-mechanic">PA</span> (mínimo 1). <br>[Compre esse talento
+    várias vezes para cada tipo de <span class="text-mechanic">PA</span>.
     <br>Só pode ser comprado 1 vez por tipo de <span
-    class="text-mechanic">ação</span>].
-  trigger: Uma ação especifica
+    class="text-mechanic">PA</span>].
+  trigger: Uma PA especifica
   specialization: ''
   requirements:
     description: ''

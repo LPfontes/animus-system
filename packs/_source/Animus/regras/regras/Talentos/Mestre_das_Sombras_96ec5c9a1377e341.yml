@@ -6,7 +6,7 @@ system:
   description: >-
     Ao atacar de surpresa, você tem o direito de fazer um <span
     class="text-mechanic">teste</span> de furtividade automaticamente, sem
-    gastar <span class="text-mechanic">ações</span> ou <span
+    gastar <span class="text-mechanic">PAs</span> ou <span
     class="text-resource">PE</span>.
   trigger: Ataque surpresa
   requirements:

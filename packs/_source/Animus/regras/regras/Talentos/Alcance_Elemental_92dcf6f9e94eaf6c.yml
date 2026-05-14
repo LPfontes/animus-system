@@ -4,7 +4,7 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/23.png
 system:
   description: >-
-    Permite ataques em distância Média (18m, +2 implementos/+6 PE) e Longa (36m,
+    Permite ataques em distância Média (12m, +2 implementos/+6 PE) e Longa (24m,
     +3 implementos/+9 PE). <br>Exige linha de visão.
   trigger: ''
   requirements:
@@ -29,8 +29,8 @@ system:
       peCost: 5
       type: 2
       description: >-
-        Permite ataques em distância Média (18m, +2 implementos/+6 PE) e Longa
-        (36m, +3 implementos/+9 PE). <br>Exige linha de visão.
+        Permite ataques em distância Média (12m, +2 implementos/+6 PE) e Longa
+        (24m, +3 implementos/+9 PE). <br>Exige linha de visão.
 folder: talentoshub00001
 effects: []
 _stats:

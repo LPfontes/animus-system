@@ -9,7 +9,7 @@ system:
     <span class="text-resource">PE</span> para dar 1 <span
     class="text-resource">PA</span> extra a um aliado como <span
     class="text-mechanic">reação</span> à <span
-    class="text-mechanic">ação</span> dele.
+    class="text-mechanic">PA</span> dele.
   trigger: Como reação
   requirements:
     description: Mestre em Sobrevivência; Estrategista de Campo.

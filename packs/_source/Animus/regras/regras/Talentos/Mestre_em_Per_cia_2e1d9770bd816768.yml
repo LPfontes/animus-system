@@ -3,7 +3,8 @@ name: Mestre em Perícia
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/8.png
 system:
-  description: Chave. <br>aumenta a sua perícia de Profissional para Mestre.
+  description: >-
+    <span class="text-mechanic">Aumenta a sua perícia de Profissional para Mestre.</span>
   trigger: ''
   requirements:
     description: Profissional na Perícia-Chave; Foco em Perícia-

@@ -6,7 +6,7 @@ system:
   description: >-
     1×/<span class="text-mechanic">cena</span>, gaste 5 <span
     class="text-resource">PE</span> para pausar mentalmente e recalcular.
-    <br>Escolha um de: (a) Cancelar uma <span class="text-mechanic">ação</span>
+    <br>Escolha um de: (a) Cancelar uma <span class="text-mechanic">PA</span>
     já declarada antes de resolver seus efeitos; (b) Forçar um re-roll em um
     <span class="text-mechanic">teste</span> de qualquer aliado ou inimigo
     visível; (c) Ganhar 2 <span class="text-resource">PA</span> extras nessa
@@ -37,7 +37,7 @@ system:
         1×/<span class="text-mechanic">cena</span>, gaste 5 <span
         class="text-resource">PE</span> para pausar mentalmente e recalcular.
         <br>Escolha um de: (a) Cancelar uma <span
-        class="text-mechanic">ação</span> já declarada antes de resolver seus
+        class="text-mechanic">PA</span> já declarada antes de resolver seus
         efeitos; (b) Forçar um re-roll em um <span
         class="text-mechanic">teste</span> de qualquer aliado ou inimigo
         visível; (c) Ganhar 2 <span class="text-resource">PA</span> extras nessa

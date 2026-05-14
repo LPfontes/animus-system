@@ -1,17 +1,17 @@
 _id: 4c40f4036ff1067f
-name: Ação Refinada II
+name: PA Refinada II
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/18.png
 system:
   description: >-
-    Você diminui o custo da <span class="text-mechanic">ação</span> escolhida em
-    '<span class="text-mechanic">ação</span> Refinada' em mais 1 (mínimo 1).
+    Você diminui o custo da <span class="text-mechanic">PA</span> escolhida em
+    '<span class="text-mechanic">PA</span> Refinada' em mais 1 (mínimo 1).
   trigger: ''
   requirements:
-    description: Mestre em Perícia-Chave; ação Refinada I.
+    description: Mestre em Perícia-Chave; PA Refinada I.
     talents:
       Mestre em Perícia: f9dc143a651aa752
-      Ação Refinada I: 59ce7528a4d975f4
+      PA Refinada I: 59ce7528a4d975f4
     attributes: []
     skills: []
   cost: 0

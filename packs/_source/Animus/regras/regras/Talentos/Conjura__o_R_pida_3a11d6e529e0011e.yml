@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/elementais/fogo/20.png
 system:
   description: >-
     1×/<span class="text-mechanic">cena</span>: use um ataque elemental de Nível
-    1 com custo de apenas 1 <span class="text-mechanic">ação</span> (em vez de
+    1 com custo de apenas 1 <span class="text-mechanic">PA</span> (em vez de
     2).
   trigger: ''
   requirements:

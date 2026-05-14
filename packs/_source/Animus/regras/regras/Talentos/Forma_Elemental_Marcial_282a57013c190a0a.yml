@@ -12,11 +12,11 @@ system:
     class="text-mechanic">rodadas</span>, você fica <span
     class="text-condition">Atordoado</span> por 1 <span
     class="text-mechanic">rodada</span> (perde 1 <span
-    class="text-mechanic">ação</span>).
+    class="text-mechanic">PA</span>).
   trigger: ''
   requirements:
     description: >-
-      Mestre em Luta ou Pontaria; Profissional em Elemento; nível 8+.(1 ação, 5
+      Mestre em Luta ou Pontaria; Profissional em Elemento; nível 8+.(1 PA, 5
       PE)
     talents: {}
     attributes: []
@@ -49,7 +49,7 @@ system:
         das 3 <span class="text-mechanic">rodadas</span>, você fica <span
         class="text-condition">Atordoado</span> por 1 <span
         class="text-mechanic">rodada</span> (perde 1 <span
-        class="text-mechanic">ação</span>).
+        class="text-mechanic">PA</span>).
 folder: talentoshub00001
 effects: []
 _stats:

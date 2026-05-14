@@ -3,7 +3,12 @@ name: Alquimista de Campo
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/14.png
 system:
-  description: Em 30 minutos cria Bomba de Fumaça, Acido ou Bálsamo. <br>2×/descanso.
+  description: >-
+    Você domina a alquimia básica em campo.
+    <br><b>Tempo de fabricação:</b> 30 minutos.
+    <br><b>Itens:</b> Bomba de Fumaça, Ácido ou Bálsamo.
+    <br><b>Custo:</b> 1/3 do valor normal.
+    <br><b>Limite:</b> 2 usos por descanso curto.
   trigger: ''
   requirements:
     description: Profissional em Ofício; nível 4+.
@@ -22,19 +27,46 @@ system:
   grantedItems:
     - id: 973349cee8c90fb6
       name: Bomba de Fumaça
+      type: secondary
       img: icons/weapons/bombs/bomb-fire-grey.webp
       quantity: 1
-      description: Uma bomba que cria uma nuvem de fumaça, dificultando a visão na área.
+      description: Cria uma nuvem de fumaça (Dificulta visão).
+      consumable: true
+      subCategory: utilitario
+      price: 15 Đ
+      application:
+        type: condition
+        formula: ""
+        resource: ""
+        condition: "cego"
     - id: 5ad60de6851e5328
       name: Ácido
+      type: secondary
       img: icons/consumables/potions/potion-flask-corked-vial-green.webp
       quantity: 1
-      description: Um frasco de ácido corrosivo que causa dano contínuo.
+      description: Causa 1d6+3 de dano corrosivo.
+      consumable: true
+      subCategory: utilitario
+      price: 15 Đ
+      application:
+        type: damage
+        formula: "1d6 + 3"
+        resource: pv
+        condition: ""
     - id: c2e7c4e33050e062
       name: Bálsamo
+      type: secondary
       img: icons/consumables/potions/potion-flask-corked-vial-red.webp
       quantity: 1
-      description: Um bálsamo curativo que recupera HP ao ser aplicado.
+      description: Recupera 1d6+3 de PV.
+      consumable: true
+      subCategory: cura
+      price: 15 Đ
+      application:
+        type: heal
+        formula: "1d6 + 3"
+        resource: pv
+        condition: ""
 folder: talentoshub00001
 effects: []
 _stats:

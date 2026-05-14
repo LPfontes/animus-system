@@ -5,7 +5,7 @@ img: systems/animus/assets/icons/skills/talentos/paladino/48.png
 system:
   description: >-
     Quando você estiver usando um escudo e um aliado adjacente for o alvo de um
-    ataque, pode gastar 1 <span class="text-mechanic">ação</span> (da próxima
+    ataque, pode gastar 1 <span class="text-mechanic">PA</span> (da próxima
     <span class="text-mechanic">rodada</span>) para se interpor: você se torna o
     alvo do ataque e aplica os bônus de <span
     class="text-resource">Proteção</span> do escudo contra ele.
@@ -31,7 +31,7 @@ system:
       type: 2
       description: >-
         Quando você estiver usando um escudo e um aliado adjacente for o alvo de
-        um ataque, pode gastar 1 <span class="text-mechanic">ação</span> (da
+        um ataque, pode gastar 1 <span class="text-mechanic">PA</span> (da
         próxima <span class="text-mechanic">rodada</span>) para se interpor:
         você se torna o alvo do ataque e aplica os bônus de <span
         class="text-resource">Proteção</span> do escudo contra ele.

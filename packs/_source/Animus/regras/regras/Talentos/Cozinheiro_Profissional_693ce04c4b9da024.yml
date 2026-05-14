@@ -4,8 +4,11 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/29.png
 system:
   description: >-
-    Quando realizar um descanso curto, escolha um dos efeitos abaixo para seus
-    alimentos (dura até o próximo descanso):.
+    Quando realizar um descanso curto, escolha um dos efeitos abaixo para seus alimentos (dura até o próximo descanso):
+    <br><b>Apimentado:</b> PAs de movimento custam 1 a menos (mínimo 1).
+    <br><b>Doce:</b> Ataques elementais custam 3 PE a menos.
+    <br><b>Agridoce:</b> Ganha 6 PVs temporários.
+    <br><b>Revigorante:</b> Vantagem em testes de resistência.
   trigger: Descanso curto
   requirements:
     description: Profissional em Ofício.
@@ -21,6 +24,63 @@ system:
     skill: -1
     dc: 0
   subCategory: Pericia
+  grantedItems:
+    - id: cozi-apimentado
+      name: Prato Apimentado
+      type: secondary
+      img: icons/consumables/food/bowl-stew-red.webp
+      quantity: 1
+      description: PAs de movimento custam 1 a menos (mínimo 1).
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: bonus
+        formula: "-1"
+        resource: pa
+        condition: ""
+    - id: cozi-doce
+      name: Prato Doce
+      type: secondary
+      img: icons/consumables/food/cake-slice-white.webp
+      quantity: 1
+      description: Ataques elementais custam 3 PE a menos.
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: bonus
+        formula: "-3"
+        resource: pe
+        condition: ""
+    - id: cozi-agridoce
+      name: Prato Agridoce
+      type: secondary
+      img: icons/consumables/food/bowl-rice-yellow.webp
+      quantity: 1
+      description: Ganha 6 PVs temporários.
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: bonus
+        formula: "6"
+        resource: pvt
+        condition: ""
+    - id: cozi-revigorante
+      name: Prato Revigorante
+      type: secondary
+      img: icons/consumables/food/bowl-stew-green.webp
+      quantity: 1
+      description: Vantagem em testes de resistência.
+      consumable: true
+      subCategory: cura
+      price: 10 Đ
+      application:
+        type: condition
+        formula: ""
+        resource: ""
+        condition: "vantagem"
 folder: talentoshub00001
 effects: []
 _stats:
