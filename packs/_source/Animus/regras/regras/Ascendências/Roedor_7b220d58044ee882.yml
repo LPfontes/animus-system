@@ -4,18 +4,11 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/roedor.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Presas:</strong> Ataque com 2
-    <span class="text-mechanic">PA</span>; use estatísticas de arma perfurante
-    média.<br>Dentes naturais usados em
-    combate.</li><li><strong>Sorrateiro:</strong> <span
-    class="text-mechanic">Vantagem</span> em testes de Furtividade<br>Silencioso
-    por natureza.</li><li><strong>Fuga Evasiva:</strong> <span
-    class="text-mechanic">Reação</span>: mova-se 1,5m em direção segura ao
-    receber <span class="text-mechanic">dano</span>.<br>Capacidade de se
-    deslocar rapidamente ao sofrer <span
-    class="text-mechanic">dano</span>.</li><li><strong>Mãos Leves:</strong>
-    <span class="text-mechanic">Vantagem</span> em testes de
-    Prestidigitação<br>Movimentos manuais imperceptíveis.</li></ul>
+    Você descende de uma raça roedora, com características semelhantes a ratos,
+    esquilos ou hamsters. Comumente ágeis e adaptáveis, os Roedores valorizam a
+    curiosidade e a engenhosidade. Fisicamente, os Roedores são cobertos por pelos,
+    que variam em cor de acordo com a sub-raça. Eles possuem presas que podem ser
+    utilizadas em combate e um instinto de sobrevivência aguçado.
   bonus:
     value: 1
     attributes:

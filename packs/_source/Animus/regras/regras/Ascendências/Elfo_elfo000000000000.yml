@@ -1,0 +1,39 @@
+_id: elfo000000000000
+name: Elfo
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/elfo.png
+system:
+  description: >-
+    Você descende da raça élfica, seres de vida longa e profunda conexão com a Anima e o conhecimento ancestral. 
+    Comumente elegantes e reservados, os Elfos valorizam a sabedoria, a arte e a harmonia com o mundo natural. 
+    Fisicamente, possuem traços finos e orelhas pontiagudas, movendo-se com uma leveza sobrenatural que reflete sua agilidade e precisão.
+  bonus:
+    value: 1
+    attributes:
+      - hab
+      - ani
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Memória Genética
+      description: Uma conexão profunda com as experiências de seus ancestrais.
+      mechanicalEffect: +1d em testes de Conhecimento (Compreensão)
+    - name: Distanciamento Emocional
+      description: Uma natureza reservada que dificulta a expressão de sentimentos.
+      mechanicalEffect: -1d em testes de Persuasão
+    - name: Passos Leves
+      description: Movimentação silenciosa e graciosa em qualquer terreno.
+      mechanicalEffect: +1d em testes de Furtividade ou Acrobacia
+    - name: Conexão Especial
+      description: O povo élfico mantém uma rede de contatos e reconhecimento místico.
+      mechanicalEffect: 1x por sessão: declarar a existência de outro elfo na região, pode ser um conhecido entretanto seu status atua fica cargo do mestre.
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: animus
+  systemVersion: 1.0.0
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!elfo000000000000'

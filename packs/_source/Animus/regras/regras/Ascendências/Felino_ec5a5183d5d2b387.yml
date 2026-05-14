@@ -4,24 +4,15 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/felino.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Garras:</strong> Permite ataque
-    com 1 <span class="text-mechanic">PA</span> (uma garra) ou 3 <span
-    class="text-mechanic">PA</span> (duas garras).<br>Lâminas naturais de
-    queratina. <br>Use estatísticas de arma cortante
-    leve.</li><li><strong>Reação Rápida:</strong> Trasforma <span
-    class="text-mechanic">vantagem</span> em <span
-    class="text-mechanic">desvantagem</span> em ataques surpresa<br>Ataques
-    surpresa contra você têm <span class="text-mechanic">Desvantagem</span> em
-    vez de <span class="text-mechanic">Vantagem</span>.</li><li><strong>Visão
-    Noturna:</strong> Ignorar penalidade escuridão<br>Enxerga perfeitamente na
-    escuridão sem penalidades.</li><li><strong>Furtividade Felina:</strong> +1d
-    em testes de Furtividade<br>Movimentos instintivamente
-    silenciosos.</li></ul>
+    Você descende de uma raça felina, com características semelhantes a gatos, tigres, leões ou pânteras.
+    Comumente ágeis e furtivos, os Felinos valorizam a sagacidade e astúcia.
+    Fisicamente, os Felinos são cobertos por pelos, que variam em cor de acordo com a sub-raça. Eles possuem garras que
+    podem ser retraídas. Comumente com rotinas noturnas, são predadores excepcionais.
   bonus:
     value: 1
     attributes:
       - hab
-      - per
+      - pre
     selectedAttribute: ''
   innateAbilities:
     - name: Garras

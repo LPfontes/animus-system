@@ -4,12 +4,11 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/lupino.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Presas:</strong> Ataque com 2
-    <span class="text-mechanic">PA</span>.<br>Dentes naturais. <br>Use
-    estatísticas de arma cortante média.</li><li><strong>Faro:</strong> +1d em
-    testes de sentidos e percepção<br>Detecta nuances que outros não
-    conseguem.</li><li><strong>Rosnado:</strong> +1d em testes de
-    Intimidação<br>Causa calafrios em outros seres.</li></ul>
+    Você descende de uma raça lupina, com características semelhantes a lobos,
+    coiotes ou chacais. Comumente territoriais e protetores, os Lupinos valorizam
+    lealdade e família.
+    Fisicamente, os Lupinos são cobertos por pelos, que variam em cor de acordo com a sub-raça. Eles possuem presas que
+    podem ser utilizadas em combate, e um faro apurado que os permite rastrear presas mesmo a grandes distâncias.
   bonus:
     value: 1
     attributes:

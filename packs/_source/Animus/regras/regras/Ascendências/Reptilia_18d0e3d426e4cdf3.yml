@@ -4,19 +4,15 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/reptilia.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Ataque Venenoso:</strong> 2
-    cargas por sessão; <span class="text-mechanic">CD</span> 7+<span
-    class="text-attribute">POT</span>; Escolha entre Mortal, Debilitante ou
-    atordoante.<br>Inocula veneno preparado através das
-    presas.</li><li><strong>Letargia do Sangue Frio:</strong> Perde 1 <span
-    class="text-mechanic">PA</span> por turno em ambientes frios<br><span
-    class="text-mechanic">Reações</span> lentas em baixas
-    temperaturas.</li></ul>
+    Você descende de uma raça reptiliana, com características semelhantes a lagartos, crocodilos ou cobras.
+    Comumente frios e calculistas, os Reptilia valorizam a sobrevivência e o conhecimento. Fisicamente, os Reptilia
+    possuem escamas que variam em cor e textura de acordo com a sub-raça. Eles possuem presas que podem ser utilizadas em
+    combate, e um olfato aguçado que os permite rastrear presas mesmo a grandes distâncias.
   bonus:
     value: 1
     attributes:
       - pot
-      - per
+      - pre
     selectedAttribute: ''
   innateAbilities:
     - name: Ataque Venenoso

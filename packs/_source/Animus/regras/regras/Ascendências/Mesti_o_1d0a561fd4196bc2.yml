@@ -5,14 +5,12 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/mestico.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Versatilidade Genética:</strong>
-    Escolha 1 habilidade maior e 2 habilidades de perícia de outras
-    Ascendências.<br>Descendente de múltiplas linhagens.</li><li><strong>Herança
-    Composta:</strong> Aprende uma 4ª habilidade no Nível 3 e uma 5ª habilidade
-    no Nível 6.<br>Evolução constante das habilidades
-    raciais.</li><li><strong>Convergência:</strong> 1x por arco: ativa todas as
-    passivas de uma Ascendência por 1 cena; Fica Exausto por 1h após o
-    uso.<br>Acesso temporário ao poder total de uma linhagem.</li></ul>
+    Você é o resultado de gerações de encontros entre diferentes raças.
+    Essa herança fluida lhe confere uma versatilidade natural, permitindo
+    adaptar-se a diversas situações e aprender com diferentes tradições.
+    Fisicamente, você pode apresentar traços mistos, dificultando a identificação
+    de sua linhagem pura, o que muitas vezes o torna um estranho em ambos os
+    mundos.
   bonus:
     value: 1
     attributes:

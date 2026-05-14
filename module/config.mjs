@@ -206,7 +206,10 @@ ANIMUS.ascendancies = {
   reptilia: "Reptilia",
   roedor: "Roedor",
   primata: "Primata",
-  mestico: "Mestiço"
+  mestico: "Mestiço",
+  humano: "Humano",
+  anao: "Anão",
+  elfo: "Elfo"
 };
 
 ANIMUS.elements = {

@@ -205,8 +205,11 @@ export class AnimusItem extends Item {
         label: `ATAQUE: ${this.name}`,
         actor: actor,
         poolSize: 2 + (skill?.value || 0),
-        formula: `${2 + (skill?.value || 0)}d6kh2 + ${attr?.total || 0}`
+        formula: `${2 + (skill?.value || 0)}d6kh2 + ${attr?.total || 0}`,
+        attribute: game.i18n.localize(CONFIG.ANIMUS.attributes[attrKey]?.i18n || attrKey),
+        skill: game.i18n.localize(skill?.label || skillKey)
       };
+
 
       const result = await AnimusRollDialog.awaitRoll(dialogData);
       if (!result) return;

@@ -4,21 +4,16 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/falko.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Voo:</strong> Gaste 1 <span
-    class="text-mechanic">PA</span> para decolar; move-se com dobro da
-    velocidade; limite de <span class="text-attribute">HAB</span> <span
-    class="text-mechanic">rodadas</span>.<br>Permite voar enquanto não usa
-    armaduras médias ou pesadas.</li><li><strong>Visão afiada:</strong> +1d em
-    testes de Percepção<br>Olhos projetados para ver a longas
-    distâncias.</li><li><strong>Ossos Ocos:</strong> <span
-    class="text-mechanic">Desvantagem</span> em Resistência contra impacto; +2
-    de <span class="text-mechanic">dano</span> de fontes de concussão<br>Mais
-    leve, porém mais frágil a impactos.</li></ul>
+    Você descende de uma raça alada, com características semelhantes a aves de
+    rapina. Comumente orgulhosos e altivos, os Falko valorizam a liberdade e a
+    honra de seus compromissos acima de tudo. São conhecidos por sua visão
+    aguçada, garras afiadas e ossos ocos, que os tornam mais leves e rápidos,
+    mas também mais frágeis a impactos.
   bonus:
     value: 1
     attributes:
       - hab
-      - pre
+      - cog
     selectedAttribute: ''
   innateAbilities:
     - name: Voo

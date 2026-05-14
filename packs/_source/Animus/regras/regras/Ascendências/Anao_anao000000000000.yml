@@ -1,0 +1,37 @@
+_id: anao000000000000
+name: Anão
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/anao.png
+system:
+  description: >-
+    Você descende de uma raça anã, orgulhosa de sua herança e de suas tradições. 
+    Comumente fortes e resistentes, os Anões valorizam a perseverança e a honra. 
+    Fisicamente, os Anões são robustos e musculosos, com pele que varia em cor de acordo com a sub-raça. 
+    Eles possuem uma grande afinidade com a terra e com os minerais, e são conhecidos por sua habilidade em forjar armas e armaduras.
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - per
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Pernas curtas
+      description: Você possui um deslocamento reduzido em comparação a outras raças (5m).
+      mechanicalEffect: Deslocamento Reduzido
+    - name: Pele Endurecida
+      description: Membros e corpo resistentes como pedra.
+      mechanicalEffect: RD 2 contra ataques físicos não-elementais
+    - name: Resistência Nativa
+      description: Metabolismo preparado para condições adversas.
+      mechanicalEffect: +1d em testes de Resistência (venenos, exaustão, clima)
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: animus
+  systemVersion: 1.0.0
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!anao000000000000'
