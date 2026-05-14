@@ -4,17 +4,16 @@ type: ascendancy
 img: systems/animus/assets/system-icons/ascendancies/primata.svg
 system:
   description: >-
-    <h3>Habilidades Inatas</h3><ul><li><strong>Força Primal:</strong> +1d em
-    testes de Luta<br>Membros superiores fortes e
-    adaptáveis.</li><li><strong>Mãos Hábeis:</strong> +1d em testes de
-    Prestidigitação<br>Gestos e movimentos complexos realizados com
-    facilidade.</li><li><strong>Socialidade Inata:</strong> +1d em testes de
-    Persuasão<br>Capacidade natural de lidar com situações sociais.</li></ul>
+    Você descende de uma raça primata, com características semelhantes a
+    chimpanzés, gorilas ou orangotangos. Comumente fortes e ágeis, os Primatas
+    valorizam a força física e a capacidade de adaptação. Fisicamente, os Primatas
+    possuem grande força muscular e são capazes de se mover com agilidade tanto
+    em terra quanto em árvores. 
   bonus:
     value: 1
     attributes:
       - pot
-      - pre
+      - hab
     selectedAttribute: ''
   innateAbilities:
     - name: Força Primal

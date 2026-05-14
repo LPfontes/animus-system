@@ -301,6 +301,14 @@
   border-color: var(--border);
 }
 
+.animus .roll-icon-btn:hover {
+  color: var(--accent-light) !important;
+  text-shadow: 0 0 15px var(--accent-glow);
+  transform: scale(1.4) rotate(15deg) !important;
+  cursor: pointer;
+}
+
+
 .animus .action-item-row .item-tags {
   display: flex;
   gap: 8px;

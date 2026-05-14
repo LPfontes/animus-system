@@ -1,0 +1,37 @@
+_id: humano00000000000
+name: Humano
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/humano.png
+system:
+  description: >-
+    Você descende da raça humana, a mais versátil e numerosa de Animus. 
+    Capazes de se adaptar a qualquer ambiente e sociedade, os humanos são conhecidos por sua engenhosidade, 
+    capacidade de construção e habilidades sociais. 
+    Sua história é marcada pela exploração e pela criação de grandes civilizações, sempre buscando novas formas de evoluir e prosperar.
+  bonus:
+    value: 1
+    attributes:
+      - cog
+      - pre
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Adaptável
+      description: 1 vez por descanso longo você pode trocar 1 ponto de perícia.
+      mechanicalEffect: Versatilidade natural
+    - name: Socialidade Inata
+      description: Facilidade em lidar com outros e convencer pessoas.
+      mechanicalEffect: +1d em testes de Persuasão
+    - name: Mãos Hábeis
+      description: Engenhosidade e capacidade manual de construção e reparos.
+      mechanicalEffect: +1d em testes de Ofício
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: animus
+  systemVersion: 1.0.0
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!humano00000000000'

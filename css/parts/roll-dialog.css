@@ -59,6 +59,45 @@
   letter-spacing: 0.02em;
 }
 
+/* --- METADATA --- */
+.roll-dialog-v2 .roll-metadata {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.03);
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.roll-dialog-v2 .metadata-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.roll-dialog-v2 .metadata-item i {
+  color: var(--accent);
+  font-size: 0.8rem;
+  opacity: 0.8;
+}
+
+.roll-dialog-v2 .metadata-item .label {
+  color: var(--text-muted);
+  text-transform: uppercase;
+  font-size: 0.65rem;
+  letter-spacing: 0.05em;
+}
+
+.roll-dialog-v2 .metadata-item .value {
+  color: #fff;
+  font-weight: 800;
+}
+
+
 /* --- FORMULA / DICE SECTION --- */
 .roll-dialog-v2 .formula-section {
   display: flex;

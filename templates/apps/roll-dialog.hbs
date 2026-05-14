@@ -10,6 +10,26 @@
     </div>
   </div>
 
+  {{#if (or attribute skill)}}
+  <div class="roll-metadata">
+    {{#if attribute}}
+    <div class="metadata-item attr">
+      <i class="fas fa-stat"></i>
+      <span class="label">Atributo:</span>
+      <span class="value">{{attribute}}</span>
+    </div>
+    {{/if}}
+    {{#if skill}}
+    <div class="metadata-item skill">
+      <i class="fas fa-graduation-cap"></i>
+      <span class="label">Perícia:</span>
+      <span class="value">{{skill}}</span>
+    </div>
+    {{/if}}
+  </div>
+  {{/if}}
+
+
   {{!-- Visualização da Fórmula --}}
   <div class="formula-section">
     <div class="dice-visualization">

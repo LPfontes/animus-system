@@ -1,0 +1,36 @@
+_id: draconato000000
+name: Draconato
+type: ascendancy
+img: systems/animus/assets/system-icons/ascendancies/draconato.png
+system:
+  description: >-
+    Você descende da linhagem dos dragões, ostentando escamas resistentes e um poder elemental latente. 
+    Majestosos e imponentes, os Draconatos valorizam a força, a disciplina e o domínio sobre sua própria natureza elemental. 
+    Sua presença no campo de batalha é inegável, seja pela sua resistência física ou pelo sopro devastador que podem exalar.
+  bonus:
+    value: 1
+    attributes:
+      - pot
+      - ani
+    selectedAttribute: ''
+  innateAbilities:
+    - name: Couro Escamoso
+      description: Escamas grossas e resistentes que agem como uma armadura natural.
+      mechanicalEffect: +2 de Proteção
+    - name: Sopro Elemental
+      description: Canaliza sua energia interna para exalar um sopro destrutivo.
+      mechanicalEffect: 1+1xAni por descanso longo. Custo 2 PA + 2 PE. Cone de 3m de dano elemental.
+    - name: Resistência Elemental
+      description: Metabolismo preparado para condições adversas.
+      mechanicalEffect: +1d em testes de Resistência climáticas e ambientais.
+effects: []
+_stats:
+  coreVersion: '13.346'
+  systemId: animus
+  systemVersion: 1.0.0
+folder: ascendenciashub1
+sort: 0
+ownership:
+  default: 0
+flags: {}
+_key: '!items!draconato000000'

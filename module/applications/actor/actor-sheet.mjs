@@ -649,7 +649,9 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       label: `Teste de ${label}`,
       actor: this.actor,
       poolSize: poolSize,
-      formula: `${poolSize}d6kh2 + ${attr.total || 0}`
+      formula: `${poolSize}d6kh2 + ${attr.total || 0}`,
+      attribute: game.i18n.localize(CONFIG.ANIMUS.attributes[attrKey].i18n),
+      skill: label
     });
 
     if (!result) return;
@@ -680,7 +682,8 @@ export class AnimusActorSheet extends HandlebarsApplicationMixin(ActorSheetV2) {
       label: `Teste de ${label}`,
       actor: this.actor,
       poolSize: 2,
-      formula: `2d6kh2 + ${attr.total || 0}`
+      formula: `2d6kh2 + ${attr.total || 0}`,
+      attribute: label
     });
 
     if (!result) return;
