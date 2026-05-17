@@ -246,7 +246,14 @@
           <div class="dt-grid">
             {{#each (list "ac1" "ac2" "ac3" "ac4" "ac5" "ac6") as |ac|}}
             <div class="dt-cell">
-              <label>{{upper ac}}{{#if (eq ac "ac6")}} (D.6){{/if}}</label>
+              <label>
+                {{#if (eq ac "ac1")}}Raso{{/if}}
+                {{#if (eq ac "ac2")}}Padrão{{/if}}
+                {{#if (eq ac "ac3")}}Forte{{/if}}
+                {{#if (eq ac "ac4")}}Crítico{{/if}}
+                {{#if (eq ac "ac5")}}AC 5{{/if}}
+                {{#if (eq ac "ac6")}}AC 6 (D.6){{/if}}
+              </label>
               {{#if ../isEditing}}
               <input type="number" name="system.damageTable.{{ac}}" value="{{lookup ../system.damageTable ac}}" />
               {{else}}
