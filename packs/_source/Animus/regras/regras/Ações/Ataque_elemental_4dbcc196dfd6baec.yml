@@ -1,7 +1,7 @@
 _id: 4dbcc196dfd6baec
 name: Ataque elemental
 type: action
-img: systems/animus/assets/system-icons/action/targeting.svg
+img: systems/animus/assets/system-icons/action/cast.svg
 system:
   description: >-
     Canaliza poder elemental. Base: Pessoal (0m), alvo único, Nível 1. Custo: 3

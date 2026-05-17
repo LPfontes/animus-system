@@ -1,7 +1,7 @@
 _id: cndcansado000001
 name: Cansado
 type: condition
-img: icons/svg/clockwork.svg
+img: animus-system\assets\system-icons\resources\exhaustion.svg
 system:
   description: ''
   penalty: Simples

@@ -1,7 +1,7 @@
 _id: cndcego000000001
 name: Cego
 type: condition
-img: icons/svg/blindfold.svg
+img: systems/animus/assets/system-icons/resources/blinded.svg
 system:
   description: ''
   penalty: >-

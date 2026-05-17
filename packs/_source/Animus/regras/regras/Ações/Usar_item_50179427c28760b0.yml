@@ -1,7 +1,7 @@
 _id: 50179427c28760b0
 name: Usar item
 type: action
-img: systems/animus/assets/system-icons/action/targeting.svg
+img: systems/animus/assets/system-icons/action/utility.svg
 system:
   description: Consome ou ativa um item do seu inventário.
   cost: 1

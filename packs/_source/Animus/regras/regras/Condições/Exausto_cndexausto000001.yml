@@ -1,7 +1,7 @@
 _id: cndexausto000001
 name: Exausto
 type: condition
-img: icons/svg/lightning.svg
+img: systems/animus/assets/system-icons/resources/exhaustion.svg
 system:
   description: O alvo está em seu limite físico ou mental.
   penalty: Desvantagem Dupla em todos os testes.

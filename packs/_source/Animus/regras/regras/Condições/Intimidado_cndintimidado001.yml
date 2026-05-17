@@ -1,7 +1,7 @@
 _id: cndintimidado001
 name: Intimidado
 type: condition
-img: icons/svg/terror.svg
+img: systems/animus/assets/system-icons/resources/frightened.svg
 system:
   description: ''
   penalty: Desvantagem em PRE contra o intimidador. –1 em ataques contra ele.

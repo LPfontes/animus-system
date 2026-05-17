@@ -1,7 +1,7 @@
 _id: fc4fb4376ca00497
 name: Mover 9 metros
 type: action
-img: systems/animus/assets/system-icons/action/sprint.svg
+img: systems/animus/assets/system-icons/action/forward.svg
 system:
   description: Desloca-se até 9 metros pelo campo de batalha.
   cost: 1

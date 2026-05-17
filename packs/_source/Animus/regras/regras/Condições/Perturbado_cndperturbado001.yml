@@ -1,7 +1,7 @@
 _id: cndperturbado001
 name: Perturbado
 type: condition
-img: icons/svg/brain.svg
+img: systems/animus/assets/system-icons/resources/cursed.svg
 system:
   description: ''
   penalty: Desvantagem em todos os testes de COG. Não pode usar Compra de Sucesso.

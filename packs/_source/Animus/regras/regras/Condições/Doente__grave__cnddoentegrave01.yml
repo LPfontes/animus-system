@@ -1,7 +1,7 @@
 _id: cnddoentegrave01
 name: Doente (grave)
 type: condition
-img: icons/svg/skull.svg
+img: icons/svg/biohazard.svg
 system:
   description: ''
   penalty: Dupla

@@ -1,7 +1,7 @@
 _id: cndparalisado001
 name: Paralisado
 type: condition
-img: icons/svg/statue.svg
+img: systems/animus/assets/system-icons/resources/paralyzed.svg
 system:
   description: O corpo do alvo está completamente rígido.
   penalty: Falha automática em testes de HAB; Movimento reduzido a 0.

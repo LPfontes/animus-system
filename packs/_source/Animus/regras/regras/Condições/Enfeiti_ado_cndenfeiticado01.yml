@@ -1,7 +1,7 @@
 _id: cndenfeiticado01
 name: Enfeitiçado
 type: condition
-img: icons/svg/mote.svg
+img: systems/animus/assets/system-icons/resources/charmed.svg
 system:
   description: ''
   penalty: >-

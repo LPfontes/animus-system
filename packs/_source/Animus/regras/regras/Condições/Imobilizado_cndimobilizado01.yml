@@ -1,7 +1,7 @@
 _id: cndimobilizado01
 name: Imobilizado
 type: condition
-img: icons/svg/net.svg
+img: systems/animus/assets/system-icons/resources/incapacitated.svg
 system:
   description: O alvo está preso por cordas, redes ou magia.
   penalty: Sem movimento (Deslocamento = 0).

@@ -1,7 +1,7 @@
 _id: cndfebrealta0001
 name: Febre Alta
 type: condition
-img: icons/svg/thermometer.svg
+img: systems/animus/assets/system-icons/resources/burning.svg
 system:
   description: ''
   penalty: Desvantagem em todos os testes de POT. POT –1 para fins de dano.

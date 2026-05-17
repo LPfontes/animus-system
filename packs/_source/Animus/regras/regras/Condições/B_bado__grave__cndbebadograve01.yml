@@ -1,7 +1,7 @@
 _id: cndbebadograve01
 name: Bêbado (grave)
 type: condition
-img: icons/svg/explosion.svg
+img: icons/svg/animus-system\assets\system-icons\resources\stunned.svg
 system:
   description: ''
   penalty: Dupla

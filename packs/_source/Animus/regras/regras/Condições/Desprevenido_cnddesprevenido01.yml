@@ -1,7 +1,7 @@
 _id: cnddesprevenido01
 name: Desprevenido
 type: condition
-img: icons/svg/target.svg
+img: animus-system\assets\system-icons\resources\surprised.svg
 system:
   description: O alvo está vulnerável ou distraído.
   penalty: O próximo ataque contra você tem Vantagem (+1d).
