@@ -4,15 +4,9 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/47.png
 system:
   description: >-
-    Entra em fúria por até 3 <span class="text-mechanic">rodadas</span>.
-    <br>Para cada 5 <span class="text-resource">PV</span> que você perdeu, ganha
-    +1 nas rolagens de Luta, até o máximo de +5 (equivalente a 25 <span
-    class="text-resource">PV</span> perdidos). <br>Após 3 <span
-    class="text-mechanic">rodadas</span>, a Fúria encerra automaticamente e você
-    fica com <span class="text-mechanic">Desvantagem</span> em todos os testes
-    por 1 <span class="text-mechanic">rodada</span>. <br>Pode ser reativada
-    gastando 3 <span class="text-resource">PE</span> novamente. <br>Bônus máximo
-    de Fúria: +5.
+    Gaste 3 PE para entrar em fúria até o fim da cena. Você ganha +1 no dano
+    base em todos os seus ataques corpo a corpo e não sofre nenhuma penalidade
+    após o término.
   trigger: ''
   requirements:
     description: Amador em Luta.
@@ -35,15 +29,9 @@ system:
       peCost: 3
       type: 2
       description: >-
-        Entra em fúria por até 3 <span class="text-mechanic">rodadas</span>.
-        <br>Para cada 5 <span class="text-resource">PV</span> que você perdeu,
-        ganha +1 nas rolagens de Luta, até o máximo de +5 (equivalente a 25
-        <span class="text-resource">PV</span> perdidos). <br>Após 3 <span
-        class="text-mechanic">rodadas</span>, a Fúria encerra automaticamente e
-        você fica com <span class="text-mechanic">Desvantagem</span> em todos os
-        testes por 1 <span class="text-mechanic">rodada</span>. <br>Pode ser
-        reativada gastando 3 <span class="text-resource">PE</span> novamente.
-        <br>Bônus máximo de Fúria: +5.
+        Gaste 3 PE para entrar em fúria até o fim da cena. Você ganha +1 no dano
+        base em todos os seus ataques corpo a corpo e não sofre nenhuma penalidade
+        após o término.
 folder: talentoshub00001
 effects: []
 _key: '!items!c112ccdfdb2ec7c1'

@@ -1,17 +1,16 @@
 _id: 58a3bde79d09296c
-name: Foco Elemental Maior
+name: Foco Maior
 type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/33.png
 system:
   description: >-
-    Reduz o custo em <span class="text-resource">PE</span> de um Componente
-    específico (já escolhido anteriormente) em -2 adicionalmente (totalizando -4
-    <span class="text-resource">PE</span>).
+    Reduz o custo em -1 <span class="text-resource">PE</span> adicional por implemento no mesmo
+    eixo escolhido em Foco Elemental (totalizando -2 <span class="text-resource">PE</span> por implemento).
   trigger: ''
   requirements:
     description: Profissional em Controle Elemental; Foco Elemental.
     talents:
-      Foco Elemental: 28b40ad140233c6e
+      Foco Elemental: b8ec287e370d644a
     attributes: []
     skills:
       - key: elemento
@@ -28,18 +27,4 @@ system:
   subCategory: Elemento
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!58a3bde79d09296c'

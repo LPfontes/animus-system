@@ -1,9 +1,9 @@
 _id: 9d22e8a54097a46e
-name: Restaurar Potente
+name: Restauração Contínua
 type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/9.png
 system:
-  description: As Curas elementais aumentam o valor fixo de seu efeito em +2.
+  description: Curas elementais realizam uma reaplicação automática com metade da efetividade no turno seguinte.
   trigger: ''
   requirements:
     description: Profissional em Medicina.

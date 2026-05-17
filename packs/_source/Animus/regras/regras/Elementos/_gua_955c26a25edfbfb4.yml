@@ -5,16 +5,17 @@ type: element
 img: systems/animus/assets/system-icons/elements/agua.svg
 system:
   description: >-
-    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
-    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
-    PE</td><td>2+1×ANI</td><td>3+2×ANI</td><td>4+2×ANI</td><td>5+3×ANI</td></tr><tr><td>6
-    PE</td><td>4+2×ANI</td><td>6+2×ANI</td><td>7+3×ANI</td><td>9+4×ANI</td></tr><tr><td>9
-    PE</td><td>6+2×ANI</td><td>8+3×ANI</td><td>10+3×ANI</td><td>12+4×ANI</td></tr></table><h3>Tabela
-    de Cura</h3><table border='1'><tr><th>Nível PE</th><th>1 acerto</th><th>2
-    acertos</th><th>3 acertos</th><th>4 acertos (crít.)</th></tr><tr><td>3
-    PE</td><td>3+1×ANI</td><td>5+2×ANI</td><td>6+3×ANI</td><td>8+4×ANI</td></tr><tr><td>6
-    PE</td><td>6+2×ANI</td><td>8+3×ANI</td><td>10+4×ANI</td><td>13+5×ANI</td></tr><tr><td>9
-    PE</td><td>8+3×ANI</td><td>11+4×ANI</td><td>14+5×ANI</td><td>17+6×ANI</td></tr></table>
+    
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Nível
+    1 — 3 PE</td><td>1 + 1×ANI</td><td>3 + 1×ANI</td><td>4 + 2×ANI</td><td>5 + 2×ANI</td></tr><tr><td>Nível
+    2 — 6 PE</td><td>3 + 1×ANI</td><td>5 + 2×ANI</td><td>7 + 2×ANI</td><td>9 + 3×ANI</td></tr><tr><td>Nível
+    3 — 9 PE *</td><td>5 + 1×ANI</td><td>7 + 2×ANI</td><td>10 + 3×ANI</td><td>12 + 3×ANI</td></tr></table>
+    <h3>Tabela de Cura</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Cura
+    Nív.1 — 3 PE</td><td>3 + 0×ANI</td><td>5 + 1×ANI</td><td>8 + 2×ANI</td><td>11 + 4×ANI</td></tr><tr><td>Cura
+    Nív.2 — 6 PE</td><td>4 + 1×ANI</td><td>7 + 2×ANI</td><td>11 + 3×ANI</td><td>14 + 5×ANI</td></tr><tr><td>Cura
+    Nív.3 — 9 PE *</td><td>6 + 1×ANI</td><td>10 + 2×ANI</td><td>14 + 4×ANI</td><td>18 + 6×ANI</td></tr></table> <br><h3>Efeitos e Terreno</h3><table border='1'><tr><th>Condição Inata (3+)</th><th>Condição Avançada (4 ac.)</th><th>Efeito de Terreno</th></tr><tr><td>Saturado: 3+ acertos aplicam Saturado. O próximo dano elemental contra o alvo causa +1×ANI extra. Consome-se ao ativar.</td><td>Encharcado — Atordoado + Saturado + mov. +1 Ponto de Ação.</td><td>Conduz Trovão (+2 dano); dificulta Fogo (+2 PE).</td></tr></table>
   strength: Melhor cura PV
   weakness: Dano lento
   bonus:
@@ -23,7 +24,7 @@ system:
       - hab
       - cog
     selectedAttribute: ''
-  range: 18m
+  range: 9m
   rhythm: Paciente
   secondaryEffects:
     outOfCombat: Encharcar (poças, purificar água, sentir fontes).
@@ -32,87 +33,87 @@ system:
     '1':
       pe: 3
       ac1:
-        base: 2
+        base: 1
         mult: 1
       ac2:
         base: 3
-        mult: 2
+        mult: 1
       ac3:
         base: 4
         mult: 2
       ac4:
         base: 5
-        mult: 3
+        mult: 2
     '2':
       pe: 6
       ac1:
-        base: 4
-        mult: 2
+        base: 3
+        mult: 1
       ac2:
-        base: 6
+        base: 5
         mult: 2
       ac3:
         base: 7
-        mult: 3
+        mult: 2
       ac4:
         base: 9
-        mult: 4
+        mult: 3
     '3':
       pe: 9
       ac1:
-        base: 6
-        mult: 2
+        base: 5
+        mult: 1
       ac2:
-        base: 8
-        mult: 3
+        base: 7
+        mult: 2
       ac3:
         base: 10
         mult: 3
       ac4:
         base: 12
-        mult: 4
+        mult: 3
   healTable:
     '1':
       pe: 3
       ac1:
         base: 3
-        mult: 1
+        mult: 0
       ac2:
         base: 5
-        mult: 2
+        mult: 1
       ac3:
-        base: 6
-        mult: 3
-      ac4:
         base: 8
+        mult: 2
+      ac4:
+        base: 11
         mult: 4
     '2':
       pe: 6
       ac1:
-        base: 6
-        mult: 2
+        base: 4
+        mult: 1
       ac2:
-        base: 8
-        mult: 3
+        base: 7
+        mult: 2
       ac3:
-        base: 10
-        mult: 4
+        base: 11
+        mult: 3
       ac4:
-        base: 13
+        base: 14
         mult: 5
     '3':
       pe: 9
       ac1:
-        base: 8
-        mult: 3
+        base: 6
+        mult: 1
       ac2:
-        base: 11
-        mult: 4
+        base: 10
+        mult: 2
       ac3:
         base: 14
-        mult: 5
+        mult: 4
       ac4:
-        base: 17
+        base: 18
         mult: 6
 effects: []
 _key: '!items!955c26a25edfbfb4'

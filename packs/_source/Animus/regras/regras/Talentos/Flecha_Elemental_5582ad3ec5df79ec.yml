@@ -4,12 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/16.png
 system:
   description: >-
-    Ao disparar uma arma à distância, gaste 2 <span
-    class="text-resource">PE</span>: o projétil se torna energia elemental pura.
-    <br>O ataque causa <span class="text-mechanic">dano</span> do tipo elemental
-    (em vez de físico) e com 3+ acertos, o projétil explode no impacto em raio
-    de 1,5m, causando <span class="text-mechanic">dano</span> = 1 + 1×<span
-    class="text-attribute">ANI</span> a todos na area.
+    Custo: 1 Ponto de Ação + 4 <span class="text-resource">PE</span>.
+    O ataque causa efeitos únicos dependendo do elemento imbuído no projétil.
   trigger: Antes de realizar um ataque
   requirements:
     description: Amador em Pontaria; Amador em Elemento. (Exclusivo de Pontaria)
@@ -20,8 +16,8 @@ system:
         rank: 1
       - key: elemento
         rank: 1
-  cost: 2
-  action: 0
+  cost: 4
+  action: 1
   check:
     attribute: -1
     skill: -1
@@ -30,17 +26,12 @@ system:
   grantedActions:
     - id: 26599db5e5fe0204
       name: Flecha Elemental
-      cost: 0
-      peCost: 2
+      cost: 1
+      peCost: 4
       type: 2
       description: >-
-        Ao disparar uma arma à distância, gaste 2 <span
-        class="text-resource">PE</span>: o projétil se torna energia elemental
-        pura. <br>O ataque causa <span class="text-mechanic">dano</span> do tipo
-        elemental (em vez de físico) e com 3+ acertos, o projétil explode no
-        impacto em raio de 1,5m, causando <span
-        class="text-mechanic">dano</span> = 1 + 1×<span
-        class="text-attribute">ANI</span> a todos na area.
+        Custo: 1 Ponto de Ação + 4 <span class="text-resource">PE</span>.
+        O ataque causa efeitos únicos dependendo do elemento imbuído no projétil.
 folder: talentoshub00001
 effects: []
 _stats:

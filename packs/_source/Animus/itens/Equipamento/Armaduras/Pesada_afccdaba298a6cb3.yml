@@ -1,5 +1,5 @@
 _id: afccdaba298a6cb3
-name: Pesada
+name: Armadura de placas (Pesada)
 type: armor
 img: systems/animus/assets/system-icons/armor/armadura/pesada.png
 system:
@@ -9,9 +9,7 @@ system:
   multHAB: 0
   paPenalty: 2
   actionPenalty: 1
-  description: >-
-    Proteção: +12<br>Penalidade: +1 ação em QUALQUER ação; Desvantagem em
-    Furtividade<br>Lógica: 12 + (2 x POT) + (0 x HAB)
+  description: 'Proteção: +12<br>Penalidade: +1 ação em QUALQUER ação; Desvantagem em Furtividade<br>Lógica: 12 + (2 x POT) + (0 x HAB)'
   weight: 0
   price: 60 Đ
 folder: 33fd8916c4554f13

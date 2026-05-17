@@ -1,0 +1,28 @@
+_id: matar0000000001
+name: Matar com Eficiência
+type: talent
+img: systems/animus/assets/icons/skills/talentos/combate/29.png
+system:
+  description: >-
+    Garante 1 Ponto de Ação extra imediatamente após derrotar um inimigo
+    (reduzir seus PV a 0). Limitado ao seu valor de ANI por turno.
+  trigger: Após derrotar um inimigo
+  requirements:
+    description: Amador em Luta ou Pontaria.
+    talents: {}
+    attributes: []
+    skills:
+      - key: pontaria
+        rank: 1
+      - key: luta
+        rank: 1
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Combate
+folder: talentoshub00001
+effects: []
+_key: '!items!matar0000000001'

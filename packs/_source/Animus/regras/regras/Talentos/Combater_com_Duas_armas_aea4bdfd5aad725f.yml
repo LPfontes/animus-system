@@ -1,12 +1,12 @@
 _id: aea4bdfd5aad725f
-name: Combater com Duas armas
+name: Ataque Duplo
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/46.png
 system:
   description: >-
-    Realiza um ataque com a arma secundária. <br>O ataque aplica metade do
-    multiplicador de atributo no <span class="text-mechanic">dano</span>
-    (arredondado para baixo). <br>Requer armas leves em cada mão.
+    Gaste 1 Ponto de Ação + 2 PE para realizar um ataque adicional com a arma
+    secundária. O ataque aplica metade do multiplicador de atributo no dano
+    (arredondado para baixo). Requer empunhar uma arma leve em cada mão.
   trigger: ''
   requirements:
     description: Amador em Luta ou Pontaria.
@@ -26,28 +26,14 @@ system:
   subCategory: Combate
   grantedActions:
     - id: a9cfe703bbb3fa73
-      name: Combater com Duas armas
+      name: Ataque Duplo
       cost: 1
       peCost: 2
       type: 2
       description: >-
-        Realiza um ataque com a arma secundária. <br>O ataque aplica metade do
-        multiplicador de atributo no <span class="text-mechanic">dano</span>
-        (arredondado para baixo). <br>Requer armas leves em cada mão.
+        Gaste 1 Ponto de Ação + 2 PE para realizar um ataque adicional com a arma
+        secundária. O ataque aplica metade do multiplicador de atributo no dano
+        (arredondado para baixo). Requer empunhar uma arma leve em cada mão.
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!aea4bdfd5aad725f'

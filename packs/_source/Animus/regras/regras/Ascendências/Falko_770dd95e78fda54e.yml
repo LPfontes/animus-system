@@ -13,24 +13,26 @@ system:
     value: 1
     attributes:
       - hab
-      - cog
+      - pre
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Voo
-      description: Permite voar enquanto não usa armaduras médias ou pesadas.
+      description: >-
+        Possui asas que permitem voar enquanto não usa armaduras médias ou pesadas.
       mechanicalEffect: >-
-        Gaste 1 <span class="text-mechanic">PA</span> para decolar; move-se com
-        dobro da velocidade; limite de <span class="text-attribute">HAB</span>
-        <span class="text-mechanic">rodadas</span>.
-    - name: Visão afiada
-      description: Olhos projetados para ver a longas distâncias.
-      mechanicalEffect: +1d em testes de Percepção
+        Para decolar: gaste 1 Ponto de Ação e desloque-se com o dobro da velocidade normal. Limite de Voo sustentado: HAB rodadas por cena sem descanso. Após o limite, cada rodada adicional custa 1 Ponto de Ação extra de esforço.
+    - name: Visão Afiada
+      description: >-
+        Olhos projetados para ver a longas distâncias com grandes detalhes.
+      mechanicalEffect: >-
+        +1d em testes de percepção.
     - name: Ossos Ocos
-      description: Mais leve, porém mais frágil a impactos.
+      description: >-
+        Os ossos dos Falkos são ocos e leves — essenciais para o Voo, conferindo agilidade aérea natural.
       mechanicalEffect: >-
-        <span class="text-mechanic">Desvantagem</span> em Resistência contra
-        impacto; +2 de <span class="text-mechanic">dano</span> de fontes de
-        concussão
+        Você amortece quedas (dano reduzido à metade), realiza saltos assistidos (dobra a distância) e pode planar de plataformas elevadas.
+
 effects: []
 _stats:
   coreVersion: '13.346'

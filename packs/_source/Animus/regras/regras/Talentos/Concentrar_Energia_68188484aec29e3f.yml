@@ -21,7 +21,7 @@ system:
     attribute: -1
     skill: -1
     dc: 0
-  subCategory: Combate
+  subCategory: Elemento
   grantedActions:
     - id: d6446387001b6a38
       name: Concentrar Energia

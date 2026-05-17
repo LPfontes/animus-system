@@ -12,22 +12,36 @@ system:
     value: 1
     attributes:
       - pot
-      - pre
+      - per
+    
     selectedAttribute: ''
   innateAbilities:
-    - name: Ataque Venenoso
-      description: Inocula veneno preparado através das presas.
+    - name: Presas
+      description: >-
+        Dentes naturais que podem ser usados em combate.
       mechanicalEffect: >-
-        2 cargas por sessão; <span class="text-mechanic">CD</span> 7+<span
-        class="text-attribute">POT</span>; Escolha entre Mortal, Debilitante ou
-        atordoante.
+        Você pode realizar uma mordida (custa 1 Ponto de Ação). Use as estatísticas de uma arma perfurante média.
+    - name: Ataque Venenoso
+      description: >-
+        Quando usa suas presas pode inocular veneno em seu oponente. Você possui 2 cargas de veneno preparado por sessão.
+      mechanicalEffect: >-
+        CD de resistência: 7+POT do atacante. Escolha: Mortal (POT+metade do nível de dano por rodada durante 3 rodadas); Debilitante (desvantagem em testes físicos); Atordoante (desvantagem em testes mentais).
+    - name: Sorrateiro
+      description: >-
+        Você sabe ser silencioso em quase todas as situações.
+      mechanicalEffect: >-
+        +1d em testes de furtividade.
+    - name: Dissimulação
+      description: >-
+        Você consegue fingir com naturalidade.
+      mechanicalEffect: >-
+        +1d em testes de enganação.
     - name: Letargia do Sangue Frio
       description: >-
-        <span class="text-mechanic">Reações</span> lentas em baixas
-        temperaturas.
+        Em ambientes de baixa temperatura, suas reações ficam lentas.
       mechanicalEffect: >-
-        Perde 1 <span class="text-mechanic">PA</span> por turno em ambientes
-        frios
+        Perde 1 ação por turno em ambientes frios.
+
 effects: []
 _stats:
   coreVersion: '13.346'

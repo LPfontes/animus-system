@@ -511,7 +511,12 @@
       {{#each (list "ac1" "ac2" "ac3" "ac4") as |ac|}}
       <div class="damage-row-v3 card-style">
         <div class="ac-column">
-          <span class="ac-label">{{upper ac}}</span>
+          <span class="ac-label">
+            {{#if (eq ac "ac1")}}Raso{{/if}}
+            {{#if (eq ac "ac2")}}Padrão{{/if}}
+            {{#if (eq ac "ac3")}}Forte{{/if}}
+            {{#if (eq ac "ac4")}}Crítico{{/if}}
+          </span>
           <a class="roll-damage" data-action="rollDamage" data-ac="{{ac}}" title="Rolar Dano">
             <i class="fas fa-dice-d20"></i>
           </a>

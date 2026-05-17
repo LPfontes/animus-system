@@ -4,11 +4,12 @@ type: element
 img: systems/animus/assets/system-icons/elements/metal.svg
 system:
   description: >-
-    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
-    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
-    PE</td><td>5+1×ANI</td><td>6+2×ANI</td><td>8+2×ANI</td><td>9+3×ANI</td></tr><tr><td>6
-    PE</td><td>7+2×ANI</td><td>9+2×ANI</td><td>11+3×ANI</td><td>13+4×ANI</td></tr><tr><td>9
-    PE</td><td>9+3×ANI</td><td>12+3×ANI</td><td>14+4×ANI</td><td>17+5×ANI</td></tr></table>
+    
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Nível
+    1 — 3 PE</td><td>3 + 1×ANI</td><td>5 + 1×ANI</td><td>8 + 2×ANI</td><td>10 + 2×ANI</td></tr><tr><td>Nível
+    2 — 6 PE</td><td>5 + 2×ANI</td><td>7 + 2×ANI</td><td>10 + 2×ANI</td><td>13 + 3×ANI</td></tr><tr><td>Nível
+    3 — 9 PE *</td><td>7 + 2×ANI</td><td>9 + 2×ANI</td><td>12 + 3×ANI</td><td>15 + 3×ANI</td></tr></table> <br><h3>Efeitos e Terreno</h3><table border='1'><tr><th>Condição Inata (3+)</th><th>Condição Avançada (4 ac.)</th><th>Efeito de Terreno</th></tr><tr><td>Penetração Plena: o dano de Metal ignora completamente a Proteção do alvo, indo direto em PV. Contra alvos usando armadura média ou pesada, ataques de Metal recebem +1 dano por acerto.</td><td>Sangramento Grave — 3 PV/turno, ignora redução.</td><td>Conduz Trovão; Madeira recebe +1 dano de Metal.</td></tr></table>
   strength: Crítico fácil + dano cresc.
   weakness: Sem cura/controle
   bonus:
@@ -17,7 +18,7 @@ system:
       - pot
       - per
     selectedAttribute: ''
-  range: 12m
+  range: 6m
   rhythm: Rígido
   secondaryEffects:
     outOfCombat: Magnetismo Sutil (detectar armas 9m, polir, travar fechaduras).
@@ -26,19 +27,33 @@ system:
     '1':
       pe: 3
       ac1:
-        base: 5
+        base: 3
         mult: 1
       ac2:
-        base: 6
-        mult: 2
+        base: 5
+        mult: 1
       ac3:
         base: 8
         mult: 2
       ac4:
-        base: 9
-        mult: 3
+        base: 10
+        mult: 2
     '2':
       pe: 6
+      ac1:
+        base: 5
+        mult: 2
+      ac2:
+        base: 7
+        mult: 2
+      ac3:
+        base: 10
+        mult: 2
+      ac4:
+        base: 13
+        mult: 3
+    '3':
+      pe: 9
       ac1:
         base: 7
         mult: 2
@@ -46,25 +61,11 @@ system:
         base: 9
         mult: 2
       ac3:
-        base: 11
-        mult: 3
-      ac4:
-        base: 13
-        mult: 4
-    '3':
-      pe: 9
-      ac1:
-        base: 9
-        mult: 3
-      ac2:
         base: 12
         mult: 3
-      ac3:
-        base: 14
-        mult: 4
       ac4:
-        base: 17
-        mult: 5
+        base: 15
+        mult: 3
   healTable: {}
 effects: []
 _stats:

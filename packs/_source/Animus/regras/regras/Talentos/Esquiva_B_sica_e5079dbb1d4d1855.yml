@@ -4,11 +4,9 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/26.png
 system:
   description: >-
-    Quando atacado, reduz os acertos recebidos em 1 (mínimo ac. 1). <br>Limite:
-    1×/<span class="text-mechanic">rodada</span>. <br>Não funciona se <span
-    class="text-condition">Imobilizado</span>, <span
-    class="text-condition">agarrado</span> ou <span
-    class="text-condition">Atordoado</span>.
+    Reação: Gaste 1 Ponto de Ação + 1 PE para reduzir a categoria de acerto de um
+    ataque recebido em 1 (mínimo Raso). Limite: 1×/rodada. Não funciona se estiver
+    Desprevenido, Imobilizado, Agarrado ou Atordoado.
   trigger: reação
   requirements:
     description: Amador em acrobacia ou Luta.
@@ -19,8 +17,8 @@ system:
         rank: 1
       - key: luta
         rank: 1
-  cost: 0
-  action: 2
+  cost: 1
+  action: 1
   check:
     attribute: -1
     skill: -1
@@ -29,15 +27,13 @@ system:
   grantedActions:
     - id: 17e30e8e2d5f1dfe
       name: Esquiva Básica
-      cost: 2
-      peCost: 0
+      cost: 1
+      peCost: 1
       type: 2
       description: >-
-        Quando atacado, reduz os acertos recebidos em 1 (mínimo ac. 1).
-        <br>Limite: 1×/<span class="text-mechanic">rodada</span>. <br>Não
-        funciona se <span class="text-condition">Imobilizado</span>, <span
-        class="text-condition">agarrado</span> ou <span
-        class="text-condition">Atordoado</span>.
+        Reação: Gaste 1 Ponto de Ação + 1 PE para reduzir a categoria de acerto de um
+        ataque recebido em 1 (mínimo Raso). Limite: 1×/rodada. Não funciona se estiver
+        Desprevenido, Imobilizado, Agarrado ou Atordoado.
 folder: talentoshub00001
 effects: []
 _key: '!items!e5079dbb1d4d1855'

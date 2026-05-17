@@ -1,13 +1,13 @@
 _id: 6e72625d3b1fb181
-name: Absorver Energia
+name: Absorção Elemental
 type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/45.png
 system:
   description: >-
-    Quando derrota um oponente, recupera 4 <span class="text-resource">PE</span>
-    e ganha 1 <span class="text-resource">PA</span>. <br>(Limitado ao valor de
-    <span class="text-attribute">ANI</span> por turno. )
-  trigger: Quando derrota um oponente
+    Recupere 2 <span class="text-resource">PE</span> por rodada durante o combate.
+    Além disso, você recupera todos os seus <span class="text-resource">PE</span> após um descanso
+    curto no ambiente apropriado.
+  trigger: ''
   requirements:
     description: Mestre em Elemento.
     talents: {}

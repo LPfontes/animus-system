@@ -1,14 +1,12 @@
 _id: 35ae3add67a8d88a
-name: Escudeiro
+name: Interpor
 type: talent
 img: systems/animus/assets/icons/skills/talentos/paladino/48.png
 system:
   description: >-
-    Quando você estiver usando um escudo e um aliado adjacente for o alvo de um
-    ataque, pode gastar 1 <span class="text-mechanic">PA</span> (da próxima
-    <span class="text-mechanic">rodada</span>) para se interpor: você se torna o
-    alvo do ataque e aplica os bônus de <span
-    class="text-resource">Proteção</span> do escudo contra ele.
+    Reação: Gaste 1 Ponto de Ação + 2 PE quando um aliado adjacente for alvo de um
+    ataque. Você se interpõe, tornando-se o novo alvo do ataque, e aplica os bônus
+    de Proteção do seu escudo contra ele.
   trigger: ''
   requirements:
     description: Proatividade com Escudos.
@@ -16,39 +14,23 @@ system:
       Proatividade com Escudos: 190bc9b9eaede9b7
     attributes: []
     skills: []
-  cost: 0
+  cost: 2
   action: 1
   check:
     attribute: -1
     skill: -1
-    dc: 0
+    dc: 8
   subCategory: Combate
   grantedActions:
     - id: f276f96416fb7425
-      name: Escudeiro
+      name: Interpor
       cost: 1
-      peCost: 0
+      peCost: 2
       type: 2
       description: >-
-        Quando você estiver usando um escudo e um aliado adjacente for o alvo de
-        um ataque, pode gastar 1 <span class="text-mechanic">PA</span> (da
-        próxima <span class="text-mechanic">rodada</span>) para se interpor:
-        você se torna o alvo do ataque e aplica os bônus de <span
-        class="text-resource">Proteção</span> do escudo contra ele.
+        Reação: Gaste 1 Ponto de Ação + 2 PE quando um aliado adjacente for alvo de um
+        ataque. Você se interpõe, tornando-se o novo alvo do ataque, e aplica os bônus
+        de Proteção do seu escudo contra ele.
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!35ae3add67a8d88a'

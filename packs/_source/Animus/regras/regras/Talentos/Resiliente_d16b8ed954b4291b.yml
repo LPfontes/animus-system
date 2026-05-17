@@ -4,8 +4,9 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/14.png
 system:
   description: >-
-    Você ganha +1 <span class="text-resource">PV</span> por nível de personagem
-    a partir do momento em que o talento é adquirido (não retroativo).
+    Você ganha +5 <span class="text-resource">PV</span> imediatamente após adquirir
+    este talento e +1 <span class="text-resource">PV</span> adicional a cada nova
+    subida de nível de personagem.
   trigger: passiva
   requirements:
     description: 2 pontos em POTÊNCIA.

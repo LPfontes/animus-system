@@ -1,0 +1,28 @@
+_id: superior000001
+name: Canalização Superior
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/42.png
+system:
+  description: >-
+    Redução de custo igual a <span class="text-attribute">ANI</span> (mínimo de
+    1 <span class="text-resource">PE</span> por implemento). Limitado a 1×/rodada.
+  trigger: ''
+  requirements:
+    description: Mestre em Controle Elemental.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 3
+      - key: controle
+        rank: 3
+  cost: 0
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!superior000001'

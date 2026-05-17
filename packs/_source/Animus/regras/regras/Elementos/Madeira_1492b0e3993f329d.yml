@@ -4,16 +4,17 @@ type: element
 img: systems/animus/assets/system-icons/elements/madeira.svg
 system:
   description: >-
-    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
-    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
-    PE</td><td>2+2×ANI</td><td>3+2×ANI</td><td>4+3×ANI</td><td>5+3×ANI</td></tr><tr><td>6
-    PE</td><td>4+2×ANI</td><td>6+3×ANI</td><td>7+3×ANI</td><td>9+4×ANI</td></tr><tr><td>9
-    PE</td><td>7+2×ANI</td><td>9+3×ANI</td><td>11+4×ANI</td><td>13+4×ANI</td></tr></table><h3>Tabela
-    de Cura</h3><table border='1'><tr><th>Nível PE</th><th>1 acerto</th><th>2
-    acertos</th><th>3 acertos</th><th>4 acertos (crít.)</th></tr><tr><td>3
-    PE</td><td>1+1×ANI</td><td>2+2×ANI</td><td>4+2×ANI</td><td>5+3×ANI</td></tr><tr><td>6
-    PE</td><td>3+2×ANI</td><td>5+2×ANI</td><td>7+3×ANI</td><td>9+4×ANI</td></tr><tr><td>9
-    PE</td><td>5+2×ANI</td><td>8+3×ANI</td><td>11+4×ANI</td><td>14+5×ANI</td></tr></table>
+    
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Nível
+    1 — 3 PE</td><td>3 + 1×ANI</td><td>5 + 1×ANI</td><td>7 + 2×ANI</td><td>10 + 2×ANI</td></tr><tr><td>Nível
+    2 — 6 PE</td><td>5 + 1×ANI</td><td>7 + 2×ANI</td><td>10 + 2×ANI</td><td>13 + 3×ANI</td></tr><tr><td>Nível
+    3 — 9 PE *</td><td>7 + 2×ANI</td><td>9 + 2×ANI</td><td>12 + 3×ANI</td><td>16 + 4×ANI</td></tr></table>
+    <h3>Tabela de Cura</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Cura
+    Nív.1 — 3 PE</td><td>2 + 1×ANI</td><td>3 + 1×ANI</td><td>5 + 2×ANI</td><td>7 + 2×ANI</td></tr><tr><td>Cura
+    Nív.2 — 6 PE</td><td>4 + 1×ANI</td><td>5 + 2×ANI</td><td>7 + 2×ANI</td><td>10 + 3×ANI</td></tr><tr><td>Cura
+    Nív.3 — 9 PE *</td><td>6 + 1×ANI</td><td>8 + 2×ANI</td><td>10 + 3×ANI</td><td>13 + 3×ANI</td></tr></table> <br><h3>Efeitos e Terreno</h3><table border='1'><tr><th>Condição Inata (3+)</th><th>Condição Avançada (4 ac.)</th><th>Efeito de Terreno</th></tr><tr><td>Raízes: 3+ acertos aplicam Raízes (alvo Imobilizado por 1 turno; CD 8+ANI para escapar). Áreas de Madeira aplicam Terreno Difícil até o fim da cena.</td><td>Enraizado — Imobilizado por 1 rodada.</td><td>Raízes persistem; entrar: CD 8+ANI POT ou Raízes.</td></tr></table>
   strength: 'Versátil: dano + cura + controle'
   weakness: Vulnerável a Fogo
   bonus:
@@ -31,31 +32,31 @@ system:
     '1':
       pe: 3
       ac1:
-        base: 2
-        mult: 2
-      ac2:
         base: 3
-        mult: 2
-      ac3:
-        base: 4
-        mult: 3
-      ac4:
+        mult: 1
+      ac2:
         base: 5
-        mult: 3
+        mult: 1
+      ac3:
+        base: 7
+        mult: 2
+      ac4:
+        base: 10
+        mult: 2
     '2':
       pe: 6
       ac1:
-        base: 4
-        mult: 2
+        base: 5
+        mult: 1
       ac2:
-        base: 6
-        mult: 3
-      ac3:
         base: 7
-        mult: 3
+        mult: 2
+      ac3:
+        base: 10
+        mult: 2
       ac4:
-        base: 9
-        mult: 4
+        base: 13
+        mult: 3
     '3':
       pe: 9
       ac1:
@@ -63,56 +64,56 @@ system:
         mult: 2
       ac2:
         base: 9
-        mult: 3
+        mult: 2
       ac3:
-        base: 11
-        mult: 4
+        base: 12
+        mult: 3
       ac4:
-        base: 13
+        base: 16
         mult: 4
   healTable:
     '1':
       pe: 3
       ac1:
-        base: 1
+        base: 2
         mult: 1
       ac2:
-        base: 2
-        mult: 2
+        base: 3
+        mult: 1
       ac3:
-        base: 4
+        base: 5
         mult: 2
       ac4:
-        base: 5
-        mult: 3
+        base: 7
+        mult: 2
     '2':
       pe: 6
       ac1:
-        base: 3
-        mult: 2
+        base: 4
+        mult: 1
       ac2:
         base: 5
         mult: 2
       ac3:
         base: 7
-        mult: 3
+        mult: 2
       ac4:
-        base: 9
-        mult: 4
+        base: 10
+        mult: 3
     '3':
       pe: 9
       ac1:
-        base: 5
-        mult: 2
+        base: 6
+        mult: 1
       ac2:
         base: 8
-        mult: 3
+        mult: 2
       ac3:
-        base: 11
-        mult: 4
+        base: 10
+        mult: 3
       ac4:
-        base: 14
-        mult: 5
+        base: 13
+        mult: 3
 effects: []
 _stats:
   coreVersion: '13.346'

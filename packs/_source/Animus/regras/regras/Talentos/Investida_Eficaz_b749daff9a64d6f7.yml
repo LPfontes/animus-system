@@ -1,13 +1,11 @@
 _id: b749daff9a64d6f7
-name: Investida Eficaz
+name: Carga
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/4.png
 system:
   description: >-
-    Mova até 6m em linha reta e ataque. <br>O ataque ganha +3 de <span
-    class="text-mechanic">dano</span>. <br>Com ac. 3+: o alvo testa <span
-    class="text-attribute">POT</span> <span class="text-mechanic">CD</span> 8 ou
-    é <span class="text-condition">Derrubado</span>.
+    Gaste 1 Ponto de Ação + 2 PE: mova-se até 6m em linha reta e realize um ataque.
+    Se o resultado do ataque for Forte ou Crítico, o alvo é automaticamente Derrubado.
   trigger: ''
   requirements:
     description: ''
@@ -23,29 +21,13 @@ system:
   subCategory: Combate
   grantedActions:
     - id: 3d9b73494af3ec48
-      name: Investida Eficaz
+      name: Carga
       cost: 1
       peCost: 2
       type: 2
       description: >-
-        Mova até 6m em linha reta e ataque. <br>O ataque ganha +3 de <span
-        class="text-mechanic">dano</span>. <br>Com ac. 3+: o alvo testa <span
-        class="text-attribute">POT</span> <span class="text-mechanic">CD</span>
-        8 ou é <span class="text-condition">Derrubado</span>.
+        Gaste 1 Ponto de Ação + 2 PE: mova-se até 6m em linha reta e realize um ataque.
+        Se o resultado do ataque for Forte ou Crítico, o alvo é automaticamente Derrubado.
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!b749daff9a64d6f7'

@@ -1,0 +1,26 @@
+_id: ativacao000001
+name: Ativação Elemental
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/24.png
+system:
+  description: >-
+    Por 2 <span class="text-resource">PE</span>, aplica a condição do elemento
+    com qualquer acerto.
+  trigger: ''
+  requirements:
+    description: Amador em Elemento.
+    talents: {}
+    attributes: []
+    skills:
+      - key: elemento
+        rank: 1
+  cost: 2
+  action: 0
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!ativacao000001'

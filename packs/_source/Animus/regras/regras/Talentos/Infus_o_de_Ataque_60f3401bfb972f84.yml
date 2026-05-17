@@ -1,15 +1,13 @@
 _id: 60f3401bfb972f84
-name: Infusão de Ataque
+name: Infusão Elemental
 type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/45.png
 system:
   description: >-
-    Antes de realizar um ataque físico, gaste 2 <span
+    Antes de realizar um ataque físico, gaste 4 <span
     class="text-resource">PE</span>: a arma fica imbuída com seu elemento até o
-    fim do ataque. <br>O ataque causa +1 de <span
-    class="text-mechanic">dano</span> elemental em todos os acertos e aplica a
-    condição inata com 1 <span class="text-mechanic">acerto</span> a menos que o
-    mínimo normal.
+    fim do combate. <br>O ataque causa dano extra igual ao dano do acerto Raso do
+    elemento de Nível 1 correspondente.
   trigger: Antes de realizar um ataque
   requirements:
     description: Amador em Luta ou Pontaria; Amador em Elemento.
@@ -22,7 +20,7 @@ system:
         rank: 1
       - key: elemento
         rank: 1
-  cost: 2
+  cost: 4
   action: 0
   check:
     attribute: -1
@@ -31,17 +29,15 @@ system:
   subCategory: Elemento
   grantedActions:
     - id: d1e37d6dd16e3c5e
-      name: Infusão de Ataque
+      name: Infusão Elemental
       cost: 0
-      peCost: 2
+      peCost: 4
       type: 2
       description: >-
-        Antes de realizar um ataque físico, gaste 2 <span
+        Antes de realizar um ataque físico, gaste 4 <span
         class="text-resource">PE</span>: a arma fica imbuída com seu elemento
-        até o fim do ataque. <br>O ataque causa +1 de <span
-        class="text-mechanic">dano</span> elemental em todos os acertos e aplica
-        a condição inata com 1 <span class="text-mechanic">acerto</span> a menos
-        que o mínimo normal.
+        até o fim do combate. <br>O ataque causa dano extra igual ao dano do acerto
+        Raso do elemento de Nível 1 correspondente.
 folder: talentoshub00001
 effects: []
 _key: '!items!60f3401bfb972f84'

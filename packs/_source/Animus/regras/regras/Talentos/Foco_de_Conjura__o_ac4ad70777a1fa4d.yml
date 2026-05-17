@@ -4,8 +4,7 @@ type: talent
 img: systems/animus/assets/icons/skills/elementais/fogo/17.png
 system:
   description: >-
-    Quando usa seu foco para conjurar seu poder elemental, ao invés de reduzir o
-    custo em 4, reduz em 8.
+    Quando usa seu foco para conjurar seu poder elemental, reduz o custo em 3 <span class="text-resource">PE</span>.
   trigger: ''
   requirements:
     description: Amador em Elemento.

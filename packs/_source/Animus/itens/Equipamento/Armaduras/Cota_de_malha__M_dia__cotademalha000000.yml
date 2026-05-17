@@ -1,0 +1,17 @@
+_id: cotademalha000000
+name: Cota de malha (Média)
+type: armor
+img: systems/animus/assets/system-icons/armor/armadura/media.png
+system:
+  type: media
+  base: 7
+  multPOT: 1
+  multHAB: 1
+  paPenalty: 1
+  actionPenalty: 0
+  description: 'Proteção: +7<br>Penalidade: +1 ação em Movimento (Correr, Deslocar-se)<br>Lógica: 7 + (1 x POT) + (1 x HAB)'
+  weight: 0
+  price: 40 Đ
+folder: 33fd8916c4554f13
+effects: []
+_key: '!items!cotademalha000000'

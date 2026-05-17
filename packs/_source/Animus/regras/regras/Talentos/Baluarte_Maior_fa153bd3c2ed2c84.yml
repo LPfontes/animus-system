@@ -4,19 +4,19 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/paladino/19.png
 system:
   description: >-
-    Igual ao Baluarte, porém gasta 5 <span class="text-resource">PE</span> para
-    diminuir todos os danos recebidos até a sua próxima <span
-    class="text-mechanic">rodada</span>.
+    Gaste 3 <span class="text-resource">PE</span> para reduzir a categoria de
+    acerto de todos os ataques direcionados a você em 1 nível até o início do
+    seu próximo turno.
   trigger: ''
   requirements:
     description: Profissional em Resistência; Baluarte Menor.
     talents:
-      Baluarte Menor: 12b8b560454e7ad2
+      Baluarte Menor: 952c38ef90b3a779
     attributes: []
     skills:
       - key: resistencia
         rank: 2
-  cost: 0
+  cost: 3
   action: 0
   check:
     attribute: -1

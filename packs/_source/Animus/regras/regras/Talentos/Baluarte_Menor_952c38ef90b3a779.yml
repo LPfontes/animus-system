@@ -4,8 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/paladino/7.png
 system:
   description: >-
-    Reduz o nível de <span class="text-mechanic">acerto</span> do próximo ataque
-    sofrido em 1 ( ac. <br>4 → ac. 3, ac. 3 → ac. 2, etc. ). <br>Mínimo: ac. 1.
+    Reação: Gaste 1 Ponto de Ação + 2 PE ao receber um ataque para reduzir todo o
+    dano sofrido pela metade.
   trigger: reação
   requirements:
     description: Amador em Resistência.
@@ -14,7 +14,7 @@ system:
     skills:
       - key: resistencia
         rank: 1
-  cost: 4
+  cost: 2
   action: 1
   check:
     attribute: -1
@@ -25,26 +25,11 @@ system:
     - id: e7c175830db2f865
       name: Baluarte Menor
       cost: 1
-      peCost: 4
+      peCost: 2
       type: 2
       description: >-
-        Reduz o nível de <span class="text-mechanic">acerto</span> do próximo
-        ataque sofrido em 1 ( ac. <br>4 → ac. 3, ac. 3 → ac. 2, etc. ).
-        <br>Mínimo: ac. 1.
+        Reação: Gaste 1 Ponto de Ação + 2 PE ao receber um ataque para reduzir todo o
+        dano sofrido pela metade.
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!952c38ef90b3a779'

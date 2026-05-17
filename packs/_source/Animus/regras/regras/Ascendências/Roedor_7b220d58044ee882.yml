@@ -14,26 +14,35 @@ system:
     attributes:
       - hab
       - cog
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Presas
-      description: Dentes naturais usados em combate.
+      description: >-
+        Dentes naturais que podem ser usados em combate.
       mechanicalEffect: >-
-        Ataque com 2 <span class="text-mechanic">PA</span>; use estatísticas de
-        arma perfurante média.
+        Você pode realizar uma mordida (custa 1 Ponto de Ação). Use as estatísticas de uma arma perfurante média.
     - name: Sorrateiro
-      description: Silencioso por natureza.
-      mechanicalEffect: <span class="text-mechanic">Vantagem</span> em testes de Furtividade
+      description: >-
+        Você sabe ser silencioso em quase todas as situações.
+      mechanicalEffect: >-
+        +1d em testes de Furtividade.
+    - name: Socialidade Inata
+      description: >-
+        Você tem a capacidade natural de lidar com situações sociais.
+      mechanicalEffect: >-
+        +1d em testes de Persuasão.
     - name: Fuga Evasiva
       description: >-
-        Capacidade de se deslocar rapidamente ao sofrer <span
-        class="text-mechanic">dano</span>.
+        Quando recebe dano, você pode se deslocar um quadrado (1,5m) em uma direção segura.
       mechanicalEffect: >-
-        <span class="text-mechanic">Reação</span>: mova-se 1,5m em direção
-        segura ao receber <span class="text-mechanic">dano</span>.
+        Reação ao receber dano: mova-se 1,5m em direção segura.
     - name: Mãos Leves
-      description: Movimentos manuais imperceptíveis.
-      mechanicalEffect: <span class="text-mechanic">Vantagem</span> em testes de Prestidigitação
+      description: >-
+        Você sabe mover suas mãos de forma furtiva e imperceptível.
+      mechanicalEffect: >-
+        +1d em testes de Prestidigitação.
+
 effects: []
 _stats:
   coreVersion: '13.346'

@@ -13,18 +13,26 @@ system:
     value: 1
     attributes:
       - pot
-      - hab
+      - pre
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Força Primal
-      description: Membros superiores fortes e adaptáveis.
-      mechanicalEffect: +1d em testes de Luta
+      description: >-
+        Possui os membros superiores fortes e adaptáveis.
+      mechanicalEffect: >-
+        +1d em testes de Luta.
     - name: Mãos Hábeis
-      description: Gestos e movimentos complexos realizados com facilidade.
-      mechanicalEffect: +1d em testes de Prestidigitação
+      description: >-
+        Suas mãos conseguem fazer gestos e movimentos complexos com facilidade.
+      mechanicalEffect: >-
+        +1d em testes de Prestidigitação.
     - name: Socialidade Inata
-      description: Capacidade natural de lidar com situações sociais.
-      mechanicalEffect: +1d em testes de Persuasão
+      description: >-
+        Você tem a capacidade natural de lidar com situações sociais.
+      mechanicalEffect: >-
+        +1d em testes de Persuasão.
+
 effects: []
 _stats:
   coreVersion: '13.346'

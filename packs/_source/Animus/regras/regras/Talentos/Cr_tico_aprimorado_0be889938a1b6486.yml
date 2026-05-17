@@ -4,9 +4,8 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/18.png
 system:
   description: >-
-    A margem de <span class="text-mechanic">acerto</span> para <span
-    class="text-mechanic">Crítico</span> (4 acertos) é reduzida para <span
-    class="text-mechanic">acerto</span> em 11+ (de 12+).
+    O Crítico Natural em combate ocorre quando você rola 6+5, 5+6 ou 6+6 nos
+    dois dados de perícia (anteriormente apenas com duplo 6).
   trigger: ''
   requirements:
     description: Mestre em Perícia-Chave; Maestria Marcial.

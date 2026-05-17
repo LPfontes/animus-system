@@ -4,13 +4,13 @@ type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/5.png
 system:
   description: >-
-    Igual à Esquiva Básica, porém reduz acertos em 2. <br>Pode ser usada
-    2×/<span class="text-mechanic">rodada</span>.
+    Igual à Esquiva Básica, porém reduz a categoria do acerto recebido em 2.
+    Pode ser usada até 3×/rodada.
   trigger: reação
   requirements:
     description: Esquiva Básica; Profissional em acrobacia.
     talents:
-      Esquiva Básica: 148ad8bf75da4b2c
+      Esquiva Básica: e5079dbb1d4d1855
     attributes: []
     skills:
       - key: acrobacia

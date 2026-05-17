@@ -1,0 +1,11 @@
+_id: defenderse000001
+folder: acoeshub00000001
+name: Defender-se
+type: action
+img: systems/animus/assets/system-icons/action/shield.svg
+system:
+  description: >-
+    Reagir a um ataque sem precisar de talento defensivo. reduz em 1 a categoria de acerto do ataque recebido (Crítico→Forte, Forte→Padrão, etc.). Limite: 1×/rodada. Reações defensivas ficam indisponíveis se o personagem estiver Imobilizado, Agarrado, Atordoado ou Desprevenido.
+  cost: 1
+effects: []
+_key: '!items!defenderse000001'

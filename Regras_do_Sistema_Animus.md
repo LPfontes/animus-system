@@ -47,7 +47,7 @@
 ## Ações de Combate
 
 ### Ação Coordenada
-Gasta 1 PA adicional para conceder Vantagem a um aliado.
+Gasta 1 Ponto de Ação adicional para conceder Vantagem a um aliado.
 
 **Custo:** 1 PA
 
@@ -62,7 +62,7 @@ Realiza um ataque com uma arma de porte médio.
 **Custo:** 2 PA
 
 ### Ataque elemental
-Canaliza poder elemental. Base: Pessoal (0m), alvo único, Nível 1. Custo: 3 PE. Cada implemento adicional de distância ou área custa +3 PE.
+Canaliza poder elemental usando o Modelo de Implementos (Nível, Distância e Área). Custo base: 3 PE por implemento de Nível. Cada implemento de Distância ou Área adiciona +3 PE ao custo total, com exceção do 3º implemento de Distância que custa 6 PE.
 
 **Custo:** 2 PA
 
@@ -82,7 +82,7 @@ Usa uma perícia (Atletismo, Intimidação, Medicina, etc.) durante o combate.
 **Custo:** 1 PA
 
 ### Repetir a mesma ação
-Gasta 1 PA extra ao repetir exatamente a mesma ação realizada anteriormente no mesmo turno.
+Gasta 1 Ponto de Ação extra ao repetir exatamente a mesma ação realizada anteriormente no mesmo turno.
 
 **Custo:** 1 PA
 
@@ -96,6 +96,10 @@ Consome ou ativa um item do seu inventário.
 
 **Custo:** 1 PA
 
+### Defender-se (Reação Universal)
+Todo personagem agora pode reagir a um ataque sem precisar de talento defensivo. Reduz em 1 a categoria de acerto (Crítico → Forte, Forte → Padrão, etc.). Limite: 1×/rodada. Reações defensivas ficam indisponíveis se o personagem estiver Imobilizado, Agarrado, Atordoado ou Desprevenido.
+
+**Custo:** 1 PA (do próximo turno) + 3 PE
 
 ---
 
@@ -204,22 +208,22 @@ Movimentos manuais imperceptíveis.
 ## Elementos
 
 ### Fogo
-Tabela de DanoNível PEAC1AC2AC3AC43 PE3+1×ANI6+1×ANI8+2×ANI9+2×ANI6 PE7+2×ANI9+2×ANI11+3×ANI13+3×ANI9 PE9+2×ANI11+3×ANI13+4×ANI15+4×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE3+1×ANI6+1×ANI8+2×ANI9+2×ANI6 PE7+2×ANI9+2×ANI11+3×ANI13+3×ANI9 PE9+2×ANI11+3×ANI13+4×ANI15+4×ANI
 
 ### Madeira
-Tabela de DanoNível PEAC1AC2AC3AC43 PE2+2×ANI3+2×ANI4+3×ANI5+3×ANI6 PE4+2×ANI6+3×ANI7+3×ANI9+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI13+4×ANITabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE1+1×ANI2+2×ANI4+2×ANI5+3×ANI6 PE3+2×ANI5+2×ANI7+3×ANI9+4×ANI9 PE5+2×ANI8+3×ANI11+4×ANI14+5×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE2+2×ANI3+2×ANI4+3×ANI5+3×ANI6 PE4+2×ANI6+3×ANI7+3×ANI9+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI13+4×ANITabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE1+1×ANI2+2×ANI4+2×ANI5+3×ANI6 PE3+2×ANI5+2×ANI7+3×ANI9+4×ANI9 PE5+2×ANI8+3×ANI11+4×ANI14+5×ANI
 
 ### Metal
-Tabela de DanoNível PEAC1AC2AC3AC43 PE5+1×ANI6+2×ANI8+2×ANI9+3×ANI6 PE7+2×ANI9+2×ANI11+3×ANI13+4×ANI9 PE9+3×ANI12+3×ANI14+4×ANI17+5×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE5+1×ANI6+2×ANI8+2×ANI9+3×ANI6 PE7+2×ANI9+2×ANI11+3×ANI13+4×ANI9 PE9+3×ANI12+3×ANI14+4×ANI17+5×ANI
 
 ### Terra
-Tabela de DanoNível PEAC1AC2AC3AC43 PE2+2×ANI3+2×ANI4+3×ANI5+3×ANI6 PE4+2×ANI6+3×ANI7+3×ANI8+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI12+5×ANITabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE2+1×ANI4+2×ANI5+2×ANI7+3×ANI6 PE4+2×ANI6+2×ANI8+3×ANI11+4×ANI9 PE6+2×ANI9+3×ANI12+4×ANI15+5×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE2+2×ANI3+2×ANI4+3×ANI5+3×ANI6 PE4+2×ANI6+3×ANI7+3×ANI8+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI12+5×ANITabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE2+1×ANI4+2×ANI5+2×ANI7+3×ANI6 PE4+2×ANI6+2×ANI8+3×ANI11+4×ANI9 PE6+2×ANI9+3×ANI12+4×ANI15+5×ANI
 
 ### Trovão
-Tabela de DanoNível PEAC1AC2AC3AC43 PE5+1×ANI7+2×ANI9+2×ANI11+3×ANI8 PE7+2×ANI10+2×ANI12+3×ANI14+4×ANI12 PE9+3×ANI12+3×ANI14+4×ANI17+4×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE5+1×ANI7+2×ANI9+2×ANI11+3×ANI8 PE7+2×ANI10+2×ANI12+3×ANI14+4×ANI12 PE9+3×ANI12+3×ANI14+4×ANI17+4×ANI
 
 ### Vento
-Tabela de DanoNível PEAC1AC2AC3AC43 PE3+1×ANI4+2×ANI6+2×ANI7+3×ANI6 PE5+2×ANI7+2×ANI8+3×ANI9+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI13+5×ANI Tabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE3+1×ANI4+1×ANI5+2×ANI7+3×ANI6 PE5+2×ANI7+2×ANI9+3×ANI11+4×ANI9 PE7+2×ANI9+3×ANI12+4×ANI15+5×ANI
+Tabela de DanoNível PERasoPadrãoForteCrítico3 PE3+1×ANI4+2×ANI6+2×ANI7+3×ANI6 PE5+2×ANI7+2×ANI8+3×ANI9+4×ANI9 PE7+2×ANI9+3×ANI11+4×ANI13+5×ANI Tabela de CuraNível PE1 acerto2 acertos3 acertos4 acertos (crít.)3 PE3+1×ANI4+1×ANI5+2×ANI7+3×ANI6 PE5+2×ANI7+2×ANI9+3×ANI11+4×ANI9 PE7+2×ANI9+3×ANI12+4×ANI15+5×ANI
 
 
 ---

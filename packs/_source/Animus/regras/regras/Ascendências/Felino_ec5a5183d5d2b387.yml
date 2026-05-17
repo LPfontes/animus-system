@@ -12,30 +12,31 @@ system:
     value: 1
     attributes:
       - hab
-      - pre
+      - per
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Garras
       description: >-
-        Lâminas naturais de queratina. <br>Use estatísticas de arma cortante
-        leve.
+        Lâminas naturais de queratina que surgem instantaneamente para combate, mantendo-se ocultas para manipulação precisa de objetos.
       mechanicalEffect: >-
-        Permite ataque com 1 <span class="text-mechanic">PA</span> (uma garra)
-        ou 3 <span class="text-mechanic">PA</span> (duas garras).
+        Você pode atacar com uma garra (custa 1 Ponto de Ação) ou com as duas garras (custa 3 Pontos de Ação). Use as estatísticas de uma arma cortante leve.
     - name: Reação Rápida
       description: >-
-        Ataques surpresa contra você têm <span
-        class="text-mechanic">Desvantagem</span> em vez de <span
-        class="text-mechanic">Vantagem</span>.
+        Mesmo quando estiver distraído, você consegue reagir.
       mechanicalEffect: >-
-        Trasforma <span class="text-mechanic">vantagem</span> em <span
-        class="text-mechanic">desvantagem</span> em ataques surpresa
+        Você não pode ser surpreendido por ataques que consiga ouvir ou ver (exceto se morrer ou ficar inconsciente). Ataques surpresa contra você têm Desvantagem em vez de Vantagem automática.
     - name: Visão Noturna
-      description: Enxerga perfeitamente na escuridão sem penalidades.
-      mechanicalEffect: Ignorar penalidade escuridão
+      description: >-
+        Pupilas verticais que se dilatam para captar luz mínima, revelando detalhes em completa escuridão.
+      mechanicalEffect: >-
+        Enxergue perfeitamente na escuridão sem penalidades.
     - name: Furtividade Felina
-      description: Movimentos instintivamente silenciosos.
-      mechanicalEffect: +1d em testes de Furtividade
+      description: >-
+        Seus movimentos são instintivamente silenciosos e bem calculados.
+      mechanicalEffect: >-
+        +1d em testes de furtividade.
+
 effects: []
 _stats:
   coreVersion: '13.346'

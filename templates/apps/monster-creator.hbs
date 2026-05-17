@@ -114,12 +114,12 @@
       </div>
 
       <div class="damage-preview glass-panel">
-        <div class="preview-header">PRÉVIA DA TABELA DE DANO ({{#if (lt data.nd 5)}}1-4 AC{{else}}1-6 AC{{/if}})</div>
+        <div class="preview-header">PRÉVIA DA TABELA DE DANO ({{#if (lt data.nd 5)}}Raso a Crítico{{else}}Raso a AC 6{{/if}})</div>
         <div class="damage-table-grid {{#if (lt data.nd 5)}}cols-4{{else}}cols-6{{/if}}">
-          <div class="ac-box"><span>AC 1 (2-3)</span><strong>{{damageTable.ac1}}</strong></div>
-          <div class="ac-box"><span>AC 2 (4-5)</span><strong>{{damageTable.ac2}}</strong></div>
-          <div class="ac-box"><span>AC 3 (6-7)</span><strong>{{damageTable.ac3}}</strong></div>
-          <div class="ac-box"><span>AC 4 (8-9)</span><strong>{{damageTable.ac4}}</strong></div>
+          <div class="ac-box"><span>Raso (2-3)</span><strong>{{damageTable.ac1}}</strong></div>
+          <div class="ac-box"><span>Padrão (4-5)</span><strong>{{damageTable.ac2}}</strong></div>
+          <div class="ac-box"><span>Forte (6-7)</span><strong>{{damageTable.ac3}}</strong></div>
+          <div class="ac-box"><span>Crítico (8-9)</span><strong>{{damageTable.ac4}}</strong></div>
           {{#if (gte data.nd 5)}}
           <div class="ac-box"><span>AC 5 (10-12)</span><strong>{{damageTable.ac5}}</strong></div>
           <div class="ac-box"><span>AC 6 (D66)</span><strong>{{damageTable.ac6}}</strong></div>

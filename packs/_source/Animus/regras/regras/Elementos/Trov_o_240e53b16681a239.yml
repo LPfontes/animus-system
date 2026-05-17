@@ -5,11 +5,12 @@ type: element
 img: systems/animus/assets/system-icons/elements/trovao.svg
 system:
   description: >-
-    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
-    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
-    PE</td><td>5+1×ANI</td><td>7+2×ANI</td><td>9+2×ANI</td><td>11+3×ANI</td></tr><tr><td>8
-    PE</td><td>7+2×ANI</td><td>10+2×ANI</td><td>12+3×ANI</td><td>14+4×ANI</td></tr><tr><td>12
-    PE</td><td>9+3×ANI</td><td>12+3×ANI</td><td>14+4×ANI</td><td>17+4×ANI</td></tr></table>
+    
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Nível
+    1 — 3 PE</td><td>3 + 0×ANI</td><td>5 + 1×ANI</td><td>8 + 2×ANI</td><td>11 + 4×ANI</td></tr><tr><td>Nível
+    2 — 6 PE</td><td>4 + 1×ANI</td><td>7 + 2×ANI</td><td>11 + 3×ANI</td><td>14 + 5×ANI</td></tr><tr><td>Nível
+    3 — 9 PE *</td><td>6 + 1×ANI</td><td>10 + 2×ANI</td><td>14 + 4×ANI</td><td>18 + 6×ANI</td></tr></table> <br><h3>Efeitos e Terreno</h3><table border='1'><tr><th>Condição Inata (3+)</th><th>Condição Avançada (4 ac.)</th><th>Efeito de Terreno</th></tr><tr><td>Sobrecarga Elétrica: ao causar 4 acertos (Crítico), o próximo ataque de Trovão nessa cena tem +1d na rolagem.</td><td>Paralisado — perde 1 Ponto de Ação por turno por 2 rodadas.</td><td>Conduz eletricidade: +2 dano se Água presente.</td></tr></table>
   strength: Dano bruto puro
   weakness: Nenhuma
   bonus:
@@ -18,7 +19,7 @@ system:
       - hab
       - pre
     selectedAttribute: ''
-  range: 18m
+  range: 6m
   rhythm: Veloz
   secondaryEffects:
     outOfCombat: Reflexo Elétrico (+1d iniciativa, acordar aliado).
@@ -27,45 +28,45 @@ system:
     '1':
       pe: 3
       ac1:
+        base: 3
+        mult: 0
+      ac2:
         base: 5
+        mult: 1
+      ac3:
+        base: 8
+        mult: 2
+      ac4:
+        base: 11
+        mult: 4
+    '2':
+      pe: 6
+      ac1:
+        base: 4
         mult: 1
       ac2:
         base: 7
         mult: 2
       ac3:
-        base: 9
-        mult: 2
-      ac4:
         base: 11
         mult: 3
-    '2':
-      pe: 8
+      ac4:
+        base: 14
+        mult: 5
+    '3':
+      pe: 9
       ac1:
-        base: 7
-        mult: 2
+        base: 6
+        mult: 1
       ac2:
         base: 10
         mult: 2
       ac3:
-        base: 12
-        mult: 3
-      ac4:
-        base: 14
-        mult: 4
-    '3':
-      pe: 12
-      ac1:
-        base: 9
-        mult: 3
-      ac2:
-        base: 12
-        mult: 3
-      ac3:
         base: 14
         mult: 4
       ac4:
-        base: 17
-        mult: 4
+        base: 18
+        mult: 6
   healTable: {}
 effects: []
 _key: '!items!240e53b16681a239'

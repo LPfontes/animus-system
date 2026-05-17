@@ -1,20 +1,19 @@
 _id: 8907eaf027bd1d25
-name: Recuperar Fôlego
+name: Segunda Respiração
 type: talent
 img: systems/animus/assets/icons/skills/talentos/paladino/1.png
 system:
   description: >-
-    Respira fundo e reavalia o campo. <br>Recupera 1d6+<span
-    class="text-attribute">POT</span> de <span
-    class="text-resource">Proteção</span>. <br>Pode ser feito uma vez por <span
-    class="text-mechanic">rodada</span>.
+    Gaste 1 Ponto de Ação + 4 PE para respirar fundo e recuperar 1d6+<span
+    class="text-attribute">POT</span> de Proteção. A recuperação não pode superar
+    o valor máximo de Proteção do personagem. Limitado a 1×/rodada.
   trigger: ''
   requirements:
     description: ''
     talents: {}
     attributes: []
     skills: []
-  cost: 2
+  cost: 4
   action: 1
   check:
     attribute: -1
@@ -23,15 +22,14 @@ system:
   subCategory: Combate
   grantedActions:
     - id: ff0f31a72812e1fd
-      name: Recuperar Fôlego
+      name: Segunda Respiração
       cost: 1
-      peCost: 2
+      peCost: 4
       type: 2
       description: >-
-        Respira fundo e reavalia o campo. <br>Recupera 1d6+<span
-        class="text-attribute">POT</span> de <span
-        class="text-resource">Proteção</span>. <br>Pode ser feito uma vez por
-        <span class="text-mechanic">rodada</span>.
+        Gaste 1 Ponto de Ação + 4 PE para respirar fundo e recuperar 1d6+<span
+        class="text-attribute">POT</span> de Proteção. A recuperação não pode superar
+        o valor máximo de Proteção do personagem. Limitado a 1×/rodada.
 folder: talentoshub00001
 effects: []
 _key: '!items!8907eaf027bd1d25'

@@ -11,21 +11,26 @@ system:
     value: 1
     attributes:
       - hab
-      - ani
+      - per
+    
     selectedAttribute: ''
   innateAbilities:
-    - name: Memória Genética
-      description: Uma conexão profunda com as experiências de seus ancestrais.
-      mechanicalEffect: +1d em testes de Conhecimento (Compreensão)
-    - name: Distanciamento Emocional
-      description: Uma natureza reservada que dificulta a expressão de sentimentos.
-      mechanicalEffect: -1d em testes de Persuasão
-    - name: Passos Leves
-      description: Movimentação silenciosa e graciosa em qualquer terreno.
-      mechanicalEffect: +1d em testes de Furtividade ou Acrobacia
-    - name: Conexão Especial
-      description: O povo élfico mantém uma rede de contatos e reconhecimento místico.
-      mechanicalEffect: 1x por sessão: declarar a existência de outro elfo na região, pode ser um conhecido entretanto seu status atua fica cargo do mestre.
+    - name: Sentidos Élficos
+      description: >-
+        Olhos adaptados à penumbra das florestas antigas e ouvido afiado por séculos de caça e vigília.
+      mechanicalEffect: >-
+        Enxergue em escuridão parcial sem penalidade. +1d em testes de Percepção.
+    - name: Foco Ancestral
+      description: >-
+        Tradição milenar de arco e flecha refina a mira além do que outras linhagens conseguem treinar.
+      mechanicalEffect: >-
+        +1d em testes de Pontaria.
+    - name: Memória das Eras
+      description: >-
+        Longevidade natural permite aos elfos acumular conhecimento sobre eras esquecidas, criaturas raras e história antiga.
+      mechanicalEffect: >-
+        +1d em testes de Conhecimento Arcano.
+
 effects: []
 _stats:
   coreVersion: '13.346'

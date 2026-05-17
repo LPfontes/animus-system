@@ -9,17 +9,17 @@ system:
   description: Tabela Oficial Animus
   damage:
     ac1:
-      base: 3
-      mult: 0
-    ac2:
-      base: 4
+      base: 1
       mult: 2
+    ac2:
+      base: 2
+      mult: 3
     ac3:
-      base: 6
-      mult: 3
+      base: 3
+      mult: 4
     ac4:
-      base: 8
-      mult: 3
+      base: 5
+      mult: 5
   properties:
     - hcn431hqket00000
     - v1hk2hjcjs000000

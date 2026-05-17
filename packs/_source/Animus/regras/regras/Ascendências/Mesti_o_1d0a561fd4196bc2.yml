@@ -19,20 +19,24 @@ system:
       - cog
       - per
       - pre
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Versatilidade Genética
-      description: Descendente de múltiplas linhagens.
+      description: >-
+        Descendentes de múltiplas linhagens. Mais adaptáveis — pagando o preço de não ter uma identidade racial única.
       mechanicalEffect: >-
-        Escolha 1 habilidade maior e 2 habilidades de perícia de outras
-        Ascendências.
+        Escolha 1 habilidade maior de qualquer Ascendência (armas naturais, Voo, etc.) e 2 habilidades de perícia de qualquer Ascendência.
     - name: Herança Composta
-      description: Evolução constante das habilidades raciais.
-      mechanicalEffect: Aprende uma 4ª habilidade no Nível 3 e uma 5ª habilidade no Nível 6.
-    - name: Convergência
-      description: Acesso temporário ao poder total de uma linhagem.
+      description: >-
+        Ao atingir o nível 3, aprende uma 4ª habilidade (menor) de qualquer ascendência. Ao nível 6, aprende uma 5ª habilidade.
       mechanicalEffect: >-
-        1x por arco: ativa todas as passivas de uma Ascendência por 1 cena; Fica
-        Exausto por 1h após o uso.
+        Progressão de habilidades adicional nos níveis 3 e 6.
+    - name: Convergência
+      description: >-
+        1x por arco narrativo: active o modo Convergência por 1 cena.
+      mechanicalEffect: >-
+        Durante a cena, você tem acesso a todas as habilidades passivas de uma Ascendência completa escolhida. Ao fim da cena, fica Exausto por 1 hora.
+
 effects: []
 _key: '!items!1d0a561fd4196bc2'

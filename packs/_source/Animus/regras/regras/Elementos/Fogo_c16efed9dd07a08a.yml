@@ -4,11 +4,12 @@ type: element
 img: systems/animus/assets/system-icons/elements/fogo.svg
 system:
   description: >-
-    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível
-    PE</th><th>AC1</th><th>AC2</th><th>AC3</th><th>AC4</th></tr><tr><td>3
-    PE</td><td>3+1×ANI</td><td>6+1×ANI</td><td>8+2×ANI</td><td>9+2×ANI</td></tr><tr><td>6
-    PE</td><td>7+2×ANI</td><td>9+2×ANI</td><td>11+3×ANI</td><td>13+3×ANI</td></tr><tr><td>9
-    PE</td><td>9+2×ANI</td><td>11+3×ANI</td><td>13+4×ANI</td><td>15+4×ANI</td></tr></table>
+    
+    <h3>Tabela de Dano</h3><table border='1'><tr><th>Nível -
+    PE</th><th>Raso (AC1)</th><th>Padrão (AC2)</th><th>Forte (AC3)</th><th>Crítico (AC4)</th></tr><tr><td>Nível
+    1 — 3 PE</td><td>4 + 1×ANI</td><td>6 + 2×ANI</td><td>9 + 2×ANI</td><td>11 + 2×ANI</td></tr><tr><td>Nível
+    2 — 6 PE</td><td>6 + 2×ANI</td><td>9 + 2×ANI</td><td>12 + 3×ANI</td><td>15 + 3×ANI</td></tr><tr><td>Nível
+    3 — 9 PE *</td><td>8 + 2×ANI</td><td>11 + 3×ANI</td><td>15 + 3×ANI</td><td>19 + 4×ANI</td></tr></table> <br><h3>Efeitos e Terreno</h3><table border='1'><tr><th>Condição Inata (3+)</th><th>Condição Avançada (4 ac.)</th><th>Efeito de Terreno</th></tr><tr><td>Ignição: ataques com 3+ acertos aplicam Ignição. O alvo não pode receber cura elemental até o fim de sua próxima rodada.</td><td>Inferno — 3 dano/turno, afeta 1,5m ao redor.</td><td>Incendeia superfícies; 1 dano/turno a quem cruzar.</td></tr></table>
   strength: Dano + Ignição
   weakness: Nenhuma
   bonus:
@@ -17,7 +18,7 @@ system:
       - pot
       - pre
     selectedAttribute: ''
-  range: 12m
+  range: 9m
   rhythm: Explosivo
   secondaryEffects:
     outOfCombat: Estorricar (secar, cauterizar, cozinhar, sinais).
@@ -26,44 +27,44 @@ system:
     '1':
       pe: 3
       ac1:
-        base: 3
+        base: 4
         mult: 1
       ac2:
         base: 6
-        mult: 1
+        mult: 2
       ac3:
-        base: 8
+        base: 9
         mult: 2
       ac4:
-        base: 9
+        base: 11
         mult: 2
     '2':
       pe: 6
       ac1:
-        base: 7
+        base: 6
         mult: 2
       ac2:
         base: 9
         mult: 2
       ac3:
-        base: 11
+        base: 12
         mult: 3
       ac4:
-        base: 13
+        base: 15
         mult: 3
     '3':
       pe: 9
       ac1:
-        base: 9
+        base: 8
         mult: 2
       ac2:
         base: 11
         mult: 3
       ac3:
-        base: 13
-        mult: 4
-      ac4:
         base: 15
+        mult: 3
+      ac4:
+        base: 19
         mult: 4
   healTable: {}
 effects: []

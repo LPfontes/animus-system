@@ -11,19 +11,30 @@ system:
   bonus:
     value: 1
     attributes:
+      - pot
+      - hab
       - cog
+      - per
       - pre
+    
     selectedAttribute: ''
   innateAbilities:
-    - name: Adaptável
-      description: 1 vez por descanso longo você pode trocar 1 ponto de perícia.
-      mechanicalEffect: Versatilidade natural
+    - name: Adaptabilidade
+      description: >-
+        Sem traços herdados marcantes, o humano compensa com versatilidade. Aprende rápido e se ajusta a qualquer situação.
+      mechanicalEffect: >-
+        Receba +1 perícia adicional no nível 1 (5 perícias iniciais Amador em vez de 4).
     - name: Socialidade Inata
-      description: Facilidade em lidar com outros e convencer pessoas.
-      mechanicalEffect: +1d em testes de Persuasão
-    - name: Mãos Hábeis
-      description: Engenhosidade e capacidade manual de construção e reparos.
-      mechanicalEffect: +1d em testes de Ofício
+      description: >-
+        Vocação social — humanos formam vínculos com facilidade e dialogam com quase qualquer interlocutor.
+      mechanicalEffect: >-
+        +1d em testes de Persuasão.
+    - name: Resiliência Comum
+      description: >-
+        Corpo treinável, fôlego longo, tolerância a privações. O humano resiste onde criaturas mais especializadas falham.
+      mechanicalEffect: >-
+        +1d em testes de Resistência.
+
 effects: []
 _stats:
   coreVersion: '13.346'

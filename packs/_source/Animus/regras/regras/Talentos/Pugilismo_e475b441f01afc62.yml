@@ -1,16 +1,12 @@
 _id: e475b441f01afc62
-name: Pugilismo
+name: Agarrar Aprimorado
 type: talent
 img: systems/animus/assets/icons/skills/talentos/combate/12.png
 system:
   description: >-
     Após acertar um ataque com punhos ou arma natural, pode agarrar o alvo como
-    <span class="text-mechanic">PA livre</span> (0 <span
-    class="text-resource">PA</span> adicional) por 2 <span
-    class="text-resource">PE</span>. <br>Se já tiver o alvo <span
-    class="text-condition">agarrado</span>, pode causar <span
-    class="text-mechanic">dano</span> de punho automaticamente por 1 <span
-    class="text-resource">PA</span>.
+    Ponto de Ação livre (0 Ponto de Ação adicional) por 2 PE. <br>Se já tiver o
+    alvo agarrado, pode causar dano de punho automaticamente por 1 Ponto de Ação.
   trigger: PA livre
   requirements:
     description: Amador em Luta.
@@ -19,7 +15,7 @@ system:
     skills:
       - key: luta
         rank: 1
-  cost: 0
+  cost: 2
   action: 0
   check:
     attribute: -1
@@ -28,18 +24,4 @@ system:
   subCategory: Combate
 folder: talentoshub00001
 effects: []
-_stats:
-  coreVersion: '13.346'
-  systemId: null
-  systemVersion: null
-  createdTime: null
-  modifiedTime: null
-  lastModifiedBy: null
-  compendiumSource: null
-  duplicateSource: null
-  exportSource: null
-sort: 0
-ownership:
-  default: 0
-flags: {}
 _key: '!items!e475b441f01afc62'

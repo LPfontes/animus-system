@@ -4,8 +4,7 @@ type: action
 img: systems/animus/assets/system-icons/action/cast.svg
 system:
   description: >-
-    Canaliza poder elemental. Base: Pessoal (0m), alvo único, Nível 1. Custo: 3
-    PE. Cada implemento adicional de distância ou área custa +3 PE.
+    Canaliza poder elemental usando o Modelo de Implementos (Nível, Distância e Área). Custo base: 3 PE por implemento de Nível. Cada implemento de Distância ou Área adiciona +3 PE ao custo total, com exceção do 3º implemento de Distância que custa 6 PE.
   cost: 2
 effects: []
 _stats:

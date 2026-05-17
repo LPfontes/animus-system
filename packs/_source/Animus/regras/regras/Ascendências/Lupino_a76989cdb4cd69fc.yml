@@ -14,17 +14,30 @@ system:
     attributes:
       - pot
       - pre
+    
     selectedAttribute: ''
   innateAbilities:
     - name: Presas
-      description: Dentes naturais. <br>Use estatísticas de arma cortante média.
-      mechanicalEffect: Ataque com 2 <span class="text-mechanic">PA</span>.
+      description: >-
+        Dentes naturais que podem ser usados em combate.
+      mechanicalEffect: >-
+        Você pode realizar uma mordida (custa 1 Ponto de Ação). Use as estatísticas de uma arma de corte média.
     - name: Faro
-      description: Detecta nuances que outros não conseguem.
-      mechanicalEffect: +1d em testes de sentidos e percepção
+      description: >-
+        Seu faro é afiado e detecta nuances que outros não conseguiriam.
+      mechanicalEffect: >-
+        Ganha +1d em testes de sentidos e percepção.
+    - name: Socialidade Inata
+      description: >-
+        Você tem a capacidade natural de lidar com situações sociais.
+      mechanicalEffect: >-
+        +1d em testes de Persuasão.
     - name: Rosnado
-      description: Causa calafrios em outros seres.
-      mechanicalEffect: +1d em testes de Intimidação
+      description: >-
+        Seu rosnado causa calafrios em outros seres, sendo um claro sinal de agressão.
+      mechanicalEffect: >-
+        +1d em testes de Intimidação.
+
 effects: []
 _stats:
   coreVersion: '13.346'

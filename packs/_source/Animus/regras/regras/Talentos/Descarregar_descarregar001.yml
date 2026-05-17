@@ -1,0 +1,27 @@
+_id: descarregar001
+name: Descarregar
+type: talent
+img: systems/animus/assets/icons/skills/elementais/fogo/44.png
+system:
+  description: >-
+    Exclusivo para quem possui Infusão Elemental. Custo: 3 <span
+    class="text-mechanic">Pontos de Ação</span> + 3 <span
+    class="text-resource">PE</span> para realizar um ataque com Luta e Elemento
+    simultaneamente.
+  trigger: ''
+  requirements:
+    description: Infusão Elemental.
+    talents:
+      Infusão Elemental: 60f3401bfb972f84
+    attributes: []
+    skills: []
+  cost: 3
+  action: 3
+  check:
+    attribute: -1
+    skill: -1
+    dc: 0
+  subCategory: Elemento
+folder: talentoshub00001
+effects: []
+_key: '!items!descarregar001'
